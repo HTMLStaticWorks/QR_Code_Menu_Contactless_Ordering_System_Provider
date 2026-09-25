@@ -86,6 +86,9 @@ const DashboardTabs = (() => {
           if (targetPanel) {
             targetPanel.classList.add('active');
             targetPanel.hidden = false;
+            
+            // Scroll to top of the page when switching sections
+            window.scrollTo({ top: 0, behavior: 'smooth' });
           }
         });
       });
@@ -177,18 +180,26 @@ const OrderManager = (() => {
   };
 
   const init = () => {
-    const tbody = document.getElementById('orders-tbody');
-    renderOrders(tbody, sampleOrders);
+    const tbodyOverview = document.getElementById('orders-tbody');
+    const tbodyFull = document.getElementById('orders-tbody-full');
+
+    if (tbodyOverview) renderOrders(tbodyOverview, sampleOrders);
+    if (tbodyFull) renderOrders(tbodyFull, sampleOrders);
 
     // Status filter
     document.querySelectorAll('[data-order-filter]').forEach(btn => {
       btn.addEventListener('click', () => {
-        document.querySelectorAll('[data-order-filter]').forEach(b => b.classList.remove('active'));
+        const parentCard = btn.closest('.db-card');
+        if (!parentCard) return;
+
+        parentCard.querySelectorAll('[data-order-filter]').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
 
         const filter = btn.dataset.orderFilter;
         const filtered = filter === 'all' ? sampleOrders : sampleOrders.filter(o => o.status === filter);
-        renderOrders(tbody, filtered);
+        
+        const targetTbody = parentCard.querySelector('tbody');
+        if (targetTbody) renderOrders(targetTbody, filtered);
       });
     });
   };
@@ -534,15 +545,19 @@ const Charts = (() => {
     const revenueLabels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
     const revenueData = [2100, 2800, 3200, 2900, 3600, 4100, 3284];
     drawLineChart('revenue-chart', revenueLabels, revenueData, '#00c896');
+    drawLineChart('revenue-chart-2', revenueLabels, revenueData, '#00c896');
 
     const ordersLabels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
     const ordersData = [142, 189, 210, 185, 247, 310, 247];
     drawBarChart('orders-chart', ordersLabels, ordersData, '#ff6b5b');
+    drawBarChart('orders-chart-2', ordersLabels, ordersData, '#ff6b5b');
 
     // Redraw on theme change
     const observer = new MutationObserver(() => {
       drawLineChart('revenue-chart', revenueLabels, revenueData, '#00c896');
+      drawLineChart('revenue-chart-2', revenueLabels, revenueData, '#00c896');
       drawBarChart('orders-chart', ordersLabels, ordersData, '#ff6b5b');
+      drawBarChart('orders-chart-2', ordersLabels, ordersData, '#ff6b5b');
     });
     observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
 
@@ -552,7 +567,9 @@ const Charts = (() => {
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(() => {
         drawLineChart('revenue-chart', revenueLabels, revenueData, '#00c896');
+        drawLineChart('revenue-chart-2', revenueLabels, revenueData, '#00c896');
         drawBarChart('orders-chart', ordersLabels, ordersData, '#ff6b5b');
+        drawBarChart('orders-chart-2', ordersLabels, ordersData, '#ff6b5b');
       }, 200);
     });
   };

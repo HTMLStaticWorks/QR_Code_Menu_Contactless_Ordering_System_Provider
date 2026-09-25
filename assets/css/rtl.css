@@ -202,24 +202,7 @@
   flex-direction: row-reverse;
 }
 
-/* ============================================================
-   16. DASHBOARD SIDEBAR RTL (see dashboard.css or inline)
-   ============================================================ */
-[dir="rtl"] .db-sidebar {
-  inset-inline-start: auto;
-  inset-inline-end: 0;
-  border-inline-start: none;
-  border-inline-end: 1px solid var(--clr-border);
-}
-
-[dir="rtl"] .db-main {
-  margin-inline-start: 0;
-  margin-inline-end: var(--sidebar-width, 260px);
-}
-
-[dir="rtl"] .db-sidebar__collapsed ~ .db-main {
-  margin-inline-end: var(--sidebar-collapsed-width, 72px);
-}
+/* 16. DASHBOARD SIDEBAR RTL - Handled natively by logical properties in dashboard.html */
 
 [dir="rtl"] .db-nav__link {
   flex-direction: row-reverse;
@@ -298,4 +281,39 @@
   [dir="rtl"] .navbar__hamburger {
     order: -1;
   }
+  [dir="rtl"] .db-topbar__brand {
+    flex-direction: row-reverse;
+  }
+}
+
+/* ============================================================
+   23. DASHBOARD RTL EXPLICIT FIXES
+   ============================================================ */
+[dir="rtl"] .db-sidebar {
+  inset-inline-start: auto !important;
+  inset-inline-end: 0 !important;
+  left: auto !important;
+  right: 0 !important;
+  border-inline-end: none !important;
+  border-inline-start: 1px solid rgba(255,255,255,0.06) !important;
+}
+
+[dir="rtl"][data-theme="light"] .db-sidebar {
+  border-inline-start: 1px solid var(--clr-border) !important;
+}
+
+[dir="rtl"] .db-main {
+  margin-inline-start: 0 !important;
+  margin-inline-end: var(--sidebar-width) !important;
+  margin-left: 0 !important;
+  margin-right: var(--sidebar-width) !important;
+}
+
+[dir="rtl"] .db-sidebar--collapsed .db-main {
+  margin-inline-end: var(--sidebar-collapsed-width) !important;
+  margin-right: var(--sidebar-collapsed-width) !important;
+}
+
+[dir="rtl"] .db-topbar {
+  flex-direction: row-reverse;
 }

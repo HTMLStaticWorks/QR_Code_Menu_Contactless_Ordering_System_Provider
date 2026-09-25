@@ -140,7 +140,7 @@
       text-align: center;
     }
 
-    .db-nav__link span { flex: 1; }
+    .db-nav__link span:not(.db-nav__badge) { flex: 1; }
 
     .db-nav__link:hover {
       color: rgba(255,255,255,0.8);
@@ -188,6 +188,20 @@
     .db-sidebar__footer {
       padding: 1rem 0.75rem;
       border-block-start: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .db-sidebar__toggle-btn {
+      width: 100%;
+      height: 36px;
+      color: rgba(255,255,255,0.4) !important;
+      border-color: rgba(255,255,255,0.1) !important;
+      margin-block-end: 0.5rem;
+    }
+
+    .db-sidebar__toggle-btn:hover {
+      color: #fff !important;
+      border-color: rgba(255,255,255,0.2) !important;
+      background: rgba(255,255,255,0.06) !important;
     }
 
     .db-user-card {
@@ -238,6 +252,57 @@
 
     .db-sidebar--collapsed .db-user-card__info { opacity: 0; width: 0; }
 
+    /* ======= LIGHT THEME SIDEBAR OVERRIDES ======= */
+    [data-theme="light"] .db-sidebar {
+      background: #ffffff;
+      border-inline-end: 1px solid var(--clr-border);
+    }
+    
+    [data-theme="light"] .db-topbar__brand {
+      color: var(--clr-text);
+    }
+    
+    [data-theme="light"] .db-nav__section-title {
+      color: var(--clr-text-muted);
+    }
+    
+    [data-theme="light"] .db-nav__link {
+      color: var(--clr-text-secondary);
+    }
+    
+    [data-theme="light"] .db-nav__link:hover {
+      color: var(--clr-text);
+      background: var(--clr-surface-2);
+    }
+    
+    [data-theme="light"] .db-nav__link.active {
+      color: var(--clr-secondary);
+      background: rgba(0, 200, 150, 0.08);
+    }
+    
+    [data-theme="light"] .db-sidebar__footer {
+      border-block-start: 1px solid var(--clr-border);
+    }
+    
+    [data-theme="light"] .db-user-card:hover {
+      background: var(--clr-surface-2);
+    }
+    
+    [data-theme="light"] .db-user-card__name {
+      color: var(--clr-text);
+    }
+    
+    [data-theme="light"] .db-sidebar__toggle-btn {
+      color: var(--clr-text-muted) !important;
+      border-color: var(--clr-border) !important;
+    }
+    
+    [data-theme="light"] .db-sidebar__toggle-btn:hover {
+      color: var(--clr-text) !important;
+      border-color: var(--clr-text-muted) !important;
+      background: var(--clr-surface-2) !important;
+    }
+
     /* ======= MAIN CONTENT ======= */
     .db-main {
       margin-inline-start: var(--sidebar-width);
@@ -284,6 +349,9 @@
       font-size: 1.1rem;
       font-weight: 600;
       color: var(--clr-text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .db-search {
@@ -882,6 +950,206 @@
       height: 300px;
       border-radius: 50%;
       background: radial-gradient(circle, rgba(0,200,150,0.2) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .sub-features-grid {
+      display: flex;
+      gap: var(--sp-4);
+      flex-wrap: wrap;
+    }
+
+    .sub-actions {
+      display: flex;
+      gap: var(--sp-3);
+      margin-block-start: var(--sp-6);
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .sub-action-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1.625rem;
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      border-radius: var(--radius-full);
+      text-decoration: none;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      line-height: 1;
+      white-space: nowrap;
+      text-align: center;
+      border: 1.5px solid transparent;
+      box-sizing: border-box;
+      min-height: 46px;
+    }
+
+    .sub-action-btn i {
+      font-size: 1.05rem;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .sub-action-btn span {
+      display: inline-block;
+      line-height: 1;
+      text-align: center;
+    }
+
+    .sub-action-btn--primary {
+      background: var(--clr-secondary);
+      color: var(--clr-primary);
+      border-color: var(--clr-secondary);
+      box-shadow: 0 4px 16px rgba(0, 200, 150, 0.25);
+    }
+
+    .sub-action-btn--primary:hover {
+      background: var(--clr-secondary-dark);
+      border-color: var(--clr-secondary-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(0, 200, 150, 0.35);
+    }
+
+    .sub-action-btn--outline {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(4px);
+    }
+
+    .sub-action-btn--outline:hover {
+      background: rgba(255, 255, 255, 0.18);
+      border-color: rgba(255, 255, 255, 0.4);
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    /* Subscription Usage Section */
+    .sub-usage-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--sp-4);
+    }
+
+    .sub-usage-item {
+      background: var(--clr-surface-2, rgba(255, 255, 255, 0.02));
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-md);
+      padding: var(--sp-4);
+      display: flex;
+      flex-direction: column;
+      gap: 0.625rem;
+      min-width: 0;
+      transition: border-color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .sub-usage-item:hover {
+      border-color: var(--clr-border-strong);
+      transform: translateY(-2px);
+    }
+
+    .sub-usage-item__top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--sp-2);
+      min-width: 0;
+    }
+
+    .sub-usage-item__title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      min-width: 0;
+    }
+
+    .sub-usage-item__icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      flex-shrink: 0;
+    }
+
+    .sub-usage-item__icon--teal {
+      background: rgba(0, 200, 150, 0.12);
+      color: var(--clr-secondary);
+    }
+
+    .sub-usage-item__icon--coral {
+      background: rgba(255, 107, 91, 0.12);
+      color: var(--clr-accent);
+    }
+
+    .sub-usage-item__icon--purple {
+      background: rgba(139, 92, 246, 0.12);
+      color: #a78bfa;
+    }
+
+    .sub-usage-item__label {
+      font-size: var(--size-small);
+      font-weight: 600;
+      color: var(--clr-text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .sub-usage-item__badge {
+      font-size: var(--size-xs);
+      font-weight: 600;
+      color: var(--clr-secondary);
+      background: rgba(0, 200, 150, 0.12);
+      border: 1px solid rgba(0, 200, 150, 0.25);
+      padding: 0.15rem 0.5rem;
+      border-radius: var(--radius-full);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .sub-usage-item__track {
+      height: 7px;
+      background: var(--clr-surface-3, rgba(255, 255, 255, 0.08));
+      border-radius: var(--radius-full);
+      overflow: hidden;
+      margin-block: 0.125rem;
+    }
+
+    .sub-usage-item__fill {
+      height: 100%;
+      border-radius: var(--radius-full);
+      transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .sub-usage-item__fill--teal {
+      background: linear-gradient(90deg, #00c896, #05dfa5);
+    }
+
+    .sub-usage-item__fill--coral {
+      background: linear-gradient(90deg, #ff6b5b, #ff8577);
+    }
+
+    .sub-usage-item__fill--purple {
+      background: linear-gradient(90deg, #8b5cf6, #a78bfa);
+    }
+
+    .sub-usage-item__meta {
+      font-size: var(--size-xs);
+      color: var(--clr-text-muted);
+      line-height: 1.4;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     /* ======= SIDEBAR OVERLAY (Mobile) ======= */
@@ -895,6 +1163,37 @@
     }
 
     .db-sidebar-overlay.active { display: block; }
+
+    /* Brand in Topbar for Mobile/Tablet/1024px */
+    .db-topbar__brand {
+      display: none;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--clr-text-primary);
+      text-decoration: none;
+      flex-shrink: 0;
+      margin-inline-end: var(--sp-2);
+    }
+
+    .db-topbar__brand span span {
+      color: var(--clr-secondary);
+    }
+
+    .db-topbar__brand-icon {
+      width: 30px;
+      height: 30px;
+      background: var(--clr-secondary);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--clr-primary);
+      font-size: 0.95rem;
+      flex-shrink: 0;
+    }
 
     /* ======= MOBILE RESPONSIVE ======= */
     @media (max-width: 1024px) {
@@ -913,22 +1212,89 @@
 
       .db-main { margin-inline-start: 0 !important; }
 
+      .db-topbar__brand {
+        display: inline-flex;
+      }
+
+      #mobile-sidebar-btn {
+        display: inline-flex !important;
+      }
+
+      .db-topbar__title {
+        font-size: 1.05rem;
+        border-inline-start: 1px solid var(--clr-border);
+        padding-inline-start: var(--sp-3);
+      }
+
       .kpi-grid { grid-template-columns: repeat(2, 1fr); }
       .charts-grid { grid-template-columns: 1fr; }
       .menu-builder-grid { grid-template-columns: 1fr; }
       .analytics-grid { grid-template-columns: 1fr; }
       .settings-grid { grid-template-columns: 1fr; }
       .db-search { display: none; }
+      .db-content { padding: var(--sp-5); }
+
+      .sub-usage-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--sp-4);
+      }
+      .subscription-card {
+        padding: var(--sp-6) var(--sp-5);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .db-content { padding: var(--sp-3); }
+      .menu-item-row {
+        gap: var(--sp-2);
+        padding: var(--sp-2) var(--sp-3);
+      }
+      .sub-usage-grid {
+        grid-template-columns: 1fr;
+        gap: var(--sp-3);
+      }
+      .sub-usage-item {
+        padding: var(--sp-3) var(--sp-4);
+      }
+      .subscription-card {
+        padding: var(--sp-5) var(--sp-4);
+      }
+      .sub-features-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--sp-3);
+      }
+      .sub-actions {
+        flex-direction: column;
+        width: 100%;
+      }
+      .sub-actions .btn {
+        width: 100%;
+        justify-content: center;
+      }
     }
 
     @media (max-width: 480px) {
+      .db-topbar__title {
+        display: none;
+      }
+      .db-topbar__brand {
+        font-size: 1.15rem;
+      }
       .kpi-grid { grid-template-columns: 1fr 1fr; }
       .db-content { padding: var(--sp-3); }
-      .qr-grid { grid-template-columns: repeat(2, 1fr); }
+      .qr-grid { grid-template-columns: 1fr; }
+      .settings-section { padding: var(--sp-3); }
     }
 
     @media (max-width: 360px) {
       .kpi-grid { grid-template-columns: 1fr; }
+      .sub-usage-item {
+        padding: var(--sp-3);
+      }
+      .sub-features-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -1027,7 +1393,7 @@
       </nav>
 
       <div class="db-sidebar__footer">
-        <button class="db-action-btn" data-sidebar-toggle aria-label="Toggle sidebar" style="width:100%;height:36px;color:rgba(255,255,255,0.4);border-color:rgba(255,255,255,0.1);margin-block-end:0.5rem;">
+        <button class="db-action-btn db-sidebar__toggle-btn" data-sidebar-toggle aria-label="Toggle sidebar">
           <i class="ri-sidebar-fold-line" style="font-size:1rem;" aria-hidden="true"></i>
         </button>
         <div class="db-user-card" tabindex="0" role="button" aria-label="User account menu">
@@ -1046,19 +1412,18 @@
       <!-- Topbar -->
       <header class="db-topbar" role="banner">
         <div class="db-topbar__left">
-          <button class="icon-btn" data-mobile-sidebar aria-label="Open navigation" style="display:none;" id="mobile-sidebar-btn">
+          <button class="icon-btn" data-mobile-sidebar aria-label="Open navigation" id="mobile-sidebar-btn">
             <i class="ri-menu-2-line" style="font-size:1.2rem;" aria-hidden="true"></i>
           </button>
-          <h1 class="db-topbar__title" id="page-title">Overview</h1>
+          <a href="index.html" class="db-topbar__brand" aria-label="QRServe — Home">
+            <div class="db-topbar__brand-icon" aria-hidden="true">
+              <i class="ri-qr-code-line"></i>
+            </div>
+            <span>QR<span>Serve</span></span>
+          </a>
         </div>
 
-        <div class="db-topbar__right">
-          <div class="db-search" role="search">
-            <i class="ri-search-line" style="color:var(--clr-text-muted);font-size:0.9rem;" aria-hidden="true"></i>
-            <input type="search" placeholder="Search orders, items..." aria-label="Search dashboard" id="db-search-input" />
-          </div>
-
-          <div style="position:relative;">
+        <div class="db-topbar__right">          <div style="position:relative;">
             <button class="icon-btn" data-notification-toggle aria-label="Notifications (3 unread)" aria-expanded="false" aria-haspopup="true">
               <i class="ri-notification-3-line" style="font-size:1.1rem;" aria-hidden="true"></i>
               <span style="position:absolute;top:6px;right:6px;width:8px;height:8px;background:var(--clr-accent);border-radius:50%;border:2px solid var(--clr-surface);" aria-hidden="true"></span>
@@ -1104,11 +1469,6 @@
           </button>
           <button class="icon-btn" data-rtl-btn aria-label="Switch direction">
           </button>
-
-          <a href="index.html" class="btn btn--outline btn--sm" aria-label="Go to public website">
-            <i class="ri-external-link-line" aria-hidden="true"></i>
-            Website
-          </a>
         </div>
       </header>
 
@@ -1123,7 +1483,7 @@
               <h2 style="font-size:var(--size-h4);margin-block-end:0.25rem;">Good Evening, Marco 👋</h2>
               <p style="font-size:var(--size-small);">Here's what's happening at Bella Vista today.</p>
             </div>
-            <div style="display:flex;gap:var(--sp-2);">
+            <div style="display:flex;gap:var(--sp-2);flex-wrap:wrap;">
               <button class="btn btn--outline btn--sm" aria-label="Export data">
                 <i class="ri-download-2-line" aria-hidden="true"></i> Export
               </button>
@@ -1282,7 +1642,7 @@
               <h2 style="font-size:var(--size-h4);margin-block-end:0.25rem;">Menu Builder</h2>
               <p style="font-size:var(--size-small);">4 categories · 40 items</p>
             </div>
-            <div style="display:flex;gap:var(--sp-2);">
+            <div style="display:flex;gap:var(--sp-2);flex-wrap:wrap;">
               <button class="btn btn--outline btn--sm" id="add-category-btn" aria-label="Add new category">
                 <i class="ri-add-circle-line" aria-hidden="true"></i> Add Category
               </button>
@@ -1421,26 +1781,26 @@
               <h2 style="color:#fff;font-size:var(--size-h3);margin-block-end:0.5rem;">Professional</h2>
               <p style="color:rgba(255,255,255,0.55);margin-block-end:var(--sp-6);">Renews on October 25, 2026 · $79/month</p>
 
-              <div style="display:flex;gap:var(--sp-4);flex-wrap:wrap;">
-                <div>
+              <div class="sub-features-grid">
+                <div class="sub-feature-item">
                   <div style="font-size:var(--size-xs);color:rgba(255,255,255,0.4);margin-block-end:0.25rem;">Status</div>
                   <span class="badge badge--green">● Active</span>
                 </div>
-                <div>
+                <div class="sub-feature-item">
                   <div style="font-size:var(--size-xs);color:rgba(255,255,255,0.4);margin-block-end:0.25rem;">Tables</div>
                   <div style="font-size:var(--size-small);color:#fff;font-weight:600;">Unlimited</div>
                 </div>
-                <div>
+                <div class="sub-feature-item">
                   <div style="font-size:var(--size-xs);color:rgba(255,255,255,0.4);margin-block-end:0.25rem;">Orders</div>
                   <div style="font-size:var(--size-small);color:#fff;font-weight:600;">Unlimited</div>
                 </div>
-                <div>
+                <div class="sub-feature-item">
                   <div style="font-size:var(--size-xs);color:rgba(255,255,255,0.4);margin-block-end:0.25rem;">Languages</div>
                   <div style="font-size:var(--size-small);color:#fff;font-weight:600;">30+</div>
                 </div>
               </div>
 
-              <div style="display:flex;gap:var(--sp-2);margin-block-start:var(--sp-6);flex-wrap:wrap;">
+              <div class="sub-actions">
                 <a href="pricing.html" class="btn btn--primary">
                   <i class="ri-arrow-up-line" aria-hidden="true"></i> Upgrade to Enterprise
                 </a>
@@ -1453,38 +1813,70 @@
 
           <!-- Usage -->
           <div class="db-card" style="padding:var(--sp-5);">
-            <h3 style="font-size:var(--size-h5);margin-block-end:var(--sp-4);">Usage This Month</h3>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-block-end:var(--sp-4);flex-wrap:wrap;gap:var(--sp-2);">
+              <div>
+                <h3 style="font-size:var(--size-h5);margin-block-end:0.25rem;">Usage This Month</h3>
+                <p style="font-size:var(--size-xs);color:var(--clr-text-muted);margin:0;">Billing cycle ends Oct 25, 2026</p>
+              </div>
+              <span class="badge badge--green" style="font-size:0.75rem;">● All Systems Normal</span>
+            </div>
 
-            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-4);">
-              <div>
-                <div style="display:flex;justify-content:space-between;margin-block-end:0.5rem;">
-                  <span style="font-size:var(--size-small);font-weight:500;">QR Scans</span>
-                  <span style="font-size:var(--size-small);color:var(--clr-secondary);">Unlimited</span>
+            <div class="sub-usage-grid">
+              <!-- Item 1: QR Scans -->
+              <div class="sub-usage-item">
+                <div class="sub-usage-item__top">
+                  <div class="sub-usage-item__title-wrap">
+                    <div class="sub-usage-item__icon sub-usage-item__icon--teal" aria-hidden="true">
+                      <i class="ri-qr-code-line"></i>
+                    </div>
+                    <span class="sub-usage-item__label">QR Scans</span>
+                  </div>
+                  <span class="sub-usage-item__badge">Unlimited</span>
                 </div>
-                <div style="height:6px;background:var(--clr-surface-3);border-radius:3px;" role="progressbar" aria-label="QR scans usage: unlimited">
-                  <div style="height:100%;width:62%;background:var(--clr-secondary);border-radius:3px;"></div>
+                <div class="sub-usage-item__track" role="progressbar" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100" aria-label="QR scans: 54,820 scans this month (unlimited plan)">
+                  <div class="sub-usage-item__fill sub-usage-item__fill--teal" style="width:62%;"></div>
                 </div>
-                <div style="font-size:var(--size-xs);color:var(--clr-text-muted);margin-block-start:0.375rem;">54,820 scans this month</div>
+                <div class="sub-usage-item__meta">
+                  <strong>54,820</strong> scans this month
+                </div>
               </div>
-              <div>
-                <div style="display:flex;justify-content:space-between;margin-block-end:0.5rem;">
-                  <span style="font-size:var(--size-small);font-weight:500;">Orders</span>
-                  <span style="font-size:var(--size-small);color:var(--clr-secondary);">Unlimited</span>
+
+              <!-- Item 2: Orders -->
+              <div class="sub-usage-item">
+                <div class="sub-usage-item__top">
+                  <div class="sub-usage-item__title-wrap">
+                    <div class="sub-usage-item__icon sub-usage-item__icon--coral" aria-hidden="true">
+                      <i class="ri-file-list-3-line"></i>
+                    </div>
+                    <span class="sub-usage-item__label">Orders</span>
+                  </div>
+                  <span class="sub-usage-item__badge">Unlimited</span>
                 </div>
-                <div style="height:6px;background:var(--clr-surface-3);border-radius:3px;" role="progressbar" aria-label="Orders usage: unlimited">
-                  <div style="height:100%;width:78%;background:var(--clr-accent);border-radius:3px;"></div>
+                <div class="sub-usage-item__track" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100" aria-label="Orders: 6,247 orders this month (unlimited plan)">
+                  <div class="sub-usage-item__fill sub-usage-item__fill--coral" style="width:78%;"></div>
                 </div>
-                <div style="font-size:var(--size-xs);color:var(--clr-text-muted);margin-block-start:0.375rem;">6,247 orders this month</div>
+                <div class="sub-usage-item__meta">
+                  <strong>6,247</strong> orders this month
+                </div>
               </div>
-              <div>
-                <div style="display:flex;justify-content:space-between;margin-block-end:0.5rem;">
-                  <span style="font-size:var(--size-small);font-weight:500;">Menu Items</span>
-                  <span style="font-size:var(--size-small);color:var(--clr-secondary);">Unlimited</span>
+
+              <!-- Item 3: Menu Items -->
+              <div class="sub-usage-item">
+                <div class="sub-usage-item__top">
+                  <div class="sub-usage-item__title-wrap">
+                    <div class="sub-usage-item__icon sub-usage-item__icon--purple" aria-hidden="true">
+                      <i class="ri-restaurant-line"></i>
+                    </div>
+                    <span class="sub-usage-item__label">Menu Items</span>
+                  </div>
+                  <span class="sub-usage-item__badge">Unlimited</span>
                 </div>
-                <div style="height:6px;background:var(--clr-surface-3);border-radius:3px;" role="progressbar" aria-label="Menu items: unlimited">
-                  <div style="height:100%;width:35%;background:#8b5cf6;border-radius:3px;"></div>
+                <div class="sub-usage-item__track" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" aria-label="Menu items: 40 active items (unlimited plan)">
+                  <div class="sub-usage-item__fill sub-usage-item__fill--purple" style="width:35%;"></div>
                 </div>
-                <div style="font-size:var(--size-xs);color:var(--clr-text-muted);margin-block-start:0.375rem;">40 active items</div>
+                <div class="sub-usage-item__meta">
+                  <strong>40</strong> active items in catalog
+                </div>
               </div>
             </div>
           </div>
@@ -1583,18 +1975,59 @@
 
         <!-- ====== OTHER PAGES (PLACEHOLDERS) ====== -->
         <section class="db-page" id="page-digital-menu" aria-label="Digital menu">
-          <div style="padding:var(--sp-10);text-align:center;">
+          <div style="margin-block-end:var(--sp-6);">
+            <h2 style="font-size:var(--size-h4);">Digital Menu</h2>
+          </div>
+          
+          <div class="kpi-grid" style="margin-block-end:var(--sp-6);">
+            <div class="kpi-card">
+              <div class="kpi-card__title">Active Categories</div>
+              <div class="kpi-card__value">12</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-card__title">Total Items</div>
+              <div class="kpi-card__value">148</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-card__title">Scans Today</div>
+              <div class="kpi-card__value">342</div>
+            </div>
+          </div>
+
+          <div class="db-card" style="padding:var(--sp-10);text-align:center;">
             <i class="ri-layout-grid-line" style="font-size:4rem;color:var(--clr-secondary);display:block;margin-block-end:var(--sp-3);" aria-hidden="true"></i>
-            <h2 style="font-size:var(--size-h3);">Digital Menu</h2>
+            <h3 style="font-size:var(--size-h3);">Digital Menu</h3>
             <p style="margin-block:var(--sp-2) var(--sp-4);">Preview and manage your live customer-facing menu.</p>
             <a href="#menu-builder" class="btn btn--primary" data-page-link="menu-builder">Go to Menu Builder</a>
           </div>
         </section>
 
         <section class="db-page" id="page-tables" aria-label="Tables">
-          <div style="padding:var(--sp-10);text-align:center;">
+          <div style="margin-block-end:var(--sp-6);display:flex;justify-content:space-between;align-items:center;">
+            <h2 style="font-size:var(--size-h4);">Table Management</h2>
+            <button class="btn btn--primary" onclick="window.QRServe?.Toast?.show('Table editor coming soon!', 'info')">
+              <i class="ri-add-line" aria-hidden="true"></i> Add Table
+            </button>
+          </div>
+
+          <div class="kpi-grid" style="margin-block-end:var(--sp-6);">
+            <div class="kpi-card" style="border-inline-start: 4px solid var(--clr-secondary);">
+              <div class="kpi-card__title">Available</div>
+              <div class="kpi-card__value" style="color:var(--clr-secondary);">12 / 24</div>
+            </div>
+            <div class="kpi-card" style="border-inline-start: 4px solid var(--clr-accent);">
+              <div class="kpi-card__title">Occupied</div>
+              <div class="kpi-card__value" style="color:var(--clr-accent);">8 / 24</div>
+            </div>
+            <div class="kpi-card" style="border-inline-start: 4px solid #f59e0b;">
+              <div class="kpi-card__title">Reserved</div>
+              <div class="kpi-card__value" style="color:#f59e0b;">4 / 24</div>
+            </div>
+          </div>
+
+          <div class="db-card" style="padding:var(--sp-10);text-align:center;">
             <i class="ri-table-line" style="font-size:4rem;color:var(--clr-secondary);display:block;margin-block-end:var(--sp-3);" aria-hidden="true"></i>
-            <h2 style="font-size:var(--size-h3);">Table Management</h2>
+            <h3 style="font-size:var(--size-h3);">Floor Plan</h3>
             <p style="margin-block:var(--sp-2) var(--sp-4);">Visual floor plan and real-time table status management.</p>
             <button class="btn btn--primary" onclick="window.QRServe?.Toast?.show('Table floor plan editor coming soon!', 'info')">
               Open Floor Plan
@@ -1631,6 +2064,84 @@
                   </tr>
                 </thead>
                 <tbody id="orders-tbody-full">
+                  <tr class="db-table__row">
+                    <td class="db-table__cell">
+                      <span class="text--mono" style="font-size:0.8rem;font-weight:600;">#1052</span>
+                    </td>
+                    <td class="db-table__cell">Table 3</td>
+                    <td class="db-table__cell" style="color:var(--clr-text-secondary);font-size:0.85rem;">Pasta, Wine x2</td>
+                    <td class="db-table__cell">
+                      <span style="font-weight:600;color:var(--clr-secondary);">$54.00</span>
+                    </td>
+                    <td class="db-table__cell">
+                      <span class="order-status-badge" style="background:#3b82f620;color:#3b82f6;padding:0.25rem 0.625rem;border-radius:4px;font-size:0.75rem;font-weight:600;">
+                        New
+                      </span>
+                    </td>
+                    <td class="db-table__cell" style="color:var(--clr-text-muted);font-size:0.8rem;">2 min ago</td>
+                    <td class="db-table__cell">
+                      <div style="display:flex;gap:0.375rem;">
+                        <button class="db-action-btn" data-order-id="#1052" data-action="view" title="View order" aria-label="View order #1052">
+                          <i class="ri-eye-line" aria-hidden="true"></i>
+                        </button>
+                        <button class="db-action-btn db-action-btn--green" data-order-id="#1052" data-action="accept" title="Accept order" aria-label="Accept order #1052">
+                          <i class="ri-check-line" aria-hidden="true"></i>
+                        </button>
+                        <button class="db-action-btn db-action-btn--red" data-order-id="#1052" data-action="cancel" title="Cancel order" aria-label="Cancel order #1052">
+                          <i class="ri-close-line" aria-hidden="true"></i>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="db-table__row">
+                    <td class="db-table__cell">
+                      <span class="text--mono" style="font-size:0.8rem;font-weight:600;">#1051</span>
+                    </td>
+                    <td class="db-table__cell">Table 7</td>
+                    <td class="db-table__cell" style="color:var(--clr-text-secondary);font-size:0.85rem;">Burger, Fries, Cola</td>
+                    <td class="db-table__cell">
+                      <span style="font-weight:600;color:var(--clr-secondary);">$28.50</span>
+                    </td>
+                    <td class="db-table__cell">
+                      <span class="order-status-badge" style="background:#f59e0b20;color:#f59e0b;padding:0.25rem 0.625rem;border-radius:4px;font-size:0.75rem;font-weight:600;">
+                        Preparing
+                      </span>
+                    </td>
+                    <td class="db-table__cell" style="color:var(--clr-text-muted);font-size:0.8rem;">8 min ago</td>
+                    <td class="db-table__cell">
+                      <div style="display:flex;gap:0.375rem;">
+                        <button class="db-action-btn" data-order-id="#1051" data-action="view" title="View order" aria-label="View order #1051">
+                          <i class="ri-eye-line" aria-hidden="true"></i>
+                        </button>
+                        <button class="db-action-btn db-action-btn--red" data-order-id="#1051" data-action="cancel" title="Cancel order" aria-label="Cancel order #1051">
+                          <i class="ri-close-line" aria-hidden="true"></i>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="db-table__row">
+                    <td class="db-table__cell">
+                      <span class="text--mono" style="font-size:0.8rem;font-weight:600;">#1050</span>
+                    </td>
+                    <td class="db-table__cell">Table 12</td>
+                    <td class="db-table__cell" style="color:var(--clr-text-secondary);font-size:0.85rem;">Steak, Salad</td>
+                    <td class="db-table__cell">
+                      <span style="font-weight:600;color:var(--clr-secondary);">$67.00</span>
+                    </td>
+                    <td class="db-table__cell">
+                      <span class="order-status-badge" style="background:#00c89620;color:#00c896;padding:0.25rem 0.625rem;border-radius:4px;font-size:0.75rem;font-weight:600;">
+                        Ready
+                      </span>
+                    </td>
+                    <td class="db-table__cell" style="color:var(--clr-text-muted);font-size:0.8rem;">14 min ago</td>
+                    <td class="db-table__cell">
+                      <div style="display:flex;gap:0.375rem;">
+                        <button class="db-action-btn" data-order-id="#1050" data-action="view" title="View order" aria-label="View order #1050">
+                          <i class="ri-eye-line" aria-hidden="true"></i>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
                 </tbody>
               </table>
             </div>

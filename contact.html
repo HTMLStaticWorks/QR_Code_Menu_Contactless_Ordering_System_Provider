@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Contact QRServe — Reach our restaurant technology specialists for sales inquiries, custom POS integrations, enterprise rollouts, or 24/7 technical support." />
+  <meta name="description" content="Contact QRServe â€” Reach our restaurant technology specialists for sales inquiries, custom POS integrations, enterprise rollouts, or 24/7 technical support." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://qrserve.io/contact" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://qrserve.io/contact" />
-  <meta property="og:title" content="Contact QRServe — Global Sales & 24/7 Support" />
+  <meta property="og:title" content="Contact QRServe â€” Global Sales & 24/7 Support" />
   <meta property="og:description" content="Talk to our hospitality engineers in San Francisco, London, Dubai, or Singapore." />
 
-  <title>Contact Global Sales & Support — QRServe</title>
+  <title>Contact Global Sales & Support â€” QRServe</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -160,8 +160,17 @@
       }
     }
 
+    .form-row-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
     @media (max-width: 600px) {
       .offices-grid {
+        grid-template-columns: 1fr;
+      }
+      .form-row-2col {
         grid-template-columns: 1fr;
       }
     }
@@ -172,7 +181,7 @@
   <!-- ===================== NAVBAR ===================== -->
   <header class="navbar" role="banner">
     <div class="navbar__inner">
-      <a href="index.html" class="navbar__logo" aria-label="QRServe — Home">
+      <a href="index.html" class="navbar__logo" aria-label="QRServe â€” Home">
         <div class="navbar__logo-icon" aria-hidden="true">
           <i class="ri-qr-code-line" style="font-size:1.1rem;"></i>
         </div>
@@ -182,6 +191,7 @@
       <nav class="navbar__nav" aria-label="Main navigation">
         <a href="index.html" class="navbar__link" data-nav-link>Home</a>
         <a href="home2.html" class="navbar__link" data-nav-link>Home 2</a>
+        <a href="about.html" class="navbar__link" data-nav-link>About</a>
         <a href="features.html" class="navbar__link" data-nav-link>Features</a>
         <a href="pricing.html" class="navbar__link" data-nav-link>Pricing</a>
         <a href="demo.html" class="navbar__link" data-nav-link>Demo</a>
@@ -221,23 +231,22 @@
     <nav class="drawer__nav" aria-label="Mobile navigation">
       <a href="index.html" class="drawer__link" data-nav-link><i class="ri-home-4-line"></i> Home</a>
       <a href="home2.html" class="drawer__link" data-nav-link><i class="ri-layout-masonry-line"></i> Home 2</a>
+      <a href="about.html" class="drawer__link" data-nav-link><i class="ri-information-line" aria-hidden="true"></i> About</a>
       <a href="features.html" class="drawer__link" data-nav-link><i class="ri-flashlight-line"></i> Features</a>
       <a href="pricing.html" class="drawer__link" data-nav-link><i class="ri-price-tag-3-line"></i> Pricing</a>
       <a href="demo.html" class="drawer__link" data-nav-link><i class="ri-play-circle-line"></i> Demo</a>
       <a href="blog.html" class="drawer__link" data-nav-link><i class="ri-article-line"></i> Blog</a>
       <a href="contact.html" class="drawer__link active" data-nav-link><i class="ri-mail-line"></i> Contact</a>
-      <a href="about.html" class="drawer__link" data-nav-link><i class="ri-information-line"></i> About</a>
-      <div class="divider"></div>
+<div class="divider"></div>
       <a href="dashboard.html" class="drawer__link" data-nav-link><i class="ri-dashboard-line"></i> Dashboard</a>
-      <a href="login.html" class="drawer__link" data-nav-link><i class="ri-login-box-line"></i> Login</a>
     </nav>
 
     <div class="drawer__footer">
-      <a href="register.html" class="btn btn--primary btn--full">Get Started Free</a>
       <div class="drawer__controls">
         <button class="icon-btn" data-theme-toggle data-theme-icon aria-label="Toggle dark mode"></button>
         <button class="icon-btn" data-rtl-btn aria-label="Switch text direction"></button>
       </div>
+      <a href="login.html" class="btn btn--primary btn--full" style="margin-block-start: 1rem;">Login</a>
     </div>
   </div>
 
@@ -275,7 +284,7 @@
                 </select>
               </div>
 
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+              <div class="form-row-2col">
                 <div class="form-group">
                   <label for="contact-name" class="form-label">Your Name *</label>
                   <input type="text" id="contact-name" class="form-input" placeholder="Elena Rostova" required />
@@ -286,7 +295,7 @@
                 </div>
               </div>
 
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+              <div class="form-row-2col">
                 <div class="form-group">
                   <label for="contact-brand" class="form-label">Venue / Restaurant Name *</label>
                   <input type="text" id="contact-brand" class="form-input" placeholder="The Grand Hotel & Rooftop" required />
@@ -303,7 +312,7 @@
               </div>
 
               <button type="submit" class="btn btn--primary btn--full btn--lg">
-                <i class="ri-send-plane-fill"></i> Submit Inquiry
+                <i class="ri-send-plane-fill"></i><span>Submit Inquiry</span>
               </button>
             </form>
           </div>
@@ -348,6 +357,17 @@
                   <a href="mailto:vip@qrserve.io" style="color:var(--clr-secondary);font-weight:600;">vip@qrserve.io</a>
                 </li>
               </ul>
+            </div>
+
+            <!-- Social Media -->
+            <div class="support-sla-card" style="margin-block-start: 1.5rem;">
+              <h3 style="font-size:0.95rem;font-weight:700;margin-block-end:0.75rem;">Connect With Us</h3>
+              <div style="display:flex;gap:0.75rem;">
+                <a href="#" class="btn btn--outline" style="width:40px;height:40px;padding:0;display:flex;align-items:center;justify-content:center;border-radius:50%;" aria-label="Twitter / X"><i class="ri-twitter-x-line"></i></a>
+                <a href="#" class="btn btn--outline" style="width:40px;height:40px;padding:0;display:flex;align-items:center;justify-content:center;border-radius:50%;" aria-label="LinkedIn"><i class="ri-linkedin-fill"></i></a>
+                <a href="#" class="btn btn--outline" style="width:40px;height:40px;padding:0;display:flex;align-items:center;justify-content:center;border-radius:50%;" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+                <a href="#" class="btn btn--outline" style="width:40px;height:40px;padding:0;display:flex;align-items:center;justify-content:center;border-radius:50%;" aria-label="Facebook"><i class="ri-facebook-circle-fill"></i></a>
+              </div>
             </div>
 
           </div>
@@ -398,6 +418,13 @@
             <a href="mailto:apac@qrserve.io" class="office-email"><i class="ri-mail-line"></i> apac@qrserve.io</a>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- ===================== MAP SECTION ===================== -->
+    <section class="map-section" aria-label="Our Location">
+      <div style="width: 100%; line-height: 0; background: var(--clr-surface-2);">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m2!1s0x80858064f5010629%3A0xc316cfa2b2382c44!2s450%20Mission%20St%2C%20San%20Francisco%2C%20CA%2094105%2C%20USA!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </section>
   </main>

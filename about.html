@@ -69,10 +69,11 @@
 
     .impact-stat-number {
       font-family: var(--font-heading);
-      font-size: clamp(2rem, 4vw, 3rem);
+      font-size: clamp(1.5rem, 3.5vw, 3rem);
       font-weight: 800;
       color: var(--clr-secondary);
       margin-block-end: 0.25rem;
+      white-space: nowrap;
     }
 
     .impact-stat-label {
@@ -213,14 +214,20 @@
       line-height: 1.4;
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 1024px) {
       .story-grid {
         grid-template-columns: 1fr;
       }
-      .impact-stats-grid,
       .values-grid,
       .team-grid {
         grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .impact-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--sp-4);
       }
     }
 
@@ -248,6 +255,7 @@
       <nav class="navbar__nav" aria-label="Main navigation">
         <a href="index.html" class="navbar__link" data-nav-link>Home</a>
         <a href="home2.html" class="navbar__link" data-nav-link>Home 2</a>
+        <a href="about.html" class="navbar__link" data-nav-link>About</a>
         <a href="features.html" class="navbar__link" data-nav-link>Features</a>
         <a href="pricing.html" class="navbar__link" data-nav-link>Pricing</a>
         <a href="demo.html" class="navbar__link" data-nav-link>Demo</a>
@@ -287,23 +295,22 @@
     <nav class="drawer__nav" aria-label="Mobile navigation">
       <a href="index.html" class="drawer__link" data-nav-link><i class="ri-home-4-line"></i> Home</a>
       <a href="home2.html" class="drawer__link" data-nav-link><i class="ri-layout-masonry-line"></i> Home 2</a>
+      <a href="about.html" class="drawer__link" data-nav-link><i class="ri-information-line" aria-hidden="true"></i> About</a>
       <a href="features.html" class="drawer__link" data-nav-link><i class="ri-flashlight-line"></i> Features</a>
       <a href="pricing.html" class="drawer__link" data-nav-link><i class="ri-price-tag-3-line"></i> Pricing</a>
       <a href="demo.html" class="drawer__link" data-nav-link><i class="ri-play-circle-line"></i> Demo</a>
       <a href="blog.html" class="drawer__link" data-nav-link><i class="ri-article-line"></i> Blog</a>
       <a href="contact.html" class="drawer__link" data-nav-link><i class="ri-mail-line"></i> Contact</a>
-      <a href="about.html" class="drawer__link active" data-nav-link><i class="ri-information-line"></i> About</a>
-      <div class="divider"></div>
+<div class="divider"></div>
       <a href="dashboard.html" class="drawer__link" data-nav-link><i class="ri-dashboard-line"></i> Dashboard</a>
-      <a href="login.html" class="drawer__link" data-nav-link><i class="ri-login-box-line"></i> Login</a>
     </nav>
 
     <div class="drawer__footer">
-      <a href="register.html" class="btn btn--primary btn--full">Get Started Free</a>
       <div class="drawer__controls">
         <button class="icon-btn" data-theme-toggle data-theme-icon aria-label="Toggle dark mode"></button>
         <button class="icon-btn" data-rtl-btn aria-label="Switch text direction"></button>
       </div>
+      <a href="login.html" class="btn btn--primary btn--full" style="margin-block-start: 1rem;">Login</a>
     </div>
   </div>
 
@@ -356,7 +363,7 @@
             <p style="color:var(--clr-text-secondary);font-size:var(--size-body);line-height:1.65;margin-block-end:var(--sp-4);">
               The server wasn’t neglectful—he was simply running frantically across 18 tables. We realized that payment and ordering friction is the single greatest bottleneck in hospitality. We set out to build QRServe: not to replace the human magic of dining, but to automate the administrative friction so staff can focus on pure hospitality.
             </p>
-            <div style="display:flex;gap:var(--sp-2);">
+            <div style="display:flex;gap:var(--sp-2);flex-wrap:wrap;">
               <a href="features.html" class="btn btn--primary btn--sm">See How It Works</a>
               <a href="demo.html" class="btn btn--outline btn--sm">Experience The Demo</a>
             </div>
@@ -441,7 +448,9 @@
         <div class="team-grid">
           <!-- Member 1 -->
           <div class="team-card">
-            <div class="team-avatar">JV</div>
+            <div class="team-avatar" style="padding:0; overflow:hidden;">
+              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=180&h=180&auto=format&fit=crop" alt="Julian Vance" style="width:100%; height:100%; object-fit:cover;" loading="lazy" />
+            </div>
             <h3 class="team-name">Julian Vance</h3>
             <div class="team-role">Co-Founder & CEO</div>
             <p class="team-bio">Former Director of Operations at international hospitality groups. 15+ years managing luxury dining venues.</p>
@@ -449,7 +458,9 @@
 
           <!-- Member 2 -->
           <div class="team-card">
-            <div class="team-avatar">PS</div>
+            <div class="team-avatar" style="padding:0; overflow:hidden;">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=180&h=180&auto=format&fit=crop" alt="Dr. Priya Sharma" style="width:100%; height:100%; object-fit:cover;" loading="lazy" />
+            </div>
             <h3 class="team-name">Dr. Priya Sharma</h3>
             <div class="team-role">Co-Founder & CTO</div>
             <p class="team-bio">Distributed systems specialist, former Infrastructure Principal at Stripe and Square Payments.</p>
@@ -457,7 +468,9 @@
 
           <!-- Member 3 -->
           <div class="team-card">
-            <div class="team-avatar">AL</div>
+            <div class="team-avatar" style="padding:0; overflow:hidden;">
+              <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?w=180&h=180&auto=format&fit=crop" alt="Chef Antoine Laurent" style="width:100%; height:100%; object-fit:cover;" loading="lazy" />
+            </div>
             <h3 class="team-name">Chef Antoine Laurent</h3>
             <div class="team-role">Head of Culinary UX</div>
             <p class="team-bio">2-Michelin Star Executive Chef advising on menu design, course pacing, and kitchen display routing ergonomics.</p>
@@ -465,7 +478,9 @@
 
           <!-- Member 4 -->
           <div class="team-card">
-            <div class="team-avatar">ML</div>
+            <div class="team-avatar" style="padding:0; overflow:hidden;">
+              <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=180&h=180&auto=format&fit=crop" alt="Mei Lin" style="width:100%; height:100%; object-fit:cover;" loading="lazy" />
+            </div>
             <h3 class="team-name">Mei Lin</h3>
             <div class="team-role">VP of Product Design</div>
             <p class="team-bio">Former Design Lead at Airbnb Hospitality, obsessive about micro-animations and typography hierarchy.</p>
@@ -477,12 +492,12 @@
     <!-- ===================== CTA ===================== -->
     <section class="cta-section" style="padding-block:var(--sp-12);">
       <div class="container">
-        <div class="cta-section__content">
-          <h2>Join Over 4,500 Restaurants Worldwide</h2>
-          <p>Get started today and see why leading hospitality brands choose QRServe.</p>
-          <div class="cta-section__actions">
-            <a href="register.html" class="btn btn--secondary btn--lg">Start Free Trial</a>
-            <a href="contact.html" class="btn btn--outline btn--lg" style="color:#fff;border-color:rgba(255,255,255,0.3);">Talk With Our Team</a>
+        <div class="cta-section__content" style="text-align: center; max-width: 700px; margin-inline: auto;">
+          <h2 style="margin-block-end: var(--sp-3);">Join Over 4,500 Restaurants Worldwide</h2>
+          <p style="color: var(--clr-text-secondary); margin-block-end: var(--sp-6);">Get started today and see why leading hospitality brands choose QRServe.</p>
+          <div class="cta-section__actions" style="display: flex; gap: var(--sp-3); justify-content: center; flex-wrap: wrap;">
+            <a href="register.html" class="btn btn--primary btn--lg">Start Free Trial</a>
+            <a href="contact.html" class="btn btn--outline btn--lg">Talk With Our Team</a>
           </div>
         </div>
       </div>

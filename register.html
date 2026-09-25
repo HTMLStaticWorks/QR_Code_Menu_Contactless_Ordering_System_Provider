@@ -17,18 +17,12 @@
   <style>
     .auth-layout {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       min-height: 100svh;
     }
 
     .auth-visual {
-      background: var(--clr-primary);
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: var(--sp-12);
+      display: none;
     }
 
     .auth-visual::before {
@@ -208,15 +202,224 @@
       text-underline-offset: 2px;
     }
 
-    /* Responsive */
-    @media (max-width: 768px) {
-      .auth-layout { grid-template-columns: 1fr; }
-      .auth-visual { display: none; }
-      .auth-form-panel { min-height: 100svh; padding: var(--sp-6) var(--sp-4); align-items: flex-start; padding-block-start: var(--sp-8); }
+    /* Brand logo (mobile / tablet / topbar) */
+    .auth-brand-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.625rem;
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--clr-text-primary);
+      text-decoration: none;
+      transition: opacity var(--transition-fast);
+      flex-shrink: 0;
     }
 
+    .auth-brand-logo:hover {
+      opacity: 0.9;
+    }
+
+    .auth-brand-logo span span,
+    .auth-brand-logo .brand-highlight {
+      color: var(--clr-secondary);
+    }
+
+    .auth-brand-logo__icon {
+      width: 36px;
+      height: 36px;
+      background: var(--clr-secondary);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--clr-primary);
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(0, 200, 150, 0.25);
+    }
+
+    /* Auth topbar navigation */
+    .auth-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 1.5rem 2rem 0; /* No background/border on desktop */
+    }
+
+    .auth-topbar__actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .auth-back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      font-size: var(--size-small);
+      font-weight: 500;
+      color: var(--clr-text-secondary);
+      text-decoration: none;
+      padding: 0.5rem 0.875rem;
+      border-radius: var(--radius-md);
+      transition: all var(--transition-fast);
+      border: 1px solid var(--clr-border);
+      background: var(--clr-surface);
+    }
+
+    .auth-back-link:hover {
+      color: var(--clr-text-primary);
+      border-color: var(--clr-border-strong);
+      background: var(--clr-surface-2, rgba(0,0,0,0.03));
+    }
+
+    .auth-form-container {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--sp-8) var(--sp-6);
+    }
+
+    /* Responsive: ≤ 1024px (Mobile, Tablet, and 1024px) */
+    @media (max-width: 1024px) {
+      .auth-layout {
+        grid-template-columns: 1fr;
+        min-height: 100svh;
+      }
+
+      .auth-visual {
+        display: none;
+      }
+
+      .auth-form-panel {
+        min-height: 100svh;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+      }
+
+      .auth-topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 1rem 2rem;
+        background: var(--clr-surface);
+        border-bottom: 1px solid var(--clr-border);
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        backdrop-filter: blur(8px);
+      }
+
+      .auth-brand-logo {
+        display: inline-flex;
+      }
+
+      .auth-form-container {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: var(--sp-8) var(--sp-6);
+        min-height: calc(100svh - 73px);
+      }
+    }
+
+    /* Tablet breakpoint (≤ 768px) */
+    @media (max-width: 768px) {
+      .auth-topbar {
+        padding: 0.875rem 1.25rem;
+      }
+
+      .auth-brand-logo {
+        font-size: 1.25rem;
+      }
+
+      .auth-brand-logo__icon {
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+        border-radius: 8px;
+      }
+
+      .auth-form-container {
+        padding: var(--sp-6) var(--sp-4);
+      }
+    }
+
+    /* Mobile breakpoint (≤ 480px) */
+    @media (max-width: 480px) {
+      .auth-topbar {
+        padding: 0.75rem 1rem;
+      }
+
+      .auth-back-link span {
+        display: none;
+      }
+
+      .auth-back-link {
+        padding: 0.45rem;
+        width: 36px;
+        height: 36px;
+        justify-content: center;
+      }
+
+      .auth-brand-logo {
+        font-size: 1.15rem;
+        gap: 0.5rem;
+      }
+
+      .auth-brand-logo__icon {
+        width: 30px;
+        height: 30px;
+        font-size: 0.95rem;
+      }
+
+      .auth-form-container {
+        padding: var(--sp-5) var(--sp-3);
+      }
+    }
+
+    /* Extra small mobile (≤ 360px) */
     @media (max-width: 360px) {
-      .auth-form-panel { padding: var(--sp-4) var(--sp-3); }
+      .auth-topbar {
+        padding: 0.625rem 0.75rem;
+      }
+
+      .auth-brand-logo {
+        font-size: 1.05rem;
+        gap: 0.375rem;
+      }
+
+      .auth-brand-logo__icon {
+        width: 28px;
+        height: 28px;
+        font-size: 0.9rem;
+      }
+
+      .auth-form-container {
+        padding: var(--sp-4) var(--sp-2);
+      }
+    }
+
+    /* RTL Support */
+    [dir="rtl"] .auth-topbar {
+      flex-direction: row-reverse;
+    }
+    [dir="rtl"] .auth-brand-logo {
+      flex-direction: row-reverse;
+    }
+    [dir="rtl"] .auth-topbar__actions {
+      flex-direction: row-reverse;
+    }
+    [dir="rtl"] .auth-back-link i {
+      transform: scaleX(-1);
     }
   </style>
 </head>
@@ -265,21 +468,34 @@
 
     <!-- RIGHT: Form -->
     <div class="auth-form-panel">
-      <div class="auth-form-wrap">
 
-        <!-- Mobile logo -->
-        <a href="index.html" class="auth-visual__logo" id="mobile-auth-logo" style="margin-block-end:var(--sp-6);display:none;">
-          <div class="auth-visual__logo-icon">
-            <i class="ri-qr-code-line" style="font-size:1rem;"></i>
+      <!-- Navigation Topbar for Mobile, Tablet, and 1024px -->
+      <header class="auth-topbar" aria-label="Brand navigation">
+        <a href="index.html" class="auth-brand-logo" id="mobile-auth-logo" aria-label="QRServe — Home">
+          <div class="auth-brand-logo__icon" aria-hidden="true">
+            <i class="ri-qr-code-line"></i>
           </div>
-          QR<span style="color:var(--clr-secondary);">Serve</span>
+          <span class="auth-brand-logo__name">QR<span>Serve</span></span>
         </a>
 
-        <h1>Create Your Free Account</h1>
-        <p>Already have an account? <a href="login.html">Sign in instead</a></p>
+        <div class="auth-topbar__actions">
+          <button class="icon-btn" data-theme-toggle data-theme-icon aria-label="Toggle dark mode" title="Toggle theme"></button>
+          <button class="icon-btn" data-rtl-btn aria-label="Switch to RTL" title="Switch direction"></button>
+          <a href="index.html" class="auth-back-link" aria-label="Back to website">
+            <i class="ri-arrow-left-line" aria-hidden="true"></i>
+            <span>Back to Home</span>
+          </a>
+        </div>
+      </header>
+
+      <div class="auth-form-container">
+        <div class="auth-form-wrap">
+
+          <h1>Create Your Free Account</h1>
+          <p>Already have an account? <a href="login.html">Sign in instead</a></p>
 
         <!-- Social Buttons -->
-        <div style="display:flex;gap:0.625rem;margin-block-end:var(--sp-4);">
+        <div style="display:flex;gap:0.625rem;margin-block-end:var(--sp-4);flex-wrap:wrap;">
           <button class="social-btn" type="button" aria-label="Continue with Google">
             <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
             Google
@@ -299,7 +515,7 @@
         <!-- Register Form -->
         <form class="auth-form" id="register-form" novalidate aria-label="Create account form">
 
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-2);">
+
             <div class="form-group">
               <label class="form-label" for="reg-name">Full Name <span aria-hidden="true">*</span></label>
               <div class="form-input-wrap">
@@ -336,7 +552,6 @@
               </div>
               <span class="form-error" id="restaurant-error" role="alert"></span>
             </div>
-          </div>
 
           <div class="form-group">
             <label class="form-label" for="reg-email">Email Address <span aria-hidden="true">*</span></label>
@@ -432,6 +647,7 @@
           By creating an account, you agree to our Terms of Service. No credit card required. Cancel anytime.
         </p>
       </div>
+      </div>
     </div>
 
   </div>
@@ -465,14 +681,6 @@
           }
         });
       }
-
-      // Show mobile logo
-      const mobileLogo = document.getElementById('mobile-auth-logo');
-      const update = () => {
-        if (mobileLogo) mobileLogo.style.display = window.innerWidth <= 768 ? 'flex' : 'none';
-      };
-      update();
-      window.addEventListener('resize', update);
     });
   </script>
 
