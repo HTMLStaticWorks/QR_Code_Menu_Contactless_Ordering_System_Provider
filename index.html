@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="QRServe — Premium QR Code Digital Menu & Contactless Ordering System for restaurants, cafés, hotels and hospitality businesses. Replace printed menus and streamline ordering." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://qrserve.io/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://qrserve.io/" />
+  <meta property="og:title" content="QRServe — Smart Digital Menu & Contactless Ordering" />
+  <meta property="og:description" content="Replace printed menus with QR-based digital menus. Let customers scan, browse, and order from their phones." />
+  <meta property="og:image" content="https://qrserve.io/assets/og-image.jpg" />
+
+  <title>QRServe — Smart Digital Menu & Contactless Ordering System</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/rtl.css" />
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "QRServe",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "description": "QR Code Digital Menu & Contactless Ordering System for restaurants and hospitality businesses.",
+    "url": "https://qrserve.io",
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "lowPrice": "29",
+      "highPrice": "149"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "2847"
+    }
+  }
+  </script>
+
+  <style>
+    /* Page-specific styles */
+
+    /* Hero */
+    .hero--home {
+      background: var(--clr-bg);
+      min-height: 100svh;
+    }
+
+    .hero__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-10);
+      align-items: center;
+      padding-block: var(--sp-12) var(--sp-10);
+    }
+
+    /* Hero BG Decoration */
+    .hero-bg-orb {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      filter: blur(80px);
+    }
+
+    .hero-bg-orb--1 {
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(0,200,150,0.12) 0%, transparent 70%);
+      top: 10%;
+      right: -10%;
+    }
+
+    .hero-bg-orb--2 {
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle, rgba(255,107,91,0.08) 0%, transparent 70%);
+      bottom: 10%;
+      left: 5%;
+    }
+
+    /* Hero Visual / Mockup */
+    .hero__visual {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-mockup {
+      position: relative;
+      width: 100%;
+      max-width: 520px;
+    }
+
+    .phone-frame {
+      background: var(--clr-primary);
+      border-radius: 40px;
+      padding: 16px;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.06);
+      position: relative;
+      z-index: 2;
+      width: 240px;
+      margin-inline: auto;
+    }
+
+    .phone-screen {
+      background: var(--clr-surface);
+      border-radius: 28px;
+      overflow: hidden;
+      aspect-ratio: 9/19;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .phone-screen__header {
+      background: var(--clr-primary);
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .phone-screen__header h4 {
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .phone-screen__header p {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.6rem;
+      margin-block-start: 0.2rem;
+    }
+
+    .phone-menu-items {
+      flex: 1;
+      padding: 0.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      overflow: hidden;
+    }
+
+    .phone-menu-item {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      background: var(--clr-surface-2);
+      border-radius: 8px;
+      padding: 0.5rem;
+    }
+
+    .phone-menu-item__img {
+      width: 36px;
+      height: 36px;
+      border-radius: 6px;
+      background: var(--clr-secondary-light);
+      flex-shrink: 0;
+    }
+
+    [data-theme="dark"] .phone-menu-item__img {
+      background: rgba(0,200,150,0.15);
+    }
+
+    .phone-menu-item__info { flex: 1; min-width: 0; }
+
+    .phone-menu-item__name {
+      font-size: 0.6rem;
+      font-weight: 600;
+      color: var(--clr-text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .phone-menu-item__price {
+      font-size: 0.55rem;
+      color: var(--clr-secondary);
+      font-weight: 600;
+    }
+
+    .phone-menu-item__add {
+      width: 20px;
+      height: 20px;
+      background: var(--clr-secondary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--clr-primary);
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
+
+    .phone-screen__footer {
+      padding: 0.75rem;
+      border-block-start: 1px solid var(--clr-border);
+    }
+
+    .phone-cart-btn {
+      background: var(--clr-secondary);
+      color: var(--clr-primary);
+      border-radius: 8px;
+      padding: 0.5rem;
+      text-align: center;
+      font-size: 0.65rem;
+      font-weight: 700;
+    }
+
+    /* Floating cards on hero */
+    .hero-float-card {
+      position: absolute;
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-md);
+      padding: 0.875rem 1rem;
+      box-shadow: var(--shadow-lg);
+      white-space: nowrap;
+      z-index: 3;
+    }
+
+    .hero-float-card--1 {
+      top: 8%;
+      left: -10%;
+      animation: float-card-1 4s ease-in-out infinite;
+    }
+
+    .hero-float-card--2 {
+      bottom: 12%;
+      right: -8%;
+      animation: float-card-2 3.5s ease-in-out 0.5s infinite;
+    }
+
+    .hero-float-card--3 {
+      top: 55%;
+      left: -14%;
+      animation: float-card-1 5s ease-in-out 1s infinite;
+    }
+
+    @keyframes float-card-1 {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-12px); }
+    }
+
+    @keyframes float-card-2 {
+      0%, 100% { transform: translateY(0px) rotate(-2deg); }
+      50% { transform: translateY(10px) rotate(0deg); }
+    }
+
+    .hero-float-card__label {
+      font-size: 0.65rem;
+      color: var(--clr-text-muted);
+      margin-block-end: 0.25rem;
+    }
+
+    .hero-float-card__value {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--clr-text-primary);
+      display: flex;
+      align-items: center;
+      gap: 0.375rem;
+    }
+
+    .hero-float-card__value .dot { color: var(--clr-secondary); }
+
+    /* QR Visual */
+    .qr-visual {
+      position: absolute;
+      bottom: -8%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #fff;
+      border-radius: var(--radius-md);
+      padding: 0.75rem;
+      box-shadow: var(--shadow-xl);
+      z-index: 3;
+      animation: float-card-2 4s ease-in-out 0.8s infinite;
+    }
+
+    .qr-visual__inner {
+      width: 80px;
+      height: 80px;
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 2px;
+    }
+
+    .qr-cell {
+      background: #0a0f0d;
+      border-radius: 1px;
+    }
+
+    .qr-cell--empty { background: transparent; }
+
+    /* Section - Features */
+    .features-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-block-end: var(--sp-8);
+    }
+
+    .feature-tab {
+      padding: 0.5rem 1.25rem;
+      border-radius: var(--radius-pill);
+      border: 1.5px solid var(--clr-border);
+      font-size: var(--size-small);
+      font-weight: 500;
+      color: var(--clr-text-secondary);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      background: transparent;
+    }
+
+    .feature-tab.active,
+    .feature-tab:hover {
+      border-color: var(--clr-secondary);
+      color: var(--clr-secondary);
+      background: var(--clr-secondary-light);
+    }
+
+    [data-theme="dark"] .feature-tab.active,
+    [data-theme="dark"] .feature-tab:hover {
+      background: rgba(0,200,150,0.1);
+    }
+
+    /* Dashboard preview */
+    .db-preview-grid {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      height: 420px;
+    }
+
+    .db-preview-sidebar {
+      background: var(--clr-primary);
+      padding: 1.5rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.375rem;
+      overflow: hidden;
+    }
+
+    .db-preview-nav-item {
+      display: flex;
+      align-items: center;
+      gap: 0.625rem;
+      padding: 0.5rem 0.75rem;
+      border-radius: 8px;
+      color: rgba(255,255,255,0.45);
+      font-size: 0.75rem;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .db-preview-nav-item.active {
+      background: rgba(0,200,150,0.12);
+      color: var(--clr-secondary);
+    }
+
+    .db-preview-content {
+      padding: 1.25rem;
+      background: var(--clr-surface-2);
+      overflow: hidden;
+    }
+
+    .db-preview-kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      margin-block-end: 1rem;
+    }
+
+    .db-preview-kpi {
+      background: var(--clr-surface);
+      border-radius: 10px;
+      padding: 0.875rem 1rem;
+      border: 1px solid var(--clr-border);
+    }
+
+    .db-preview-kpi__label {
+      font-size: 0.65rem;
+      color: var(--clr-text-muted);
+      font-weight: 500;
+      margin-block-end: 0.25rem;
+    }
+
+    .db-preview-kpi__value {
+      font-family: var(--font-heading);
+      font-size: 1.375rem;
+      font-weight: 600;
+      color: var(--clr-text-primary);
+    }
+
+    .db-preview-kpi__trend {
+      font-size: 0.6rem;
+      color: var(--clr-secondary);
+      font-weight: 600;
+      margin-block-start: 0.125rem;
+    }
+
+    .db-preview-orders {
+      background: var(--clr-surface);
+      border-radius: 10px;
+      border: 1px solid var(--clr-border);
+      overflow: hidden;
+    }
+
+    .db-preview-orders-header {
+      padding: 0.75rem 1rem;
+      border-block-end: 1px solid var(--clr-border);
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--clr-text-primary);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .db-preview-order-row {
+      display: grid;
+      grid-template-columns: auto 1fr auto auto;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.5rem 1rem;
+      border-block-end: 1px solid var(--clr-border);
+      font-size: 0.65rem;
+    }
+
+    .db-preview-order-row:last-child { border-block-end: none; }
+
+    .order-status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .dot--new { background: #3b82f6; }
+    .dot--prep { background: var(--clr-warning); }
+    .dot--ready { background: var(--clr-secondary); }
+    .dot--done { background: var(--clr-text-muted); }
+
+    /* Use Cases grid */
+    .usecases-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--sp-4);
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: var(--clr-primary);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,200,150,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-section__content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      color: #fff;
+      font-size: var(--size-h2);
+      margin-block-end: var(--sp-2);
+    }
+
+    .cta-section p {
+      color: rgba(255,255,255,0.55);
+      font-size: var(--size-lead);
+      max-width: 520px;
+      margin-inline: auto;
+      margin-block-end: var(--sp-6);
+    }
+
+    .cta-section__actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--sp-2);
+      flex-wrap: wrap;
+    }
+
+    /* Pricing Preview */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--sp-4);
+      align-items: start;
+    }
+
+    .pricing-card--featured {
+      margin-block: -1.5rem;
+    }
+
+    /* Testimonials slider */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--sp-4);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .hero__grid { grid-template-columns: 1fr; gap: var(--sp-8); text-align: center; }
+      .hero__desc { max-width: 100%; }
+      .hero__actions { justify-content: center; }
+      .hero__visual { order: -1; }
+      .hero-float-card--1, .hero-float-card--3 { display: none; }
+      .hero-float-card--2 { right: 2%; }
+      .usecases-grid { grid-template-columns: repeat(2, 1fr); }
+      .pricing-grid { grid-template-columns: 1fr; max-width: 460px; margin-inline: auto; }
+      .pricing-card--featured { margin-block: 0; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .db-preview-grid { grid-template-columns: 1fr; height: auto; }
+      .db-preview-sidebar { display: none; }
+      .db-preview-kpi-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .hero__grid { padding-block: var(--sp-8) var(--sp-6); }
+      .usecases-grid { grid-template-columns: 1fr; }
+      .db-preview-kpi-grid { grid-template-columns: 1fr 1fr; }
+      .hero-float-card { display: none; }
+      .qr-visual { display: none; }
+    }
+
+    @media (max-width: 360px) {
+      .phone-frame { width: 200px; }
+      .db-preview-kpi-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <header class="navbar" role="banner">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo" aria-label="QRServe — Home">
+        <div class="navbar__logo-icon" aria-hidden="true">
+          <i class="ri-qr-code-line" style="font-size:1.1rem;"></i>
+        </div>
+        QR<span>Serve</span>
+      </a>
+
+      <nav class="navbar__nav" aria-label="Main navigation">
+        <a href="index.html" class="navbar__link" data-nav-link>Home</a>
+        <a href="home2.html" class="navbar__link" data-nav-link>Home 2</a>
+        <a href="features.html" class="navbar__link" data-nav-link>Features</a>
+        <a href="pricing.html" class="navbar__link" data-nav-link>Pricing</a>
+        <a href="demo.html" class="navbar__link" data-nav-link>Demo</a>
+        <a href="blog.html" class="navbar__link" data-nav-link>Blog</a>
+        <a href="contact.html" class="navbar__link" data-nav-link>Contact</a>
+      </nav>
+
+      <div class="navbar__actions">
+        <button class="icon-btn" data-theme-toggle data-theme-icon aria-label="Toggle dark mode" title="Toggle theme">
+          <!-- Icon injected by JS -->
+        </button>
+        <button class="icon-btn" data-rtl-btn aria-label="Switch to RTL" title="Switch direction">
+          <!-- Icon injected by JS -->
+        </button>
+        <a href="dashboard.html" class="btn btn--ghost btn--sm" data-nav-link>Dashboard</a>
+        <a href="login.html" class="btn btn--outline btn--sm" data-nav-link>Login</a>
+        <a href="register.html" class="btn btn--primary btn--sm">Get Started</a>
+      </div>
+
+      <button class="navbar__hamburger" id="hamburger-btn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-drawer">
+        <i class="ri-menu-3-line" style="font-size:1.25rem;" aria-hidden="true"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===================== MOBILE DRAWER ===================== -->
+  <div class="drawer-overlay" id="drawer-overlay" aria-hidden="true"></div>
+  <div class="drawer" id="mobile-drawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <div class="drawer__header">
+      <a href="index.html" class="navbar__logo" style="font-size:1.25rem;">
+        <div class="navbar__logo-icon" style="width:30px;height:30px;" aria-hidden="true">
+          <i class="ri-qr-code-line" style="font-size:0.95rem;"></i>
+        </div>
+        QR<span>Serve</span>
+      </a>
+      <button class="icon-btn drawer__close" aria-label="Close navigation menu">
+        <i class="ri-close-line" style="font-size:1.25rem;" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <nav class="drawer__nav" aria-label="Mobile navigation">
+      <a href="index.html" class="drawer__link" data-nav-link>
+        <i class="ri-home-4-line" aria-hidden="true"></i> Home
+      </a>
+      <a href="home2.html" class="drawer__link" data-nav-link>
+        <i class="ri-layout-masonry-line" aria-hidden="true"></i> Home 2
+      </a>
+      <a href="features.html" class="drawer__link" data-nav-link>
+        <i class="ri-flashlight-line" aria-hidden="true"></i> Features
+      </a>
+      <a href="pricing.html" class="drawer__link" data-nav-link>
+        <i class="ri-price-tag-3-line" aria-hidden="true"></i> Pricing
+      </a>
+      <a href="demo.html" class="drawer__link" data-nav-link>
+        <i class="ri-play-circle-line" aria-hidden="true"></i> Demo
+      </a>
+      <a href="blog.html" class="drawer__link" data-nav-link>
+        <i class="ri-article-line" aria-hidden="true"></i> Blog
+      </a>
+      <a href="contact.html" class="drawer__link" data-nav-link>
+        <i class="ri-mail-line" aria-hidden="true"></i> Contact
+      </a>
+      <a href="about.html" class="drawer__link" data-nav-link>
+        <i class="ri-information-line" aria-hidden="true"></i> About
+      </a>
+      <div class="divider"></div>
+      <a href="dashboard.html" class="drawer__link" data-nav-link>
+        <i class="ri-dashboard-line" aria-hidden="true"></i> Dashboard
+      </a>
+      <a href="login.html" class="drawer__link" data-nav-link>
+        <i class="ri-login-box-line" aria-hidden="true"></i> Login
+      </a>
+    </nav>
+
+    <div class="drawer__footer">
+      <a href="register.html" class="btn btn--primary btn--full">Get Started Free</a>
+      <div class="drawer__controls">
+        <button class="icon-btn" data-theme-toggle data-theme-icon aria-label="Toggle dark mode">
+        </button>
+        <button class="icon-btn" data-rtl-btn aria-label="Switch text direction">
+        </button>
+        <span style="font-size:var(--size-xs);color:var(--clr-text-muted);margin-inline-start:auto;">v2.4.1</span>
+      </div>
+    </div>
+  </div>
+
+  <main id="main-content">
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero hero--home" aria-label="Hero section">
+      <div class="hero__bg" aria-hidden="true">
+        <div class="hero-bg-orb hero-bg-orb--1"></div>
+        <div class="hero-bg-orb hero-bg-orb--2"></div>
+        <!-- Grid Pattern -->
+        <div style="position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px, var(--clr-border) 1px, transparent 0);background-size:32px 32px;opacity:0.6;"></div>
+      </div>
+
+      <div class="container">
+        <div class="hero__grid">
+          <!-- Left: Text -->
+          <div class="hero__text">
+            <div class="hero__badge">
+              <span class="hero__badge-dot" aria-hidden="true"></span>
+              Now live in 47+ countries
+            </div>
+
+            <h1>
+              Turn Every Table Into a<br />
+              <em>Digital Ordering</em><br />
+              Experience
+            </h1>
+
+            <p class="hero__desc">
+              Replace printed menus forever. QRServe gives your restaurant a smart QR-based digital menu system — customers scan, browse, and order from their phones in seconds.
+            </p>
+
+            <div class="hero__actions">
+              <a href="register.html" class="btn btn--primary btn--lg" id="hero-cta-primary">
+                <i class="ri-rocket-line" aria-hidden="true"></i>
+                Start Free Trial
+              </a>
+              <a href="demo.html" class="btn btn--outline btn--lg" id="hero-cta-demo">
+                <i class="ri-play-circle-line" aria-hidden="true"></i>
+                Request a Demo
+              </a>
+            </div>
+
+            <div class="hero__note">
+              <i class="ri-shield-check-line" style="color:var(--clr-secondary);" aria-hidden="true"></i>
+              No credit card required &nbsp;·&nbsp; 14-day free trial &nbsp;·&nbsp; Cancel anytime
+            </div>
+          </div>
+
+          <!-- Right: Phone Mockup -->
+          <div class="hero__visual" aria-hidden="true">
+            <div class="hero-mockup">
+              <!-- Floating Card 1 -->
+              <div class="hero-float-card hero-float-card--1">
+                <div class="hero-float-card__label">Today's Orders</div>
+                <div class="hero-float-card__value">
+                  <i class="ri-shopping-bag-3-line" style="color:var(--clr-secondary);"></i>
+                  <span>247</span>
+                  <span class="dot">↑ 18%</span>
+                </div>
+              </div>
+
+              <!-- Phone Frame -->
+              <div class="phone-frame">
+                <div class="phone-screen">
+                  <div class="phone-screen__header">
+                    <h4>🍽 Bella Vista Menu</h4>
+                    <p>Table 12 · Scan to Order</p>
+                  </div>
+                  <div class="phone-menu-items">
+                    <div class="phone-menu-item">
+                      <div class="phone-menu-item__img"></div>
+                      <div class="phone-menu-item__info">
+                        <div class="phone-menu-item__name">Margherita Pizza</div>
+                        <div class="phone-menu-item__price">$14.99</div>
+                      </div>
+                      <div class="phone-menu-item__add">+</div>
+                    </div>
+                    <div class="phone-menu-item">
+                      <div class="phone-menu-item__img" style="background:var(--clr-accent-light);"></div>
+                      <div class="phone-menu-item__info">
+                        <div class="phone-menu-item__name">Caesar Salad</div>
+                        <div class="phone-menu-item__price">$9.50</div>
+                      </div>
+                      <div class="phone-menu-item__add">+</div>
+                    </div>
+                    <div class="phone-menu-item">
+                      <div class="phone-menu-item__img" style="background:rgba(245,158,11,0.15);"></div>
+                      <div class="phone-menu-item__info">
+                        <div class="phone-menu-item__name">Truffle Pasta</div>
+                        <div class="phone-menu-item__price">$18.00</div>
+                      </div>
+                      <div class="phone-menu-item__add">+</div>
+                    </div>
+                    <div class="phone-menu-item">
+                      <div class="phone-menu-item__img" style="background:rgba(59,130,246,0.12);"></div>
+                      <div class="phone-menu-item__info">
+                        <div class="phone-menu-item__name">Tiramisu</div>
+                        <div class="phone-menu-item__price">$7.99</div>
+                      </div>
+                      <div class="phone-menu-item__add">+</div>
+                    </div>
+                  </div>
+                  <div class="phone-screen__footer">
+                    <div class="phone-cart-btn">View Cart (2 items) · $24.49</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Floating Card 2 -->
+              <div class="hero-float-card hero-float-card--2">
+                <div class="hero-float-card__label">QR Scans Today</div>
+                <div class="hero-float-card__value">
+                  <i class="ri-qr-scan-2-line" style="color:var(--clr-accent);"></i>
+                  <span>1,842</span>
+                </div>
+              </div>
+
+              <!-- Floating Card 3 -->
+              <div class="hero-float-card hero-float-card--3">
+                <div class="hero-float-card__label">Revenue</div>
+                <div class="hero-float-card__value">
+                  <i class="ri-money-dollar-circle-line" style="color:var(--clr-secondary);"></i>
+                  <span>$3,284</span>
+                </div>
+              </div>
+
+              <!-- QR Visual -->
+              <div class="qr-visual">
+                <div style="display:flex;align-items:center;gap:0.5rem;margin-block-end:0.5rem;">
+                  <i class="ri-qr-code-line" style="color:var(--clr-secondary);font-size:1rem;"></i>
+                  <span style="font-size:0.65rem;font-weight:600;color:var(--clr-text-primary);">Table 12</span>
+                </div>
+                <div style="width:80px;height:80px;background:var(--clr-primary);border-radius:4px;display:flex;align-items:center;justify-content:center;">
+                  <i class="ri-qr-code-fill" style="color:white;font-size:3rem;"></i>
+                </div>
+                <div style="text-align:center;font-size:0.55rem;color:var(--clr-text-muted);margin-block-start:0.375rem;">Scan to order</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== STATS BAR ===================== -->
+    <section class="stats-bar" aria-label="Key statistics">
+      <div class="container">
+        <div class="stats-bar__grid">
+          <div class="stat-item reveal">
+            <div class="stat-item__number">
+              <span data-target="12000" data-suffix="+" id="stat-restaurants">12,000+</span>
+            </div>
+            <div class="stat-item__label">Restaurants Onboarded</div>
+          </div>
+          <div class="stat-item reveal reveal--delay-1">
+            <div class="stat-item__number">
+              <span data-target="5.2" data-suffix="M+" id="stat-orders">5.2M+</span>
+            </div>
+            <div class="stat-item__label">Orders Processed Monthly</div>
+          </div>
+          <div class="stat-item reveal reveal--delay-2">
+            <div class="stat-item__number">
+              <span data-target="47" data-suffix="+" id="stat-countries">47+</span>
+            </div>
+            <div class="stat-item__label">Countries Served</div>
+          </div>
+          <div class="stat-item reveal reveal--delay-3">
+            <div class="stat-item__number">
+              <span data-target="4.9" data-suffix="★" id="stat-rating">4.9★</span>
+            </div>
+            <div class="stat-item__label">Average Rating</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== HOW IT WORKS ===================== -->
+    <section class="section bg-surface" aria-labelledby="hiw-heading">
+      <div class="container">
+        <div class="section-header centered">
+          <span class="section-label">
+            <i class="ri-route-line" aria-hidden="true"></i>
+            How It Works
+          </span>
+          <h2 id="hiw-heading">Up and Running in Minutes</h2>
+          <p>No technical skills required. Launch your digital menu in four simple steps.</p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-item reveal">
+            <div class="step-item__num" aria-hidden="true">01</div>
+            <h3>Create Your Digital Menu</h3>
+            <p>Use our drag-and-drop builder to add categories, items, prices, photos, and descriptions. Your menu, your way.</p>
+          </div>
+          <div class="step-item reveal reveal--delay-1">
+            <div class="step-item__num" aria-hidden="true">02</div>
+            <h3>Generate QR Codes</h3>
+            <p>Get unique QR codes for each table instantly. Customize them with your brand colors and logo.</p>
+          </div>
+          <div class="step-item reveal reveal--delay-2">
+            <div class="step-item__num" aria-hidden="true">03</div>
+            <h3>Place on Tables</h3>
+            <p>Print and place QR codes on table stands, tent cards, or coasters. Ready in seconds.</p>
+          </div>
+          <div class="step-item reveal reveal--delay-3">
+            <div class="step-item__num" aria-hidden="true">04</div>
+            <h3>Customers Scan &amp; Order</h3>
+            <p>Guests scan with any smartphone, browse your menu, and place orders — no app download needed.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FEATURES ===================== -->
+    <section class="section" aria-labelledby="features-heading">
+      <div class="container">
+        <div class="section-header centered">
+          <span class="section-label">
+            <i class="ri-flashlight-line" aria-hidden="true"></i>
+            Features
+          </span>
+          <h2 id="features-heading">Everything Your Restaurant Needs</h2>
+          <p>A complete contactless ordering ecosystem built for modern hospitality businesses.</p>
+        </div>
+
+        <div class="grid grid--auto" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+          <div class="feature-card reveal">
+            <div class="feature-card__icon" aria-hidden="true">
+              <i class="ri-layout-grid-line" style="font-size:1.25rem;"></i>
+            </div>
+            <h3>Digital Menu Builder</h3>
+            <p>Drag-and-drop interface to create beautiful menus with categories, images, modifiers, and availability controls.</p>
+          </div>
+          <div class="feature-card reveal reveal--delay-1">
+            <div class="feature-card__icon" aria-hidden="true">
+              <i class="ri-qr-code-line" style="font-size:1.25rem;"></i>
+            </div>
+            <h3>QR Code Generator</h3>
+            <p>Auto-generate unique branded QR codes per table with your logo. Download as PDF, PNG, or SVG.</p>
+          </div>
+          <div class="feature-card reveal reveal--delay-2">
+            <div class="feature-card__icon feature-card__icon--coral" aria-hidden="true">
+              <i class="ri-smartphone-line" style="font-size:1.25rem;"></i>
+            </div>
+            <h3>Contactless Ordering</h3>
+            <p>Customers order directly from their phones. No app required — just scan and go. Works on any device.</p>
+          </div>
+          <div class="feature-card reveal reveal--delay-3">
+            <div class="feature-card__icon" aria-hidden="true">
+              <i class="ri-table-line" style="font-size:1.25rem;"></i>
+            </div>
+            <h3>Table Management</h3>
+            <p>Visual floor plan, real-time table status, order tracking per table, and occupancy insights.</p>
+          </div>
+          <div class="feature-card reveal">
+            <div class="feature-card__icon feature-card__icon--coral" aria-hidden="true">
+              <i class="ri-file-list-3-line" style="font-size:1.25rem;"></i>
+            </div>
+            <h3>Order Management</h3>
+            <p>Live order feed, kitchen display integration, status updates, and instant customer notifications.</p>
+          </div>
+          <div class="feature-card reveal reveal--delay-1">
+            <div class="feature-card__icon" aria-hidden="true">
+              <i class="ri-bar-chart-2-line" style="font-size:1.25rem;"></i>
+            </div>
+            <h3>Analytics &amp; Insights</h3>
+            <p>Revenue trends, best-selling items, peak hours, customer behavior, and QR scan heatmaps.</p>
+          </div>
+          <div class="feature-card reveal reveal--delay-2">
+            <div class="feature-card__icon feature-card__icon--coral" aria-hidden="true">
+              <i class="ri-translate-2" style="font-size:1.25rem;"></i>
+            </div>
+            <h3>Multi-language Menu</h3>
+            <p>Serve international guests with menus in 30+ languages. Auto-detect customer device language.</p>
+          </div>
+          <div class="feature-card reveal reveal--delay-3">
+            <div class="feature-card__icon" aria-hidden="true">
+              <i class="ri-palette-line" style="font-size:1.25rem;"></i>
+            </div>
+            <h3>Restaurant Branding</h3>
+            <p>Full white-label experience. Apply your brand colors, fonts, and logo to the customer-facing menu.</p>
+          </div>
+          <div class="feature-card reveal">
+            <div class="feature-card__icon feature-card__icon--coral" aria-hidden="true">
+              <i class="ri-notification-3-line" style="font-size:1.25rem;"></i>
+            </div>
+            <h3>Customer Notifications</h3>
+            <p>Automated order confirmations, ready-to-pickup alerts, and real-time status updates via SMS or WhatsApp.</p>
+          </div>
+          <div class="feature-card reveal reveal--delay-1">
+            <div class="feature-card__icon" aria-hidden="true">
+              <i class="ri-time-line" style="font-size:1.25rem;"></i>
+            </div>
+            <h3>Menu Scheduling</h3>
+            <p>Schedule breakfast, lunch, and dinner menus to auto-publish. Set item availability windows effortlessly.</p>
+          </div>
+        </div>
+
+        <div style="text-align:center;margin-block-start:var(--sp-8);">
+          <a href="features.html" class="btn btn--outline btn--lg">
+            Explore All Features <i class="ri-arrow-right-line" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== USE CASES ===================== -->
+    <section class="section bg-surface" aria-labelledby="usecases-heading">
+      <div class="container">
+        <div class="section-header centered">
+          <span class="section-label">
+            <i class="ri-store-2-line" aria-hidden="true"></i>
+            Use Cases
+          </span>
+          <h2 id="usecases-heading">Built for Every Hospitality Venue</h2>
+          <p>From cozy cafés to large hotel chains — QRServe scales to your needs.</p>
+        </div>
+
+        <div class="usecases-grid">
+          <article class="usecase-card reveal">
+            <div class="usecase-card__img-wrap">
+              <img
+                src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&auto=format&fit=crop&q=80"
+                alt="Elegant restaurant dining room"
+                class="usecase-card__img"
+                loading="lazy"
+              />
+            </div>
+            <div class="usecase-card__body">
+              <div class="usecase-card__icon" aria-hidden="true"><i class="ri-restaurant-line"></i></div>
+              <h3>Restaurants</h3>
+              <p class="text--small">Full-service dining with table-specific QR codes, waiter integration, and real-time kitchen display.</p>
+              <a href="features.html" class="btn btn--ghost btn--sm" style="padding-inline:0;margin-block-start:var(--sp-2);">
+                Learn more <i class="ri-arrow-right-line" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+
+          <article class="usecase-card reveal reveal--delay-1">
+            <div class="usecase-card__img-wrap">
+              <img
+                src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=600&auto=format&fit=crop&q=80"
+                alt="Modern café interior"
+                class="usecase-card__img"
+                loading="lazy"
+              />
+            </div>
+            <div class="usecase-card__body">
+              <div class="usecase-card__icon" aria-hidden="true"><i class="ri-cup-line"></i></div>
+              <h3>Cafés &amp; Coffee Shops</h3>
+              <p class="text--small">Streamline counter ordering, manage daily specials, and reduce queue times with self-ordering.</p>
+              <a href="features.html" class="btn btn--ghost btn--sm" style="padding-inline:0;margin-block-start:var(--sp-2);">
+                Learn more <i class="ri-arrow-right-line" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+
+          <article class="usecase-card reveal reveal--delay-2">
+            <div class="usecase-card__img-wrap">
+              <img
+                src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&auto=format&fit=crop&q=80"
+                alt="Luxury hotel lobby and dining"
+                class="usecase-card__img"
+                loading="lazy"
+              />
+            </div>
+            <div class="usecase-card__body">
+              <div class="usecase-card__icon" aria-hidden="true"><i class="ri-hotel-line"></i></div>
+              <h3>Hotels</h3>
+              <p class="text--small">Room service ordering, pool-side menus, multi-venue management, and multi-language support.</p>
+              <a href="features.html" class="btn btn--ghost btn--sm" style="padding-inline:0;margin-block-start:var(--sp-2);">
+                Learn more <i class="ri-arrow-right-line" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+
+          <article class="usecase-card reveal">
+            <div class="usecase-card__img-wrap">
+              <img
+                src="https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?w=600&auto=format&fit=crop&q=80"
+                alt="Bar with cocktails"
+                class="usecase-card__img"
+                loading="lazy"
+              />
+            </div>
+            <div class="usecase-card__body">
+              <div class="usecase-card__icon" aria-hidden="true"><i class="ri-goblet-line"></i></div>
+              <h3>Bars &amp; Lounges</h3>
+              <p class="text--small">Drinks ordering by seat, age verification prompts, happy hour scheduling, and real-time specials.</p>
+              <a href="features.html" class="btn btn--ghost btn--sm" style="padding-inline:0;margin-block-start:var(--sp-2);">
+                Learn more <i class="ri-arrow-right-line" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+
+          <article class="usecase-card reveal reveal--delay-1">
+            <div class="usecase-card__img-wrap">
+              <img
+                src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&auto=format&fit=crop&q=80"
+                alt="Food court with multiple vendors"
+                class="usecase-card__img"
+                loading="lazy"
+              />
+            </div>
+            <div class="usecase-card__body">
+              <div class="usecase-card__icon" aria-hidden="true"><i class="ri-store-line"></i></div>
+              <h3>Food Courts</h3>
+              <p class="text--small">Multi-vendor unified ordering, centralized payment, and cross-vendor order consolidation at one table.</p>
+              <a href="features.html" class="btn btn--ghost btn--sm" style="padding-inline:0;margin-block-start:var(--sp-2);">
+                Learn more <i class="ri-arrow-right-line" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+
+          <article class="usecase-card reveal reveal--delay-2">
+            <div class="usecase-card__img-wrap">
+              <img
+                src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&auto=format&fit=crop&q=80"
+                alt="Cloud kitchen food preparation"
+                class="usecase-card__img"
+                loading="lazy"
+              />
+            </div>
+            <div class="usecase-card__body">
+              <div class="usecase-card__icon" aria-hidden="true"><i class="ri-fire-line"></i></div>
+              <h3>Cloud Kitchens</h3>
+              <p class="text--small">Manage multiple virtual brand menus, delivery integration, and order routing from one dashboard.</p>
+              <a href="features.html" class="btn btn--ghost btn--sm" style="padding-inline:0;margin-block-start:var(--sp-2);">
+                Learn more <i class="ri-arrow-right-line" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== DASHBOARD PREVIEW ===================== -->
+    <section class="section" aria-labelledby="db-preview-heading">
+      <div class="container">
+        <div class="section-header centered">
+          <span class="section-label">
+            <i class="ri-dashboard-line" aria-hidden="true"></i>
+            Restaurant Dashboard
+          </span>
+          <h2 id="db-preview-heading">Control Everything From One Place</h2>
+          <p>A powerful, intuitive dashboard built specifically for restaurant owners and managers.</p>
+        </div>
+
+        <div class="dashboard-preview reveal">
+          <div class="dashboard-preview__topbar">
+            <div style="display:flex;align-items:center;gap:1rem;">
+              <div class="dashboard-preview__dots" aria-hidden="true">
+                <div class="dashboard-preview__dot dp-dot-red"></div>
+                <div class="dashboard-preview__dot dp-dot-yellow"></div>
+                <div class="dashboard-preview__dot dp-dot-green"></div>
+              </div>
+              <span style="font-size:0.7rem;color:var(--clr-text-muted);font-family:var(--font-mono);">dashboard.qrserve.io — Bella Vista Restaurant</span>
+            </div>
+            <div style="display:flex;gap:0.5rem;">
+              <div style="width:8px;height:8px;border-radius:50%;background:var(--clr-secondary);"></div>
+              <span style="font-size:0.65rem;color:var(--clr-secondary);font-weight:600;">Live</span>
+            </div>
+          </div>
+
+          <div class="db-preview-grid">
+            <div class="db-preview-sidebar" aria-hidden="true">
+              <div style="font-family:var(--font-heading);font-size:0.9rem;font-weight:700;color:#fff;margin-block-end:1rem;padding-block-end:0.75rem;border-block-end:1px solid rgba(255,255,255,0.08);">
+                <i class="ri-qr-code-line" style="color:var(--clr-secondary);margin-inline-end:0.5rem;"></i> QRServe
+              </div>
+              <div class="db-preview-nav-item active"><i class="ri-dashboard-line"></i> Overview</div>
+              <div class="db-preview-nav-item"><i class="ri-layout-grid-line"></i> Digital Menu</div>
+              <div class="db-preview-nav-item"><i class="ri-qr-code-line"></i> QR Codes</div>
+              <div class="db-preview-nav-item"><i class="ri-table-line"></i> Tables</div>
+              <div class="db-preview-nav-item"><i class="ri-file-list-3-line"></i> Orders</div>
+              <div class="db-preview-nav-item"><i class="ri-bar-chart-2-line"></i> Analytics</div>
+              <div class="db-preview-nav-item"><i class="ri-settings-3-line"></i> Settings</div>
+            </div>
+
+            <div class="db-preview-content">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-block-end:1rem;">
+                <div>
+                  <div style="font-family:var(--font-heading);font-size:0.875rem;font-weight:600;color:var(--clr-text-primary);">Good Evening, Marco 👋</div>
+                  <div style="font-size:0.65rem;color:var(--clr-text-muted);">Thursday, Sep 25, 2026 · 9 active tables</div>
+                </div>
+                <div style="display:flex;gap:0.5rem;">
+                  <div style="background:var(--clr-secondary-light);color:var(--clr-secondary);padding:0.3rem 0.75rem;border-radius:6px;font-size:0.65rem;font-weight:600;">
+                    <i class="ri-wifi-line"></i> All Systems Online
+                  </div>
+                </div>
+              </div>
+
+              <div class="db-preview-kpi-grid">
+                <div class="db-preview-kpi">
+                  <div class="db-preview-kpi__label">Today's Orders</div>
+                  <div class="db-preview-kpi__value">247</div>
+                  <div class="db-preview-kpi__trend">↑ 18% vs yesterday</div>
+                </div>
+                <div class="db-preview-kpi">
+                  <div class="db-preview-kpi__label">Revenue</div>
+                  <div class="db-preview-kpi__value">$3,284</div>
+                  <div class="db-preview-kpi__trend">↑ 12% this week</div>
+                </div>
+                <div class="db-preview-kpi">
+                  <div class="db-preview-kpi__label">QR Scans</div>
+                  <div class="db-preview-kpi__value">1,842</div>
+                  <div class="db-preview-kpi__trend">↑ 24% this month</div>
+                </div>
+              </div>
+
+              <div class="db-preview-orders">
+                <div class="db-preview-orders-header">
+                  <span>Recent Orders</span>
+                  <span style="color:var(--clr-secondary);font-size:0.6rem;cursor:pointer;">View All</span>
+                </div>
+                <div class="db-preview-order-row">
+                  <div class="order-status-dot dot--new"></div>
+                  <span style="color:var(--clr-text-primary);">#1047 — Table 4</span>
+                  <span style="color:var(--clr-text-muted);">2 items</span>
+                  <span style="color:var(--clr-secondary);font-weight:600;">$32.50</span>
+                </div>
+                <div class="db-preview-order-row">
+                  <div class="order-status-dot dot--prep"></div>
+                  <span style="color:var(--clr-text-primary);">#1046 — Table 7</span>
+                  <span style="color:var(--clr-text-muted);">4 items</span>
+                  <span style="color:var(--clr-secondary);font-weight:600;">$67.00</span>
+                </div>
+                <div class="db-preview-order-row">
+                  <div class="order-status-dot dot--ready"></div>
+                  <span style="color:var(--clr-text-primary);">#1045 — Table 2</span>
+                  <span style="color:var(--clr-text-muted);">1 item</span>
+                  <span style="color:var(--clr-secondary);font-weight:600;">$14.99</span>
+                </div>
+                <div class="db-preview-order-row">
+                  <div class="order-status-dot dot--done"></div>
+                  <span style="color:var(--clr-text-muted);">#1044 — Table 11</span>
+                  <span style="color:var(--clr-text-muted);">3 items</span>
+                  <span style="color:var(--clr-text-muted);">$48.75</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align:center;margin-block-start:var(--sp-6);">
+          <a href="dashboard.html" class="btn btn--primary btn--lg" id="hero-db-btn">
+            <i class="ri-dashboard-line" aria-hidden="true"></i>
+            Open Full Dashboard
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== TESTIMONIALS ===================== -->
+    <section class="section bg-surface" aria-labelledby="testimonials-heading">
+      <div class="container">
+        <div class="section-header centered">
+          <span class="section-label">
+            <i class="ri-star-line" aria-hidden="true"></i>
+            Testimonials
+          </span>
+          <h2 id="testimonials-heading">Loved by Restaurant Owners</h2>
+          <p>Join thousands of restaurants that have transformed their dining experience with QRServe.</p>
+        </div>
+
+        <div class="testimonials-grid">
+          <article class="testimonial-card reveal">
+            <div class="stars" aria-label="5 out of 5 stars">
+              <i class="ri-star-fill" aria-hidden="true"></i>
+              <i class="ri-star-fill" aria-hidden="true"></i>
+              <i class="ri-star-fill" aria-hidden="true"></i>
+              <i class="ri-star-fill" aria-hidden="true"></i>
+              <i class="ri-star-fill" aria-hidden="true"></i>
+            </div>
+            <p class="testimonial-card__quote">
+              QRServe transformed our restaurant completely. We cut menu printing costs to zero, and our average order value went up 22% because customers explore the full menu without feeling rushed.
+            </p>
+            <div class="testimonial-card__author">
+              <img
+                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=80&h=80&auto=format&fit=crop&q=80"
+                alt="Marco Rossi"
+                class="testimonial-card__avatar"
+                loading="lazy"
+              />
+              <div>
+                <div class="testimonial-card__name">Marco Rossi</div>
+                <div class="testimonial-card__role">Owner, Bella Vista — Milan, Italy</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial-card reveal reveal--delay-1">
+            <div class="stars" aria-label="5 out of 5 stars">
+              <i class="ri-star-fill" aria-hidden="true"></i>
+              <i class="ri-star-fill" aria-hidden="true"></i>
+              <i class="ri-star-fill" aria-hidden="true"></i>
+              <i class="ri-star-fill" aria-hidden="true"></i>
+              <i class="ri-star-fill" aria-hidden="true"></i>
+            </div>
+            <p class="testimonial-card__quote">
+              The setup took less than 20 minutes. Our multilingual guests love being able to switch the menu to their language. International tourist satisfaction scores improved dramatically.
+            </p>
+            <div class="testimonial-card__author">
+              <img
+                src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=80&h=80&auto=format&fit=crop&q=80"
+                alt="Aisha Al-Farsi"
+                class="testimonial-card__avatar"
+                loading="lazy"
+              />
+              <div>
+                <div class="testimonial-card__name">Aisha Al-Farsi</div>
+                <div class="testimonial-card__role">F&B Director, The Grand Hotel — Dubai</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial-card reveal reveal--delay-2">
+            <div class="stars" aria-label="5 out of 5 stars">
+              <i class="ri-star-fill" aria-hidden="true"></i>
+              <i class="ri-star-fill" aria-hidden="true"></i>
+              <i class="ri-star-fill" aria-hidden="true"></i>
+              <i class="ri-star-fill" aria-hidden="true"></i>
+              <i class="ri-star-fill" aria-hidden="true"></i>
+            </div>
+            <p class="testimonial-card__quote">
+              We manage 12 cloud kitchen brands from one QRServe dashboard. Switching menus, updating prices, and routing orders to the right kitchen is seamless. Can't imagine going back.
+            </p>
+            <div class="testimonial-card__author">
+              <img
+                src="https://images.unsplash.com/photo-1556157382-97eda2d62296?w=80&h=80&auto=format&fit=crop&q=80"
+                alt="James Chen"
+                class="testimonial-card__avatar"
+                loading="lazy"
+              />
+              <div>
+                <div class="testimonial-card__name">James Chen</div>
+                <div class="testimonial-card__role">CEO, CloudEats Group — Singapore</div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PRICING PREVIEW ===================== -->
+    <section class="section" aria-labelledby="pricing-heading">
+      <div class="container">
+        <div class="section-header centered">
+          <span class="section-label">
+            <i class="ri-price-tag-3-line" aria-hidden="true"></i>
+            Pricing
+          </span>
+          <h2 id="pricing-heading">Simple, Transparent Pricing</h2>
+          <p>No hidden fees. No long-term contracts. Scale up or down at any time.</p>
+        </div>
+
+        <div class="toggle-wrap" style="justify-content:center;margin-block-end:var(--sp-8);" role="group" aria-label="Billing period toggle">
+          <span>Monthly</span>
+          <label class="toggle" for="pricing-toggle-home" aria-label="Switch to yearly billing">
+            <input type="checkbox" id="pricing-toggle-home" role="switch" />
+            <span class="toggle__slider"></span>
+          </label>
+          <span>Yearly <span class="badge badge--green" aria-label="Save 20 percent">Save 20%</span></span>
+        </div>
+
+        <div class="pricing-grid">
+          <!-- Starter -->
+          <div class="pricing-card reveal">
+            <div class="pricing-card__tier">Starter</div>
+            <h3 style="font-size:var(--size-h5);">For Small Cafés &amp; Restaurants</h3>
+            <div class="pricing-card__price">
+              <span class="pricing-card__currency">$</span>
+              <span class="pricing-card__amount" data-price-monthly>29</span>
+              <span class="pricing-card__amount" data-price-yearly style="display:none;">23</span>
+              <span class="pricing-card__period">/month</span>
+            </div>
+            <ul class="pricing-card__features">
+              <li class="pricing-feature">
+                <span class="pricing-feature__icon" aria-hidden="true"><i class="ri-check-line" style="font-size:0.65rem;"></i></span>
+                Up to 3 menus
+              </li>
+              <li class="pricing-feature">
+                <span class="pricing-feature__icon" aria-hidden="true"><i class="ri-check-line" style="font-size:0.65rem;"></i></span>
+                Up to 20 tables / QR codes
+              </li>
+              <li class="pricing-feature">
+                <span class="pricing-feature__icon" aria-hidden="true"><i class="ri-check-line" style="font-size:0.65rem;"></i></span>
+                500 orders/month
+              </li>
+              <li class="pricing-feature">
+                <span class="pricing-feature__icon" aria-hidden="true"><i class="ri-check-line" style="font-size:0.65rem;"></i></span>
+                Basic analytics
+              </li>
+              <li class="pricing-feature">
+                <span class="pricing-feature__icon pricing-feature__icon--x" aria-hidden="true"><i class="ri-close-line" style="font-size:0.65rem;"></i></span>
+                <span style="color:var(--clr-text-muted);">Multi-language menu</span>
+              </li>
+              <li class="pricing-feature">
+                <span class="pricing-feature__icon pricing-feature__icon--x" aria-hidden="true"><i class="ri-close-line" style="font-size:0.65rem;"></i></span>
+                <span style="color:var(--clr-text-muted);">Multiple locations</span>
+              </li>
+            </ul>
+            <a href="register.html" class="btn btn--outline btn--full mt-auto">Get Started</a>
+          </div>
+
+          <!-- Professional (Featured) -->
+          <div class="pricing-card pricing-card--featured reveal reveal--delay-1">
+            <div class="pricing-badge">Most Popular</div>
+            <div class="pricing-card__tier">Professional</div>
+            <h3 style="font-size:var(--size-h5);">For Growing Restaurants</h3>
+            <div class="pricing-card__price">
+              <span class="pricing-card__currency">$</span>
+              <span class="pricing-card__amount" data-price-monthly>79</span>
+              <span class="pricing-card__amount" data-price-yearly style="display:none;">63</span>
+              <span class="pricing-card__period">/month</span>
+            </div>
+            <ul class="pricing-card__features">
+              <li class="pricing-feature">
+                <span class="pricing-feature__icon" aria-hidden="true"><i class="ri-check-line" style="font-size:0.65rem;"></i></span>
+                Unlimited menus
+              </li>
+              <li class="pricing-feature">
+                <span class="pricing-feature__icon" aria-hidden="true"><i class="ri-check-line" style="font-size:0.65rem;"></i></span>
+                Unlimited QR codes &amp; tables
+              </li>
+              <li class="pricing-feature">
+                <span class="pricing-feature__icon" aria-hidden="true"><i class="ri-check-line" style="font-size:0.65rem;"></i></span>
+                Unlimited orders
+              </li>
+              <li class="pricing-feature">
+                <span class="pricing-feature__icon" aria-hidden="true"><i class="ri-check-line" style="font-size:0.65rem;"></i></span>
+                Advanced analytics
+              </li>
+              <li class="pricing-feature">
+                <span class="pricing-feature__icon" aria-hidden="true"><i class="ri-check-line" style="font-size:0.65rem;"></i></span>
+                Multi-language menu
+              </li>
+              <li class="pricing-feature">
+                <span class="pricing-feature__icon pricing-feature__icon--x" aria-hidden="true"><i class="ri-close-line" style="font-size:0.65rem;"></i></span>
+                <span style="color:var(--clr-text-muted);">Multiple locations</span>
+              </li>
+            </ul>
+            <a href="register.html" class="btn btn--primary btn--full mt-auto">Get Started</a>
+          </div>
+
+          <!-- Enterprise -->
+          <div class="pricing-card reveal reveal--delay-2">
+            <div class="pricing-card__tier" style="color:var(--clr-accent);">Enterprise</div>
+            <h3 style="font-size:var(--size-h5);">For Restaurant Groups</h3>
+            <div class="pricing-card__price">
+              <span class="pricing-card__currency">$</span>
+              <span class="pricing-card__amount" data-price-monthly>149</span>
+              <span class="pricing-card__amount" data-price-yearly style="display:none;">119</span>
+              <span class="pricing-card__period">/month</span>
+            </div>
+            <ul class="pricing-card__features">
+              <li class="pricing-feature">
+                <span class="pricing-feature__icon" aria-hidden="true"><i class="ri-check-line" style="font-size:0.65rem;"></i></span>
+                Everything in Professional
+              </li>
+              <li class="pricing-feature">
+                <span class="pricing-feature__icon" aria-hidden="true"><i class="ri-check-line" style="font-size:0.65rem;"></i></span>
+                Multiple locations
+              </li>
+              <li class="pricing-feature">
+                <span class="pricing-feature__icon" aria-hidden="true"><i class="ri-check-line" style="font-size:0.65rem;"></i></span>
+                White-label branding
+              </li>
+              <li class="pricing-feature">
+                <span class="pricing-feature__icon" aria-hidden="true"><i class="ri-check-line" style="font-size:0.65rem;"></i></span>
+                API access &amp; integrations
+              </li>
+              <li class="pricing-feature">
+                <span class="pricing-feature__icon" aria-hidden="true"><i class="ri-check-line" style="font-size:0.65rem;"></i></span>
+                Dedicated account manager
+              </li>
+              <li class="pricing-feature">
+                <span class="pricing-feature__icon" aria-hidden="true"><i class="ri-check-line" style="font-size:0.65rem;"></i></span>
+                Custom integrations
+              </li>
+            </ul>
+            <a href="demo.html" class="btn btn--coral btn--full mt-auto">Request Demo</a>
+          </div>
+        </div>
+
+        <div style="text-align:center;margin-block-start:var(--sp-6);">
+          <a href="pricing.html" class="btn btn--ghost">
+            Compare all plans in detail <i class="ri-arrow-right-line" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CTA SECTION ===================== -->
+    <section class="section cta-section" aria-labelledby="cta-heading">
+      <div class="container">
+        <div class="cta-section__content">
+          <span class="section-label" style="background:rgba(0,200,150,0.15);margin-block-end:var(--sp-3);">
+            <i class="ri-rocket-line" aria-hidden="true"></i>
+            Get Started Today
+          </span>
+          <h2 id="cta-heading">Ready to Go Contactless?</h2>
+          <p>Join 12,000+ restaurants that have already modernized their ordering experience with QRServe.</p>
+
+          <div class="cta-section__actions">
+            <a href="register.html" class="btn btn--primary btn--lg" id="cta-main-btn">
+              <i class="ri-rocket-line" aria-hidden="true"></i>
+              Start Free — No Card Needed
+            </a>
+            <a href="demo.html" class="btn btn--lg" style="background:rgba(255,255,255,0.08);color:#fff;border:1px solid rgba(255,255,255,0.2);" id="cta-demo-btn">
+              <i class="ri-play-circle-line" aria-hidden="true"></i>
+              Watch Demo
+            </a>
+          </div>
+
+          <p style="font-size:var(--size-small);color:rgba(255,255,255,0.3);margin-block-start:var(--sp-4);">
+            14-day free trial · No credit card required · Cancel anytime · GDPR compliant
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="footer__logo">
+            <div class="footer__logo-icon" aria-hidden="true">
+              <i class="ri-qr-code-line" style="font-size:0.9rem;"></i>
+            </div>
+            QR<span style="color:var(--clr-secondary);">Serve</span>
+          </div>
+          <p>The premium QR digital menu & contactless ordering platform built for modern hospitality businesses worldwide.</p>
+          <div class="footer__social" aria-label="Social media links">
+            <a href="#" class="footer__social-link" aria-label="Follow QRServe on Twitter">
+              <i class="ri-twitter-x-line" aria-hidden="true"></i>
+            </a>
+            <a href="#" class="footer__social-link" aria-label="Follow QRServe on LinkedIn">
+              <i class="ri-linkedin-line" aria-hidden="true"></i>
+            </a>
+            <a href="#" class="footer__social-link" aria-label="Follow QRServe on Instagram">
+              <i class="ri-instagram-line" aria-hidden="true"></i>
+            </a>
+            <a href="#" class="footer__social-link" aria-label="Follow QRServe on Facebook">
+              <i class="ri-facebook-line" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="footer__col-title">Product</h3>
+          <ul class="footer__links">
+            <li><a href="features.html" class="footer__link">Features</a></li>
+            <li><a href="pricing.html" class="footer__link">Pricing</a></li>
+            <li><a href="demo.html" class="footer__link">Request Demo</a></li>
+            <li><a href="dashboard.html" class="footer__link">Dashboard</a></li>
+            <li><a href="coming-soon.html" class="footer__link">Changelog</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer__col-title">Company</h3>
+          <ul class="footer__links">
+            <li><a href="about.html" class="footer__link">About Us</a></li>
+            <li><a href="blog.html" class="footer__link">Blog</a></li>
+            <li><a href="contact.html" class="footer__link">Contact</a></li>
+            <li><a href="services.html" class="footer__link">Services</a></li>
+            <li><a href="coming-soon.html" class="footer__link">Careers</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer__col-title">Legal</h3>
+          <ul class="footer__links">
+            <li><a href="#" class="footer__link">Privacy Policy</a></li>
+            <li><a href="#" class="footer__link">Terms of Service</a></li>
+            <li><a href="#" class="footer__link">Cookie Policy</a></li>
+            <li><a href="#" class="footer__link">GDPR</a></li>
+            <li><a href="#" class="footer__link">Security</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>&copy; 2026 QRServe Technologies Inc. All rights reserved.</p>
+        <div class="footer__bottom-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================== SCRIPTS ===================== -->
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/forms.js"></script>
+
+  <script>
+    // Wire the home pricing toggle
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggle = document.getElementById('pricing-toggle-home');
+      if (!toggle) return;
+      const monthlyPrices = document.querySelectorAll('[data-price-monthly]');
+      const yearlyPrices = document.querySelectorAll('[data-price-yearly]');
+
+      toggle.addEventListener('change', () => {
+        const yearly = toggle.checked;
+        monthlyPrices.forEach(el => el.style.display = yearly ? 'none' : '');
+        yearlyPrices.forEach(el => el.style.display = yearly ? '' : 'none');
+      });
+    });
+  </script>
+
+</body>
+</html>

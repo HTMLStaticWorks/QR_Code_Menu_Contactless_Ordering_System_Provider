@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="404 — Table Not Found. The page you are looking for has been 86ed or does not exist." />
+  <title>404 — Table Not Found | QRServe</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/rtl.css" />
+
+  <style>
+    .error-page-wrapper {
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: var(--sp-8) var(--sp-4);
+      background: radial-gradient(circle at 50% 50%, rgba(0,200,150,0.1) 0%, transparent 60%), var(--clr-bg);
+      position: relative;
+    }
+
+    .error-code {
+      font-family: var(--font-heading);
+      font-size: clamp(6rem, 15vw, 10rem);
+      font-weight: 800;
+      color: var(--clr-primary);
+      line-height: 1;
+      position: relative;
+      display: inline-block;
+    }
+
+    [data-theme="dark"] .error-code {
+      color: #fff;
+    }
+
+    .error-code span {
+      color: var(--clr-secondary);
+    }
+
+    .error-cloche {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--clr-secondary-light);
+      color: var(--clr-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      margin-inline: auto;
+      margin-block-end: var(--sp-4);
+    }
+
+    [data-theme="dark"] .error-cloche {
+      background: rgba(0,200,150,0.15);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <header class="navbar" role="banner">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo" aria-label="QRServe — Home">
+        <div class="navbar__logo-icon" aria-hidden="true">
+          <i class="ri-qr-code-line" style="font-size:1.1rem;"></i>
+        </div>
+        QR<span>Serve</span>
+      </a>
+
+      <div class="navbar__actions">
+        <button class="icon-btn" data-theme-toggle data-theme-icon aria-label="Toggle dark mode" title="Toggle theme"></button>
+        <button class="icon-btn" data-rtl-btn aria-label="Switch to RTL" title="Switch direction"></button>
+        <a href="index.html" class="btn btn--primary btn--sm">Back To Home</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="error-page-wrapper">
+    <div class="error-cloche">
+      <i class="ri-restaurant-line"></i>
+    </div>
+    <div class="error-code">4<span>0</span>4</div>
+    <h1 style="font-size:var(--size-h3);margin-block:var(--sp-2);color:var(--clr-text-primary);">
+      This Table Has Been 86'd!
+    </h1>
+    <p style="color:var(--clr-text-secondary);max-width:480px;margin-inline:auto;margin-block-end:var(--sp-6);">
+      The page or QR code you scanned doesn't seem to exist on our menu. It might have moved, expired, or been cleared by the kitchen expediter.
+    </p>
+
+    <div style="display:flex;gap:var(--sp-2);justify-content:center;flex-wrap:wrap;">
+      <a href="index.html" class="btn btn--primary btn--md">
+        <i class="ri-home-4-line"></i> Return to Homepage
+      </a>
+      <a href="demo.html" class="btn btn--outline btn--md">
+        <i class="ri-play-circle-line"></i> Try Live Demo
+      </a>
+      <a href="contact.html" class="btn btn--ghost btn--md">
+        <i class="ri-customer-service-2-line"></i> Contact Support
+      </a>
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

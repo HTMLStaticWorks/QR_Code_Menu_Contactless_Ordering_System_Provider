@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Experience QRServe live with our interactive ordering simulator and Kitchen Display System (KDS), or schedule a personalized VIP demo for your restaurant." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://qrserve.io/demo" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://qrserve.io/demo" />
+  <meta property="og:title" content="Interactive Live Demo — QRServe Contactless Ordering" />
+  <meta property="og:description" content="Test our scan-to-order phone app and watch live kitchen tickets appear in real time." />
+
+  <title>Interactive Live Demo & Simulation — QRServe</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/rtl.css" />
+
+  <style>
+    /* Demo Hero */
+    .demo-hero {
+      background: var(--clr-primary);
+      padding-block: calc(var(--nav-height) + var(--sp-10)) var(--sp-8);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .demo-hero::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 50%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,200,150,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .demo-hero h1 { color: #fff; font-size: var(--size-h1); }
+    .demo-hero p { color: rgba(255,255,255,0.6); font-size: var(--size-lead); max-width: 600px; margin-inline: auto; margin-block-start: var(--sp-2); }
+
+    /* Sandbox Interactive Grid */
+    .simulator-section {
+      padding-block: var(--sp-10);
+      background: var(--clr-bg);
+    }
+
+    .simulator-grid {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: var(--sp-8);
+      align-items: start;
+    }
+
+    /* Phone Device Simulator Frame */
+    .phone-simulator-wrapper {
+      position: sticky;
+      top: calc(var(--nav-height) + 20px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .sim-phone-body {
+      width: 320px;
+      height: 640px;
+      background: #0a0f0d;
+      border-radius: 44px;
+      padding: 12px;
+      box-shadow: 0 30px 70px rgba(0,0,0,0.35), 0 0 0 4px #232c27;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sim-phone-notch {
+      position: absolute;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 18px;
+      background: #000;
+      border-radius: 12px;
+      z-index: 10;
+    }
+
+    .sim-phone-screen {
+      background: var(--clr-surface);
+      border-radius: 34px;
+      flex: 1;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .sim-header {
+      background: var(--clr-primary);
+      color: #fff;
+      padding: 1.75rem 1rem 0.75rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .sim-header h3 {
+      font-size: 0.85rem;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .sim-header p {
+      font-size: 0.65rem;
+      color: var(--clr-secondary);
+      margin-block-start: 2px;
+    }
+
+    .sim-table-badge {
+      position: absolute;
+      right: 12px;
+      top: 28px;
+      background: rgba(255,255,255,0.12);
+      font-size: 0.6rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      color: #fff;
+      font-family: var(--font-mono);
+    }
+
+    /* Sim Menu Categories */
+    .sim-cat-tabs {
+      display: flex;
+      gap: 0.4rem;
+      padding: 0.5rem 0.75rem;
+      background: var(--clr-surface-2);
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .sim-cat-btn {
+      padding: 0.25rem 0.65rem;
+      border-radius: var(--radius-pill);
+      border: none;
+      background: var(--clr-surface);
+      color: var(--clr-text-secondary);
+      font-size: 0.65rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all var(--transition-fast);
+    }
+
+    .sim-cat-btn.active {
+      background: var(--clr-secondary);
+      color: var(--clr-primary);
+    }
+
+    /* Sim Menu Items List */
+    .sim-item-list {
+      flex: 1;
+      overflow-y: auto;
+      padding: 0.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .sim-dish-card {
+      background: var(--clr-surface-2);
+      border-radius: 10px;
+      padding: 0.5rem;
+      display: flex;
+      gap: 0.6rem;
+      align-items: center;
+      transition: transform var(--transition-fast);
+    }
+
+    .sim-dish-card:hover {
+      transform: translateY(-1px);
+    }
+
+    .sim-dish-img {
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      background: var(--clr-secondary-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--clr-secondary);
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+
+    .sim-dish-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .sim-dish-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--clr-text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .sim-dish-desc {
+      font-size: 0.6rem;
+      color: var(--clr-text-muted);
+      line-height: 1.2;
+    }
+
+    .sim-dish-price {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--clr-secondary);
+      margin-block-start: 2px;
+    }
+
+    .sim-add-btn {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      border: none;
+      background: var(--clr-secondary);
+      color: var(--clr-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      flex-shrink: 0;
+    }
+
+    .sim-add-btn:hover {
+      transform: scale(1.1);
+      background: var(--clr-secondary-dark);
+    }
+
+    /* Sim Bottom Cart Bar */
+    .sim-cart-bar {
+      padding: 0.6rem 0.75rem;
+      background: var(--clr-surface);
+      border-block-start: 1px solid var(--clr-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .sim-cart-count {
+      font-size: 0.65rem;
+      color: var(--clr-text-muted);
+    }
+
+    .sim-cart-total {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--clr-text-primary);
+    }
+
+    .sim-checkout-btn {
+      padding: 0.4rem 0.85rem;
+      border-radius: 8px;
+      border: none;
+      background: var(--clr-secondary);
+      color: var(--clr-primary);
+      font-size: 0.7rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+
+    .sim-checkout-btn:hover {
+      background: var(--clr-secondary-dark);
+    }
+
+    /* Right Column: Live Kitchen Hub */
+    .kds-hub-wrapper {
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-xl);
+      padding: var(--sp-6);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .kds-hub-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-block-end: var(--sp-4);
+      padding-block-end: var(--sp-3);
+      border-block-end: 1px solid var(--clr-border);
+    }
+
+    .kds-live-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: var(--size-xs);
+      font-weight: 700;
+      color: var(--clr-secondary);
+      background: var(--clr-secondary-light);
+      padding: 0.35rem 0.75rem;
+      border-radius: var(--radius-pill);
+    }
+
+    [data-theme="dark"] .kds-live-indicator {
+      background: rgba(0,200,150,0.15);
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--clr-secondary);
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(0.9); opacity: 0.7; }
+      50% { transform: scale(1.3); opacity: 1; }
+      100% { transform: scale(0.9); opacity: 0.7; }
+    }
+
+    .kds-tickets-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--sp-4);
+    }
+
+    .kds-ticket-live {
+      background: var(--clr-surface-2);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      border-inline-start: 5px solid var(--clr-secondary);
+      position: relative;
+      animation: slideInDown 0.3s ease;
+    }
+
+    @keyframes slideInDown {
+      from { opacity: 0; transform: translateY(-15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .kds-ticket-live--warning {
+      border-inline-start-color: var(--clr-warning);
+    }
+
+    .kds-ticket-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-block-end: 0.75rem;
+    }
+
+    .kds-ticket-title {
+      font-weight: 800;
+      font-size: 1rem;
+      color: var(--clr-text-primary);
+    }
+
+    .kds-ticket-meta {
+      font-size: var(--size-xs);
+      color: var(--clr-text-muted);
+      font-family: var(--font-mono);
+    }
+
+    .kds-items-table {
+      width: 100%;
+      font-size: var(--size-small);
+      margin-block-end: 1rem;
+    }
+
+    .kds-items-table td {
+      padding-block: 0.3rem;
+    }
+
+    .kds-actions-bar {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    /* VIP Demo Booking Form Section */
+    .booking-section {
+      padding-block: var(--sp-12);
+      background: var(--clr-surface-2);
+    }
+
+    .booking-card {
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-xl);
+      padding: var(--sp-8);
+      max-width: 800px;
+      margin-inline: auto;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .form-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-3);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .simulator-grid {
+        grid-template-columns: 1fr;
+      }
+      .phone-simulator-wrapper {
+        position: relative;
+        top: 0;
+      }
+      .kds-tickets-container {
+        grid-template-columns: 1fr;
+      }
+      .form-grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <header class="navbar" role="banner">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo" aria-label="QRServe — Home">
+        <div class="navbar__logo-icon" aria-hidden="true">
+          <i class="ri-qr-code-line" style="font-size:1.1rem;"></i>
+        </div>
+        QR<span>Serve</span>
+      </a>
+
+      <nav class="navbar__nav" aria-label="Main navigation">
+        <a href="index.html" class="navbar__link" data-nav-link>Home</a>
+        <a href="home2.html" class="navbar__link" data-nav-link>Home 2</a>
+        <a href="features.html" class="navbar__link" data-nav-link>Features</a>
+        <a href="pricing.html" class="navbar__link" data-nav-link>Pricing</a>
+        <a href="demo.html" class="navbar__link active" data-nav-link>Demo</a>
+        <a href="blog.html" class="navbar__link" data-nav-link>Blog</a>
+        <a href="contact.html" class="navbar__link" data-nav-link>Contact</a>
+      </nav>
+
+      <div class="navbar__actions">
+        <button class="icon-btn" data-theme-toggle data-theme-icon aria-label="Toggle dark mode" title="Toggle theme"></button>
+        <button class="icon-btn" data-rtl-btn aria-label="Switch to RTL" title="Switch direction"></button>
+        <a href="dashboard.html" class="btn btn--ghost btn--sm" data-nav-link>Dashboard</a>
+        <a href="login.html" class="btn btn--outline btn--sm" data-nav-link>Login</a>
+        <a href="register.html" class="btn btn--primary btn--sm">Get Started</a>
+      </div>
+
+      <button class="navbar__hamburger" id="hamburger-btn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-drawer">
+        <i class="ri-menu-3-line" style="font-size:1.25rem;" aria-hidden="true"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===================== MOBILE DRAWER ===================== -->
+  <div class="drawer-overlay" id="drawer-overlay" aria-hidden="true"></div>
+  <div class="drawer" id="mobile-drawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <div class="drawer__header">
+      <a href="index.html" class="navbar__logo" style="font-size:1.25rem;">
+        <div class="navbar__logo-icon" style="width:30px;height:30px;" aria-hidden="true">
+          <i class="ri-qr-code-line" style="font-size:0.95rem;"></i>
+        </div>
+        QR<span>Serve</span>
+      </a>
+      <button class="icon-btn drawer__close" aria-label="Close navigation menu">
+        <i class="ri-close-line" style="font-size:1.25rem;" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <nav class="drawer__nav" aria-label="Mobile navigation">
+      <a href="index.html" class="drawer__link" data-nav-link><i class="ri-home-4-line"></i> Home</a>
+      <a href="home2.html" class="drawer__link" data-nav-link><i class="ri-layout-masonry-line"></i> Home 2</a>
+      <a href="features.html" class="drawer__link" data-nav-link><i class="ri-flashlight-line"></i> Features</a>
+      <a href="pricing.html" class="drawer__link" data-nav-link><i class="ri-price-tag-3-line"></i> Pricing</a>
+      <a href="demo.html" class="drawer__link active" data-nav-link><i class="ri-play-circle-line"></i> Demo</a>
+      <a href="blog.html" class="drawer__link" data-nav-link><i class="ri-article-line"></i> Blog</a>
+      <a href="contact.html" class="drawer__link" data-nav-link><i class="ri-mail-line"></i> Contact</a>
+      <a href="about.html" class="drawer__link" data-nav-link><i class="ri-information-line"></i> About</a>
+      <div class="divider"></div>
+      <a href="dashboard.html" class="drawer__link" data-nav-link><i class="ri-dashboard-line"></i> Dashboard</a>
+      <a href="login.html" class="drawer__link" data-nav-link><i class="ri-login-box-line"></i> Login</a>
+    </nav>
+
+    <div class="drawer__footer">
+      <a href="register.html" class="btn btn--primary btn--full">Get Started Free</a>
+      <div class="drawer__controls">
+        <button class="icon-btn" data-theme-toggle data-theme-icon aria-label="Toggle dark mode"></button>
+        <button class="icon-btn" data-rtl-btn aria-label="Switch text direction"></button>
+      </div>
+    </div>
+  </div>
+
+  <main id="main-content">
+    <!-- ===================== HERO ===================== -->
+    <section class="demo-hero" aria-labelledby="demo-heading">
+      <div class="container">
+        <span class="badge badge--pill badge--secondary" style="margin-block-end:var(--sp-2);">Live End-to-End Simulation</span>
+        <h1 id="demo-heading">Test QRServe Right In Your Browser</h1>
+        <p>Add items to your cart on the guest phone simulator below, click <strong>Place Order</strong>, and watch the ticket appear live on the Kitchen Display Screen!</p>
+      </div>
+    </section>
+
+    <!-- ===================== INTERACTIVE SIMULATOR ===================== -->
+    <section class="simulator-section">
+      <div class="container">
+        <div class="simulator-grid">
+
+          <!-- PHONE SIMULATOR (LEFT) -->
+          <div class="phone-simulator-wrapper">
+            <span style="font-size:var(--size-xs);font-weight:700;color:var(--clr-text-muted);margin-block-end:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">
+              <i class="ri-smartphone-line"></i> Diner Phone View (Table #14)
+            </span>
+
+            <div class="sim-phone-body">
+              <div class="sim-phone-notch"></div>
+              <div class="sim-phone-screen">
+
+                <!-- Sim Screen Header -->
+                <div class="sim-header">
+                  <h3>Le Bistro Moderne</h3>
+                  <p><i class="ri-sparkling-fill"></i> QR Digital Menu</p>
+                  <span class="sim-table-badge">Table 14</span>
+                </div>
+
+                <!-- Sim Categories -->
+                <div class="sim-cat-tabs" id="sim-categories">
+                  <button class="sim-cat-btn active" onclick="filterSimDishes('all', this)">All</button>
+                  <button class="sim-cat-btn" onclick="filterSimDishes('mains', this)">Mains</button>
+                  <button class="sim-cat-btn" onclick="filterSimDishes('drinks', this)">Cocktails</button>
+                  <button class="sim-cat-btn" onclick="filterSimDishes('desserts', this)">Desserts</button>
+                </div>
+
+                <!-- Sim Dishes List -->
+                <div class="sim-item-list" id="sim-dishes-container">
+
+                  <!-- Dish 1 -->
+                  <div class="sim-dish-card" data-category="mains">
+                    <div class="sim-dish-img" style="background:#e0faf4;color:#00c896;">
+                      <i class="ri-restaurant-line"></i>
+                    </div>
+                    <div class="sim-dish-info">
+                      <div class="sim-dish-title">Truffle Smash Burger</div>
+                      <div class="sim-dish-desc">Aged cheddar, caramelized onion, aioli</div>
+                      <div class="sim-dish-price">$16.50</div>
+                    </div>
+                    <button class="sim-add-btn" onclick="addToSimCart('Truffle Smash Burger', 16.50)" title="Add to cart">+</button>
+                  </div>
+
+                  <!-- Dish 2 -->
+                  <div class="sim-dish-card" data-category="mains">
+                    <div class="sim-dish-img" style="background:#fee2e2;color:#ef4444;">
+                      <i class="ri-fire-line"></i>
+                    </div>
+                    <div class="sim-dish-info">
+                      <div class="sim-dish-title">Prime Ribeye Steak</div>
+                      <div class="sim-dish-desc">Herb butter, garlic pomme purée</div>
+                      <div class="sim-dish-price">$34.00</div>
+                    </div>
+                    <button class="sim-add-btn" onclick="addToSimCart('Prime Ribeye Steak', 34.00)" title="Add to cart">+</button>
+                  </div>
+
+                  <!-- Dish 3 -->
+                  <div class="sim-dish-card" data-category="drinks">
+                    <div class="sim-dish-img" style="background:#fef3c7;color:#d97706;">
+                      <i class="ri-goblet-line"></i>
+                    </div>
+                    <div class="sim-dish-info">
+                      <div class="sim-dish-title">Smoked Mezcalita</div>
+                      <div class="sim-dish-desc">Artisanal agave, fresh lime, chili salt</div>
+                      <div class="sim-dish-price">$14.00</div>
+                    </div>
+                    <button class="sim-add-btn" onclick="addToSimCart('Smoked Mezcalita', 14.00)" title="Add to cart">+</button>
+                  </div>
+
+                  <!-- Dish 4 -->
+                  <div class="sim-dish-card" data-category="desserts">
+                    <div class="sim-dish-img" style="background:#f3e8ff;color:#9333ea;">
+                      <i class="ri-cake-3-line"></i>
+                    </div>
+                    <div class="sim-dish-info">
+                      <div class="sim-dish-title">Choc Hazelnut Fondant</div>
+                      <div class="sim-dish-desc">Warm molten center, vanilla bean gelato</div>
+                      <div class="sim-dish-price">$11.00</div>
+                    </div>
+                    <button class="sim-add-btn" onclick="addToSimCart('Choc Hazelnut Fondant', 11.00)" title="Add to cart">+</button>
+                  </div>
+
+                </div>
+
+                <!-- Sim Bottom Cart -->
+                <div class="sim-cart-bar">
+                  <div>
+                    <div class="sim-cart-count" id="sim-cart-count">0 items added</div>
+                    <div class="sim-cart-total" id="sim-cart-total">$0.00</div>
+                  </div>
+                  <button class="sim-checkout-btn" id="sim-order-btn" onclick="fireSimOrder()">
+                    <i class="ri-flashlight-line"></i> Order Now
+                  </button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- KITCHEN DISPLAY HUB (RIGHT) -->
+          <div class="kds-hub-wrapper">
+            <div class="kds-hub-header">
+              <div>
+                <h2 style="font-size:var(--size-h4);color:var(--clr-text-primary);margin-block-end:0.25rem;">Live Kitchen Display System (KDS)</h2>
+                <p style="font-size:var(--size-small);color:var(--clr-text-muted);">Real-time station order queue connected to Table 14</p>
+              </div>
+              <div class="kds-live-indicator">
+                <span class="pulse-dot"></span>
+                <span>SYSTEM LIVE &bull; 0 DELAY</span>
+              </div>
+            </div>
+
+            <!-- Existing Seed Tickets -->
+            <div class="kds-tickets-container" id="kds-tickets-list">
+
+              <!-- Ticket 1 -->
+              <div class="kds-ticket-live">
+                <div class="kds-ticket-header">
+                  <div>
+                    <div class="kds-ticket-title">Table 06 &bull; Dine-in</div>
+                    <div class="kds-ticket-meta">Ticket #1041 &bull; 6 min ago</div>
+                  </div>
+                  <span class="badge badge--secondary" style="font-size:0.7rem;">In Prep</span>
+                </div>
+                <table class="kds-items-table">
+                  <tr>
+                    <td><strong>2x</strong> Truffle Smash Burger</td>
+                    <td style="text-align:right;color:var(--clr-text-muted);">Medium</td>
+                  </tr>
+                  <tr>
+                    <td><strong>1x</strong> Parmesan Polenta Fries</td>
+                    <td style="text-align:right;color:var(--clr-text-muted);">Extra aioli</td>
+                  </tr>
+                </table>
+                <div class="kds-actions-bar">
+                  <button class="btn btn--sm btn--secondary" onclick="bumpKdsTicket(this)" style="flex:1;">
+                    <i class="ri-check-double-line"></i> Mark Ready
+                  </button>
+                </div>
+              </div>
+
+              <!-- Ticket 2 -->
+              <div class="kds-ticket-live kds-ticket-live--warning">
+                <div class="kds-ticket-header">
+                  <div>
+                    <div class="kds-ticket-title">Table 11 &bull; Patio</div>
+                    <div class="kds-ticket-meta">Ticket #1040 &bull; 14 min ago</div>
+                  </div>
+                  <span class="badge badge--warning" style="font-size:0.7rem;">Expedite</span>
+                </div>
+                <table class="kds-items-table">
+                  <tr>
+                    <td><strong>2x</strong> Prime Ribeye Steak</td>
+                    <td style="text-align:right;color:var(--clr-text-muted);">Rare</td>
+                  </tr>
+                  <tr>
+                    <td><strong>2x</strong> Smoked Mezcalita</td>
+                    <td style="text-align:right;color:var(--clr-text-muted);">Bar Station</td>
+                  </tr>
+                </table>
+                <div class="kds-actions-bar">
+                  <button class="btn btn--sm btn--warning" onclick="bumpKdsTicket(this)" style="flex:1;">
+                    <i class="ri-check-double-line"></i> Mark Ready
+                  </button>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Hint Box -->
+            <div style="background:var(--clr-surface-2);border-radius:var(--radius-md);padding:1rem;margin-block-start:var(--sp-4);display:flex;align-items:center;gap:1rem;">
+              <i class="ri-information-line" style="font-size:1.5rem;color:var(--clr-secondary);flex-shrink:0;"></i>
+              <p style="font-size:var(--size-small);color:var(--clr-text-secondary);margin:0;">
+                <strong>Interactive Tip:</strong> Click the <strong>+</strong> button on any dish in the phone screen on the left, then click <strong>Order Now</strong>. A new ticket will flash and arrive right here!
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== BOOK A GUIDED VIP DEMO ===================== -->
+    <section class="booking-section" aria-labelledby="booking-heading">
+      <div class="container">
+        <div class="booking-card">
+          <div style="text-align:center;margin-block-end:var(--sp-6);">
+            <span class="badge badge--pill badge--secondary" style="margin-block-end:var(--sp-2);">Personalized Walkthrough</span>
+            <h2 id="booking-heading" style="font-size:var(--size-h3);color:var(--clr-text-primary);">Book A 1-on-1 VIP Strategy Session</h2>
+            <p style="color:var(--clr-text-secondary);max-width:520px;margin-inline:auto;">A restaurant technology specialist will analyze your floor plan, menu layout, and current POS system to calculate exact ROI and time savings.</p>
+          </div>
+
+          <form id="demo-booking-form" onsubmit="handleDemoBooking(event)">
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label for="demo-name" class="form-label">Full Name *</label>
+                <input type="text" id="demo-name" class="form-input" placeholder="Chef Marco Rossi" required />
+              </div>
+              <div class="form-group">
+                <label for="demo-email" class="form-label">Work Email *</label>
+                <input type="email" id="demo-email" class="form-input" placeholder="marco@rossicucina.com" required />
+              </div>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label for="demo-restaurant" class="form-label">Restaurant / Brand Name *</label>
+                <input type="text" id="demo-restaurant" class="form-input" placeholder="Rossi Osteria & Bar" required />
+              </div>
+              <div class="form-group">
+                <label for="demo-locations" class="form-label">Number of Locations *</label>
+                <select id="demo-locations" class="form-input">
+                  <option value="1">1 Single Venue</option>
+                  <option value="2-5">2 to 5 Locations</option>
+                  <option value="6-20">6 to 20 Multi-Unit Chain</option>
+                  <option value="20+">20+ Enterprise / Hotel Group</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label for="demo-pos" class="form-label">Current POS System</label>
+                <select id="demo-pos" class="form-input">
+                  <option value="Toast">Toast POS</option>
+                  <option value="Square">Square</option>
+                  <option value="Clover">Clover</option>
+                  <option value="Micros">Oracle Micros Simphony</option>
+                  <option value="Lightspeed">Lightspeed</option>
+                  <option value="Other">Other / None</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="demo-phone" class="form-label">Phone Number *</label>
+                <input type="tel" id="demo-phone" class="form-input" placeholder="+1 (555) 019-2834" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="demo-notes" class="form-label">What is your primary goal?</label>
+              <textarea id="demo-notes" class="form-input" rows="3" placeholder="e.g. Cut waiter order taking delay, increase weekend table turnover, integrate with Toast POS..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn--primary btn--full btn--lg" style="margin-block-start:var(--sp-2);">
+              <i class="ri-calendar-check-line"></i> Confirm VIP Demo Appointment
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="footer__logo">
+            <div class="footer__logo-icon" aria-hidden="true">
+              <i class="ri-qr-code-line" style="font-size:0.9rem;"></i>
+            </div>
+            QR<span style="color:var(--clr-secondary);">Serve</span>
+          </div>
+          <p>The premium QR digital menu & contactless ordering platform built for modern hospitality businesses worldwide.</p>
+          <div class="footer__social" aria-label="Social media links">
+            <a href="#" class="footer__social-link" aria-label="Twitter"><i class="ri-twitter-x-line"></i></a>
+            <a href="#" class="footer__social-link" aria-label="LinkedIn"><i class="ri-linkedin-line"></i></a>
+            <a href="#" class="footer__social-link" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+            <a href="#" class="footer__social-link" aria-label="Facebook"><i class="ri-facebook-line"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="footer__col-title">Product</h3>
+          <ul class="footer__links">
+            <li><a href="features.html" class="footer__link">Features</a></li>
+            <li><a href="pricing.html" class="footer__link">Pricing</a></li>
+            <li><a href="demo.html" class="footer__link">Request Demo</a></li>
+            <li><a href="dashboard.html" class="footer__link">Dashboard</a></li>
+            <li><a href="coming-soon.html" class="footer__link">Changelog</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer__col-title">Company</h3>
+          <ul class="footer__links">
+            <li><a href="about.html" class="footer__link">About Us</a></li>
+            <li><a href="blog.html" class="footer__link">Blog</a></li>
+            <li><a href="contact.html" class="footer__link">Contact</a></li>
+            <li><a href="services.html" class="footer__link">Services</a></li>
+            <li><a href="coming-soon.html" class="footer__link">Careers</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer__col-title">Legal</h3>
+          <ul class="footer__links">
+            <li><a href="#" class="footer__link">Privacy Policy</a></li>
+            <li><a href="#" class="footer__link">Terms of Service</a></li>
+            <li><a href="#" class="footer__link">Cookie Policy</a></li>
+            <li><a href="#" class="footer__link">Security</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>&copy; 2026 QRServe Technologies Inc. All rights reserved.</p>
+        <div class="footer__bottom-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+  <script>
+    let simCart = [];
+    let ticketCounter = 1042;
+
+    function filterSimDishes(category, btn) {
+      document.querySelectorAll('#sim-categories button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const cards = document.querySelectorAll('#sim-dishes-container .sim-dish-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function addToSimCart(name, price) {
+      simCart.push({ name, price });
+      updateSimCartUI();
+      if (window.QRServe && window.QRServe.Toast) {
+        window.QRServe.Toast.show(`Added ${name} to Table 14 tab!`, 'success');
+      }
+    }
+
+    function updateSimCartUI() {
+      const countEl = document.getElementById('sim-cart-count');
+      const totalEl = document.getElementById('sim-cart-total');
+      const orderBtn = document.getElementById('sim-order-btn');
+      
+      const total = simCart.reduce((sum, item) => sum + item.price, 0);
+      countEl.textContent = `${simCart.length} item${simCart.length === 1 ? '' : 's'} added`;
+      totalEl.textContent = `$${total.toFixed(2)}`;
+
+      if (simCart.length > 0) {
+        orderBtn.style.background = 'var(--clr-secondary)';
+        orderBtn.style.animation = 'pulse 1s 2';
+      }
+    }
+
+    function fireSimOrder() {
+      if (simCart.length === 0) {
+        if (window.QRServe && window.QRServe.Toast) {
+          window.QRServe.Toast.show('Please add at least 1 item using the + button!', 'error');
+        }
+        return;
+      }
+
+      ticketCounter++;
+      const ticketsContainer = document.getElementById('kds-tickets-list');
+      
+      // Group items for display
+      const itemCounts = {};
+      simCart.forEach(item => {
+        itemCounts[item.name] = (itemCounts[item.name] || 0) + 1;
+      });
+
+      let itemsRows = '';
+      for (const [name, count] of Object.entries(itemCounts)) {
+        itemsRows += `
+          <tr>
+            <td><strong>${count}x</strong> ${name}</td>
+            <td style="text-align:right;color:var(--clr-secondary);font-weight:600;">NEW</td>
+          </tr>
+        `;
+      }
+
+      const newTicketHTML = document.createElement('div');
+      newTicketHTML.className = 'kds-ticket-live';
+      newTicketHTML.style.borderInlineStartColor = '#00c896';
+      newTicketHTML.style.background = 'rgba(0, 200, 150, 0.08)';
+      newTicketHTML.innerHTML = `
+        <div class="kds-ticket-header">
+          <div>
+            <div class="kds-ticket-title">Table 14 &bull; Main Dining</div>
+            <div class="kds-ticket-meta">Ticket #${ticketCounter} &bull; Just now</div>
+          </div>
+          <span class="badge badge--success" style="font-size:0.7rem;"><i class="ri-flashlight-line"></i> FIRED LIVE</span>
+        </div>
+        <table class="kds-items-table">
+          ${itemsRows}
+        </table>
+        <div class="kds-actions-bar">
+          <button class="btn btn--sm btn--secondary" onclick="bumpKdsTicket(this)" style="flex:1;">
+            <i class="ri-check-double-line"></i> Mark Ready
+          </button>
+        </div>
+      `;
+
+      ticketsContainer.prepend(newTicketHTML);
+
+      // Reset phone cart
+      simCart = [];
+      updateSimCartUI();
+
+      if (window.QRServe && window.QRServe.Toast) {
+        window.QRServe.Toast.show(`Order #${ticketCounter} transmitted to Kitchen KDS Screen!`, 'success');
+      }
+    }
+
+    function bumpKdsTicket(btn) {
+      const ticket = btn.closest('.kds-ticket-live');
+      ticket.style.opacity = '0.3';
+      ticket.style.transform = 'scale(0.96)';
+      ticket.style.transition = 'all 0.3s ease';
+      setTimeout(() => {
+        ticket.innerHTML = `
+          <div style="text-align:center;padding:1.5rem;color:var(--clr-secondary);">
+            <i class="ri-checkbox-circle-fill" style="font-size:2.5rem;"></i>
+            <h4 style="margin-block-start:0.5rem;font-size:0.95rem;">Order Completed & Served!</h4>
+            <p style="font-size:var(--size-xs);color:var(--clr-text-muted);">Table 14 notified on guest phone.</p>
+          </div>
+        `;
+        ticket.style.opacity = '1';
+        ticket.style.transform = 'none';
+        ticket.style.background = 'var(--clr-surface-2)';
+      }, 300);
+      if (window.QRServe && window.QRServe.Toast) {
+        window.QRServe.Toast.show('Kitchen ticket cleared and logged to reporting!', 'info');
+      }
+    }
+
+    function handleDemoBooking(e) {
+      e.preventDefault();
+      const name = document.getElementById('demo-name').value;
+      const restaurant = document.getElementById('demo-restaurant').value;
+      
+      if (window.QRServe && window.QRServe.Toast) {
+        window.QRServe.Toast.show(`VIP Demo confirmed for ${name} at ${restaurant}! A calendar invite has been sent.`, 'success');
+      }
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>

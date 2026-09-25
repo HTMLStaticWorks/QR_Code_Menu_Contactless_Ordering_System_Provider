@@ -1,0 +1,1857 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="QRServe Dashboard — Manage your digital menus, QR codes, orders, analytics and more from one powerful restaurant dashboard." />
+  <link rel="canonical" href="https://qrserve.io/dashboard" />
+  <meta property="og:title" content="QRServe Dashboard" />
+  <meta property="og:description" content="Your restaurant control center. Manage menus, orders, tables, analytics, and QR codes." />
+  <title>Dashboard — QRServe</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/rtl.css" />
+
+  <style>
+    /* ======= DASHBOARD LAYOUT ======= */
+    :root {
+      --sidebar-width: 260px;
+      --sidebar-collapsed-width: 72px;
+      --db-topbar-height: 64px;
+    }
+
+    body { overflow-x: hidden; }
+
+    .db-layout {
+      display: flex;
+      min-height: 100svh;
+      background: var(--clr-bg);
+    }
+
+    /* ======= SIDEBAR ======= */
+    .db-sidebar {
+      width: var(--sidebar-width);
+      min-height: 100svh;
+      background: var(--clr-primary);
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      inset-block: 0;
+      inset-inline-start: 0;
+      z-index: var(--z-sticky);
+      transition: width var(--transition-base), transform var(--transition-base);
+      overflow: hidden;
+      border-inline-end: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .db-sidebar--collapsed {
+      width: var(--sidebar-collapsed-width);
+    }
+
+    .db-sidebar__logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1.25rem 1.5rem;
+      border-block-end: 1px solid rgba(255,255,255,0.06);
+      text-decoration: none;
+      min-height: var(--db-topbar-height);
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .db-sidebar__logo-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--clr-secondary);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--clr-primary);
+      flex-shrink: 0;
+    }
+
+    .db-sidebar__logo-text {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #fff;
+      white-space: nowrap;
+    }
+
+    .db-sidebar__logo-text span { color: var(--clr-secondary); }
+
+    .db-sidebar--collapsed .db-sidebar__logo-text { opacity: 0; width: 0; }
+
+    /* NAV */
+    .db-nav {
+      flex: 1;
+      padding: 1rem 0.75rem;
+      overflow-y: auto;
+      overflow-x: hidden;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255,255,255,0.1) transparent;
+    }
+
+    .db-nav__section-title {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+      padding: 0.5rem 0.75rem;
+      margin-block-start: 0.5rem;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .db-sidebar--collapsed .db-nav__section-title { opacity: 0; }
+
+    .db-nav__link {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.625rem 0.75rem;
+      border-radius: var(--radius-md);
+      color: rgba(255,255,255,0.45);
+      font-size: 0.875rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all var(--transition-fast);
+      white-space: nowrap;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .db-nav__link i {
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      width: 20px;
+      text-align: center;
+    }
+
+    .db-nav__link span { flex: 1; }
+
+    .db-nav__link:hover {
+      color: rgba(255,255,255,0.8);
+      background: rgba(255,255,255,0.05);
+    }
+
+    .db-nav__link.active {
+      color: var(--clr-secondary);
+      background: rgba(0,200,150,0.1);
+    }
+
+    .db-nav__link.active::before {
+      content: '';
+      position: absolute;
+      inset-block: 0;
+      inset-inline-start: 0;
+      width: 3px;
+      background: var(--clr-secondary);
+      border-radius: 0 2px 2px 0;
+    }
+
+    .db-nav__badge {
+      font-size: 0.65rem;
+      font-weight: 600;
+      background: var(--clr-accent);
+      color: #fff;
+      padding: 0.15rem 0.45rem;
+      border-radius: var(--radius-pill);
+      margin-inline-start: auto;
+      flex-shrink: 0;
+    }
+
+    .db-sidebar--collapsed .db-nav__link span,
+    .db-sidebar--collapsed .db-nav__badge {
+      opacity: 0;
+      width: 0;
+    }
+
+    .db-sidebar--collapsed .db-nav__link {
+      justify-content: center;
+      padding-inline: 0;
+    }
+
+    /* Sidebar Footer */
+    .db-sidebar__footer {
+      padding: 1rem 0.75rem;
+      border-block-start: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .db-user-card {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.625rem 0.75rem;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: background var(--transition-fast);
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .db-user-card:hover { background: rgba(255,255,255,0.06); }
+
+    .db-user-card__avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--clr-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      color: var(--clr-primary);
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
+
+    .db-user-card__info { overflow: hidden; }
+
+    .db-user-card__name {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #fff;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .db-user-card__plan {
+      font-size: 0.65rem;
+      color: var(--clr-secondary);
+      font-weight: 500;
+    }
+
+    .db-sidebar--collapsed .db-user-card__info { opacity: 0; width: 0; }
+
+    /* ======= MAIN CONTENT ======= */
+    .db-main {
+      margin-inline-start: var(--sidebar-width);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      transition: margin-inline-start var(--transition-base);
+      min-width: 0;
+    }
+
+    .db-main--expanded {
+      margin-inline-start: var(--sidebar-collapsed-width);
+    }
+
+    /* ======= TOPBAR ======= */
+    .db-topbar {
+      height: var(--db-topbar-height);
+      background: var(--clr-surface);
+      border-block-end: 1px solid var(--clr-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-inline: var(--sp-4);
+      position: sticky;
+      top: 0;
+      z-index: var(--z-sticky);
+      gap: var(--sp-3);
+    }
+
+    .db-topbar__left {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-3);
+    }
+
+    .db-topbar__right {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-2);
+    }
+
+    .db-topbar__title {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--clr-text-primary);
+    }
+
+    .db-search {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--clr-surface-2);
+      border: 1.5px solid var(--clr-border);
+      border-radius: var(--radius-md);
+      padding: 0.5rem 0.875rem;
+      min-width: 220px;
+      transition: border-color var(--transition-fast);
+    }
+
+    .db-search:focus-within {
+      border-color: var(--clr-secondary);
+    }
+
+    .db-search input {
+      border: none;
+      background: transparent;
+      color: var(--clr-text-primary);
+      font-size: 0.875rem;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .db-search input:focus { outline: none; }
+    .db-search input::placeholder { color: var(--clr-text-muted); }
+
+    /* Notification */
+    .notification-panel {
+      position: absolute;
+      inset-block-start: calc(100% + 0.5rem);
+      inset-inline-end: 0;
+      width: 320px;
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-xl);
+      z-index: var(--z-dropdown);
+      display: none;
+      overflow: hidden;
+    }
+
+    .notification-panel.active { display: block; }
+
+    .notif-header {
+      padding: var(--sp-3) var(--sp-4);
+      border-block-end: 1px solid var(--clr-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .notif-header h3 {
+      font-size: var(--size-small);
+      font-weight: 600;
+    }
+
+    .notif-item {
+      display: flex;
+      gap: var(--sp-2);
+      padding: var(--sp-3) var(--sp-4);
+      border-block-end: 1px solid var(--clr-border);
+      transition: background var(--transition-fast);
+      cursor: pointer;
+    }
+
+    .notif-item:hover { background: var(--clr-surface-2); }
+    .notif-item:last-child { border-block-end: none; }
+
+    .notif-item__dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--clr-secondary);
+      flex-shrink: 0;
+      margin-block-start: 5px;
+    }
+
+    .notif-item__dot--read { background: var(--clr-border-strong); }
+
+    .notif-item__text { font-size: 0.8rem; color: var(--clr-text-secondary); line-height: 1.5; }
+    .notif-item__time { font-size: 0.7rem; color: var(--clr-text-muted); margin-block-start: 0.25rem; }
+
+    /* ======= CONTENT AREA ======= */
+    .db-content {
+      padding: var(--sp-6);
+      flex: 1;
+    }
+
+    .db-page { display: none; }
+    .db-page.active { display: block; }
+
+    /* ======= KPI CARDS ======= */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: var(--sp-3);
+      margin-block-end: var(--sp-6);
+    }
+
+    .kpi-card {
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-4);
+      transition: all var(--transition-base);
+    }
+
+    .kpi-card:hover {
+      box-shadow: var(--shadow-md);
+      border-color: var(--clr-border-strong);
+    }
+
+    .kpi-card__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-block-end: var(--sp-3);
+    }
+
+    .kpi-card__label {
+      font-size: var(--size-xs);
+      font-weight: 600;
+      color: var(--clr-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .kpi-card__icon {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+    }
+
+    .kpi-card__value {
+      font-family: var(--font-heading);
+      font-size: 1.875rem;
+      font-weight: 600;
+      line-height: 1;
+      margin-block-end: 0.5rem;
+    }
+
+    .kpi-card__trend {
+      font-size: var(--size-xs);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .kpi-card__trend--up { color: var(--clr-secondary); }
+    .kpi-card__trend--down { color: var(--clr-accent); }
+    .kpi-card__trend--sub { color: var(--clr-text-muted); font-weight: 400; margin-inline-start: 0.25rem; }
+
+    /* ======= CHARTS ======= */
+    .charts-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-4);
+      margin-block-end: var(--sp-6);
+    }
+
+    .chart-card {
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-4);
+    }
+
+    .chart-card__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-block-end: var(--sp-3);
+    }
+
+    .chart-card__title {
+      font-family: var(--font-heading);
+      font-size: var(--size-h5);
+      font-weight: 600;
+    }
+
+    canvas {
+      width: 100%;
+      display: block;
+    }
+
+    /* ======= DATA TABLES ======= */
+    .db-card {
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-block-end: var(--sp-4);
+    }
+
+    .db-card__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--sp-4);
+      border-block-end: 1px solid var(--clr-border);
+      gap: var(--sp-2);
+      flex-wrap: wrap;
+    }
+
+    .db-card__title {
+      font-family: var(--font-heading);
+      font-size: var(--size-h5);
+      font-weight: 600;
+    }
+
+    .db-filter-tabs {
+      display: flex;
+      gap: 0.375rem;
+      flex-wrap: wrap;
+    }
+
+    .db-filter-tab {
+      padding: 0.35rem 0.875rem;
+      border-radius: var(--radius-pill);
+      border: 1.5px solid var(--clr-border);
+      font-size: var(--size-xs);
+      font-weight: 500;
+      color: var(--clr-text-secondary);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      background: transparent;
+    }
+
+    .db-filter-tab:hover,
+    .db-filter-tab.active {
+      border-color: var(--clr-secondary);
+      color: var(--clr-secondary);
+      background: var(--clr-secondary-light);
+    }
+
+    [data-theme="dark"] .db-filter-tab:hover,
+    [data-theme="dark"] .db-filter-tab.active {
+      background: rgba(0,200,150,0.1);
+    }
+
+    .db-table-wrap { overflow-x: auto; }
+
+    .db-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+    }
+
+    .db-table th {
+      text-align: start;
+      padding: var(--sp-2) var(--sp-3);
+      font-size: var(--size-xs);
+      font-weight: 600;
+      color: var(--clr-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-block-end: 1px solid var(--clr-border);
+      background: var(--clr-surface-2);
+      white-space: nowrap;
+    }
+
+    .db-table__row { transition: background var(--transition-fast); }
+    .db-table__row:hover { background: var(--clr-surface-2); }
+
+    .db-table__cell {
+      padding: var(--sp-2) var(--sp-3);
+      border-block-end: 1px solid var(--clr-border);
+      white-space: nowrap;
+    }
+
+    .db-table__row:last-child .db-table__cell { border-block-end: none; }
+
+    /* ======= ACTION BUTTONS ======= */
+    .db-action-btn {
+      width: 30px;
+      height: 30px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--clr-border);
+      background: transparent;
+      color: var(--clr-text-secondary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.875rem;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+
+    .db-action-btn:hover {
+      border-color: var(--clr-secondary);
+      color: var(--clr-secondary);
+      background: var(--clr-secondary-light);
+    }
+
+    [data-theme="dark"] .db-action-btn:hover {
+      background: rgba(0,200,150,0.1);
+    }
+
+    .db-action-btn--green:hover {
+      border-color: var(--clr-secondary);
+      color: var(--clr-secondary);
+      background: rgba(0,200,150,0.1);
+    }
+
+    .db-action-btn--red:hover {
+      border-color: var(--clr-accent);
+      color: var(--clr-accent);
+      background: rgba(255,107,91,0.1);
+    }
+
+    /* ======= QR GRID ======= */
+    .qr-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: var(--sp-3);
+    }
+
+    .qr-card {
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-4);
+      text-align: center;
+      transition: all var(--transition-base);
+    }
+
+    .qr-card:hover {
+      border-color: var(--clr-secondary);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .qr-card__code {
+      width: 80px;
+      height: 80px;
+      background: var(--clr-surface-2);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto var(--sp-3);
+    }
+
+    .qr-card__name {
+      font-size: var(--size-small);
+      font-weight: 600;
+      margin-block-end: 0.375rem;
+    }
+
+    .qr-card__scans {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.375rem;
+      font-size: var(--size-xs);
+      color: var(--clr-text-muted);
+      margin-block-end: 0.625rem;
+    }
+
+    .qr-card__last {
+      color: var(--clr-text-muted);
+      font-size: 0.7rem;
+    }
+
+    .qr-card__actions {
+      display: flex;
+      justify-content: center;
+      gap: 0.375rem;
+      margin-block-start: var(--sp-2);
+    }
+
+    /* ======= MENU BUILDER ======= */
+    .menu-builder-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: var(--sp-4);
+    }
+
+    .menu-cat-chip {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.625rem 0.875rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--clr-border);
+      background: var(--clr-surface);
+      margin-block-end: 0.5rem;
+      font-size: var(--size-small);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+
+    .menu-cat-chip:hover {
+      border-color: var(--clr-secondary);
+      background: var(--clr-secondary-light);
+    }
+
+    [data-theme="dark"] .menu-cat-chip:hover {
+      background: rgba(0,200,150,0.08);
+    }
+
+    .menu-cat-chip__dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .menu-item-row {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-3);
+      padding: var(--sp-2) var(--sp-4);
+      border-block-end: 1px solid var(--clr-border);
+      transition: background var(--transition-fast);
+    }
+
+    .menu-item-row:last-child { border-block-end: none; }
+    .menu-item-row:hover { background: var(--clr-surface-2); }
+
+    .menu-item-row__img {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-sm);
+      object-fit: cover;
+      flex-shrink: 0;
+      background: var(--clr-surface-2);
+    }
+
+    .menu-item-row__name {
+      font-size: var(--size-small);
+      font-weight: 600;
+    }
+
+    .menu-item-row__price {
+      font-size: var(--size-xs);
+      color: var(--clr-secondary);
+      font-weight: 600;
+    }
+
+    /* ======= ANALYTICS PAGE ======= */
+    .analytics-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: var(--sp-4);
+    }
+
+    .popular-item {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-3);
+      padding-block: var(--sp-2);
+      border-block-end: 1px solid var(--clr-border);
+    }
+
+    .popular-item:last-child { border-block-end: none; }
+
+    .popular-item__rank {
+      font-family: var(--font-heading);
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--clr-text-muted);
+      width: 24px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .popular-item__bar-wrap {
+      flex: 1;
+    }
+
+    .popular-item__name {
+      font-size: var(--size-small);
+      font-weight: 500;
+      margin-block-end: 0.25rem;
+    }
+
+    .popular-item__bar-track {
+      height: 4px;
+      background: var(--clr-surface-3);
+      border-radius: 2px;
+    }
+
+    .popular-item__bar-fill {
+      height: 100%;
+      border-radius: 2px;
+      background: var(--clr-secondary);
+    }
+
+    .popular-item__count {
+      font-size: var(--size-xs);
+      color: var(--clr-text-muted);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    /* ======= SETTINGS PAGE ======= */
+    .settings-grid {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: var(--sp-6);
+    }
+
+    .settings-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .settings-nav__link {
+      padding: 0.625rem 0.875rem;
+      border-radius: var(--radius-md);
+      font-size: var(--size-small);
+      font-weight: 500;
+      color: var(--clr-text-secondary);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .settings-nav__link:hover,
+    .settings-nav__link.active {
+      color: var(--clr-secondary);
+      background: var(--clr-secondary-light);
+    }
+
+    [data-theme="dark"] .settings-nav__link:hover,
+    [data-theme="dark"] .settings-nav__link.active {
+      background: rgba(0,200,150,0.1);
+    }
+
+    .settings-section {
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-5);
+      margin-block-end: var(--sp-4);
+    }
+
+    .settings-section h3 {
+      font-size: var(--size-h5);
+      margin-block-end: var(--sp-4);
+      padding-block-end: var(--sp-3);
+      border-block-end: 1px solid var(--clr-border);
+    }
+
+    .settings-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-block: var(--sp-3);
+      border-block-end: 1px solid var(--clr-border);
+      gap: var(--sp-4);
+    }
+
+    .settings-row:last-child { border-block-end: none; }
+
+    .settings-row__info h4 {
+      font-size: var(--size-small);
+      font-weight: 500;
+      margin-block-end: 0.25rem;
+    }
+
+    .settings-row__info p {
+      font-size: var(--size-xs);
+      color: var(--clr-text-muted);
+    }
+
+    /* ======= SUBSCRIPTION PAGE ======= */
+    .subscription-card {
+      background: linear-gradient(135deg, var(--clr-primary) 0%, var(--clr-green-muted) 100%);
+      border-radius: var(--radius-xl);
+      padding: var(--sp-8);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .subscription-card::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -10%;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,200,150,0.2) 0%, transparent 70%);
+    }
+
+    /* ======= SIDEBAR OVERLAY (Mobile) ======= */
+    .db-sidebar-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: calc(var(--z-sticky) - 1);
+      backdrop-filter: blur(2px);
+    }
+
+    .db-sidebar-overlay.active { display: block; }
+
+    /* ======= MOBILE RESPONSIVE ======= */
+    @media (max-width: 1024px) {
+      .db-sidebar {
+        transform: translateX(-100%);
+        width: var(--sidebar-width) !important;
+      }
+
+      [dir="rtl"] .db-sidebar {
+        transform: translateX(100%);
+      }
+
+      .db-sidebar--mobile-open {
+        transform: translateX(0) !important;
+      }
+
+      .db-main { margin-inline-start: 0 !important; }
+
+      .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+      .charts-grid { grid-template-columns: 1fr; }
+      .menu-builder-grid { grid-template-columns: 1fr; }
+      .analytics-grid { grid-template-columns: 1fr; }
+      .settings-grid { grid-template-columns: 1fr; }
+      .db-search { display: none; }
+    }
+
+    @media (max-width: 480px) {
+      .kpi-grid { grid-template-columns: 1fr 1fr; }
+      .db-content { padding: var(--sp-3); }
+      .qr-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 360px) {
+      .kpi-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="db-layout">
+
+    <!-- ===================== SIDEBAR ===================== -->
+    <aside class="db-sidebar" role="navigation" aria-label="Dashboard navigation">
+      <a href="index.html" class="db-sidebar__logo" aria-label="QRServe — Back to website">
+        <div class="db-sidebar__logo-icon" aria-hidden="true">
+          <i class="ri-qr-code-line" style="font-size:1.1rem;"></i>
+        </div>
+        <span class="db-sidebar__logo-text">QR<span>Serve</span></span>
+      </a>
+
+      <nav class="db-nav" aria-label="Dashboard sections">
+        <div class="db-nav__section-title">Main</div>
+
+        <a href="#overview" class="db-nav__link active" data-page="overview" aria-current="page">
+          <i class="ri-dashboard-3-line" aria-hidden="true"></i>
+          <span>Overview</span>
+        </a>
+
+        <div class="db-nav__section-title">Menu</div>
+
+        <a href="#digital-menu" class="db-nav__link" data-page="digital-menu">
+          <i class="ri-layout-grid-line" aria-hidden="true"></i>
+          <span>Digital Menu</span>
+        </a>
+
+        <a href="#menu-builder" class="db-nav__link" data-page="menu-builder">
+          <i class="ri-edit-box-line" aria-hidden="true"></i>
+          <span>Menu Builder</span>
+        </a>
+
+        <a href="#qr-codes" class="db-nav__link" data-page="qr-codes">
+          <i class="ri-qr-code-line" aria-hidden="true"></i>
+          <span>QR Codes</span>
+        </a>
+
+        <div class="db-nav__section-title">Operations</div>
+
+        <a href="#tables" class="db-nav__link" data-page="tables">
+          <i class="ri-table-line" aria-hidden="true"></i>
+          <span>Tables</span>
+        </a>
+
+        <a href="#orders" class="db-nav__link" data-page="orders">
+          <i class="ri-file-list-3-line" aria-hidden="true"></i>
+          <span>Orders</span>
+          <span class="db-nav__badge" aria-label="4 new orders">4</span>
+        </a>
+
+        <div class="db-nav__section-title">Insights</div>
+
+        <a href="#analytics" class="db-nav__link" data-page="analytics">
+          <i class="ri-bar-chart-2-line" aria-hidden="true"></i>
+          <span>Analytics</span>
+        </a>
+
+        <a href="#customers" class="db-nav__link" data-page="customers">
+          <i class="ri-group-line" aria-hidden="true"></i>
+          <span>Customers</span>
+        </a>
+
+        <div class="db-nav__section-title">Account</div>
+
+        <a href="#subscription" class="db-nav__link" data-page="subscription">
+          <i class="ri-vip-crown-line" aria-hidden="true"></i>
+          <span>Subscription</span>
+        </a>
+
+        <a href="#billing" class="db-nav__link" data-page="billing">
+          <i class="ri-bank-card-line" aria-hidden="true"></i>
+          <span>Billing</span>
+        </a>
+
+        <a href="#notifications" class="db-nav__link" data-page="notifications">
+          <i class="ri-notification-3-line" aria-hidden="true"></i>
+          <span>Notifications</span>
+          <span class="db-nav__badge" aria-label="3 unread">3</span>
+        </a>
+
+        <a href="#settings" class="db-nav__link" data-page="settings">
+          <i class="ri-settings-3-line" aria-hidden="true"></i>
+          <span>Settings</span>
+        </a>
+
+        <div class="divider" style="margin-block:0.75rem;opacity:0.15;"></div>
+
+        <a href="login.html" class="db-nav__link" style="color:rgba(255,107,91,0.7);">
+          <i class="ri-logout-box-line" aria-hidden="true"></i>
+          <span>Logout</span>
+        </a>
+      </nav>
+
+      <div class="db-sidebar__footer">
+        <button class="db-action-btn" data-sidebar-toggle aria-label="Toggle sidebar" style="width:100%;height:36px;color:rgba(255,255,255,0.4);border-color:rgba(255,255,255,0.1);margin-block-end:0.5rem;">
+          <i class="ri-sidebar-fold-line" style="font-size:1rem;" aria-hidden="true"></i>
+        </button>
+        <div class="db-user-card" tabindex="0" role="button" aria-label="User account menu">
+          <div class="db-user-card__avatar" aria-hidden="true">MR</div>
+          <div class="db-user-card__info">
+            <div class="db-user-card__name">Marco Rossi</div>
+            <div class="db-user-card__plan">✦ Professional Plan</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ===================== MAIN ===================== -->
+    <div class="db-main" id="db-main">
+
+      <!-- Topbar -->
+      <header class="db-topbar" role="banner">
+        <div class="db-topbar__left">
+          <button class="icon-btn" data-mobile-sidebar aria-label="Open navigation" style="display:none;" id="mobile-sidebar-btn">
+            <i class="ri-menu-2-line" style="font-size:1.2rem;" aria-hidden="true"></i>
+          </button>
+          <h1 class="db-topbar__title" id="page-title">Overview</h1>
+        </div>
+
+        <div class="db-topbar__right">
+          <div class="db-search" role="search">
+            <i class="ri-search-line" style="color:var(--clr-text-muted);font-size:0.9rem;" aria-hidden="true"></i>
+            <input type="search" placeholder="Search orders, items..." aria-label="Search dashboard" id="db-search-input" />
+          </div>
+
+          <div style="position:relative;">
+            <button class="icon-btn" data-notification-toggle aria-label="Notifications (3 unread)" aria-expanded="false" aria-haspopup="true">
+              <i class="ri-notification-3-line" style="font-size:1.1rem;" aria-hidden="true"></i>
+              <span style="position:absolute;top:6px;right:6px;width:8px;height:8px;background:var(--clr-accent);border-radius:50%;border:2px solid var(--clr-surface);" aria-hidden="true"></span>
+            </button>
+
+            <div class="notification-panel" role="dialog" aria-label="Notifications" aria-modal="false">
+              <div class="notif-header">
+                <h3>Notifications</h3>
+                <button class="btn btn--ghost btn--sm" style="font-size:0.7rem;" aria-label="Mark all as read">Mark all read</button>
+              </div>
+              <div class="notif-item">
+                <div class="notif-item__dot"></div>
+                <div>
+                  <div class="notif-item__text">New order <strong>#1052</strong> received from Table 3</div>
+                  <div class="notif-item__time">2 min ago</div>
+                </div>
+              </div>
+              <div class="notif-item">
+                <div class="notif-item__dot"></div>
+                <div>
+                  <div class="notif-item__text">Order <strong>#1050</strong> is ready for Table 12</div>
+                  <div class="notif-item__time">14 min ago</div>
+                </div>
+              </div>
+              <div class="notif-item">
+                <div class="notif-item__dot"></div>
+                <div>
+                  <div class="notif-item__text">QR scan spike detected — Table 6 area</div>
+                  <div class="notif-item__time">1 hr ago</div>
+                </div>
+              </div>
+              <div class="notif-item">
+                <div class="notif-item__dot notif-item__dot--read"></div>
+                <div>
+                  <div class="notif-item__text">Weekly revenue report is ready to view</div>
+                  <div class="notif-item__time">Yesterday</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button class="icon-btn" data-theme-toggle data-theme-icon aria-label="Toggle theme">
+          </button>
+          <button class="icon-btn" data-rtl-btn aria-label="Switch direction">
+          </button>
+
+          <a href="index.html" class="btn btn--outline btn--sm" aria-label="Go to public website">
+            <i class="ri-external-link-line" aria-hidden="true"></i>
+            Website
+          </a>
+        </div>
+      </header>
+
+      <!-- Content -->
+      <main class="db-content" id="main-content">
+
+        <!-- ====== OVERVIEW PAGE ====== -->
+        <section class="db-page active" id="page-overview" aria-label="Overview">
+
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-block-end:var(--sp-6);flex-wrap:wrap;gap:var(--sp-3);">
+            <div>
+              <h2 style="font-size:var(--size-h4);margin-block-end:0.25rem;">Good Evening, Marco 👋</h2>
+              <p style="font-size:var(--size-small);">Here's what's happening at Bella Vista today.</p>
+            </div>
+            <div style="display:flex;gap:var(--sp-2);">
+              <button class="btn btn--outline btn--sm" aria-label="Export data">
+                <i class="ri-download-2-line" aria-hidden="true"></i> Export
+              </button>
+              <button class="btn btn--primary btn--sm" aria-label="Add new menu item">
+                <i class="ri-add-line" aria-hidden="true"></i> Quick Add
+              </button>
+            </div>
+          </div>
+
+          <!-- KPI Cards -->
+          <div class="kpi-grid">
+            <div class="kpi-card">
+              <div class="kpi-card__header">
+                <span class="kpi-card__label">Today's Orders</span>
+                <div class="kpi-card__icon" style="background:rgba(59,130,246,0.1);color:#3b82f6;" aria-hidden="true">
+                  <i class="ri-shopping-bag-3-line"></i>
+                </div>
+              </div>
+              <div class="kpi-card__value">247</div>
+              <div class="kpi-card__trend kpi-card__trend--up">
+                <i class="ri-arrow-up-line" aria-hidden="true"></i> 18%
+                <span class="kpi-card__trend--sub">vs yesterday</span>
+              </div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-card__header">
+                <span class="kpi-card__label">Today's Revenue</span>
+                <div class="kpi-card__icon" style="background:rgba(0,200,150,0.1);color:#00c896;" aria-hidden="true">
+                  <i class="ri-money-dollar-circle-line"></i>
+                </div>
+              </div>
+              <div class="kpi-card__value">$3,284</div>
+              <div class="kpi-card__trend kpi-card__trend--up">
+                <i class="ri-arrow-up-line" aria-hidden="true"></i> 12%
+                <span class="kpi-card__trend--sub">this week</span>
+              </div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-card__header">
+                <span class="kpi-card__label">QR Scans</span>
+                <div class="kpi-card__icon" style="background:rgba(139,92,246,0.1);color:#8b5cf6;" aria-hidden="true">
+                  <i class="ri-qr-scan-2-line"></i>
+                </div>
+              </div>
+              <div class="kpi-card__value">1,842</div>
+              <div class="kpi-card__trend kpi-card__trend--up">
+                <i class="ri-arrow-up-line" aria-hidden="true"></i> 24%
+                <span class="kpi-card__trend--sub">this month</span>
+              </div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-card__header">
+                <span class="kpi-card__label">Active Tables</span>
+                <div class="kpi-card__icon" style="background:rgba(245,158,11,0.1);color:#f59e0b;" aria-hidden="true">
+                  <i class="ri-table-line"></i>
+                </div>
+              </div>
+              <div class="kpi-card__value">9 <span style="font-size:1rem;color:var(--clr-text-muted);">/ 16</span></div>
+              <div class="kpi-card__trend" style="color:var(--clr-text-muted);">
+                56% occupancy rate
+              </div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-card__header">
+                <span class="kpi-card__label">Avg. Order Value</span>
+                <div class="kpi-card__icon" style="background:rgba(255,107,91,0.1);color:#ff6b5b;" aria-hidden="true">
+                  <i class="ri-price-tag-3-line"></i>
+                </div>
+              </div>
+              <div class="kpi-card__value">$13.30</div>
+              <div class="kpi-card__trend kpi-card__trend--up">
+                <i class="ri-arrow-up-line" aria-hidden="true"></i> 5%
+                <span class="kpi-card__trend--sub">vs last week</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Charts -->
+          <div class="charts-grid">
+            <div class="chart-card">
+              <div class="chart-card__header">
+                <h3 class="chart-card__title">Revenue This Week</h3>
+                <span class="badge badge--green">↑ $3,284 today</span>
+              </div>
+              <canvas id="revenue-chart" aria-label="Revenue chart for this week" role="img"></canvas>
+            </div>
+
+            <div class="chart-card">
+              <div class="chart-card__header">
+                <h3 class="chart-card__title">Orders This Week</h3>
+                <span class="badge badge--coral">247 today</span>
+              </div>
+              <canvas id="orders-chart" aria-label="Orders chart for this week" role="img"></canvas>
+            </div>
+          </div>
+
+          <!-- Recent Orders -->
+          <div class="db-card">
+            <div class="db-card__header">
+              <h3 class="db-card__title">Recent Orders</h3>
+              <div class="db-filter-tabs" role="group" aria-label="Filter orders by status">
+                <button class="db-filter-tab active" data-order-filter="all">All</button>
+                <button class="db-filter-tab" data-order-filter="new">New</button>
+                <button class="db-filter-tab" data-order-filter="preparing">Preparing</button>
+                <button class="db-filter-tab" data-order-filter="ready">Ready</button>
+                <button class="db-filter-tab" data-order-filter="completed">Completed</button>
+              </div>
+            </div>
+            <div class="db-table-wrap">
+              <table class="db-table" aria-label="Recent orders table">
+                <thead>
+                  <tr>
+                    <th scope="col">Order ID</th>
+                    <th scope="col">Table</th>
+                    <th scope="col">Items</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="orders-tbody">
+                  <!-- Rendered by dashboard.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- ====== QR CODES PAGE ====== -->
+        <section class="db-page" id="page-qr-codes" aria-label="QR Codes management">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-block-end:var(--sp-6);flex-wrap:wrap;gap:var(--sp-3);">
+            <div>
+              <h2 style="font-size:var(--size-h4);margin-block-end:0.25rem;">QR Code Manager</h2>
+              <p style="font-size:var(--size-small);">8 tables configured · 1,842 scans today</p>
+            </div>
+            <button class="btn btn--primary" id="add-table-btn" aria-label="Add new table QR code">
+              <i class="ri-add-line" aria-hidden="true"></i> Add Table
+            </button>
+          </div>
+
+          <div class="qr-grid" id="qr-grid">
+            <!-- Rendered by dashboard.js -->
+          </div>
+        </section>
+
+        <!-- ====== MENU BUILDER PAGE ====== -->
+        <section class="db-page" id="page-menu-builder" aria-label="Menu builder">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-block-end:var(--sp-6);flex-wrap:wrap;gap:var(--sp-3);">
+            <div>
+              <h2 style="font-size:var(--size-h4);margin-block-end:0.25rem;">Menu Builder</h2>
+              <p style="font-size:var(--size-small);">4 categories · 40 items</p>
+            </div>
+            <div style="display:flex;gap:var(--sp-2);">
+              <button class="btn btn--outline btn--sm" id="add-category-btn" aria-label="Add new category">
+                <i class="ri-add-circle-line" aria-hidden="true"></i> Add Category
+              </button>
+              <button class="btn btn--primary btn--sm" id="add-item-btn" aria-label="Add new menu item">
+                <i class="ri-add-line" aria-hidden="true"></i> Add Item
+              </button>
+            </div>
+          </div>
+
+          <div class="menu-builder-grid">
+            <!-- Categories -->
+            <div class="db-card" style="padding:var(--sp-4);">
+              <h3 style="font-size:var(--size-small);font-weight:600;margin-block-end:var(--sp-3);color:var(--clr-text-muted);text-transform:uppercase;letter-spacing:0.05em;">Categories</h3>
+              <div id="menu-categories">
+                <!-- Rendered by dashboard.js -->
+              </div>
+            </div>
+
+            <!-- Items -->
+            <div class="db-card">
+              <div class="db-card__header">
+                <h3 class="db-card__title">Menu Items</h3>
+                <div class="db-search" style="min-width:180px;" role="search">
+                  <i class="ri-search-line" style="color:var(--clr-text-muted);font-size:0.875rem;" aria-hidden="true"></i>
+                  <input type="search" placeholder="Search items..." aria-label="Search menu items" />
+                </div>
+              </div>
+              <div id="menu-items-list">
+                <!-- Rendered by dashboard.js -->
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ====== ANALYTICS PAGE ====== -->
+        <section class="db-page" id="page-analytics" aria-label="Analytics">
+          <div style="margin-block-end:var(--sp-6);">
+            <h2 style="font-size:var(--size-h4);margin-block-end:0.25rem;">Analytics</h2>
+            <p style="font-size:var(--size-small);">Insights for the last 7 days</p>
+          </div>
+
+          <div class="analytics-grid">
+            <div>
+              <div class="chart-card" style="margin-block-end:var(--sp-4);">
+                <div class="chart-card__header">
+                  <h3 class="chart-card__title">Revenue Trend</h3>
+                  <select class="form-select" style="width:auto;padding:0.375rem 2rem 0.375rem 0.75rem;font-size:var(--size-xs);" aria-label="Select time period">
+                    <option>Last 7 days</option>
+                    <option>Last 30 days</option>
+                    <option>Last 3 months</option>
+                  </select>
+                </div>
+                <canvas id="revenue-chart-2" aria-label="Revenue trend chart" role="img"></canvas>
+              </div>
+
+              <div class="chart-card">
+                <div class="chart-card__header">
+                  <h3 class="chart-card__title">Order Volume</h3>
+                </div>
+                <canvas id="orders-chart-2" aria-label="Order volume chart" role="img"></canvas>
+              </div>
+            </div>
+
+            <!-- Popular Items -->
+            <div class="db-card" style="padding:var(--sp-4);height:fit-content;">
+              <h3 style="font-size:var(--size-h5);margin-block-end:var(--sp-4);">Top Menu Items</h3>
+
+              <div class="popular-item">
+                <span class="popular-item__rank">1</span>
+                <div class="popular-item__bar-wrap">
+                  <div class="popular-item__name">Margherita Pizza</div>
+                  <div class="popular-item__bar-track">
+                    <div class="popular-item__bar-fill" style="width:92%;" role="progressbar" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+                <span class="popular-item__count">342 orders</span>
+              </div>
+
+              <div class="popular-item">
+                <span class="popular-item__rank">2</span>
+                <div class="popular-item__bar-wrap">
+                  <div class="popular-item__name">Truffle Pasta</div>
+                  <div class="popular-item__bar-track">
+                    <div class="popular-item__bar-fill" style="width:78%;background:var(--clr-accent);" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+                <span class="popular-item__count">289 orders</span>
+              </div>
+
+              <div class="popular-item">
+                <span class="popular-item__rank">3</span>
+                <div class="popular-item__bar-wrap">
+                  <div class="popular-item__name">Caesar Salad</div>
+                  <div class="popular-item__bar-track">
+                    <div class="popular-item__bar-fill" style="width:64%;background:#8b5cf6;" role="progressbar" aria-valuenow="64" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+                <span class="popular-item__count">238 orders</span>
+              </div>
+
+              <div class="popular-item">
+                <span class="popular-item__rank">4</span>
+                <div class="popular-item__bar-wrap">
+                  <div class="popular-item__name">Tiramisu</div>
+                  <div class="popular-item__bar-track">
+                    <div class="popular-item__bar-fill" style="width:52%;background:#f59e0b;" role="progressbar" aria-valuenow="52" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+                <span class="popular-item__count">192 orders</span>
+              </div>
+
+              <div class="popular-item">
+                <span class="popular-item__rank">5</span>
+                <div class="popular-item__bar-wrap">
+                  <div class="popular-item__name">Bruschetta</div>
+                  <div class="popular-item__bar-track">
+                    <div class="popular-item__bar-fill" style="width:39%;" role="progressbar" aria-valuenow="39" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+                <span class="popular-item__count">144 orders</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ====== SUBSCRIPTION PAGE ====== -->
+        <section class="db-page" id="page-subscription" aria-label="Subscription">
+          <div style="margin-block-end:var(--sp-6);">
+            <h2 style="font-size:var(--size-h4);margin-block-end:0.25rem;">Subscription</h2>
+            <p style="font-size:var(--size-small);">Manage your plan and billing</p>
+          </div>
+
+          <div class="subscription-card" style="margin-block-end:var(--sp-6);" aria-label="Current subscription plan">
+            <div style="position:relative;z-index:1;">
+              <div style="font-size:var(--size-xs);font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--clr-secondary);margin-block-end:var(--sp-2);">Current Plan</div>
+              <h2 style="color:#fff;font-size:var(--size-h3);margin-block-end:0.5rem;">Professional</h2>
+              <p style="color:rgba(255,255,255,0.55);margin-block-end:var(--sp-6);">Renews on October 25, 2026 · $79/month</p>
+
+              <div style="display:flex;gap:var(--sp-4);flex-wrap:wrap;">
+                <div>
+                  <div style="font-size:var(--size-xs);color:rgba(255,255,255,0.4);margin-block-end:0.25rem;">Status</div>
+                  <span class="badge badge--green">● Active</span>
+                </div>
+                <div>
+                  <div style="font-size:var(--size-xs);color:rgba(255,255,255,0.4);margin-block-end:0.25rem;">Tables</div>
+                  <div style="font-size:var(--size-small);color:#fff;font-weight:600;">Unlimited</div>
+                </div>
+                <div>
+                  <div style="font-size:var(--size-xs);color:rgba(255,255,255,0.4);margin-block-end:0.25rem;">Orders</div>
+                  <div style="font-size:var(--size-small);color:#fff;font-weight:600;">Unlimited</div>
+                </div>
+                <div>
+                  <div style="font-size:var(--size-xs);color:rgba(255,255,255,0.4);margin-block-end:0.25rem;">Languages</div>
+                  <div style="font-size:var(--size-small);color:#fff;font-weight:600;">30+</div>
+                </div>
+              </div>
+
+              <div style="display:flex;gap:var(--sp-2);margin-block-start:var(--sp-6);flex-wrap:wrap;">
+                <a href="pricing.html" class="btn btn--primary">
+                  <i class="ri-arrow-up-line" aria-hidden="true"></i> Upgrade to Enterprise
+                </a>
+                <button class="btn btn--lg" style="background:rgba(255,255,255,0.1);color:#fff;border:1px solid rgba(255,255,255,0.2);">
+                  Manage Billing
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Usage -->
+          <div class="db-card" style="padding:var(--sp-5);">
+            <h3 style="font-size:var(--size-h5);margin-block-end:var(--sp-4);">Usage This Month</h3>
+
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-4);">
+              <div>
+                <div style="display:flex;justify-content:space-between;margin-block-end:0.5rem;">
+                  <span style="font-size:var(--size-small);font-weight:500;">QR Scans</span>
+                  <span style="font-size:var(--size-small);color:var(--clr-secondary);">Unlimited</span>
+                </div>
+                <div style="height:6px;background:var(--clr-surface-3);border-radius:3px;" role="progressbar" aria-label="QR scans usage: unlimited">
+                  <div style="height:100%;width:62%;background:var(--clr-secondary);border-radius:3px;"></div>
+                </div>
+                <div style="font-size:var(--size-xs);color:var(--clr-text-muted);margin-block-start:0.375rem;">54,820 scans this month</div>
+              </div>
+              <div>
+                <div style="display:flex;justify-content:space-between;margin-block-end:0.5rem;">
+                  <span style="font-size:var(--size-small);font-weight:500;">Orders</span>
+                  <span style="font-size:var(--size-small);color:var(--clr-secondary);">Unlimited</span>
+                </div>
+                <div style="height:6px;background:var(--clr-surface-3);border-radius:3px;" role="progressbar" aria-label="Orders usage: unlimited">
+                  <div style="height:100%;width:78%;background:var(--clr-accent);border-radius:3px;"></div>
+                </div>
+                <div style="font-size:var(--size-xs);color:var(--clr-text-muted);margin-block-start:0.375rem;">6,247 orders this month</div>
+              </div>
+              <div>
+                <div style="display:flex;justify-content:space-between;margin-block-end:0.5rem;">
+                  <span style="font-size:var(--size-small);font-weight:500;">Menu Items</span>
+                  <span style="font-size:var(--size-small);color:var(--clr-secondary);">Unlimited</span>
+                </div>
+                <div style="height:6px;background:var(--clr-surface-3);border-radius:3px;" role="progressbar" aria-label="Menu items: unlimited">
+                  <div style="height:100%;width:35%;background:#8b5cf6;border-radius:3px;"></div>
+                </div>
+                <div style="font-size:var(--size-xs);color:var(--clr-text-muted);margin-block-start:0.375rem;">40 active items</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ====== SETTINGS PAGE ====== -->
+        <section class="db-page" id="page-settings" aria-label="Settings">
+          <div style="margin-block-end:var(--sp-6);">
+            <h2 style="font-size:var(--size-h4);margin-block-end:0.25rem;">Settings</h2>
+            <p style="font-size:var(--size-small);">Manage your restaurant profile and preferences</p>
+          </div>
+
+          <div class="settings-grid">
+            <!-- Settings Nav -->
+            <nav class="settings-nav" aria-label="Settings categories">
+              <div class="settings-nav__link active"><i class="ri-store-line" aria-hidden="true"></i> Restaurant Profile</div>
+              <div class="settings-nav__link"><i class="ri-notification-3-line" aria-hidden="true"></i> Notifications</div>
+              <div class="settings-nav__link"><i class="ri-palette-line" aria-hidden="true"></i> Branding</div>
+              <div class="settings-nav__link"><i class="ri-translate-2" aria-hidden="true"></i> Language</div>
+              <div class="settings-nav__link"><i class="ri-link" aria-hidden="true"></i> Integrations</div>
+              <div class="settings-nav__link"><i class="ri-shield-user-line" aria-hidden="true"></i> Security</div>
+            </nav>
+
+            <!-- Settings Content -->
+            <div>
+              <div class="settings-section">
+                <h3>Restaurant Profile</h3>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-3);">
+                  <div class="form-group">
+                    <label class="form-label" for="rest-name">Restaurant Name</label>
+                    <input class="form-input" id="rest-name" type="text" value="Bella Vista" />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="rest-type">Restaurant Type</label>
+                    <select class="form-select" id="rest-type" aria-label="Restaurant type">
+                      <option selected>Fine Dining</option>
+                      <option>Casual Dining</option>
+                      <option>Fast Casual</option>
+                      <option>Café</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="rest-email">Contact Email</label>
+                    <input class="form-input" id="rest-email" type="email" value="marco@bellavista.it" />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="rest-phone">Phone Number</label>
+                    <input class="form-input" id="rest-phone" type="tel" value="+39 02 1234 5678" />
+                  </div>
+                  <div class="form-group" style="grid-column:1/-1;">
+                    <label class="form-label" for="rest-address">Address</label>
+                    <input class="form-input" id="rest-address" type="text" value="Via Montenapoleone 24, Milan, Italy" />
+                  </div>
+                </div>
+                <div style="margin-block-start:var(--sp-4);">
+                  <button class="btn btn--primary" aria-label="Save restaurant profile settings">Save Changes</button>
+                </div>
+              </div>
+
+              <div class="settings-section">
+                <h3>Notification Preferences</h3>
+                <div class="settings-row">
+                  <div class="settings-row__info">
+                    <h4>New Order Alerts</h4>
+                    <p>Receive a notification when a new order is placed</p>
+                  </div>
+                  <label class="toggle" aria-label="Toggle new order alerts">
+                    <input type="checkbox" checked />
+                    <span class="toggle__slider"></span>
+                  </label>
+                </div>
+                <div class="settings-row">
+                  <div class="settings-row__info">
+                    <h4>Daily Revenue Summary</h4>
+                    <p>Daily email with your revenue and order stats</p>
+                  </div>
+                  <label class="toggle" aria-label="Toggle daily revenue summary">
+                    <input type="checkbox" checked />
+                    <span class="toggle__slider"></span>
+                  </label>
+                </div>
+                <div class="settings-row">
+                  <div class="settings-row__info">
+                    <h4>Customer Feedback Alerts</h4>
+                    <p>Get notified when a customer leaves a review</p>
+                  </div>
+                  <label class="toggle" aria-label="Toggle customer feedback alerts">
+                    <input type="checkbox" />
+                    <span class="toggle__slider"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ====== OTHER PAGES (PLACEHOLDERS) ====== -->
+        <section class="db-page" id="page-digital-menu" aria-label="Digital menu">
+          <div style="padding:var(--sp-10);text-align:center;">
+            <i class="ri-layout-grid-line" style="font-size:4rem;color:var(--clr-secondary);display:block;margin-block-end:var(--sp-3);" aria-hidden="true"></i>
+            <h2 style="font-size:var(--size-h3);">Digital Menu</h2>
+            <p style="margin-block:var(--sp-2) var(--sp-4);">Preview and manage your live customer-facing menu.</p>
+            <a href="#menu-builder" class="btn btn--primary" data-page-link="menu-builder">Go to Menu Builder</a>
+          </div>
+        </section>
+
+        <section class="db-page" id="page-tables" aria-label="Tables">
+          <div style="padding:var(--sp-10);text-align:center;">
+            <i class="ri-table-line" style="font-size:4rem;color:var(--clr-secondary);display:block;margin-block-end:var(--sp-3);" aria-hidden="true"></i>
+            <h2 style="font-size:var(--size-h3);">Table Management</h2>
+            <p style="margin-block:var(--sp-2) var(--sp-4);">Visual floor plan and real-time table status management.</p>
+            <button class="btn btn--primary" onclick="window.QRServe?.Toast?.show('Table floor plan editor coming soon!', 'info')">
+              Open Floor Plan
+            </button>
+          </div>
+        </section>
+
+        <section class="db-page" id="page-orders" aria-label="Orders">
+          <div style="margin-block-end:var(--sp-6);">
+            <h2 style="font-size:var(--size-h4);">Order Management</h2>
+          </div>
+          <div class="db-card">
+            <div class="db-card__header">
+              <h3 class="db-card__title">All Orders</h3>
+              <div class="db-filter-tabs" role="group" aria-label="Filter orders by status">
+                <button class="db-filter-tab active" data-order-filter="all">All</button>
+                <button class="db-filter-tab" data-order-filter="new">New</button>
+                <button class="db-filter-tab" data-order-filter="preparing">Preparing</button>
+                <button class="db-filter-tab" data-order-filter="ready">Ready</button>
+                <button class="db-filter-tab" data-order-filter="completed">Completed</button>
+              </div>
+            </div>
+            <div class="db-table-wrap">
+              <table class="db-table" aria-label="All orders table">
+                <thead>
+                  <tr>
+                    <th scope="col">Order ID</th>
+                    <th scope="col">Table</th>
+                    <th scope="col">Items</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="orders-tbody-full">
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section class="db-page" id="page-customers" aria-label="Customers">
+          <div style="padding:var(--sp-10);text-align:center;">
+            <i class="ri-group-line" style="font-size:4rem;color:var(--clr-secondary);display:block;margin-block-end:var(--sp-3);" aria-hidden="true"></i>
+            <h2 style="font-size:var(--size-h3);">Customers</h2>
+            <p style="margin-block:var(--sp-2) var(--sp-4);">Customer insights, order history, and repeat visitor analytics.</p>
+            <span class="badge badge--green">Coming Soon</span>
+          </div>
+        </section>
+
+        <section class="db-page" id="page-billing" aria-label="Billing">
+          <div style="margin-block-end:var(--sp-6);">
+            <h2 style="font-size:var(--size-h4);">Billing History</h2>
+          </div>
+          <div class="db-card">
+            <div class="db-card__header">
+              <h3 class="db-card__title">Invoices</h3>
+              <button class="btn btn--outline btn--sm" aria-label="Download all invoices">
+                <i class="ri-download-2-line" aria-hidden="true"></i> Download All
+              </button>
+            </div>
+            <div class="db-table-wrap">
+              <table class="db-table" aria-label="Billing history">
+                <thead>
+                  <tr>
+                    <th scope="col">Invoice</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Plan</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="db-table__row">
+                    <td class="db-table__cell"><span class="text--mono">#INV-2026-09</span></td>
+                    <td class="db-table__cell">Sep 25, 2026</td>
+                    <td class="db-table__cell">Professional</td>
+                    <td class="db-table__cell"><strong>$79.00</strong></td>
+                    <td class="db-table__cell"><span class="badge badge--green">Paid</span></td>
+                    <td class="db-table__cell"><button class="db-action-btn" aria-label="Download invoice INV-2026-09"><i class="ri-download-line" aria-hidden="true"></i></button></td>
+                  </tr>
+                  <tr class="db-table__row">
+                    <td class="db-table__cell"><span class="text--mono">#INV-2026-08</span></td>
+                    <td class="db-table__cell">Aug 25, 2026</td>
+                    <td class="db-table__cell">Professional</td>
+                    <td class="db-table__cell"><strong>$79.00</strong></td>
+                    <td class="db-table__cell"><span class="badge badge--green">Paid</span></td>
+                    <td class="db-table__cell"><button class="db-action-btn" aria-label="Download invoice INV-2026-08"><i class="ri-download-line" aria-hidden="true"></i></button></td>
+                  </tr>
+                  <tr class="db-table__row">
+                    <td class="db-table__cell"><span class="text--mono">#INV-2026-07</span></td>
+                    <td class="db-table__cell">Jul 25, 2026</td>
+                    <td class="db-table__cell">Starter</td>
+                    <td class="db-table__cell"><strong>$29.00</strong></td>
+                    <td class="db-table__cell"><span class="badge badge--green">Paid</span></td>
+                    <td class="db-table__cell"><button class="db-action-btn" aria-label="Download invoice INV-2026-07"><i class="ri-download-line" aria-hidden="true"></i></button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section class="db-page" id="page-notifications" aria-label="Notifications">
+          <div style="margin-block-end:var(--sp-6);">
+            <h2 style="font-size:var(--size-h4);">All Notifications</h2>
+          </div>
+          <div class="db-card" style="padding:0;">
+            <div class="notif-item">
+              <div class="notif-item__dot"></div>
+              <div>
+                <div class="notif-item__text">New order <strong>#1052</strong> received from Table 3 — $54.00</div>
+                <div class="notif-item__time">2 min ago</div>
+              </div>
+            </div>
+            <div class="notif-item">
+              <div class="notif-item__dot"></div>
+              <div>
+                <div class="notif-item__text">Order <strong>#1050</strong> is ready for Table 12</div>
+                <div class="notif-item__time">14 min ago</div>
+              </div>
+            </div>
+            <div class="notif-item">
+              <div class="notif-item__dot"></div>
+              <div>
+                <div class="notif-item__text">QR scan spike detected in bar area (87 scans, 40% above average)</div>
+                <div class="notif-item__time">1 hr ago</div>
+              </div>
+            </div>
+            <div class="notif-item">
+              <div class="notif-item__dot notif-item__dot--read"></div>
+              <div>
+                <div class="notif-item__text">Weekly revenue report is ready. You earned <strong>$21,847</strong> this week.</div>
+                <div class="notif-item__time">Yesterday, 9:00 AM</div>
+              </div>
+            </div>
+            <div class="notif-item">
+              <div class="notif-item__dot notif-item__dot--read"></div>
+              <div>
+                <div class="notif-item__text">Plan renewal reminder: Your Professional plan renews in <strong>30 days</strong></div>
+                <div class="notif-item__time">2 days ago</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+
+    <!-- Mobile overlay -->
+    <div class="db-sidebar-overlay" id="sidebar-overlay" aria-hidden="true"></div>
+
+  </div><!-- /.db-layout -->
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+
+  <script>
+    // Dashboard page router
+    document.addEventListener('DOMContentLoaded', () => {
+      const navLinks = document.querySelectorAll('.db-nav__link[data-page]');
+      const pages = document.querySelectorAll('.db-page');
+      const pageTitle = document.getElementById('page-title');
+      const mobileSidebarBtn = document.getElementById('mobile-sidebar-btn');
+
+      // Show mobile sidebar toggle at <=1024px
+      const checkMobile = () => {
+        if (mobileSidebarBtn) {
+          mobileSidebarBtn.style.display = window.innerWidth <= 1024 ? 'flex' : 'none';
+        }
+      };
+      checkMobile();
+      window.addEventListener('resize', checkMobile);
+
+      const navigateTo = (pageId) => {
+        pages.forEach(page => page.classList.remove('active'));
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          link.removeAttribute('aria-current');
+        });
+
+        const targetPage = document.getElementById(`page-${pageId}`);
+        const targetLink = document.querySelector(`.db-nav__link[data-page="${pageId}"]`);
+
+        if (targetPage) {
+          targetPage.classList.add('active');
+        }
+
+        if (targetLink) {
+          targetLink.classList.add('active');
+          targetLink.setAttribute('aria-current', 'page');
+        }
+
+        if (pageTitle) {
+          const pageTitles = {
+            overview: 'Overview',
+            'digital-menu': 'Digital Menu',
+            'menu-builder': 'Menu Builder',
+            'qr-codes': 'QR Codes',
+            tables: 'Tables',
+            orders: 'Orders',
+            analytics: 'Analytics',
+            customers: 'Customers',
+            subscription: 'Subscription',
+            billing: 'Billing',
+            notifications: 'Notifications',
+            settings: 'Settings',
+          };
+          pageTitle.textContent = pageTitles[pageId] || pageId;
+        }
+
+        // Close mobile sidebar
+        const sidebar = document.querySelector('.db-sidebar');
+        const overlay = document.querySelector('.db-sidebar-overlay');
+        if (sidebar && window.innerWidth <= 1024) {
+          sidebar.classList.remove('db-sidebar--mobile-open');
+          overlay?.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+
+        // Re-init analytics charts if needed
+        if (pageId === 'analytics') {
+          setTimeout(() => {
+            const canvas2 = document.getElementById('revenue-chart-2');
+            const canvas3 = document.getElementById('orders-chart-2');
+            if (canvas2 && canvas3 && window.DashboardCharts) {
+              window.DashboardCharts.init();
+            }
+          }, 100);
+        }
+      };
+
+      navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          navigateTo(link.dataset.page);
+        });
+      });
+
+      // Page link buttons (inside pages)
+      document.querySelectorAll('[data-page-link]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          navigateTo(btn.dataset.pageLink);
+        });
+      });
+
+      // Also wire orders tbody for full orders page
+      const OrderModule = window.OrderManager;
+      const fullTbody = document.getElementById('orders-tbody-full');
+      if (fullTbody) {
+        // Will be re-rendered
+      }
+    });
+  </script>
+
+</body>
+</html>

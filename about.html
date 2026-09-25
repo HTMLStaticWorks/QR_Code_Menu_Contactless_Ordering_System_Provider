@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Learn about QRServe — our mission to eliminate dining friction, support hospitality staff, and build the world's most intuitive contactless ordering platform." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://qrserve.io/about" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://qrserve.io/about" />
+  <meta property="og:title" content="About QRServe — Our Mission, Team & Story" />
+  <meta property="og:description" content="Discover how we're transforming restaurant dining across 32 countries and 4,500+ venues." />
+
+  <title>About QRServe — Our Mission, Culture & Story</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/rtl.css" />
+
+  <style>
+    /* About Hero */
+    .about-hero {
+      background: var(--clr-primary);
+      padding-block: calc(var(--nav-height) + var(--sp-12)) var(--sp-10);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .about-hero::before {
+      content: '';
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 50%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,200,150,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .about-hero h1 { color: #fff; font-size: var(--size-h1); }
+    .about-hero p { color: rgba(255,255,255,0.65); font-size: var(--size-lead); max-width: 640px; margin-inline: auto; margin-block-start: var(--sp-2); }
+
+    /* Impact Stats Bar */
+    .impact-stats-section {
+      padding-block: var(--sp-8);
+      background: var(--clr-surface);
+      border-block-end: 1px solid var(--clr-border);
+    }
+
+    .impact-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--sp-6);
+      text-align: center;
+    }
+
+    .impact-stat-number {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      color: var(--clr-secondary);
+      margin-block-end: 0.25rem;
+    }
+
+    .impact-stat-label {
+      font-size: var(--size-small);
+      color: var(--clr-text-muted);
+      font-weight: 500;
+    }
+
+    /* Story Section */
+    .story-section {
+      padding-block: var(--sp-12);
+      background: var(--clr-bg);
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-10);
+      align-items: center;
+    }
+
+    .story-card-visual {
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-xl);
+      padding: var(--sp-8);
+      box-shadow: var(--shadow-xl);
+      position: relative;
+    }
+
+    /* Values Grid */
+    .values-section {
+      padding-block: var(--sp-12);
+      background: var(--clr-surface);
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--sp-6);
+      margin-block-start: var(--sp-8);
+    }
+
+    .value-card {
+      background: var(--clr-surface-2);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-6);
+      transition: all var(--transition-fast);
+    }
+
+    .value-card:hover {
+      border-color: var(--clr-secondary);
+      transform: translateY(-4px);
+    }
+
+    .value-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: var(--clr-secondary-light);
+      color: var(--clr-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-block-end: 1rem;
+    }
+
+    [data-theme="dark"] .value-icon {
+      background: rgba(0,200,150,0.15);
+    }
+
+    /* Team Grid */
+    .team-section {
+      padding-block: var(--sp-12);
+      background: var(--clr-bg);
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--sp-6);
+      margin-block-start: var(--sp-8);
+    }
+
+    .team-card {
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      text-align: center;
+      padding: var(--sp-6);
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition-base);
+    }
+
+    .team-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--clr-secondary);
+    }
+
+    .team-avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      margin-inline: auto;
+      margin-block-end: 1rem;
+      background: var(--clr-primary);
+      color: var(--clr-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      border: 3px solid var(--clr-secondary);
+    }
+
+    .team-name {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--clr-text-primary);
+    }
+
+    .team-role {
+      font-size: var(--size-xs);
+      color: var(--clr-secondary);
+      font-weight: 600;
+      margin-block: 0.25rem 0.5rem;
+    }
+
+    .team-bio {
+      font-size: var(--size-xs);
+      color: var(--clr-text-muted);
+      line-height: 1.4;
+    }
+
+    @media (max-width: 900px) {
+      .story-grid {
+        grid-template-columns: 1fr;
+      }
+      .impact-stats-grid,
+      .values-grid,
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .impact-stats-grid,
+      .values-grid,
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <header class="navbar" role="banner">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo" aria-label="QRServe — Home">
+        <div class="navbar__logo-icon" aria-hidden="true">
+          <i class="ri-qr-code-line" style="font-size:1.1rem;"></i>
+        </div>
+        QR<span>Serve</span>
+      </a>
+
+      <nav class="navbar__nav" aria-label="Main navigation">
+        <a href="index.html" class="navbar__link" data-nav-link>Home</a>
+        <a href="home2.html" class="navbar__link" data-nav-link>Home 2</a>
+        <a href="features.html" class="navbar__link" data-nav-link>Features</a>
+        <a href="pricing.html" class="navbar__link" data-nav-link>Pricing</a>
+        <a href="demo.html" class="navbar__link" data-nav-link>Demo</a>
+        <a href="blog.html" class="navbar__link" data-nav-link>Blog</a>
+        <a href="contact.html" class="navbar__link" data-nav-link>Contact</a>
+      </nav>
+
+      <div class="navbar__actions">
+        <button class="icon-btn" data-theme-toggle data-theme-icon aria-label="Toggle dark mode" title="Toggle theme"></button>
+        <button class="icon-btn" data-rtl-btn aria-label="Switch to RTL" title="Switch direction"></button>
+        <a href="dashboard.html" class="btn btn--ghost btn--sm" data-nav-link>Dashboard</a>
+        <a href="login.html" class="btn btn--outline btn--sm" data-nav-link>Login</a>
+        <a href="register.html" class="btn btn--primary btn--sm">Get Started</a>
+      </div>
+
+      <button class="navbar__hamburger" id="hamburger-btn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-drawer">
+        <i class="ri-menu-3-line" style="font-size:1.25rem;" aria-hidden="true"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===================== MOBILE DRAWER ===================== -->
+  <div class="drawer-overlay" id="drawer-overlay" aria-hidden="true"></div>
+  <div class="drawer" id="mobile-drawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <div class="drawer__header">
+      <a href="index.html" class="navbar__logo" style="font-size:1.25rem;">
+        <div class="navbar__logo-icon" style="width:30px;height:30px;" aria-hidden="true">
+          <i class="ri-qr-code-line" style="font-size:0.95rem;"></i>
+        </div>
+        QR<span>Serve</span>
+      </a>
+      <button class="icon-btn drawer__close" aria-label="Close navigation menu">
+        <i class="ri-close-line" style="font-size:1.25rem;" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <nav class="drawer__nav" aria-label="Mobile navigation">
+      <a href="index.html" class="drawer__link" data-nav-link><i class="ri-home-4-line"></i> Home</a>
+      <a href="home2.html" class="drawer__link" data-nav-link><i class="ri-layout-masonry-line"></i> Home 2</a>
+      <a href="features.html" class="drawer__link" data-nav-link><i class="ri-flashlight-line"></i> Features</a>
+      <a href="pricing.html" class="drawer__link" data-nav-link><i class="ri-price-tag-3-line"></i> Pricing</a>
+      <a href="demo.html" class="drawer__link" data-nav-link><i class="ri-play-circle-line"></i> Demo</a>
+      <a href="blog.html" class="drawer__link" data-nav-link><i class="ri-article-line"></i> Blog</a>
+      <a href="contact.html" class="drawer__link" data-nav-link><i class="ri-mail-line"></i> Contact</a>
+      <a href="about.html" class="drawer__link active" data-nav-link><i class="ri-information-line"></i> About</a>
+      <div class="divider"></div>
+      <a href="dashboard.html" class="drawer__link" data-nav-link><i class="ri-dashboard-line"></i> Dashboard</a>
+      <a href="login.html" class="drawer__link" data-nav-link><i class="ri-login-box-line"></i> Login</a>
+    </nav>
+
+    <div class="drawer__footer">
+      <a href="register.html" class="btn btn--primary btn--full">Get Started Free</a>
+      <div class="drawer__controls">
+        <button class="icon-btn" data-theme-toggle data-theme-icon aria-label="Toggle dark mode"></button>
+        <button class="icon-btn" data-rtl-btn aria-label="Switch text direction"></button>
+      </div>
+    </div>
+  </div>
+
+  <main id="main-content">
+    <!-- ===================== HERO ===================== -->
+    <section class="about-hero" aria-labelledby="about-heading">
+      <div class="container">
+        <span class="badge badge--pill badge--secondary" style="margin-block-end:var(--sp-2);">Our Story & Purpose</span>
+        <h1 id="about-heading">Hospitality Should Be About Warmth,<br />Not Waiting For The Bill.</h1>
+        <p>We are a team of former restaurant operators and cloud architects committed to building dining technology that empowers floor staff and gives guests total freedom.</p>
+      </div>
+    </section>
+
+    <!-- ===================== IMPACT STATS ===================== -->
+    <section class="impact-stats-section">
+      <div class="container">
+        <div class="impact-stats-grid">
+          <div>
+            <div class="impact-stat-number" data-count="4500">4,500+</div>
+            <div class="impact-stat-label">Restaurants & Venues Powered</div>
+          </div>
+          <div>
+            <div class="impact-stat-number">$140M+</div>
+            <div class="impact-stat-label">Orders Processed in 2026</div>
+          </div>
+          <div>
+            <div class="impact-stat-number">32</div>
+            <div class="impact-stat-label">Countries Globally</div>
+          </div>
+          <div>
+            <div class="impact-stat-number">1.4M lbs</div>
+            <div class="impact-stat-label">Paper Menus Saved (ESG)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== STORY ===================== -->
+    <section class="story-section" aria-labelledby="story-title">
+      <div class="container">
+        <div class="story-grid">
+          <div>
+            <span class="badge badge--pill badge--secondary" style="margin-block-end:var(--sp-2);">Origin Story</span>
+            <h2 id="story-title" style="font-size:var(--size-h2);color:var(--clr-text-primary);line-height:1.15;margin-block-end:var(--sp-3);">
+              Born From a 45-Minute Wait in Rome
+            </h2>
+            <p style="color:var(--clr-text-secondary);font-size:var(--size-body);line-height:1.65;margin-block-end:var(--sp-3);">
+              In the summer of 2021, our founders were dining at a legendary trattoria in Trastevere, Rome. The pasta was extraordinary, the wine sublime. But after finishing dessert, it took 45 minutes to catch the server’s eye, request the check, wait for the POS terminal, and process payment.
+            </p>
+            <p style="color:var(--clr-text-secondary);font-size:var(--size-body);line-height:1.65;margin-block-end:var(--sp-4);">
+              The server wasn’t neglectful—he was simply running frantically across 18 tables. We realized that payment and ordering friction is the single greatest bottleneck in hospitality. We set out to build QRServe: not to replace the human magic of dining, but to automate the administrative friction so staff can focus on pure hospitality.
+            </p>
+            <div style="display:flex;gap:var(--sp-2);">
+              <a href="features.html" class="btn btn--primary btn--sm">See How It Works</a>
+              <a href="demo.html" class="btn btn--outline btn--sm">Experience The Demo</a>
+            </div>
+          </div>
+
+          <div class="story-card-visual">
+            <h3 style="font-size:var(--size-h4);color:var(--clr-text-primary);margin-block-end:1rem;">Our Operating Guarantees</h3>
+            <ul class="feature-perk-list">
+              <li class="feature-perk-item">
+                <div class="feature-perk-icon"><i class="ri-flashlight-line"></i></div>
+                <div>
+                  <strong>Sub-300ms Page Loads</strong>
+                  <span>Instant menu access on any guest phone browser without downloading apps or creating accounts.</span>
+                </div>
+              </li>
+              <li class="feature-perk-item">
+                <div class="feature-perk-icon"><i class="ri-shield-check-line"></i></div>
+                <div>
+                  <strong>99.99% Guaranteed Service Uptime</strong>
+                  <span>Multi-region redundant cloud servers designed to handle Saturday night rushes with zero downtime.</span>
+                </div>
+              </li>
+              <li class="feature-perk-item">
+                <div class="feature-perk-icon"><i class="ri-heart-line"></i></div>
+                <div>
+                  <strong>Staff-First Philosophy</strong>
+                  <span>Built-in smart tipping prompts that consistently increase server gratuities by 18% to 22%.</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== VALUES ===================== -->
+    <section class="values-section" aria-labelledby="values-title">
+      <div class="container">
+        <div style="text-align:center;">
+          <span class="badge badge--pill badge--secondary" style="margin-block-end:var(--sp-2);">What Drives Us</span>
+          <h2 id="values-title" style="font-size:var(--size-h2);color:var(--clr-text-primary);">Our Core Principles</h2>
+          <p style="color:var(--clr-text-secondary);max-width:540px;margin-inline:auto;">The guiding tenets behind every line of code and hardware design we produce.</p>
+        </div>
+
+        <div class="values-grid">
+          <div class="value-card">
+            <div class="value-icon"><i class="ri-user-heart-line"></i></div>
+            <h3 style="font-size:1.1rem;font-weight:700;margin-block-end:0.5rem;color:var(--clr-text-primary);">Hospitality First</h3>
+            <p style="font-size:var(--size-small);color:var(--clr-text-secondary);line-height:1.5;">We design for people. Tech should elevate the host, bartender, and runner, never make guests feel like they are in a sterile kiosk.</p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-icon"><i class="ri-speed-up-line"></i></div>
+            <h3 style="font-size:1.1rem;font-weight:700;margin-block-end:0.5rem;color:var(--clr-text-primary);">Relentless Speed</h3>
+            <p style="font-size:var(--size-small);color:var(--clr-text-secondary);line-height:1.5;">Every millisecond saved in loading dishes or processing a card payment translates directly into higher turnover and happier diners.</p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-icon"><i class="ri-leaf-line"></i></div>
+            <h3 style="font-size:1.1rem;font-weight:700;margin-block-end:0.5rem;color:var(--clr-text-primary);">Eco Sustainability</h3>
+            <p style="font-size:var(--size-small);color:var(--clr-text-secondary);line-height:1.5;">Eliminating printed single-use paper menus and plastic laminates saves thousands of trees and millions of gallons of water yearly.</p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-icon"><i class="ri-lock-2-line"></i></div>
+            <h3 style="font-size:1.1rem;font-weight:700;margin-block-end:0.5rem;color:var(--clr-text-primary);">Ironclad Security</h3>
+            <p style="font-size:var(--size-small);color:var(--clr-text-secondary);line-height:1.5;">PCI-DSS Level 1 compliance, end-to-end tokenization, and strict GDPR privacy safeguards ensure diner data is never sold.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== LEADERSHIP TEAM ===================== -->
+    <section class="team-section" aria-labelledby="team-title">
+      <div class="container">
+        <div style="text-align:center;">
+          <span class="badge badge--pill badge--secondary" style="margin-block-end:var(--sp-2);">The Builders</span>
+          <h2 id="team-title" style="font-size:var(--size-h2);color:var(--clr-text-primary);">Leadership & Culinary Advisors</h2>
+          <p style="color:var(--clr-text-secondary);max-width:540px;margin-inline:auto;">A blend of Michelin-experienced restaurateurs and world-class enterprise engineers.</p>
+        </div>
+
+        <div class="team-grid">
+          <!-- Member 1 -->
+          <div class="team-card">
+            <div class="team-avatar">JV</div>
+            <h3 class="team-name">Julian Vance</h3>
+            <div class="team-role">Co-Founder & CEO</div>
+            <p class="team-bio">Former Director of Operations at international hospitality groups. 15+ years managing luxury dining venues.</p>
+          </div>
+
+          <!-- Member 2 -->
+          <div class="team-card">
+            <div class="team-avatar">PS</div>
+            <h3 class="team-name">Dr. Priya Sharma</h3>
+            <div class="team-role">Co-Founder & CTO</div>
+            <p class="team-bio">Distributed systems specialist, former Infrastructure Principal at Stripe and Square Payments.</p>
+          </div>
+
+          <!-- Member 3 -->
+          <div class="team-card">
+            <div class="team-avatar">AL</div>
+            <h3 class="team-name">Chef Antoine Laurent</h3>
+            <div class="team-role">Head of Culinary UX</div>
+            <p class="team-bio">2-Michelin Star Executive Chef advising on menu design, course pacing, and kitchen display routing ergonomics.</p>
+          </div>
+
+          <!-- Member 4 -->
+          <div class="team-card">
+            <div class="team-avatar">ML</div>
+            <h3 class="team-name">Mei Lin</h3>
+            <div class="team-role">VP of Product Design</div>
+            <p class="team-bio">Former Design Lead at Airbnb Hospitality, obsessive about micro-animations and typography hierarchy.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CTA ===================== -->
+    <section class="cta-section" style="padding-block:var(--sp-12);">
+      <div class="container">
+        <div class="cta-section__content">
+          <h2>Join Over 4,500 Restaurants Worldwide</h2>
+          <p>Get started today and see why leading hospitality brands choose QRServe.</p>
+          <div class="cta-section__actions">
+            <a href="register.html" class="btn btn--secondary btn--lg">Start Free Trial</a>
+            <a href="contact.html" class="btn btn--outline btn--lg" style="color:#fff;border-color:rgba(255,255,255,0.3);">Talk With Our Team</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="footer__logo">
+            <div class="footer__logo-icon" aria-hidden="true">
+              <i class="ri-qr-code-line" style="font-size:0.9rem;"></i>
+            </div>
+            QR<span style="color:var(--clr-secondary);">Serve</span>
+          </div>
+          <p>The premium QR digital menu & contactless ordering platform built for modern hospitality businesses worldwide.</p>
+          <div class="footer__social" aria-label="Social media links">
+            <a href="#" class="footer__social-link" aria-label="Twitter"><i class="ri-twitter-x-line"></i></a>
+            <a href="#" class="footer__social-link" aria-label="LinkedIn"><i class="ri-linkedin-line"></i></a>
+            <a href="#" class="footer__social-link" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+            <a href="#" class="footer__social-link" aria-label="Facebook"><i class="ri-facebook-line"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="footer__col-title">Product</h3>
+          <ul class="footer__links">
+            <li><a href="features.html" class="footer__link">Features</a></li>
+            <li><a href="pricing.html" class="footer__link">Pricing</a></li>
+            <li><a href="demo.html" class="footer__link">Request Demo</a></li>
+            <li><a href="dashboard.html" class="footer__link">Dashboard</a></li>
+            <li><a href="coming-soon.html" class="footer__link">Changelog</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer__col-title">Company</h3>
+          <ul class="footer__links">
+            <li><a href="about.html" class="footer__link">About Us</a></li>
+            <li><a href="blog.html" class="footer__link">Blog</a></li>
+            <li><a href="contact.html" class="footer__link">Contact</a></li>
+            <li><a href="services.html" class="footer__link">Services</a></li>
+            <li><a href="coming-soon.html" class="footer__link">Careers</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer__col-title">Legal</h3>
+          <ul class="footer__links">
+            <li><a href="#" class="footer__link">Privacy Policy</a></li>
+            <li><a href="#" class="footer__link">Terms of Service</a></li>
+            <li><a href="#" class="footer__link">Cookie Policy</a></li>
+            <li><a href="#" class="footer__link">Security</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>&copy; 2026 QRServe Technologies Inc. All rights reserved.</p>
+        <div class="footer__bottom-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

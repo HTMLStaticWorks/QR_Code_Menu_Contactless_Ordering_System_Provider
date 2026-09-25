@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Explore QRServe's full suite of features: Dynamic QR Studio, Contactless Ordering, Kitchen Display System (KDS), Real-Time Menu Management, POS Integrations, and Analytics." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://qrserve.io/features" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://qrserve.io/features" />
+  <meta property="og:title" content="Features & Capabilities — QRServe Digital Menu System" />
+  <meta property="og:description" content="Discover how QRServe streamlines restaurant service from table scan to kitchen ticket and checkout." />
+
+  <title>Features & Platform Capabilities — QRServe</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/rtl.css" />
+
+  <style>
+    /* Header Section */
+    .features-hero {
+      background: var(--clr-primary);
+      padding-block: calc(var(--nav-height) + var(--sp-12)) var(--sp-10);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .features-hero::before {
+      content: '';
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,200,150,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .features-hero h1 {
+      color: #fff;
+      font-size: var(--size-h1);
+      margin-block-end: var(--sp-2);
+    }
+
+    .features-hero p {
+      color: rgba(255,255,255,0.6);
+      font-size: var(--size-lead);
+      max-width: 620px;
+      margin-inline: auto;
+    }
+
+    /* Category Navigation Bar */
+    .feature-nav-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+      margin-block-start: var(--sp-6);
+      position: relative;
+      z-index: 2;
+    }
+
+    .feature-nav-tab {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.625rem 1.25rem;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius-pill);
+      color: rgba(255,255,255,0.8);
+      font-size: var(--size-small);
+      font-weight: 500;
+      text-decoration: none;
+      transition: all var(--transition-fast);
+      cursor: pointer;
+    }
+
+    .feature-nav-tab:hover,
+    .feature-nav-tab.active {
+      background: var(--clr-secondary);
+      border-color: var(--clr-secondary);
+      color: var(--clr-primary);
+      font-weight: 600;
+    }
+
+    /* Feature Deep Dive Block */
+    .feature-deep-dive {
+      padding-block: var(--sp-12);
+      border-block-end: 1px solid var(--clr-border);
+    }
+
+    .feature-deep-dive:nth-child(even) {
+      background: var(--clr-surface-2);
+    }
+
+    .feature-dive-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-10);
+      align-items: center;
+    }
+
+    .feature-dive-grid--reversed .feature-dive-text {
+      order: 2;
+    }
+    .feature-dive-grid--reversed .feature-dive-media {
+      order: 1;
+    }
+
+    .feature-tag-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      padding: 0.35rem 0.875rem;
+      border-radius: var(--radius-pill);
+      background: var(--clr-secondary-light);
+      color: var(--clr-secondary);
+      font-size: var(--size-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-block-end: var(--sp-2);
+    }
+
+    [data-theme="dark"] .feature-tag-badge {
+      background: rgba(0,200,150,0.15);
+    }
+
+    .feature-dive-text h2 {
+      font-size: var(--size-h2);
+      color: var(--clr-text-primary);
+      margin-block-end: var(--sp-3);
+      line-height: 1.15;
+    }
+
+    .feature-dive-text p {
+      color: var(--clr-text-secondary);
+      font-size: var(--size-body);
+      line-height: 1.65;
+      margin-block-end: var(--sp-4);
+    }
+
+    .feature-perk-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.875rem;
+      margin-block-end: var(--sp-4);
+    }
+
+    .feature-perk-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .feature-perk-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--clr-secondary-light);
+      color: var(--clr-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-block-start: 2px;
+      font-size: 0.9rem;
+    }
+
+    [data-theme="dark"] .feature-perk-icon {
+      background: rgba(0,200,150,0.2);
+    }
+
+    .feature-perk-item strong {
+      color: var(--clr-text-primary);
+      font-weight: 600;
+      display: block;
+      margin-block-end: 0.15rem;
+    }
+
+    .feature-perk-item span {
+      color: var(--clr-text-muted);
+      font-size: var(--size-small);
+      line-height: 1.4;
+    }
+
+    /* Interactive Showcase Card in Deep Dive */
+    .mock-card-container {
+      position: relative;
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-xl);
+      padding: var(--sp-6);
+      box-shadow: var(--shadow-xl);
+      overflow: hidden;
+    }
+
+    /* QR Designer Demo */
+    .qr-demo-canvas {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .qr-preview-frame {
+      width: 220px;
+      height: 220px;
+      background: #fff;
+      border-radius: 16px;
+      padding: 1.25rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      transition: all var(--transition-base);
+    }
+
+    .qr-preview-pattern {
+      width: 140px;
+      height: 140px;
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 4px;
+    }
+
+    .qr-preview-center-logo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 38px;
+      height: 38px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--clr-primary);
+      font-weight: 800;
+      font-family: var(--font-heading);
+      font-size: 0.9rem;
+    }
+
+    .qr-color-palette {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .color-swatch {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      transition: transform var(--transition-fast);
+    }
+
+    .color-swatch:hover, .color-swatch.active {
+      transform: scale(1.15);
+      outline: 2px solid var(--clr-secondary);
+    }
+
+    /* KDS Ticket Preview */
+    .kds-card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .kds-ticket {
+      background: var(--clr-surface-2);
+      border-radius: var(--radius-md);
+      border-inline-start: 4px solid var(--clr-secondary);
+      padding: 1rem;
+      position: relative;
+    }
+
+    .kds-ticket--warning {
+      border-inline-start-color: var(--clr-warning);
+    }
+
+    .kds-ticket__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-block-end: 0.5rem;
+      font-size: var(--size-xs);
+    }
+
+    .kds-ticket__table {
+      font-weight: 700;
+      color: var(--clr-text-primary);
+      font-size: 0.85rem;
+    }
+
+    .kds-ticket__timer {
+      font-family: var(--font-mono);
+      font-weight: 600;
+      color: var(--clr-text-muted);
+      background: var(--clr-surface);
+      padding: 0.15rem 0.4rem;
+      border-radius: 4px;
+    }
+
+    .kds-ticket__items {
+      font-size: 0.8rem;
+      color: var(--clr-text-secondary);
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    /* POS Integration Grid */
+    .pos-integration-section {
+      padding-block: var(--sp-12);
+      text-align: center;
+      background: var(--clr-surface);
+    }
+
+    .pos-logos-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 1.5rem;
+      margin-block-start: var(--sp-6);
+    }
+
+    .pos-logo-card {
+      background: var(--clr-surface-2);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      transition: all var(--transition-fast);
+    }
+
+    .pos-logo-card:hover {
+      border-color: var(--clr-secondary);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .pos-logo-card i {
+      font-size: 2rem;
+      color: var(--clr-text-primary);
+    }
+
+    .pos-logo-card span {
+      font-size: var(--size-small);
+      font-weight: 600;
+      color: var(--clr-text-secondary);
+    }
+
+    /* Matrix Table Section */
+    .matrix-section {
+      padding-block: var(--sp-12);
+      background: var(--clr-bg);
+    }
+
+    .matrix-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--clr-surface);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+
+    .matrix-table th,
+    .matrix-table td {
+      padding: 1rem 1.25rem;
+      text-align: start;
+      border-block-end: 1px solid var(--clr-border);
+      font-size: var(--size-small);
+    }
+
+    .matrix-table th {
+      background: var(--clr-surface-2);
+      font-family: var(--font-heading);
+      font-weight: 700;
+      color: var(--clr-text-primary);
+    }
+
+    .matrix-table tr:last-child td {
+      border-block-end: none;
+    }
+
+    .matrix-table th:not(:first-child),
+    .matrix-table td:not(:first-child) {
+      text-align: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .feature-dive-grid {
+        grid-template-columns: 1fr;
+        gap: var(--sp-6);
+      }
+      .feature-dive-grid--reversed .feature-dive-text {
+        order: 1;
+      }
+      .feature-dive-grid--reversed .feature-dive-media {
+        order: 2;
+      }
+      .pos-logos-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .kds-card-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .pos-logos-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <header class="navbar" role="banner">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo" aria-label="QRServe — Home">
+        <div class="navbar__logo-icon" aria-hidden="true">
+          <i class="ri-qr-code-line" style="font-size:1.1rem;"></i>
+        </div>
+        QR<span>Serve</span>
+      </a>
+
+      <nav class="navbar__nav" aria-label="Main navigation">
+        <a href="index.html" class="navbar__link" data-nav-link>Home</a>
+        <a href="home2.html" class="navbar__link" data-nav-link>Home 2</a>
+        <a href="features.html" class="navbar__link active" data-nav-link>Features</a>
+        <a href="pricing.html" class="navbar__link" data-nav-link>Pricing</a>
+        <a href="demo.html" class="navbar__link" data-nav-link>Demo</a>
+        <a href="blog.html" class="navbar__link" data-nav-link>Blog</a>
+        <a href="contact.html" class="navbar__link" data-nav-link>Contact</a>
+      </nav>
+
+      <div class="navbar__actions">
+        <button class="icon-btn" data-theme-toggle data-theme-icon aria-label="Toggle dark mode" title="Toggle theme"></button>
+        <button class="icon-btn" data-rtl-btn aria-label="Switch to RTL" title="Switch direction"></button>
+        <a href="dashboard.html" class="btn btn--ghost btn--sm" data-nav-link>Dashboard</a>
+        <a href="login.html" class="btn btn--outline btn--sm" data-nav-link>Login</a>
+        <a href="register.html" class="btn btn--primary btn--sm">Get Started</a>
+      </div>
+
+      <button class="navbar__hamburger" id="hamburger-btn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-drawer">
+        <i class="ri-menu-3-line" style="font-size:1.25rem;" aria-hidden="true"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===================== MOBILE DRAWER ===================== -->
+  <div class="drawer-overlay" id="drawer-overlay" aria-hidden="true"></div>
+  <div class="drawer" id="mobile-drawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <div class="drawer__header">
+      <a href="index.html" class="navbar__logo" style="font-size:1.25rem;">
+        <div class="navbar__logo-icon" style="width:30px;height:30px;" aria-hidden="true">
+          <i class="ri-qr-code-line" style="font-size:0.95rem;"></i>
+        </div>
+        QR<span>Serve</span>
+      </a>
+      <button class="icon-btn drawer__close" aria-label="Close navigation menu">
+        <i class="ri-close-line" style="font-size:1.25rem;" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <nav class="drawer__nav" aria-label="Mobile navigation">
+      <a href="index.html" class="drawer__link" data-nav-link><i class="ri-home-4-line"></i> Home</a>
+      <a href="home2.html" class="drawer__link" data-nav-link><i class="ri-layout-masonry-line"></i> Home 2</a>
+      <a href="features.html" class="drawer__link active" data-nav-link><i class="ri-flashlight-line"></i> Features</a>
+      <a href="pricing.html" class="drawer__link" data-nav-link><i class="ri-price-tag-3-line"></i> Pricing</a>
+      <a href="demo.html" class="drawer__link" data-nav-link><i class="ri-play-circle-line"></i> Demo</a>
+      <a href="blog.html" class="drawer__link" data-nav-link><i class="ri-article-line"></i> Blog</a>
+      <a href="contact.html" class="drawer__link" data-nav-link><i class="ri-mail-line"></i> Contact</a>
+      <a href="about.html" class="drawer__link" data-nav-link><i class="ri-information-line"></i> About</a>
+      <div class="divider"></div>
+      <a href="dashboard.html" class="drawer__link" data-nav-link><i class="ri-dashboard-line"></i> Dashboard</a>
+      <a href="login.html" class="drawer__link" data-nav-link><i class="ri-login-box-line"></i> Login</a>
+    </nav>
+
+    <div class="drawer__footer">
+      <a href="register.html" class="btn btn--primary btn--full">Get Started Free</a>
+      <div class="drawer__controls">
+        <button class="icon-btn" data-theme-toggle data-theme-icon aria-label="Toggle dark mode"></button>
+        <button class="icon-btn" data-rtl-btn aria-label="Switch text direction"></button>
+      </div>
+    </div>
+  </div>
+
+  <main id="main-content">
+    <!-- ===================== HERO ===================== -->
+    <section class="features-hero" aria-labelledby="features-heading">
+      <div class="container">
+        <span class="badge badge--pill badge--secondary" style="margin-block-end:var(--sp-2);">Architecture & Capabilities</span>
+        <h1 id="features-heading">The Complete Operating System<br />For Modern Hospitality</h1>
+        <p>From table-side dynamic QR codes to kitchen display routing and automated POS financial closeouts — every feature designed to boost revenue and delight diners.</p>
+
+        <div class="feature-nav-tabs" role="tablist">
+          <a href="#qr-studio" class="feature-nav-tab"><i class="ri-qr-code-line"></i> Dynamic QR Studio</a>
+          <a href="#menu-management" class="feature-nav-tab"><i class="ri-restaurant-line"></i> Live Menu Engine</a>
+          <a href="#contactless-ordering" class="feature-nav-tab"><i class="ri-smartphone-line"></i> Table Ordering & Tabs</a>
+          <a href="#kitchen-kds" class="feature-nav-tab"><i class="ri-computer-line"></i> Kitchen Display (KDS)</a>
+          <a href="#payments" class="feature-nav-tab"><i class="ri-bank-card-line"></i> Instant Pay & Split</a>
+          <a href="#analytics" class="feature-nav-tab"><i class="ri-bar-chart-grouped-line"></i> Revenue Intelligence</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== DEEP DIVE 1: DYNAMIC QR STUDIO ===================== -->
+    <section id="qr-studio" class="feature-deep-dive" aria-labelledby="qr-heading">
+      <div class="container">
+        <div class="feature-dive-grid">
+          <div class="feature-dive-text">
+            <span class="feature-tag-badge"><i class="ri-paint-brush-line"></i> Studio & Branding</span>
+            <h2 id="qr-heading">Dynamic QR Codes That Embody Your Brand Identity</h2>
+            <p>Generate high-resolution vector QR codes embedded with your restaurant logo, custom brand hex colors, and custom frame designs. Change menu URLs or table routing at any time without ever reprinting physical table talkers.</p>
+
+            <ul class="feature-perk-list">
+              <li class="feature-perk-item">
+                <div class="feature-perk-icon"><i class="ri-check-line"></i></div>
+                <div>
+                  <strong>Never Reprint When Updating Menus</strong>
+                  <span>Dynamic endpoints redirect on the fly based on meal period (breakfast, lunch, happy hour, dinner).</span>
+                </div>
+              </li>
+              <li class="feature-perk-item">
+                <div class="feature-perk-icon"><i class="ri-check-line"></i></div>
+                <div>
+                  <strong>Bespoke Colors & Embedded Center Logo</strong>
+                  <span>Upload PNG/SVG restaurant logos that render seamlessly in center eyes with high error correction (ECC Level H).</span>
+                </div>
+              </li>
+              <li class="feature-perk-item">
+                <div class="feature-perk-icon"><i class="ri-check-line"></i></div>
+                <div>
+                  <strong>Batch Table Numbering & Vector Export</strong>
+                  <span>Generate unique codes for Table 1 through 250 in one click. Export in print-ready 300 DPI PDF, EPS, or SVG.</span>
+                </div>
+              </li>
+            </ul>
+
+            <div style="display:flex;gap:var(--sp-2);">
+              <a href="register.html" class="btn btn--primary btn--sm">Generate My QR Codes</a>
+              <a href="demo.html" class="btn btn--outline btn--sm">Test in Live Demo</a>
+            </div>
+          </div>
+
+          <div class="feature-dive-media">
+            <div class="mock-card-container">
+              <div class="qr-demo-canvas">
+                <div style="display:flex;justify-content:space-between;width:100%;align-items:center;">
+                  <span style="font-size:var(--size-xs);font-weight:700;color:var(--clr-text-muted);text-transform:uppercase;">Live QR Customizer</span>
+                  <span class="badge badge--success" style="font-size:0.7rem;">ECC Level H</span>
+                </div>
+
+                <div class="qr-preview-frame" id="dynamic-qr-box">
+                  <div class="qr-preview-pattern" id="qr-matrix-dots">
+                    <div style="background:#0a0f0d;border-radius:2px;"></div>
+                    <div style="background:#0a0f0d;border-radius:2px;"></div>
+                    <div style="background:#0a0f0d;border-radius:2px;"></div>
+                    <div style="background:transparent;"></div>
+                    <div style="background:#0a0f0d;border-radius:2px;"></div>
+                    <div style="background:#0a0f0d;border-radius:2px;"></div>
+                    <div style="background:#0a0f0d;border-radius:2px;"></div>
+
+                    <div style="background:#0a0f0d;border-radius:2px;"></div>
+                    <div style="background:transparent;"></div>
+                    <div style="background:#0a0f0d;border-radius:2px;"></div>
+                    <div style="background:#0a0f0d;border-radius:2px;"></div>
+                    <div style="background:#0a0f0d;border-radius:2px;"></div>
+                    <div style="background:transparent;"></div>
+                    <div style="background:#0a0f0d;border-radius:2px;"></div>
+
+                    <div style="background:#0a0f0d;border-radius:2px;"></div>
+                    <div style="background:#0a0f0d;border-radius:2px;"></div>
+                    <div style="background:#0a0f0d;border-radius:2px;"></div>
+                    <div style="background:transparent;"></div>
+                    <div style="background:#0a0f0d;border-radius:2px;"></div>
+                    <div style="background:#0a0f0d;border-radius:2px;"></div>
+                    <div style="background:#0a0f0d;border-radius:2px;"></div>
+
+                    <div style="background:transparent;"></div>
+                    <div style="background:#0a0f0d;border-radius:2px;"></div>
+                    <div style="background:transparent;"></div>
+                    <div style="background:transparent;"></div>
+                    <div style="background:transparent;"></div>
+                    <div style="background:#0a0f0d;border-radius:2px;"></div>
+                    <div style="background:transparent;"></div>
+
+                    <div style="background:#0a0f0d;border-radius:2px;"></div>
+                    <div style="background:#0a0f0d;border-radius:2px;"></div>
+                    <div style="background:#0a0f0d;border-radius:2px;"></div>
+                    <div style="background:#0a0f0d;border-radius:2px;"></div>
+                    <div style="background:#0a0f0d;border-radius:2px;"></div>
+                    <div style="background:#0a0f0d;border-radius:2px;"></div>
+                    <div style="background:#0a0f0d;border-radius:2px;"></div>
+
+                    <div style="background:#0a0f0d;border-radius:2px;"></div>
+                    <div style="background:transparent;"></div>
+                    <div style="background:#0a0f0d;border-radius:2px;"></div>
+                    <div style="background:transparent;"></div>
+                    <div style="background:#0a0f0d;border-radius:2px;"></div>
+                    <div style="background:transparent;"></div>
+                    <div style="background:#0a0f0d;border-radius:2px;"></div>
+
+                    <div style="background:#0a0f0d;border-radius:2px;"></div>
+                    <div style="background:#0a0f0d;border-radius:2px;"></div>
+                    <div style="background:#0a0f0d;border-radius:2px;"></div>
+                    <div style="background:transparent;"></div>
+                    <div style="background:#0a0f0d;border-radius:2px;"></div>
+                    <div style="background:#0a0f0d;border-radius:2px;"></div>
+                    <div style="background:#0a0f0d;border-radius:2px;"></div>
+                  </div>
+                  <div class="qr-preview-center-logo" id="qr-logo-preview">
+                    <i class="ri-restaurant-2-line" style="color:var(--clr-secondary);font-size:1.1rem;"></i>
+                  </div>
+                </div>
+
+                <div style="text-align:center;">
+                  <span style="font-size:var(--size-xs);color:var(--clr-text-muted);display:block;margin-block-end:0.5rem;">Pick Accent Color:</span>
+                  <div class="qr-color-palette">
+                    <button class="color-swatch active" style="background:#0a0f0d;" title="Midnight Black" onclick="changeQRColor('#0a0f0d')"></button>
+                    <button class="color-swatch" style="background:#00c896;" title="Emerald Green" onclick="changeQRColor('#00c896')"></button>
+                    <button class="color-swatch" style="background:#ff6b5b;" title="Coral Orange" onclick="changeQRColor('#ff6b5b')"></button>
+                    <button class="color-swatch" style="background:#3b82f6;" title="Bistro Blue" onclick="changeQRColor('#3b82f6')"></button>
+                    <button class="color-swatch" style="background:#8b5cf6;" title="Luxury Violet" onclick="changeQRColor('#8b5cf6')"></button>
+                  </div>
+                </div>
+
+                <div style="width:100%;background:var(--clr-surface-2);padding:0.75rem;border-radius:var(--radius-md);display:flex;justify-content:space-between;align-items:center;">
+                  <span style="font-size:var(--size-xs);color:var(--clr-text-secondary);font-family:var(--font-mono);">Table #14 &bull; Main Dining</span>
+                  <span style="font-size:var(--size-xs);color:var(--clr-secondary);font-weight:700;"><i class="ri-download-2-line"></i> SVG Ready</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== DEEP DIVE 2: LIVE MENU ENGINE ===================== -->
+    <section id="menu-management" class="feature-deep-dive" aria-labelledby="menu-heading">
+      <div class="container">
+        <div class="feature-dive-grid feature-dive-grid--reversed">
+          <div class="feature-dive-text">
+            <span class="feature-tag-badge"><i class="ri-magic-line"></i> Real-Time Control</span>
+            <h2 id="menu-heading">Live Menu Management & Instant 86ing</h2>
+            <p>Ran out of fresh sea bass at 8:15 PM on a Saturday? 86 it with a single tap from your smartphone. Your digital menu syncs immediately across all scanned tables in less than 300 milliseconds.</p>
+
+            <ul class="feature-perk-list">
+              <li class="feature-perk-item">
+                <div class="feature-perk-icon"><i class="ri-check-line"></i></div>
+                <div>
+                  <strong>Dietary Allergens & Lifestyle Tags</strong>
+                  <span>Auto-categorize dishes with Vegan, Vegetarian, Halal, Kosher, Gluten-Free, Nut-Free, and Dairy-Free icons.</span>
+                </div>
+              </li>
+              <li class="feature-perk-item">
+                <div class="feature-perk-icon"><i class="ri-check-line"></i></div>
+                <div>
+                  <strong>Instant Multi-Language Translation</strong>
+                  <span>Automatic AI translations in 18+ languages (Spanish, French, Arabic RTL, Japanese, German, Mandarin) so international guests order with absolute ease.</span>
+                </div>
+              </li>
+              <li class="feature-perk-item">
+                <div class="feature-perk-icon"><i class="ri-check-line"></i></div>
+                <div>
+                  <strong>Upsell Modifiers & Pairings</strong>
+                  <span>Prompt guests with wine pairings, truffle fries upgrades, and double patty options. Average order value increases by +24%.</span>
+                </div>
+              </li>
+            </ul>
+
+            <div style="display:flex;gap:var(--sp-2);">
+              <a href="dashboard.html" class="btn btn--primary btn--sm">Explore Menu Builder</a>
+              <a href="demo.html" class="btn btn--outline btn--sm">View Diner Interface</a>
+            </div>
+          </div>
+
+          <div class="feature-dive-media">
+            <div class="mock-card-container">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-block-end:1rem;">
+                <h4 style="font-size:0.95rem;color:var(--clr-text-primary);font-family:var(--font-heading);">Saturday Dinner Service</h4>
+                <span class="badge badge--success" style="font-size:0.75rem;"><i class="ri-broadcast-line"></i> Live Sync Active</span>
+              </div>
+
+              <!-- Menu Item Row 1 -->
+              <div style="background:var(--clr-surface-2);border-radius:var(--radius-md);padding:0.875rem;margin-block-end:0.75rem;display:flex;align-items:center;justify-content:space-between;gap:0.75rem;">
+                <div style="display:flex;align-items:center;gap:0.75rem;">
+                  <div style="width:42px;height:42px;border-radius:8px;background:linear-gradient(135deg,#ff9966,#ff5e62);display:flex;align-items:center;justify-content:center;color:#fff;">
+                    <i class="ri-goblet-line"></i>
+                  </div>
+                  <div>
+                    <span style="font-size:0.85rem;font-weight:700;color:var(--clr-text-primary);display:block;">Smoked Rosemary Mezcalita</span>
+                    <span style="font-size:0.75rem;color:var(--clr-secondary);font-weight:600;">$18.00 &bull; Signature Cocktails</span>
+                  </div>
+                </div>
+                <div style="display:flex;align-items:center;gap:0.5rem;">
+                  <span class="badge badge--secondary" style="font-size:0.65rem;">Top Seller</span>
+                  <label class="toggle-switch" style="cursor:pointer;" title="Toggle Availability">
+                    <input type="checkbox" checked onchange="toggleItemStatus(this, 'Mezcalita')">
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Menu Item Row 2 (86ed example) -->
+              <div style="background:var(--clr-surface-2);border-radius:var(--radius-md);padding:0.875rem;margin-block-end:0.75rem;display:flex;align-items:center;justify-content:space-between;gap:0.75rem;">
+                <div style="display:flex;align-items:center;gap:0.75rem;">
+                  <div style="width:42px;height:42px;border-radius:8px;background:linear-gradient(135deg,#56ab2f,#a8e063);display:flex;align-items:center;justify-content:center;color:#fff;">
+                    <i class="ri-restaurant-line"></i>
+                  </div>
+                  <div>
+                    <span style="font-size:0.85rem;font-weight:700;color:var(--clr-text-primary);display:block;">Wagyu A5 Ribeye Tartare</span>
+                    <span style="font-size:0.75rem;color:var(--clr-text-muted);font-weight:600;">$34.00 &bull; 86'd at 8:12 PM</span>
+                  </div>
+                </div>
+                <div style="display:flex;align-items:center;gap:0.5rem;">
+                  <span class="badge badge--danger" style="font-size:0.65rem;">Sold Out</span>
+                  <label class="toggle-switch" style="cursor:pointer;" title="Toggle Availability">
+                    <input type="checkbox" onchange="toggleItemStatus(this, 'Wagyu')">
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Menu Item Row 3 -->
+              <div style="background:var(--clr-surface-2);border-radius:var(--radius-md);padding:0.875rem;display:flex;align-items:center;justify-content:space-between;gap:0.75rem;">
+                <div style="display:flex;align-items:center;gap:0.75rem;">
+                  <div style="width:42px;height:42px;border-radius:8px;background:linear-gradient(135deg,#f2994a,#f2c94c);display:flex;align-items:center;justify-content:center;color:#fff;">
+                    <i class="ri-cake-3-line"></i>
+                  </div>
+                  <div>
+                    <span style="font-size:0.85rem;font-weight:700;color:var(--clr-text-primary);display:block;">Dark Chocolate Lava Soufflé</span>
+                    <span style="font-size:0.75rem;color:var(--clr-secondary);font-weight:600;">$14.00 &bull; Desserts</span>
+                  </div>
+                </div>
+                <div style="display:flex;align-items:center;gap:0.5rem;">
+                  <span class="badge badge--pill badge--secondary" style="font-size:0.65rem;">Vegetarian</span>
+                  <label class="toggle-switch" style="cursor:pointer;" title="Toggle Availability">
+                    <input type="checkbox" checked onchange="toggleItemStatus(this, 'Soufflé')">
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== DEEP DIVE 3: KITCHEN DISPLAY SYSTEM (KDS) ===================== -->
+    <section id="kitchen-kds" class="feature-deep-dive" aria-labelledby="kds-heading">
+      <div class="container">
+        <div class="feature-dive-grid">
+          <div class="feature-dive-text">
+            <span class="feature-tag-badge"><i class="ri-fire-line"></i> Kitchen Operations</span>
+            <h2 id="kds-heading">Kitchen Display System (KDS) & Waiter Paging</h2>
+            <p>Eliminate paper tickets that get lost, soaked in sauce, or delayed. Fire tickets directly to dedicated station monitors — Grill, Pantry, Fryer, or Bar — with color-coded preparation timers and audio chime notifications.</p>
+
+            <ul class="feature-perk-list">
+              <li class="feature-perk-item">
+                <div class="feature-perk-icon"><i class="ri-check-line"></i></div>
+                <div>
+                  <strong>Multi-Station Ticket Splitting</strong>
+                  <span>Drinks automatically route to the Bar screen while Steaks route to the Hot Line without human intervention.</span>
+                </div>
+              </li>
+              <li class="feature-perk-item">
+                <div class="feature-perk-icon"><i class="ri-check-line"></i></div>
+                <div>
+                  <strong>Course Pacing & Holds</strong>
+                  <span>Kitchen expediter can hold entrees until appetizers are marked "Served", preventing table clutter and cold food.</span>
+                </div>
+              </li>
+              <li class="feature-perk-item">
+                <div class="feature-perk-icon"><i class="ri-check-line"></i></div>
+                <div>
+                  <strong>Runner Paging & Guest SMS Notification</strong>
+                  <span>When a ticket is bumped to "Ready", runners get a haptic watch vibration, or guests receive an SMS when picking up at the counter.</span>
+                </div>
+              </li>
+            </ul>
+
+            <div style="display:flex;gap:var(--sp-2);">
+              <a href="demo.html" class="btn btn--primary btn--sm">Test Live KDS Screen</a>
+              <a href="pricing.html" class="btn btn--outline btn--sm">View Pricing Plans</a>
+            </div>
+          </div>
+
+          <div class="feature-dive-media">
+            <div class="mock-card-container">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-block-end:1rem;">
+                <div style="display:flex;align-items:center;gap:0.5rem;">
+                  <span style="width:10px;height:10px;border-radius:50%;background:#3b82f6;display:inline-block;"></span>
+                  <span style="font-weight:700;font-size:0.85rem;color:var(--clr-text-primary);">HOT LINE KDS &bull; SCREEN 1</span>
+                </div>
+                <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--clr-text-muted);">Avg Ticket: 8m 42s</span>
+              </div>
+
+              <div class="kds-card-grid">
+                <!-- Ticket 1 -->
+                <div class="kds-ticket">
+                  <div class="kds-ticket__header">
+                    <span class="kds-ticket__table">Table 08 &bull; Dine-in</span>
+                    <span class="kds-ticket__timer">04:15</span>
+                  </div>
+                  <ul class="kds-ticket__items">
+                    <li><strong>2x</strong> Truffle Smash Burger <span style="color:var(--clr-text-muted);font-size:0.7rem;">(Med-Rare, No Onions)</span></li>
+                    <li><strong>1x</strong> Parmesan Polenta Fries</li>
+                  </ul>
+                  <div style="margin-block-start:0.75rem;display:flex;justify-content:flex-end;">
+                    <button class="btn btn--sm btn--secondary" style="padding:0.25rem 0.6rem;font-size:0.7rem;" onclick="bumpTicket(this)">Bump Order</button>
+                  </div>
+                </div>
+
+                <!-- Ticket 2 -->
+                <div class="kds-ticket kds-ticket--warning">
+                  <div class="kds-ticket__header">
+                    <span class="kds-ticket__table">Table 12 &bull; Dine-in</span>
+                    <span class="kds-ticket__timer" style="color:var(--clr-warning);">12:30</span>
+                  </div>
+                  <ul class="kds-ticket__items">
+                    <li><strong>1x</strong> Pan-Seared Chilean Bass</li>
+                    <li><strong>1x</strong> Grilled Asparagus</li>
+                  </ul>
+                  <div style="margin-block-start:0.75rem;display:flex;justify-content:flex-end;">
+                    <button class="btn btn--sm btn--warning" style="padding:0.25rem 0.6rem;font-size:0.7rem;" onclick="bumpTicket(this)">Bump Order</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== POS INTEGRATIONS ECOSYSTEM ===================== -->
+    <section class="pos-integration-section" aria-labelledby="integrations-heading">
+      <div class="container">
+        <span class="badge badge--pill badge--secondary" style="margin-block-end:var(--sp-2);">Seamless Connectivity</span>
+        <h2 id="integrations-heading" style="font-size:var(--size-h2);color:var(--clr-text-primary);">Integrates Directly With Your Existing POS</h2>
+        <p style="color:var(--clr-text-secondary);max-width:580px;margin-inline:auto;">No need to rip and replace your existing point of sale hardware. QRServe connects natively with all market leaders via certified 2-way cloud APIs.</p>
+
+        <div class="pos-logos-grid">
+          <div class="pos-logo-card">
+            <i class="ri-terminal-window-line" style="color:#f26522;"></i>
+            <span>Toast POS</span>
+          </div>
+          <div class="pos-logo-card">
+            <i class="ri-checkbox-blank-line" style="color:#006aff;"></i>
+            <span>Square</span>
+          </div>
+          <div class="pos-logo-card">
+            <i class="ri-leaf-line" style="color:#228833;"></i>
+            <span>Clover</span>
+          </div>
+          <div class="pos-logo-card">
+            <i class="ri-flashlight-fill" style="color:#ff3366;"></i>
+            <span>Lightspeed</span>
+          </div>
+          <div class="pos-logo-card">
+            <i class="ri-server-line" style="color:#ff0000;"></i>
+            <span>Oracle Micros</span>
+          </div>
+          <div class="pos-logo-card">
+            <i class="ri-secure-payment-line" style="color:#635bff;"></i>
+            <span>Stripe Terminal</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FEATURE COMPARISON MATRIX ===================== -->
+    <section class="matrix-section" aria-labelledby="matrix-heading">
+      <div class="container">
+        <div style="text-align:center;margin-block-end:var(--sp-6);">
+          <span class="badge badge--pill badge--secondary" style="margin-block-end:var(--sp-2);">At A Glance</span>
+          <h2 id="matrix-heading" style="font-size:var(--size-h2);color:var(--clr-text-primary);">Platform Capability Breakdown</h2>
+          <p style="color:var(--clr-text-secondary);">Everything included across each operational layer.</p>
+        </div>
+
+        <div style="overflow-x:auto;">
+          <table class="matrix-table">
+            <thead>
+              <tr>
+                <th style="width:40%;">Capability / Function</th>
+                <th>Starter</th>
+                <th>Professional</th>
+                <th>Enterprise</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Dynamic QR Generator & Vector Export</strong></td>
+                <td><i class="ri-check-line check-icon"></i> Unlimited</td>
+                <td><i class="ri-check-line check-icon"></i> Custom Logo</td>
+                <td><i class="ri-check-line check-icon"></i> Custom Domain</td>
+              </tr>
+              <tr>
+                <td><strong>Live Real-Time Menu & 86ing</strong></td>
+                <td><i class="ri-check-line check-icon"></i> 300ms Sync</td>
+                <td><i class="ri-check-line check-icon"></i> 300ms Sync</td>
+                <td><i class="ri-check-line check-icon"></i> 300ms Sync</td>
+              </tr>
+              <tr>
+                <td><strong>Contactless Table Ordering & Group Tabs</strong></td>
+                <td><i class="ri-close-line x-icon"></i> (Menu Only)</td>
+                <td><i class="ri-check-line check-icon"></i> Full Ordering</td>
+                <td><i class="ri-check-line check-icon"></i> Multi-Unit Tab</td>
+              </tr>
+              <tr>
+                <td><strong>Kitchen Display System (KDS) Station Routing</strong></td>
+                <td><i class="ri-close-line x-icon"></i></td>
+                <td><i class="ri-check-line check-icon"></i> Up to 4 Stations</td>
+                <td><i class="ri-check-line check-icon"></i> Unlimited Stations</td>
+              </tr>
+              <tr>
+                <td><strong>Apple Pay, Google Pay & Card Checkout</strong></td>
+                <td><i class="ri-close-line x-icon"></i></td>
+                <td><i class="ri-check-line check-icon"></i> 0% Added Fee</td>
+                <td><i class="ri-check-line check-icon"></i> Volume Rates</td>
+              </tr>
+              <tr>
+                <td><strong>Automated Multi-Language Translation (18 Languages)</strong></td>
+                <td><i class="ri-close-line x-icon"></i></td>
+                <td><i class="ri-check-line check-icon"></i> Included</td>
+                <td><i class="ri-check-line check-icon"></i> Included</td>
+              </tr>
+              <tr>
+                <td><strong>Certified POS Integrations (Toast, Square, Clover)</strong></td>
+                <td><i class="ri-close-line x-icon"></i></td>
+                <td><i class="ri-check-line check-icon"></i> 1 Integration</td>
+                <td><i class="ri-check-line check-icon"></i> Custom API + All</td>
+              </tr>
+              <tr>
+                <td><strong>Dedicated Account Executive & 24/7 SLA</strong></td>
+                <td>Standard Email</td>
+                <td>Priority Live Chat</td>
+                <td><i class="ri-check-line check-icon"></i> 15-Min Response SLA</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CTA BANNER ===================== -->
+    <section class="cta-section" style="padding-block:var(--sp-12);">
+      <div class="container">
+        <div class="cta-section__content">
+          <h2>Transform Your Dining Operations Tonight</h2>
+          <p>Over 4,500+ restaurants, hotels, and bars trust QRServe to serve millions of guests without delays.</p>
+          <div class="cta-section__actions">
+            <a href="register.html" class="btn btn--secondary btn--lg">Start 14-Day Free Trial</a>
+            <a href="demo.html" class="btn btn--outline btn--lg" style="color:#fff;border-color:rgba(255,255,255,0.3);">Book A Live VIP Demo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="footer__logo">
+            <div class="footer__logo-icon" aria-hidden="true">
+              <i class="ri-qr-code-line" style="font-size:0.9rem;"></i>
+            </div>
+            QR<span style="color:var(--clr-secondary);">Serve</span>
+          </div>
+          <p>The premium QR digital menu & contactless ordering platform built for modern hospitality businesses worldwide.</p>
+          <div class="footer__social" aria-label="Social media links">
+            <a href="#" class="footer__social-link" aria-label="Twitter"><i class="ri-twitter-x-line"></i></a>
+            <a href="#" class="footer__social-link" aria-label="LinkedIn"><i class="ri-linkedin-line"></i></a>
+            <a href="#" class="footer__social-link" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+            <a href="#" class="footer__social-link" aria-label="Facebook"><i class="ri-facebook-line"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="footer__col-title">Product</h3>
+          <ul class="footer__links">
+            <li><a href="features.html" class="footer__link">Features</a></li>
+            <li><a href="pricing.html" class="footer__link">Pricing</a></li>
+            <li><a href="demo.html" class="footer__link">Request Demo</a></li>
+            <li><a href="dashboard.html" class="footer__link">Dashboard</a></li>
+            <li><a href="coming-soon.html" class="footer__link">Changelog</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer__col-title">Company</h3>
+          <ul class="footer__links">
+            <li><a href="about.html" class="footer__link">About Us</a></li>
+            <li><a href="blog.html" class="footer__link">Blog</a></li>
+            <li><a href="contact.html" class="footer__link">Contact</a></li>
+            <li><a href="services.html" class="footer__link">Services</a></li>
+            <li><a href="coming-soon.html" class="footer__link">Careers</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer__col-title">Legal</h3>
+          <ul class="footer__links">
+            <li><a href="#" class="footer__link">Privacy Policy</a></li>
+            <li><a href="#" class="footer__link">Terms of Service</a></li>
+            <li><a href="#" class="footer__link">Cookie Policy</a></li>
+            <li><a href="#" class="footer__link">Security</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>&copy; 2026 QRServe Technologies Inc. All rights reserved.</p>
+        <div class="footer__bottom-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+  <script>
+    function changeQRColor(hex) {
+      document.querySelectorAll('#qr-matrix-dots div').forEach(dot => {
+        if (dot.style.background !== 'transparent') {
+          dot.style.background = hex;
+        }
+      });
+      document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('active'));
+      event.target.classList.add('active');
+      if (window.QRServe && window.QRServe.Toast) {
+        window.QRServe.Toast.show('QR color updated to ' + hex, 'info');
+      }
+    }
+
+    function toggleItemStatus(checkbox, itemName) {
+      const status = checkbox.checked ? 'Available' : '86ed / Sold Out';
+      if (window.QRServe && window.QRServe.Toast) {
+        window.QRServe.Toast.show(`${itemName} is now marked as ${status}`, checkbox.checked ? 'success' : 'error');
+      }
+    }
+
+    function bumpTicket(btn) {
+      const ticket = btn.closest('.kds-ticket');
+      ticket.style.opacity = '0.3';
+      ticket.style.transform = 'scale(0.95)';
+      ticket.style.transition = 'all 0.3s ease';
+      setTimeout(() => {
+        ticket.innerHTML = `
+          <div style="text-align:center;padding:1rem;color:var(--clr-secondary);">
+            <i class="ri-checkbox-circle-line" style="font-size:2rem;"></i>
+            <p style="font-weight:700;font-size:0.85rem;margin-block-start:0.25rem;">Bumped to Expediter!</p>
+          </div>
+        `;
+        ticket.style.opacity = '1';
+        ticket.style.transform = 'none';
+      }, 300);
+      if (window.QRServe && window.QRServe.Toast) {
+        window.QRServe.Toast.show('Ticket completed and sent to runner!', 'success');
+      }
+    }
+  </script>
+</body>
+</html>

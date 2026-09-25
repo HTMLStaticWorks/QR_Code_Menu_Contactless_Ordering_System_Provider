@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact QRServe — Reach our restaurant technology specialists for sales inquiries, custom POS integrations, enterprise rollouts, or 24/7 technical support." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://qrserve.io/contact" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://qrserve.io/contact" />
+  <meta property="og:title" content="Contact QRServe — Global Sales & 24/7 Support" />
+  <meta property="og:description" content="Talk to our hospitality engineers in San Francisco, London, Dubai, or Singapore." />
+
+  <title>Contact Global Sales & Support — QRServe</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/rtl.css" />
+
+  <style>
+    /* Contact Hero */
+    .contact-hero {
+      background: var(--clr-primary);
+      padding-block: calc(var(--nav-height) + var(--sp-10)) var(--sp-8);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .contact-hero::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 50%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,200,150,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .contact-hero h1 { color: #fff; font-size: var(--size-h1); }
+    .contact-hero p { color: rgba(255,255,255,0.65); font-size: var(--size-lead); max-width: 600px; margin-inline: auto; margin-block-start: var(--sp-2); }
+
+    /* Contact Grid */
+    .contact-main-section {
+      padding-block: var(--sp-12);
+      background: var(--clr-bg);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: var(--sp-8);
+      align-items: start;
+    }
+
+    .contact-form-card {
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-xl);
+      padding: var(--sp-8);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .contact-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-4);
+    }
+
+    .support-sla-card {
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-xl);
+      padding: var(--sp-6);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Global Offices */
+    .offices-section {
+      padding-block: var(--sp-12);
+      background: var(--clr-surface);
+      border-block-start: 1px solid var(--clr-border);
+    }
+
+    .offices-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--sp-4);
+      margin-block-start: var(--sp-6);
+    }
+
+    .office-card {
+      background: var(--clr-surface-2);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      transition: all var(--transition-fast);
+    }
+
+    .office-card:hover {
+      border-color: var(--clr-secondary);
+      transform: translateY(-4px);
+    }
+
+    .office-clock {
+      font-family: var(--font-mono);
+      font-size: var(--size-xs);
+      color: var(--clr-secondary);
+      background: var(--clr-surface);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      display: inline-block;
+      margin-block-end: 0.75rem;
+    }
+
+    .office-name {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--clr-text-primary);
+      margin-block-end: 0.25rem;
+    }
+
+    .office-address {
+      font-size: var(--size-small);
+      color: var(--clr-text-secondary);
+      line-height: 1.4;
+      margin-block-end: 1rem;
+    }
+
+    .office-email {
+      font-size: var(--size-xs);
+      color: var(--clr-secondary);
+      font-weight: 600;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    @media (max-width: 900px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .offices-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .offices-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <header class="navbar" role="banner">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo" aria-label="QRServe — Home">
+        <div class="navbar__logo-icon" aria-hidden="true">
+          <i class="ri-qr-code-line" style="font-size:1.1rem;"></i>
+        </div>
+        QR<span>Serve</span>
+      </a>
+
+      <nav class="navbar__nav" aria-label="Main navigation">
+        <a href="index.html" class="navbar__link" data-nav-link>Home</a>
+        <a href="home2.html" class="navbar__link" data-nav-link>Home 2</a>
+        <a href="features.html" class="navbar__link" data-nav-link>Features</a>
+        <a href="pricing.html" class="navbar__link" data-nav-link>Pricing</a>
+        <a href="demo.html" class="navbar__link" data-nav-link>Demo</a>
+        <a href="blog.html" class="navbar__link" data-nav-link>Blog</a>
+        <a href="contact.html" class="navbar__link active" data-nav-link>Contact</a>
+      </nav>
+
+      <div class="navbar__actions">
+        <button class="icon-btn" data-theme-toggle data-theme-icon aria-label="Toggle dark mode" title="Toggle theme"></button>
+        <button class="icon-btn" data-rtl-btn aria-label="Switch to RTL" title="Switch direction"></button>
+        <a href="dashboard.html" class="btn btn--ghost btn--sm" data-nav-link>Dashboard</a>
+        <a href="login.html" class="btn btn--outline btn--sm" data-nav-link>Login</a>
+        <a href="register.html" class="btn btn--primary btn--sm">Get Started</a>
+      </div>
+
+      <button class="navbar__hamburger" id="hamburger-btn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-drawer">
+        <i class="ri-menu-3-line" style="font-size:1.25rem;" aria-hidden="true"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===================== MOBILE DRAWER ===================== -->
+  <div class="drawer-overlay" id="drawer-overlay" aria-hidden="true"></div>
+  <div class="drawer" id="mobile-drawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <div class="drawer__header">
+      <a href="index.html" class="navbar__logo" style="font-size:1.25rem;">
+        <div class="navbar__logo-icon" style="width:30px;height:30px;" aria-hidden="true">
+          <i class="ri-qr-code-line" style="font-size:0.95rem;"></i>
+        </div>
+        QR<span>Serve</span>
+      </a>
+      <button class="icon-btn drawer__close" aria-label="Close navigation menu">
+        <i class="ri-close-line" style="font-size:1.25rem;" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <nav class="drawer__nav" aria-label="Mobile navigation">
+      <a href="index.html" class="drawer__link" data-nav-link><i class="ri-home-4-line"></i> Home</a>
+      <a href="home2.html" class="drawer__link" data-nav-link><i class="ri-layout-masonry-line"></i> Home 2</a>
+      <a href="features.html" class="drawer__link" data-nav-link><i class="ri-flashlight-line"></i> Features</a>
+      <a href="pricing.html" class="drawer__link" data-nav-link><i class="ri-price-tag-3-line"></i> Pricing</a>
+      <a href="demo.html" class="drawer__link" data-nav-link><i class="ri-play-circle-line"></i> Demo</a>
+      <a href="blog.html" class="drawer__link" data-nav-link><i class="ri-article-line"></i> Blog</a>
+      <a href="contact.html" class="drawer__link active" data-nav-link><i class="ri-mail-line"></i> Contact</a>
+      <a href="about.html" class="drawer__link" data-nav-link><i class="ri-information-line"></i> About</a>
+      <div class="divider"></div>
+      <a href="dashboard.html" class="drawer__link" data-nav-link><i class="ri-dashboard-line"></i> Dashboard</a>
+      <a href="login.html" class="drawer__link" data-nav-link><i class="ri-login-box-line"></i> Login</a>
+    </nav>
+
+    <div class="drawer__footer">
+      <a href="register.html" class="btn btn--primary btn--full">Get Started Free</a>
+      <div class="drawer__controls">
+        <button class="icon-btn" data-theme-toggle data-theme-icon aria-label="Toggle dark mode"></button>
+        <button class="icon-btn" data-rtl-btn aria-label="Switch text direction"></button>
+      </div>
+    </div>
+  </div>
+
+  <main id="main-content">
+    <!-- ===================== HERO ===================== -->
+    <section class="contact-hero" aria-labelledby="contact-heading">
+      <div class="container">
+        <span class="badge badge--pill badge--secondary" style="margin-block-end:var(--sp-2);">Direct Access</span>
+        <h1 id="contact-heading">Speak With A Hospitality Tech Specialist</h1>
+        <p>Whether you manage a single neighborhood bistro or an international hotel chain with 50 properties, our solution architects are here to help.</p>
+      </div>
+    </section>
+
+    <!-- ===================== MAIN FORM & INFO ===================== -->
+    <section class="contact-main-section">
+      <div class="container">
+        <div class="contact-grid">
+
+          <!-- FORM -->
+          <div class="contact-form-card">
+            <h2 style="font-size:var(--size-h4);color:var(--clr-text-primary);margin-block-end:0.5rem;">Send Us An Inquiry</h2>
+            <p style="color:var(--clr-text-secondary);font-size:var(--size-small);margin-block-end:var(--sp-4);">
+              Fill out the form below and an engineer will reply within <strong>under 15 minutes</strong> during service hours.
+            </p>
+
+            <form id="contact-form" onsubmit="handleContactSubmit(event)">
+              <div class="form-group">
+                <label for="contact-subject" class="form-label">How can we help you? *</label>
+                <select id="contact-subject" class="form-input" required>
+                  <option value="Enterprise Sales">Enterprise Sales & Multi-Location Rollout</option>
+                  <option value="POS Integration">POS API Integration (Toast, Square, Clover)</option>
+                  <option value="Hardware / Standees">Bespoke Table Hardware & Acrylic Standees</option>
+                  <option value="Support">Existing Customer Technical Support</option>
+                  <option value="Partnership">Partnership or Agency Program</option>
+                </select>
+              </div>
+
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+                <div class="form-group">
+                  <label for="contact-name" class="form-label">Your Name *</label>
+                  <input type="text" id="contact-name" class="form-input" placeholder="Elena Rostova" required />
+                </div>
+                <div class="form-group">
+                  <label for="contact-email" class="form-label">Work Email *</label>
+                  <input type="email" id="contact-email" class="form-input" placeholder="elena@grandhotel.com" required />
+                </div>
+              </div>
+
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+                <div class="form-group">
+                  <label for="contact-brand" class="form-label">Venue / Restaurant Name *</label>
+                  <input type="text" id="contact-brand" class="form-input" placeholder="The Grand Hotel & Rooftop" required />
+                </div>
+                <div class="form-group">
+                  <label for="contact-phone" class="form-label">Direct Phone / WhatsApp *</label>
+                  <input type="tel" id="contact-phone" class="form-input" placeholder="+1 (415) 890-1200" required />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-message" class="form-label">Your Message / Requirements *</label>
+                <textarea id="contact-message" class="form-input" rows="4" placeholder="Tell us about your table count, POS system, and what you want to achieve with QRServe..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn--primary btn--full btn--lg">
+                <i class="ri-send-plane-fill"></i> Submit Inquiry
+              </button>
+            </form>
+          </div>
+
+          <!-- SIDEBAR -->
+          <div class="contact-sidebar">
+
+            <!-- Support SLA -->
+            <div class="support-sla-card">
+              <div style="display:flex;align-items:center;gap:0.75rem;margin-block-end:1rem;">
+                <div style="width:40px;height:40px;border-radius:10px;background:var(--clr-secondary-light);color:var(--clr-secondary);display:flex;align-items:center;justify-content:center;font-size:1.25rem;">
+                  <i class="ri-shield-flash-line"></i>
+                </div>
+                <div>
+                  <strong style="font-size:0.95rem;display:block;">Emergency Service Hotline</strong>
+                  <span style="font-size:var(--size-xs);color:var(--clr-text-muted);">For Active Dining Services</span>
+                </div>
+              </div>
+              <p style="font-size:var(--size-small);color:var(--clr-text-secondary);line-height:1.5;margin-block-end:1rem;">
+                Friday or Saturday night rush? Our dedicated 24/7 on-call engineering dispatch monitors table orders in real time.
+              </p>
+              <div style="background:var(--clr-surface-2);padding:0.75rem;border-radius:var(--radius-md);font-family:var(--font-mono);font-size:0.85rem;color:var(--clr-text-primary);display:flex;justify-content:space-between;align-items:center;">
+                <span>+1 (800) 592-7738</span>
+                <span class="badge badge--success" style="font-size:0.65rem;">24/7 LIVE</span>
+              </div>
+            </div>
+
+            <!-- Direct Emails -->
+            <div class="support-sla-card">
+              <h3 style="font-size:0.95rem;font-weight:700;margin-block-end:0.75rem;">Direct Department Routing</h3>
+              <ul style="list-style:none;display:flex;flex-direction:column;gap:0.75rem;font-size:var(--size-small);">
+                <li style="display:flex;justify-content:space-between;">
+                  <span style="color:var(--clr-text-muted);">Sales & Quotes:</span>
+                  <a href="mailto:sales@qrserve.io" style="color:var(--clr-secondary);font-weight:600;">sales@qrserve.io</a>
+                </li>
+                <li style="display:flex;justify-content:space-between;">
+                  <span style="color:var(--clr-text-muted);">POS Integrations:</span>
+                  <a href="mailto:api@qrserve.io" style="color:var(--clr-secondary);font-weight:600;">api@qrserve.io</a>
+                </li>
+                <li style="display:flex;justify-content:space-between;">
+                  <span style="color:var(--clr-text-muted);">Enterprise Concierge:</span>
+                  <a href="mailto:vip@qrserve.io" style="color:var(--clr-secondary);font-weight:600;">vip@qrserve.io</a>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== GLOBAL HUBS ===================== -->
+    <section class="offices-section" aria-labelledby="offices-title">
+      <div class="container">
+        <div style="text-align:center;">
+          <span class="badge badge--pill badge--secondary" style="margin-block-end:var(--sp-2);">Global Footprint</span>
+          <h2 id="offices-title" style="font-size:var(--size-h2);color:var(--clr-text-primary);">Our Regional Command Hubs</h2>
+          <p style="color:var(--clr-text-secondary);max-width:540px;margin-inline:auto;">Supporting dining establishments across 32 timezones and 4 continents.</p>
+        </div>
+
+        <div class="offices-grid">
+          <!-- San Francisco -->
+          <div class="office-card">
+            <div class="office-clock" id="sf-clock">SF: --:-- --</div>
+            <h3 class="office-name">San Francisco</h3>
+            <p class="office-address">450 Mission Street, Suite 1400<br />San Francisco, CA 94105, USA</p>
+            <a href="mailto:sf@qrserve.io" class="office-email"><i class="ri-mail-line"></i> sf@qrserve.io</a>
+          </div>
+
+          <!-- London -->
+          <div class="office-card">
+            <div class="office-clock" id="london-clock">LON: --:-- --</div>
+            <h3 class="office-name">London</h3>
+            <p class="office-address">1 Poultry, Bank Junction<br />London, EC2R 8EJ, United Kingdom</p>
+            <a href="mailto:uk@qrserve.io" class="office-email"><i class="ri-mail-line"></i> uk@qrserve.io</a>
+          </div>
+
+          <!-- Dubai -->
+          <div class="office-card">
+            <div class="office-clock" id="dubai-clock">DXB: --:-- --</div>
+            <h3 class="office-name">Dubai</h3>
+            <p class="office-address">DIFC Gate Precinct 4, Level 5<br />Dubai, United Arab Emirates</p>
+            <a href="mailto:dubai@qrserve.io" class="office-email"><i class="ri-mail-line"></i> dubai@qrserve.io</a>
+          </div>
+
+          <!-- Singapore -->
+          <div class="office-card">
+            <div class="office-clock" id="singapore-clock">SGP: --:-- --</div>
+            <h3 class="office-name">Singapore</h3>
+            <p class="office-address">79 Robinson Road, #18-01<br />Singapore 068897</p>
+            <a href="mailto:apac@qrserve.io" class="office-email"><i class="ri-mail-line"></i> apac@qrserve.io</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="footer__logo">
+            <div class="footer__logo-icon" aria-hidden="true">
+              <i class="ri-qr-code-line" style="font-size:0.9rem;"></i>
+            </div>
+            QR<span style="color:var(--clr-secondary);">Serve</span>
+          </div>
+          <p>The premium QR digital menu & contactless ordering platform built for modern hospitality businesses worldwide.</p>
+          <div class="footer__social" aria-label="Social media links">
+            <a href="#" class="footer__social-link" aria-label="Twitter"><i class="ri-twitter-x-line"></i></a>
+            <a href="#" class="footer__social-link" aria-label="LinkedIn"><i class="ri-linkedin-line"></i></a>
+            <a href="#" class="footer__social-link" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+            <a href="#" class="footer__social-link" aria-label="Facebook"><i class="ri-facebook-line"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="footer__col-title">Product</h3>
+          <ul class="footer__links">
+            <li><a href="features.html" class="footer__link">Features</a></li>
+            <li><a href="pricing.html" class="footer__link">Pricing</a></li>
+            <li><a href="demo.html" class="footer__link">Request Demo</a></li>
+            <li><a href="dashboard.html" class="footer__link">Dashboard</a></li>
+            <li><a href="coming-soon.html" class="footer__link">Changelog</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer__col-title">Company</h3>
+          <ul class="footer__links">
+            <li><a href="about.html" class="footer__link">About Us</a></li>
+            <li><a href="blog.html" class="footer__link">Blog</a></li>
+            <li><a href="contact.html" class="footer__link">Contact</a></li>
+            <li><a href="services.html" class="footer__link">Services</a></li>
+            <li><a href="coming-soon.html" class="footer__link">Careers</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer__col-title">Legal</h3>
+          <ul class="footer__links">
+            <li><a href="#" class="footer__link">Privacy Policy</a></li>
+            <li><a href="#" class="footer__link">Terms of Service</a></li>
+            <li><a href="#" class="footer__link">Cookie Policy</a></li>
+            <li><a href="#" class="footer__link">Security</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>&copy; 2026 QRServe Technologies Inc. All rights reserved.</p>
+        <div class="footer__bottom-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+  <script>
+    function updateClocks() {
+      const options = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true };
+      
+      const sfTime = new Intl.DateTimeFormat([], { ...options, timeZone: 'America/Los_Angeles' }).format(new Date());
+      const lonTime = new Intl.DateTimeFormat([], { ...options, timeZone: 'Europe/London' }).format(new Date());
+      const dxbTime = new Intl.DateTimeFormat([], { ...options, timeZone: 'Asia/Dubai' }).format(new Date());
+      const sgpTime = new Intl.DateTimeFormat([], { ...options, timeZone: 'Asia/Singapore' }).format(new Date());
+
+      document.getElementById('sf-clock').textContent = `SF: ${sfTime}`;
+      document.getElementById('london-clock').textContent = `LON: ${lonTime}`;
+      document.getElementById('dubai-clock').textContent = `DXB: ${dxbTime}`;
+      document.getElementById('singapore-clock').textContent = `SGP: ${sgpTime}`;
+    }
+
+    setInterval(updateClocks, 1000);
+    updateClocks();
+
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('contact-name').value;
+      const brand = document.getElementById('contact-brand').value;
+
+      if (window.QRServe && window.QRServe.Toast) {
+        window.QRServe.Toast.show(`Inquiry received from ${name} (${brand})! A specialist is reviewing it now.`, 'success');
+      }
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>

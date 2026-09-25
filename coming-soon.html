@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="QRServe Roadmap & Product Changelog — Explore upcoming features, AI Sommelier integrations, and open career opportunities." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://qrserve.io/coming-soon" />
+
+  <title>Product Roadmap, Changelog & Careers — QRServe</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/rtl.css" />
+
+  <style>
+    .roadmap-hero {
+      background: var(--clr-primary);
+      padding-block: calc(var(--nav-height) + var(--sp-12)) var(--sp-10);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .roadmap-hero::before {
+      content: '';
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 50%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,200,150,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .roadmap-hero h1 { color: #fff; font-size: var(--size-h1); }
+    .roadmap-hero p { color: rgba(255,255,255,0.65); font-size: var(--size-lead); max-width: 620px; margin-inline: auto; margin-block-start: var(--sp-2); }
+
+    .timeline-section {
+      padding-block: var(--sp-12);
+      background: var(--clr-bg);
+    }
+
+    .timeline-container {
+      max-width: 800px;
+      margin-inline: auto;
+      position: relative;
+    }
+
+    .timeline-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 24px;
+      width: 2px;
+      background: var(--clr-border);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 64px;
+      margin-bottom: var(--sp-8);
+    }
+
+    .timeline-marker {
+      position: absolute;
+      left: 12px;
+      top: 4px;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--clr-surface);
+      border: 3px solid var(--clr-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      color: var(--clr-secondary);
+      box-shadow: 0 0 0 4px var(--clr-bg);
+    }
+
+    .timeline-marker--upcoming {
+      border-color: var(--clr-text-muted);
+      color: var(--clr-text-muted);
+    }
+
+    .timeline-card {
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-6);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .careers-section {
+      padding-block: var(--sp-12);
+      background: var(--clr-surface);
+      border-block-start: 1px solid var(--clr-border);
+    }
+
+    .jobs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--sp-6);
+      margin-block-start: var(--sp-8);
+    }
+
+    .job-card {
+      background: var(--clr-surface-2);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-6);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    @media (max-width: 900px) {
+      .jobs-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <header class="navbar" role="banner">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo" aria-label="QRServe — Home">
+        <div class="navbar__logo-icon" aria-hidden="true">
+          <i class="ri-qr-code-line" style="font-size:1.1rem;"></i>
+        </div>
+        QR<span>Serve</span>
+      </a>
+
+      <nav class="navbar__nav" aria-label="Main navigation">
+        <a href="index.html" class="navbar__link" data-nav-link>Home</a>
+        <a href="home2.html" class="navbar__link" data-nav-link>Home 2</a>
+        <a href="features.html" class="navbar__link" data-nav-link>Features</a>
+        <a href="pricing.html" class="navbar__link" data-nav-link>Pricing</a>
+        <a href="demo.html" class="navbar__link" data-nav-link>Demo</a>
+        <a href="blog.html" class="navbar__link" data-nav-link>Blog</a>
+        <a href="contact.html" class="navbar__link" data-nav-link>Contact</a>
+      </nav>
+
+      <div class="navbar__actions">
+        <button class="icon-btn" data-theme-toggle data-theme-icon aria-label="Toggle dark mode" title="Toggle theme"></button>
+        <button class="icon-btn" data-rtl-btn aria-label="Switch to RTL" title="Switch direction"></button>
+        <a href="dashboard.html" class="btn btn--ghost btn--sm" data-nav-link>Dashboard</a>
+        <a href="login.html" class="btn btn--outline btn--sm" data-nav-link>Login</a>
+        <a href="register.html" class="btn btn--primary btn--sm">Get Started</a>
+      </div>
+
+      <button class="navbar__hamburger" id="hamburger-btn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-drawer">
+        <i class="ri-menu-3-line" style="font-size:1.25rem;" aria-hidden="true"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===================== MOBILE DRAWER ===================== -->
+  <div class="drawer-overlay" id="drawer-overlay" aria-hidden="true"></div>
+  <div class="drawer" id="mobile-drawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <div class="drawer__header">
+      <a href="index.html" class="navbar__logo" style="font-size:1.25rem;">
+        <div class="navbar__logo-icon" style="width:30px;height:30px;" aria-hidden="true">
+          <i class="ri-qr-code-line" style="font-size:0.95rem;"></i>
+        </div>
+        QR<span>Serve</span>
+      </a>
+      <button class="icon-btn drawer__close" aria-label="Close navigation menu">
+        <i class="ri-close-line" style="font-size:1.25rem;" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <nav class="drawer__nav" aria-label="Mobile navigation">
+      <a href="index.html" class="drawer__link" data-nav-link><i class="ri-home-4-line"></i> Home</a>
+      <a href="home2.html" class="drawer__link" data-nav-link><i class="ri-layout-masonry-line"></i> Home 2</a>
+      <a href="features.html" class="drawer__link" data-nav-link><i class="ri-flashlight-line"></i> Features</a>
+      <a href="pricing.html" class="drawer__link" data-nav-link><i class="ri-price-tag-3-line"></i> Pricing</a>
+      <a href="demo.html" class="drawer__link" data-nav-link><i class="ri-play-circle-line"></i> Demo</a>
+      <a href="blog.html" class="drawer__link" data-nav-link><i class="ri-article-line"></i> Blog</a>
+      <a href="contact.html" class="drawer__link" data-nav-link><i class="ri-mail-line"></i> Contact</a>
+      <a href="about.html" class="drawer__link" data-nav-link><i class="ri-information-line"></i> About</a>
+      <div class="divider"></div>
+      <a href="dashboard.html" class="drawer__link" data-nav-link><i class="ri-dashboard-line"></i> Dashboard</a>
+      <a href="login.html" class="drawer__link" data-nav-link><i class="ri-login-box-line"></i> Login</a>
+    </nav>
+
+    <div class="drawer__footer">
+      <a href="register.html" class="btn btn--primary btn--full">Get Started Free</a>
+      <div class="drawer__controls">
+        <button class="icon-btn" data-theme-toggle data-theme-icon aria-label="Toggle dark mode"></button>
+        <button class="icon-btn" data-rtl-btn aria-label="Switch text direction"></button>
+      </div>
+    </div>
+  </div>
+
+  <main id="main-content">
+    <!-- ===================== HERO ===================== -->
+    <section class="roadmap-hero" aria-labelledby="roadmap-heading">
+      <div class="container">
+        <span class="badge badge--pill badge--secondary" style="margin-block-end:var(--sp-2);">Transparency & Innovation</span>
+        <h1 id="roadmap-heading">Product Roadmap & Changelog</h1>
+        <p>A look at what we've recently shipped and what our engineering team is actively cooking up next.</p>
+      </div>
+    </section>
+
+    <!-- ===================== TIMELINE ===================== -->
+    <section class="timeline-section">
+      <div class="container">
+        <div class="timeline-container">
+
+          <!-- Item 1: Shipped -->
+          <div class="timeline-item">
+            <div class="timeline-marker"><i class="ri-check-line"></i></div>
+            <div class="timeline-card">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-block-end:0.5rem;">
+                <span class="badge badge--secondary">Shipped &bull; v2.4.1</span>
+                <span style="font-size:var(--size-xs);color:var(--clr-text-muted);">Current Release</span>
+              </div>
+              <h3 style="font-size:1.15rem;font-weight:700;color:var(--clr-text-primary);margin-block-end:0.5rem;">
+                Kitchen Display System (KDS) & Multi-Station Order Splitting
+              </h3>
+              <p style="font-size:var(--size-small);color:var(--clr-text-secondary);line-height:1.5;">
+                Orders now route automatically across Grill, Bar, and Pantry screens. Introduced audible ticket chime notifications, customizable prep timers, and one-tap order bumping for expediters.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 2: Next Up -->
+          <div class="timeline-item">
+            <div class="timeline-marker" style="border-color:var(--clr-warning);color:var(--clr-warning);"><i class="ri-loader-2-line"></i></div>
+            <div class="timeline-card">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-block-end:0.5rem;">
+                <span class="badge badge--warning">In Beta &bull; v2.5.0</span>
+                <span style="font-size:var(--size-xs);color:var(--clr-text-muted);">Coming Q3 2026</span>
+              </div>
+              <h3 style="font-size:1.15rem;font-weight:700;color:var(--clr-text-primary);margin-block-end:0.5rem;">
+                AI Sommelier & Dynamic Tasting Pairings
+              </h3>
+              <p style="font-size:var(--size-small);color:var(--clr-text-secondary);line-height:1.5;">
+                Diners browsing steaks or seafood will receive contextual, respectful wine and cocktail pairings based on the chef's sommelier notes, driving wine sales by an estimated +28%.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 3: Future -->
+          <div class="timeline-item">
+            <div class="timeline-marker timeline-marker--upcoming"><i class="ri-time-line"></i></div>
+            <div class="timeline-card">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-block-end:0.5rem;">
+                <span class="badge badge--ghost">Planned &bull; v2.6.0</span>
+                <span style="font-size:var(--size-xs);color:var(--clr-text-muted);">Coming Q4 2026</span>
+              </div>
+              <h3 style="font-size:1.15rem;font-weight:700;color:var(--clr-text-primary);margin-block-end:0.5rem;">
+                Direct Hotel PMS Room Folio Charging
+              </h3>
+              <p style="font-size:var(--size-small);color:var(--clr-text-secondary);line-height:1.5;">
+                Diners in hotel suites or poolside loungers can charge orders directly to their hotel room folio with secure guest surname and room key NFC authentication.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CAREERS SECTION ===================== -->
+    <section class="careers-section" aria-labelledby="careers-title">
+      <div class="container">
+        <div style="text-align:center;">
+          <span class="badge badge--pill badge--secondary" style="margin-block-end:var(--sp-2);">We Are Hiring</span>
+          <h2 id="careers-title" style="font-size:var(--size-h2);color:var(--clr-text-primary);">Join Our Hospitality Mission</h2>
+          <p style="color:var(--clr-text-secondary);max-width:520px;margin-inline:auto;">Help us build the next generation of dining infrastructure across our global hubs.</p>
+        </div>
+
+        <div class="jobs-grid">
+          <!-- Job 1 -->
+          <div class="job-card">
+            <div>
+              <span class="badge badge--secondary" style="font-size:0.7rem;margin-block-end:0.5rem;">Engineering</span>
+              <h3 style="font-size:1.1rem;font-weight:700;color:var(--clr-text-primary);margin-block-end:0.25rem;">Senior POS Integration Engineer</h3>
+              <p style="font-size:var(--size-small);color:var(--clr-text-secondary);margin-block-end:1rem;">Build real-time bidirectional connectors for Toast, Square, Clover, and Oracle Micros.</p>
+            </div>
+            <div>
+              <span style="font-size:var(--size-xs);color:var(--clr-text-muted);display:block;margin-block-end:0.75rem;">San Francisco or Remote &bull; Full-time</span>
+              <a href="contact.html" class="btn btn--outline btn--sm btn--full">Apply Now</a>
+            </div>
+          </div>
+
+          <!-- Job 2 -->
+          <div class="job-card">
+            <div>
+              <span class="badge badge--secondary" style="font-size:0.7rem;margin-block-end:0.5rem;">Solutions</span>
+              <h3 style="font-size:1.1rem;font-weight:700;color:var(--clr-text-primary);margin-block-end:0.25rem;">Hospitality Onboarding Lead</h3>
+              <p style="font-size:var(--size-small);color:var(--clr-text-secondary);margin-block-end:1rem;">Work directly with Michelin-star chefs, luxury hotels, and GMs on menu digitization and launch.</p>
+            </div>
+            <div>
+              <span style="font-size:var(--size-xs);color:var(--clr-text-muted);display:block;margin-block-end:0.75rem;">London, UK &bull; Hybrid</span>
+              <a href="contact.html" class="btn btn--outline btn--sm btn--full">Apply Now</a>
+            </div>
+          </div>
+
+          <!-- Job 3 -->
+          <div class="job-card">
+            <div>
+              <span class="badge badge--secondary" style="font-size:0.7rem;margin-block-end:0.5rem;">Enterprise Sales</span>
+              <h3 style="font-size:1.1rem;font-weight:700;color:var(--clr-text-primary);margin-block-end:0.25rem;">Enterprise Account Executive</h3>
+              <p style="font-size:var(--size-small);color:var(--clr-text-secondary);margin-block-end:1rem;">Close multi-property deals with leading hotel chains and restaurant franchises.</p>
+            </div>
+            <div>
+              <span style="font-size:var(--size-xs);color:var(--clr-text-muted);display:block;margin-block-end:0.75rem;">Dubai, UAE &bull; Full-time</span>
+              <a href="contact.html" class="btn btn--outline btn--sm btn--full">Apply Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="footer__logo">
+            <div class="footer__logo-icon" aria-hidden="true">
+              <i class="ri-qr-code-line" style="font-size:0.9rem;"></i>
+            </div>
+            QR<span style="color:var(--clr-secondary);">Serve</span>
+          </div>
+          <p>The premium QR digital menu & contactless ordering platform built for modern hospitality businesses worldwide.</p>
+          <div class="footer__social" aria-label="Social media links">
+            <a href="#" class="footer__social-link" aria-label="Twitter"><i class="ri-twitter-x-line"></i></a>
+            <a href="#" class="footer__social-link" aria-label="LinkedIn"><i class="ri-linkedin-line"></i></a>
+            <a href="#" class="footer__social-link" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+            <a href="#" class="footer__social-link" aria-label="Facebook"><i class="ri-facebook-line"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="footer__col-title">Product</h3>
+          <ul class="footer__links">
+            <li><a href="features.html" class="footer__link">Features</a></li>
+            <li><a href="pricing.html" class="footer__link">Pricing</a></li>
+            <li><a href="demo.html" class="footer__link">Request Demo</a></li>
+            <li><a href="dashboard.html" class="footer__link">Dashboard</a></li>
+            <li><a href="coming-soon.html" class="footer__link">Changelog</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer__col-title">Company</h3>
+          <ul class="footer__links">
+            <li><a href="about.html" class="footer__link">About Us</a></li>
+            <li><a href="blog.html" class="footer__link">Blog</a></li>
+            <li><a href="contact.html" class="footer__link">Contact</a></li>
+            <li><a href="services.html" class="footer__link">Services</a></li>
+            <li><a href="coming-soon.html" class="footer__link">Careers</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer__col-title">Legal</h3>
+          <ul class="footer__links">
+            <li><a href="#" class="footer__link">Privacy Policy</a></li>
+            <li><a href="#" class="footer__link">Terms of Service</a></li>
+            <li><a href="#" class="footer__link">Cookie Policy</a></li>
+            <li><a href="#" class="footer__link">Security</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>&copy; 2026 QRServe Technologies Inc. All rights reserved.</p>
+        <div class="footer__bottom-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

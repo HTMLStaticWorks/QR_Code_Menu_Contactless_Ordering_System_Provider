@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="QRServe Professional Services — White-glove menu digitization, bespoke NFC acrylic standee manufacturing, custom POS integrations, on-site staff training, and enterprise rollout support." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://qrserve.io/services" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://qrserve.io/services" />
+  <meta property="og:title" content="Professional & Enterprise Services — QRServe" />
+  <meta property="og:description" content="White-glove onboarding, hardware manufacturing, and dedicated engineering for high-volume hospitality brands." />
+
+  <title>Professional & Enterprise Services — QRServe</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/rtl.css" />
+
+  <style>
+    /* Services Hero */
+    .services-hero {
+      background: var(--clr-primary);
+      padding-block: calc(var(--nav-height) + var(--sp-12)) var(--sp-10);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .services-hero::before {
+      content: '';
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 50%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,200,150,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .services-hero h1 { color: #fff; font-size: var(--size-h1); }
+    .services-hero p { color: rgba(255,255,255,0.65); font-size: var(--size-lead); max-width: 640px; margin-inline: auto; margin-block-start: var(--sp-2); }
+
+    /* Services Grid */
+    .services-main-section {
+      padding-block: var(--sp-12);
+      background: var(--clr-bg);
+    }
+
+    .services-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--sp-6);
+    }
+
+    .service-card {
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-xl);
+      padding: var(--sp-8);
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition-base);
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--clr-secondary);
+    }
+
+    .service-icon-box {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      background: var(--clr-secondary-light);
+      color: var(--clr-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.75rem;
+      margin-block-end: 1.5rem;
+    }
+
+    [data-theme="dark"] .service-icon-box {
+      background: rgba(0,200,150,0.15);
+    }
+
+    .service-title {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--clr-text-primary);
+      margin-block-end: 0.75rem;
+    }
+
+    .service-desc {
+      font-size: var(--size-small);
+      color: var(--clr-text-secondary);
+      line-height: 1.6;
+      margin-block-end: 1.5rem;
+      flex: 1;
+    }
+
+    .service-deliverables {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      border-block-start: 1px solid var(--clr-border);
+      padding-block-start: 1rem;
+      margin-block-end: 1.5rem;
+      font-size: var(--size-xs);
+      color: var(--clr-text-muted);
+    }
+
+    .service-deliverables li {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .service-deliverables i {
+      color: var(--clr-secondary);
+    }
+
+    /* Hardware Showcase */
+    .hardware-showcase {
+      padding-block: var(--sp-12);
+      background: var(--clr-surface);
+      border-block-start: 1px solid var(--clr-border);
+    }
+
+    .hardware-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--sp-6);
+      margin-block-start: var(--sp-8);
+    }
+
+    .hardware-card {
+      background: var(--clr-surface-2);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-6);
+      text-align: center;
+    }
+
+    .hardware-img-sim {
+      height: 160px;
+      border-radius: var(--radius-md);
+      background: var(--clr-primary);
+      color: var(--clr-secondary);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-block-end: 1rem;
+      font-size: 3rem;
+    }
+
+    /* Consultation Card */
+    .consultation-section {
+      padding-block: var(--sp-12);
+      background: var(--clr-bg);
+    }
+
+    .consultation-box {
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-xl);
+      padding: var(--sp-8);
+      max-width: 760px;
+      margin-inline: auto;
+      box-shadow: var(--shadow-lg);
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .services-cards-grid,
+      .hardware-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .services-cards-grid,
+      .hardware-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <header class="navbar" role="banner">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo" aria-label="QRServe — Home">
+        <div class="navbar__logo-icon" aria-hidden="true">
+          <i class="ri-qr-code-line" style="font-size:1.1rem;"></i>
+        </div>
+        QR<span>Serve</span>
+      </a>
+
+      <nav class="navbar__nav" aria-label="Main navigation">
+        <a href="index.html" class="navbar__link" data-nav-link>Home</a>
+        <a href="home2.html" class="navbar__link" data-nav-link>Home 2</a>
+        <a href="features.html" class="navbar__link" data-nav-link>Features</a>
+        <a href="pricing.html" class="navbar__link" data-nav-link>Pricing</a>
+        <a href="demo.html" class="navbar__link" data-nav-link>Demo</a>
+        <a href="blog.html" class="navbar__link" data-nav-link>Blog</a>
+        <a href="contact.html" class="navbar__link" data-nav-link>Contact</a>
+      </nav>
+
+      <div class="navbar__actions">
+        <button class="icon-btn" data-theme-toggle data-theme-icon aria-label="Toggle dark mode" title="Toggle theme"></button>
+        <button class="icon-btn" data-rtl-btn aria-label="Switch to RTL" title="Switch direction"></button>
+        <a href="dashboard.html" class="btn btn--ghost btn--sm" data-nav-link>Dashboard</a>
+        <a href="login.html" class="btn btn--outline btn--sm" data-nav-link>Login</a>
+        <a href="register.html" class="btn btn--primary btn--sm">Get Started</a>
+      </div>
+
+      <button class="navbar__hamburger" id="hamburger-btn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-drawer">
+        <i class="ri-menu-3-line" style="font-size:1.25rem;" aria-hidden="true"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===================== MOBILE DRAWER ===================== -->
+  <div class="drawer-overlay" id="drawer-overlay" aria-hidden="true"></div>
+  <div class="drawer" id="mobile-drawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <div class="drawer__header">
+      <a href="index.html" class="navbar__logo" style="font-size:1.25rem;">
+        <div class="navbar__logo-icon" style="width:30px;height:30px;" aria-hidden="true">
+          <i class="ri-qr-code-line" style="font-size:0.95rem;"></i>
+        </div>
+        QR<span>Serve</span>
+      </a>
+      <button class="icon-btn drawer__close" aria-label="Close navigation menu">
+        <i class="ri-close-line" style="font-size:1.25rem;" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <nav class="drawer__nav" aria-label="Mobile navigation">
+      <a href="index.html" class="drawer__link" data-nav-link><i class="ri-home-4-line"></i> Home</a>
+      <a href="home2.html" class="drawer__link" data-nav-link><i class="ri-layout-masonry-line"></i> Home 2</a>
+      <a href="features.html" class="drawer__link" data-nav-link><i class="ri-flashlight-line"></i> Features</a>
+      <a href="pricing.html" class="drawer__link" data-nav-link><i class="ri-price-tag-3-line"></i> Pricing</a>
+      <a href="demo.html" class="drawer__link" data-nav-link><i class="ri-play-circle-line"></i> Demo</a>
+      <a href="blog.html" class="drawer__link" data-nav-link><i class="ri-article-line"></i> Blog</a>
+      <a href="contact.html" class="drawer__link" data-nav-link><i class="ri-mail-line"></i> Contact</a>
+      <a href="about.html" class="drawer__link" data-nav-link><i class="ri-information-line"></i> About</a>
+      <div class="divider"></div>
+      <a href="dashboard.html" class="drawer__link" data-nav-link><i class="ri-dashboard-line"></i> Dashboard</a>
+      <a href="login.html" class="drawer__link" data-nav-link><i class="ri-login-box-line"></i> Login</a>
+    </nav>
+
+    <div class="drawer__footer">
+      <a href="register.html" class="btn btn--primary btn--full">Get Started Free</a>
+      <div class="drawer__controls">
+        <button class="icon-btn" data-theme-toggle data-theme-icon aria-label="Toggle dark mode"></button>
+        <button class="icon-btn" data-rtl-btn aria-label="Switch text direction"></button>
+      </div>
+    </div>
+  </div>
+
+  <main id="main-content">
+    <!-- ===================== HERO ===================== -->
+    <section class="services-hero" aria-labelledby="services-heading">
+      <div class="container">
+        <span class="badge badge--pill badge--secondary" style="margin-block-end:var(--sp-2);">White-Glove Hospitality Support</span>
+        <h1 id="services-heading">Professional Implementation & Enterprise Services</h1>
+        <p>From digitizing complex 500-item wine lists to custom NFC table hardware fabrication and on-site staff training — we handle the heavy lifting so you can focus on dining.</p>
+      </div>
+    </section>
+
+    <!-- ===================== SERVICES CARDS ===================== -->
+    <section class="services-main-section">
+      <div class="container">
+        <div class="services-cards-grid">
+
+          <!-- Service 1 -->
+          <div class="service-card">
+            <div class="service-icon-box"><i class="ri-file-list-3-line"></i></div>
+            <h2 class="service-title">Menu Digitization Concierge</h2>
+            <p class="service-desc">Send us your existing PDF or paper menus. Our culinary data specialists transcribe every dish, price, dietary icon, and modifier within 48 hours.</p>
+            <ul class="service-deliverables">
+              <li><i class="ri-check-line"></i> High-resolution ingredient formatting</li>
+              <li><i class="ri-check-line"></i> 14 Allergen and dietary tag taxonomy</li>
+              <li><i class="ri-check-line"></i> Course pacing & modifier grouping</li>
+            </ul>
+            <a href="contact.html" class="btn btn--outline btn--sm">Request Digitization</a>
+          </div>
+
+          <!-- Service 2 -->
+          <div class="service-card">
+            <div class="service-icon-box"><i class="ri-cpu-line"></i></div>
+            <h2 class="service-title">Custom POS & PMS API Engineering</h2>
+            <p class="service-desc">Need a bespoke 2-way sync with Oracle Micros Simphony, hotel PMS systems (Opera, Mews), or custom internal inventory databases? Our engineering team builds and maintains it.</p>
+            <ul class="service-deliverables">
+              <li><i class="ri-check-line"></i> Real-time 2-way order injection</li>
+              <li><i class="ri-check-line"></i> Hotel guest room-charge folio API</li>
+              <li><i class="ri-check-line"></i> Dedicated developer Slack channel</li>
+            </ul>
+            <a href="contact.html" class="btn btn--outline btn--sm">Inquire on Integrations</a>
+          </div>
+
+          <!-- Service 3 -->
+          <div class="service-card">
+            <div class="service-icon-box"><i class="ri-shape-2-line"></i></div>
+            <h2 class="service-title">Bespoke Table Hardware & Standees</h2>
+            <p class="service-desc">Elevate your table aesthetics with custom-fabricated QR collateral: laser-engraved solid walnut blocks, water-resistant frosted acrylic, or brushed brass NFC pucks.</p>
+            <ul class="service-deliverables">
+              <li><i class="ri-check-line"></i> Laser-engraved logo & table numbers</li>
+              <li><i class="ri-check-line"></i> Embedded tap-to-order NFC chips</li>
+              <li><i class="ri-check-line"></i> Scratch-proof UV-cured ink finish</li>
+            </ul>
+            <a href="contact.html" class="btn btn--outline btn--sm">Order Hardware Kit</a>
+          </div>
+
+          <!-- Service 4 -->
+          <div class="service-card">
+            <div class="service-icon-box"><i class="ri-user-star-line"></i></div>
+            <h2 class="service-title">On-Site & Virtual Staff Coaching</h2>
+            <p class="service-desc">Change management made seamless. We train your general managers, servers, bartenders, and kitchen expediter team with bite-sized video courses and role-playing drills.</p>
+            <ul class="service-deliverables">
+              <li><i class="ri-check-line"></i> Floor staff table presentation scripts</li>
+              <li><i class="ri-check-line"></i> KDS kitchen expediter training</li>
+              <li><i class="ri-check-line"></i> Manager analytics dashboard training</li>
+            </ul>
+            <a href="contact.html" class="btn btn--outline btn--sm">Book Staff Training</a>
+          </div>
+
+          <!-- Service 5 -->
+          <div class="service-card">
+            <div class="service-icon-box"><i class="ri-building-line"></i></div>
+            <h2 class="service-title">Enterprise Multi-Unit Rollouts</h2>
+            <p class="service-desc">Tailored for restaurant groups and franchise operators with 10 to 500 locations. Master menu inheritance, centralized financial settlements, and consolidated brand reporting.</p>
+            <ul class="service-deliverables">
+              <li><i class="ri-check-line"></i> Master brand menu inheritance</li>
+              <li><i class="ri-check-line"></i> Regional price & tax overrides</li>
+              <li><i class="ri-check-line"></i> Custom Single Sign-On (SSO / SAML)</li>
+            </ul>
+            <a href="contact.html" class="btn btn--outline btn--sm">Schedule Enterprise Plan</a>
+          </div>
+
+          <!-- Service 6 -->
+          <div class="service-card">
+            <div class="service-icon-box"><i class="ri-customer-service-2-line"></i></div>
+            <h2 class="service-title">24/7 Dedicated Account Director</h2>
+            <p class="service-desc">Your personal hospitality concierge with a guaranteed 15-minute response SLA. Live standby coverage during high-volume holiday weekends and peak shifts.</p>
+            <ul class="service-deliverables">
+              <li><i class="ri-check-line"></i> 15-Minute emergency response SLA</li>
+              <li><i class="ri-check-line"></i> Dedicated WhatsApp & phone line</li>
+              <li><i class="ri-check-line"></i> Monthly revenue optimization reviews</li>
+            </ul>
+            <a href="contact.html" class="btn btn--outline btn--sm">View Service Tiers</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== BESPOKE HARDWARE SAMPLES ===================== -->
+    <section class="hardware-showcase" aria-labelledby="hardware-title">
+      <div class="container">
+        <div style="text-align:center;">
+          <span class="badge badge--pill badge--secondary" style="margin-block-end:var(--sp-2);">Physical Craftsmanship</span>
+          <h2 id="hardware-title" style="font-size:var(--size-h2);color:var(--clr-text-primary);">Table Standees & NFC Blocks</h2>
+          <p style="color:var(--clr-text-secondary);max-width:540px;margin-inline:auto;">Designed to seamlessly complement luxury marble, reclaimed wood, or stainless steel bar tops.</p>
+        </div>
+
+        <div class="hardware-grid">
+          <div class="hardware-card">
+            <div class="hardware-img-sim">
+              <i class="ri-gem-line"></i>
+            </div>
+            <h3 style="font-size:1.1rem;font-weight:700;color:var(--clr-text-primary);margin-block-end:0.25rem;">Frosted Architectural Acrylic</h3>
+            <p style="font-size:var(--size-small);color:var(--clr-text-secondary);margin-block-end:0.5rem;">Sleek, scratch-proof, and water-resistant. Ideal for cocktail bars and outdoor patios.</p>
+            <span class="badge badge--secondary" style="font-size:0.7rem;">With Dual NFC + QR</span>
+          </div>
+
+          <div class="hardware-card">
+            <div class="hardware-img-sim" style="background:#2b1d0c;color:#e8decb;">
+              <i class="ri-tree-line"></i>
+            </div>
+            <h3 style="font-size:1.1rem;font-weight:700;color:var(--clr-text-primary);margin-block-end:0.25rem;">Solid American Walnut Blocks</h3>
+            <p style="font-size:var(--size-small);color:var(--clr-text-secondary);margin-block-end:0.5rem;">Hand-finished organic wood with deep laser-engraved QR codes and venue branding.</p>
+            <span class="badge badge--secondary" style="font-size:0.7rem;">Artisanal Heritage</span>
+          </div>
+
+          <div class="hardware-card">
+            <div class="hardware-img-sim" style="background:#1c2420;color:#c0a060;">
+              <i class="ri-copper-diamond-line"></i>
+            </div>
+            <h3 style="font-size:1.1rem;font-weight:700;color:var(--clr-text-primary);margin-block-end:0.25rem;">Brushed Brass Luxury Disks</h3>
+            <p style="font-size:var(--size-small);color:var(--clr-text-secondary);margin-block-end:0.5rem;">Heavyweight brass alloy embedded flush into tabletop inlays or bedside nightstands.</p>
+            <span class="badge badge--secondary" style="font-size:0.7rem;">5-Star Hotel Standard</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONSULTATION FORM ===================== -->
+    <section class="consultation-section">
+      <div class="container">
+        <div class="consultation-box">
+          <span class="badge badge--pill badge--secondary" style="margin-block-end:var(--sp-2);">Start Your Rollout</span>
+          <h2 style="font-size:var(--size-h3);color:var(--clr-text-primary);margin-block-end:0.5rem;">Request A Custom Implementation Quote</h2>
+          <p style="color:var(--clr-text-secondary);font-size:var(--size-small);max-width:480px;margin-inline:auto;margin-block-end:var(--sp-4);">
+            Speak with an onboarding director to receive a custom project timeline and hardware sample kit.
+          </p>
+          <a href="contact.html" class="btn btn--primary btn--lg">Schedule Implementation Call</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="footer__logo">
+            <div class="footer__logo-icon" aria-hidden="true">
+              <i class="ri-qr-code-line" style="font-size:0.9rem;"></i>
+            </div>
+            QR<span style="color:var(--clr-secondary);">Serve</span>
+          </div>
+          <p>The premium QR digital menu & contactless ordering platform built for modern hospitality businesses worldwide.</p>
+          <div class="footer__social" aria-label="Social media links">
+            <a href="#" class="footer__social-link" aria-label="Twitter"><i class="ri-twitter-x-line"></i></a>
+            <a href="#" class="footer__social-link" aria-label="LinkedIn"><i class="ri-linkedin-line"></i></a>
+            <a href="#" class="footer__social-link" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+            <a href="#" class="footer__social-link" aria-label="Facebook"><i class="ri-facebook-line"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="footer__col-title">Product</h3>
+          <ul class="footer__links">
+            <li><a href="features.html" class="footer__link">Features</a></li>
+            <li><a href="pricing.html" class="footer__link">Pricing</a></li>
+            <li><a href="demo.html" class="footer__link">Request Demo</a></li>
+            <li><a href="dashboard.html" class="footer__link">Dashboard</a></li>
+            <li><a href="coming-soon.html" class="footer__link">Changelog</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer__col-title">Company</h3>
+          <ul class="footer__links">
+            <li><a href="about.html" class="footer__link">About Us</a></li>
+            <li><a href="blog.html" class="footer__link">Blog</a></li>
+            <li><a href="contact.html" class="footer__link">Contact</a></li>
+            <li><a href="services.html" class="footer__link">Services</a></li>
+            <li><a href="coming-soon.html" class="footer__link">Careers</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer__col-title">Legal</h3>
+          <ul class="footer__links">
+            <li><a href="#" class="footer__link">Privacy Policy</a></li>
+            <li><a href="#" class="footer__link">Terms of Service</a></li>
+            <li><a href="#" class="footer__link">Cookie Policy</a></li>
+            <li><a href="#" class="footer__link">Security</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>&copy; 2026 QRServe Technologies Inc. All rights reserved.</p>
+        <div class="footer__bottom-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

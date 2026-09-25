@@ -1,0 +1,301 @@
+/* ============================================================
+   QRServe — RTL (Right-to-Left) Overrides
+   Applied via: <html dir="rtl">
+   ============================================================ */
+
+/* ============================================================
+   1. TYPOGRAPHY & TEXT
+   ============================================================ */
+[dir="rtl"] {
+  font-feature-settings: "kern" 1;
+  /* Use DM Sans which has good Arabic-adjacent rendering */
+}
+
+[dir="rtl"] .section-label {
+  flex-direction: row-reverse;
+}
+
+/* ============================================================
+   2. NAVBAR
+   ============================================================ */
+[dir="rtl"] .navbar__inner {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .navbar__logo {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .navbar__nav {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .navbar__actions {
+  flex-direction: row-reverse;
+}
+
+/* ============================================================
+   3. DRAWER — slides from LEFT in RTL
+   ============================================================ */
+[dir="rtl"] .drawer {
+  inset-inline-end: auto;
+  inset-inline-start: 0;
+  transform: translateX(-100%);
+  border-inline-start: none;
+  border-inline-end: 1px solid var(--clr-border);
+}
+
+[dir="rtl"] .drawer.active {
+  transform: translateX(0);
+}
+
+[dir="rtl"] .drawer__header {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .drawer__link {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .drawer__controls {
+  flex-direction: row-reverse;
+}
+
+/* ============================================================
+   4. HERO SECTION
+   ============================================================ */
+[dir="rtl"] .hero__actions {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .hero__note {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .hero__badge {
+  flex-direction: row-reverse;
+}
+
+/* ============================================================
+   5. FOOTER
+   ============================================================ */
+[dir="rtl"] .footer__grid {
+  direction: rtl;
+}
+
+[dir="rtl"] .footer__logo {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .footer__social {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .footer__bottom {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .footer__bottom-links {
+  flex-direction: row-reverse;
+}
+
+/* ============================================================
+   6. CARDS — reverse icon + text alignment
+   ============================================================ */
+[dir="rtl"] .feature-card {
+  text-align: start;
+}
+
+[dir="rtl"] .pricing-feature {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .testimonial-card__author {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .blog-card__meta {
+  flex-direction: row-reverse;
+}
+
+/* ============================================================
+   7. FORMS — RTL input adjustments
+   ============================================================ */
+[dir="rtl"] .form-input-icon {
+  inset-inline-start: auto;
+  inset-inline-end: 1rem;
+}
+
+[dir="rtl"] .form-input-icon ~ .form-input {
+  padding-inline-start: 1rem;
+  padding-inline-end: 2.75rem;
+}
+
+[dir="rtl"] .form-input-icon-end {
+  inset-inline-end: auto;
+  inset-inline-start: 1rem;
+}
+
+[dir="rtl"] .form-checkbox {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .form-divider {
+  flex-direction: row-reverse;
+}
+
+/* ============================================================
+   8. STEPS / HOW IT WORKS
+   ============================================================ */
+[dir="rtl"] .steps-grid::before {
+  background: linear-gradient(to left, var(--clr-secondary), transparent);
+  inset-inline-start: auto;
+  inset-inline-end: 12.5%;
+}
+
+/* ============================================================
+   9. BREADCRUMBS
+   ============================================================ */
+[dir="rtl"] .breadcrumbs {
+  flex-direction: row-reverse;
+}
+
+/* ============================================================
+   10. STATS / TRUST
+   ============================================================ */
+[dir="rtl"] .stats-bar__grid {
+  direction: rtl;
+}
+
+/* ============================================================
+   11. FAQ ACCORDION
+   ============================================================ */
+[dir="rtl"] .faq-question {
+  flex-direction: row-reverse;
+}
+
+/* ============================================================
+   12. TOGGLE WRAP (pricing)
+   ============================================================ */
+[dir="rtl"] .toggle-wrap {
+  flex-direction: row-reverse;
+}
+
+/* ============================================================
+   13. PRICING BADGE centered transform fix
+   ============================================================ */
+[dir="rtl"] .pricing-badge {
+  transform: translateX(50%);
+}
+
+/* ============================================================
+   14. ALERT / NOTIFICATION
+   ============================================================ */
+[dir="rtl"] .form-alert {
+  flex-direction: row-reverse;
+}
+
+/* ============================================================
+   15. SECTION LABEL
+   ============================================================ */
+[dir="rtl"] .stars {
+  flex-direction: row-reverse;
+}
+
+/* ============================================================
+   16. DASHBOARD SIDEBAR RTL (see dashboard.css or inline)
+   ============================================================ */
+[dir="rtl"] .db-sidebar {
+  inset-inline-start: auto;
+  inset-inline-end: 0;
+  border-inline-start: none;
+  border-inline-end: 1px solid var(--clr-border);
+}
+
+[dir="rtl"] .db-main {
+  margin-inline-start: 0;
+  margin-inline-end: var(--sidebar-width, 260px);
+}
+
+[dir="rtl"] .db-sidebar__collapsed ~ .db-main {
+  margin-inline-end: var(--sidebar-collapsed-width, 72px);
+}
+
+[dir="rtl"] .db-nav__link {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .db-nav__link span {
+  text-align: start;
+}
+
+[dir="rtl"] .db-topbar {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .db-topbar__left {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .db-topbar__right {
+  flex-direction: row-reverse;
+}
+
+/* ============================================================
+   17. TABLE RTL
+   ============================================================ */
+[dir="rtl"] table {
+  direction: rtl;
+}
+
+[dir="rtl"] th,
+[dir="rtl"] td {
+  text-align: start;
+}
+
+/* ============================================================
+   18. DROPDOWN MENU RTL
+   ============================================================ */
+[dir="rtl"] .dropdown-menu {
+  inset-inline-start: auto;
+  inset-inline-end: 0;
+}
+
+/* ============================================================
+   19. HERO GRID / SPLIT LAYOUT
+   ============================================================ */
+[dir="rtl"] .hero__grid {
+  direction: rtl;
+}
+
+[dir="rtl"] .split-layout {
+  flex-direction: row-reverse;
+}
+
+/* ============================================================
+   20. ICON DIRECTION OVERRIDES
+   ============================================================ */
+/* Arrows and directional icons should flip in RTL */
+[dir="rtl"] .icon-arrow-right,
+[dir="rtl"] .icon-arrow-left,
+[dir="rtl"] [data-icon-dir] {
+  transform: scaleX(-1);
+}
+
+/* ============================================================
+   21. SELECT DROPDOWN RTL
+   ============================================================ */
+[dir="rtl"] .form-select {
+  background-position: left 1rem center;
+  padding-inline-end: 1rem;
+  padding-inline-start: 2.5rem;
+}
+
+/* ============================================================
+   22. MOBILE SPECIFIC RTL OVERRIDES
+   ============================================================ */
+@media (max-width: 1024px) {
+  [dir="rtl"] .navbar__hamburger {
+    order: -1;
+  }
+}

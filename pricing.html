@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="QRServe pricing plans — Starter at $29/mo, Professional at $79/mo, Enterprise at $149/mo. No hidden fees. Cancel anytime." />
+  <link rel="canonical" href="https://qrserve.io/pricing" />
+  <meta property="og:title" content="Pricing — QRServe" />
+  <meta property="og:description" content="Simple, transparent pricing for restaurants of all sizes. Start free for 14 days." />
+  <title>Pricing — QRServe</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/rtl.css" />
+
+  <style>
+    .pricing-header-section {
+      padding-block: calc(var(--nav-height) + var(--sp-12)) var(--sp-10);
+      background: var(--clr-primary);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pricing-header-section::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 50%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,200,150,0.12) 0%, transparent 70%);
+    }
+
+    .pricing-header-section h1 { color: #fff; }
+    .pricing-header-section p { color: rgba(255,255,255,0.55); max-width: 520px; margin-inline: auto; font-size: var(--size-lead); margin-block-start: var(--sp-2); }
+
+    .pricing-main-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--sp-4);
+      align-items: start;
+    }
+
+    .pricing-card--featured-full {
+      border-color: var(--clr-secondary);
+      box-shadow: 0 0 0 4px rgba(0,200,150,0.1), var(--shadow-xl);
+      margin-block: -2rem;
+    }
+
+    .feature-comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .feature-comparison-table th,
+    .feature-comparison-table td {
+      padding: var(--sp-3) var(--sp-4);
+      text-align: start;
+      border-block-end: 1px solid var(--clr-border);
+      font-size: var(--size-small);
+    }
+
+    .feature-comparison-table th {
+      background: var(--clr-surface-2);
+      font-weight: 600;
+      color: var(--clr-text-primary);
+      font-family: var(--font-heading);
+    }
+
+    .feature-comparison-table th:not(:first-child) {
+      text-align: center;
+    }
+
+    .feature-comparison-table td:not(:first-child) {
+      text-align: center;
+    }
+
+    .feature-comparison-table tr:hover td {
+      background: var(--clr-surface-2);
+    }
+
+    .comparison-section-row td {
+      background: var(--clr-surface-2);
+      font-size: var(--size-xs);
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--clr-text-muted);
+      padding-block: 0.625rem;
+    }
+
+    .check-icon { color: var(--clr-secondary); font-size: 1.1rem; }
+    .x-icon { color: var(--clr-border-strong); font-size: 1.1rem; }
+
+    @media (max-width: 1024px) {
+      .pricing-main-grid { grid-template-columns: 1fr; max-width: 480px; margin-inline: auto; }
+      .pricing-card--featured-full { margin-block: 0; }
+    }
+
+    @media (max-width: 768px) {
+      .feature-comparison-table th:nth-child(3),
+      .feature-comparison-table td:nth-child(3) { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar" role="banner">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo" aria-label="QRServe — Home">
+        <div class="navbar__logo-icon" aria-hidden="true"><i class="ri-qr-code-line" style="font-size:1.1rem;"></i></div>
+        QR<span>Serve</span>
+      </a>
+      <nav class="navbar__nav" aria-label="Main navigation">
+        <a href="index.html" class="navbar__link" data-nav-link>Home</a>
+        <a href="home2.html" class="navbar__link" data-nav-link>Home 2</a>
+        <a href="features.html" class="navbar__link" data-nav-link>Features</a>
+        <a href="pricing.html" class="navbar__link" data-nav-link>Pricing</a>
+        <a href="demo.html" class="navbar__link" data-nav-link>Demo</a>
+        <a href="blog.html" class="navbar__link" data-nav-link>Blog</a>
+        <a href="contact.html" class="navbar__link" data-nav-link>Contact</a>
+      </nav>
+      <div class="navbar__actions">
+        <button class="icon-btn" data-theme-toggle data-theme-icon aria-label="Toggle theme"></button>
+        <button class="icon-btn" data-rtl-btn aria-label="Switch direction"></button>
+        <a href="dashboard.html" class="btn btn--ghost btn--sm">Dashboard</a>
+        <a href="login.html" class="btn btn--outline btn--sm">Login</a>
+        <a href="register.html" class="btn btn--primary btn--sm">Get Started</a>
+      </div>
+      <button class="navbar__hamburger" id="hamburger-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-drawer">
+        <i class="ri-menu-3-line" style="font-size:1.25rem;" aria-hidden="true"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBILE DRAWER -->
+  <div class="drawer-overlay" id="drawer-overlay"></div>
+  <div class="drawer" id="mobile-drawer" role="dialog" aria-modal="true" aria-label="Navigation">
+    <div class="drawer__header">
+      <a href="index.html" class="navbar__logo" style="font-size:1.25rem;">
+        <div class="navbar__logo-icon" style="width:30px;height:30px;" aria-hidden="true"><i class="ri-qr-code-line" style="font-size:0.95rem;"></i></div>
+        QR<span>Serve</span>
+      </a>
+      <button class="icon-btn drawer__close" aria-label="Close menu"><i class="ri-close-line" style="font-size:1.25rem;" aria-hidden="true"></i></button>
+    </div>
+    <nav class="drawer__nav" aria-label="Mobile navigation">
+      <a href="index.html" class="drawer__link" data-nav-link><i class="ri-home-4-line" aria-hidden="true"></i> Home</a>
+      <a href="features.html" class="drawer__link" data-nav-link><i class="ri-flashlight-line" aria-hidden="true"></i> Features</a>
+      <a href="pricing.html" class="drawer__link" data-nav-link><i class="ri-price-tag-3-line" aria-hidden="true"></i> Pricing</a>
+      <a href="demo.html" class="drawer__link" data-nav-link><i class="ri-play-circle-line" aria-hidden="true"></i> Demo</a>
+      <a href="blog.html" class="drawer__link" data-nav-link><i class="ri-article-line" aria-hidden="true"></i> Blog</a>
+      <a href="contact.html" class="drawer__link" data-nav-link><i class="ri-mail-line" aria-hidden="true"></i> Contact</a>
+      <div class="divider"></div>
+      <a href="dashboard.html" class="drawer__link"><i class="ri-dashboard-line" aria-hidden="true"></i> Dashboard</a>
+      <a href="login.html" class="drawer__link"><i class="ri-login-box-line" aria-hidden="true"></i> Login</a>
+    </nav>
+    <div class="drawer__footer">
+      <a href="register.html" class="btn btn--primary btn--full">Get Started Free</a>
+      <div class="drawer__controls">
+        <button class="icon-btn" data-theme-toggle data-theme-icon aria-label="Toggle theme"></button>
+        <button class="icon-btn" data-rtl-btn aria-label="Switch direction"></button>
+      </div>
+    </div>
+  </div>
+
+  <main id="main-content">
+
+    <!-- HEADER -->
+    <section class="pricing-header-section" aria-labelledby="pricing-h1">
+      <div class="container" style="position:relative;z-index:1;">
+        <span class="section-label" style="background:rgba(0,200,150,0.15);">
+          <i class="ri-price-tag-3-line" aria-hidden="true"></i> Pricing
+        </span>
+        <h1 id="pricing-h1">Simple, Transparent Pricing</h1>
+        <p>No hidden fees. No long-term contracts. Start free for 14 days. Scale up or down anytime.</p>
+
+        <div class="toggle-wrap" style="justify-content:center;margin-block-start:var(--sp-6);" role="group" aria-label="Billing period">
+          <span style="color:rgba(255,255,255,0.6);">Monthly</span>
+          <label class="toggle" for="pricing-toggle" aria-label="Switch to yearly billing">
+            <input type="checkbox" id="pricing-toggle" role="switch" />
+            <span class="toggle__slider"></span>
+          </label>
+          <span style="color:rgba(255,255,255,0.6);">Yearly <span class="badge badge--green" aria-label="Save 20 percent">Save 20%</span></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING CARDS -->
+    <section class="section" aria-labelledby="pricing-plans">
+      <div class="container">
+        <h2 id="pricing-plans" class="visually-hidden">Pricing Plans</h2>
+
+        <div class="pricing-main-grid">
+
+          <!-- STARTER -->
+          <div class="pricing-card reveal">
+            <div class="pricing-card__tier">Starter</div>
+            <p style="font-size:var(--size-small);color:var(--clr-text-muted);margin-block-end:var(--sp-3);">For small cafés and single-location restaurants just getting started.</p>
+            <div class="pricing-card__price" aria-label="Starter plan pricing">
+              <span class="pricing-card__currency">$</span>
+              <span class="pricing-card__amount" data-price-monthly>29</span>
+              <span class="pricing-card__amount" data-price-yearly style="display:none;">23</span>
+              <span class="pricing-card__period">/month</span>
+            </div>
+            <div style="font-size:var(--size-xs);color:var(--clr-text-muted);margin-block-end:var(--sp-4);">
+              <span data-pricing-savings style="display:none;color:var(--clr-secondary);font-weight:600;">Save $72/year</span>
+              <span data-price-monthly>Billed monthly</span>
+            </div>
+
+            <ul class="pricing-card__features" aria-label="Starter plan features">
+              <li class="pricing-feature"><span class="pricing-feature__icon" aria-hidden="true"><i class="ri-check-line" style="font-size:0.65rem;"></i></span>Up to 3 digital menus</li>
+              <li class="pricing-feature"><span class="pricing-feature__icon" aria-hidden="true"><i class="ri-check-line" style="font-size:0.65rem;"></i></span>Up to 20 tables / QR codes</li>
+              <li class="pricing-feature"><span class="pricing-feature__icon" aria-hidden="true"><i class="ri-check-line" style="font-size:0.65rem;"></i></span>500 orders per month</li>
+              <li class="pricing-feature"><span class="pricing-feature__icon" aria-hidden="true"><i class="ri-check-line" style="font-size:0.65rem;"></i></span>Basic analytics dashboard</li>
+              <li class="pricing-feature"><span class="pricing-feature__icon" aria-hidden="true"><i class="ri-check-line" style="font-size:0.65rem;"></i></span>Email order notifications</li>
+              <li class="pricing-feature"><span class="pricing-feature__icon" aria-hidden="true"><i class="ri-check-line" style="font-size:0.65rem;"></i></span>QR code download (PNG)</li>
+              <li class="pricing-feature"><span class="pricing-feature__icon" aria-hidden="true"><i class="ri-check-line" style="font-size:0.65rem;"></i></span>Standard support</li>
+              <li class="pricing-feature"><span class="pricing-feature__icon pricing-feature__icon--x" aria-hidden="true"><i class="ri-close-line" style="font-size:0.65rem;"></i></span><span style="color:var(--clr-text-muted);">Multi-language menu</span></li>
+              <li class="pricing-feature"><span class="pricing-feature__icon pricing-feature__icon--x" aria-hidden="true"><i class="ri-close-line" style="font-size:0.65rem;"></i></span><span style="color:var(--clr-text-muted);">Custom branding</span></li>
+              <li class="pricing-feature"><span class="pricing-feature__icon pricing-feature__icon--x" aria-hidden="true"><i class="ri-close-line" style="font-size:0.65rem;"></i></span><span style="color:var(--clr-text-muted);">Multiple locations</span></li>
+            </ul>
+
+            <a href="register.html" class="btn btn--outline btn--full mt-auto" id="starter-cta">Start Free Trial</a>
+            <p style="text-align:center;font-size:var(--size-xs);color:var(--clr-text-muted);margin-block-start:0.625rem;">14-day free trial · No card needed</p>
+          </div>
+
+          <!-- PROFESSIONAL (FEATURED) -->
+          <div class="pricing-card pricing-card--featured pricing-card--featured-full reveal reveal--delay-1">
+            <div class="pricing-badge">Most Popular</div>
+            <div class="pricing-card__tier">Professional</div>
+            <p style="font-size:var(--size-small);color:var(--clr-text-muted);margin-block-end:var(--sp-3);">For growing restaurants that need more power and flexibility.</p>
+            <div class="pricing-card__price" aria-label="Professional plan pricing">
+              <span class="pricing-card__currency">$</span>
+              <span class="pricing-card__amount" data-price-monthly>79</span>
+              <span class="pricing-card__amount" data-price-yearly style="display:none;">63</span>
+              <span class="pricing-card__period">/month</span>
+            </div>
+            <div style="font-size:var(--size-xs);color:var(--clr-text-muted);margin-block-end:var(--sp-4);">
+              <span data-pricing-savings style="display:none;color:var(--clr-secondary);font-weight:600;">Save $192/year</span>
+              <span data-price-monthly>Billed monthly</span>
+            </div>
+
+            <ul class="pricing-card__features" aria-label="Professional plan features">
+              <li class="pricing-feature"><span class="pricing-feature__icon" aria-hidden="true"><i class="ri-check-line" style="font-size:0.65rem;"></i></span>Unlimited digital menus</li>
+              <li class="pricing-feature"><span class="pricing-feature__icon" aria-hidden="true"><i class="ri-check-line" style="font-size:0.65rem;"></i></span>Unlimited tables & QR codes</li>
+              <li class="pricing-feature"><span class="pricing-feature__icon" aria-hidden="true"><i class="ri-check-line" style="font-size:0.65rem;"></i></span>Unlimited orders</li>
+              <li class="pricing-feature"><span class="pricing-feature__icon" aria-hidden="true"><i class="ri-check-line" style="font-size:0.65rem;"></i></span>Advanced analytics & reports</li>
+              <li class="pricing-feature"><span class="pricing-feature__icon" aria-hidden="true"><i class="ri-check-line" style="font-size:0.65rem;"></i></span>SMS & WhatsApp notifications</li>
+              <li class="pricing-feature"><span class="pricing-feature__icon" aria-hidden="true"><i class="ri-check-line" style="font-size:0.65rem;"></i></span>QR codes (PDF, PNG, SVG)</li>
+              <li class="pricing-feature"><span class="pricing-feature__icon" aria-hidden="true"><i class="ri-check-line" style="font-size:0.65rem;"></i></span>Priority support</li>
+              <li class="pricing-feature"><span class="pricing-feature__icon" aria-hidden="true"><i class="ri-check-line" style="font-size:0.65rem;"></i></span>Multi-language menu (30+)</li>
+              <li class="pricing-feature"><span class="pricing-feature__icon" aria-hidden="true"><i class="ri-check-line" style="font-size:0.65rem;"></i></span>Custom branding & colors</li>
+              <li class="pricing-feature"><span class="pricing-feature__icon pricing-feature__icon--x" aria-hidden="true"><i class="ri-close-line" style="font-size:0.65rem;"></i></span><span style="color:var(--clr-text-muted);">Multiple locations</span></li>
+            </ul>
+
+            <a href="register.html" class="btn btn--primary btn--full mt-auto" id="pro-cta">Start Free Trial</a>
+            <p style="text-align:center;font-size:var(--size-xs);color:var(--clr-text-muted);margin-block-start:0.625rem;">14-day free trial · No card needed</p>
+          </div>
+
+          <!-- ENTERPRISE -->
+          <div class="pricing-card reveal reveal--delay-2">
+            <div class="pricing-card__tier" style="color:var(--clr-accent);">Enterprise</div>
+            <p style="font-size:var(--size-small);color:var(--clr-text-muted);margin-block-end:var(--sp-3);">For restaurant groups, hotel chains, and large hospitality operators.</p>
+            <div class="pricing-card__price" aria-label="Enterprise plan pricing">
+              <span class="pricing-card__currency">$</span>
+              <span class="pricing-card__amount" data-price-monthly>149</span>
+              <span class="pricing-card__amount" data-price-yearly style="display:none;">119</span>
+              <span class="pricing-card__period">/month</span>
+            </div>
+            <div style="font-size:var(--size-xs);color:var(--clr-text-muted);margin-block-end:var(--sp-4);">
+              <span data-pricing-savings style="display:none;color:var(--clr-secondary);font-weight:600;">Save $360/year</span>
+              <span data-price-monthly>Billed monthly</span>
+            </div>
+
+            <ul class="pricing-card__features" aria-label="Enterprise plan features">
+              <li class="pricing-feature"><span class="pricing-feature__icon" aria-hidden="true"><i class="ri-check-line" style="font-size:0.65rem;"></i></span>Everything in Professional</li>
+              <li class="pricing-feature"><span class="pricing-feature__icon" aria-hidden="true"><i class="ri-check-line" style="font-size:0.65rem;"></i></span>Multiple locations</li>
+              <li class="pricing-feature"><span class="pricing-feature__icon" aria-hidden="true"><i class="ri-check-line" style="font-size:0.65rem;"></i></span>Full white-label branding</li>
+              <li class="pricing-feature"><span class="pricing-feature__icon" aria-hidden="true"><i class="ri-check-line" style="font-size:0.65rem;"></i></span>API access & integrations</li>
+              <li class="pricing-feature"><span class="pricing-feature__icon" aria-hidden="true"><i class="ri-check-line" style="font-size:0.65rem;"></i></span>POS system integration</li>
+              <li class="pricing-feature"><span class="pricing-feature__icon" aria-hidden="true"><i class="ri-check-line" style="font-size:0.65rem;"></i></span>Custom QR code design</li>
+              <li class="pricing-feature"><span class="pricing-feature__icon" aria-hidden="true"><i class="ri-check-line" style="font-size:0.65rem;"></i></span>Dedicated account manager</li>
+              <li class="pricing-feature"><span class="pricing-feature__icon" aria-hidden="true"><i class="ri-check-line" style="font-size:0.65rem;"></i></span>SLA & uptime guarantee</li>
+              <li class="pricing-feature"><span class="pricing-feature__icon" aria-hidden="true"><i class="ri-check-line" style="font-size:0.65rem;"></i></span>Custom integrations</li>
+              <li class="pricing-feature"><span class="pricing-feature__icon" aria-hidden="true"><i class="ri-check-line" style="font-size:0.65rem;"></i></span>Training & onboarding</li>
+            </ul>
+
+            <a href="demo.html" class="btn btn--coral btn--full mt-auto" id="enterprise-cta">Request Demo</a>
+            <p style="text-align:center;font-size:var(--size-xs);color:var(--clr-text-muted);margin-block-start:0.625rem;">Custom pricing available for large groups</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURE COMPARISON -->
+    <section class="section bg-surface" aria-labelledby="comparison-heading">
+      <div class="container">
+        <div class="section-header centered">
+          <h2 id="comparison-heading">Full Feature Comparison</h2>
+        </div>
+
+        <div style="overflow-x:auto;">
+          <table class="feature-comparison-table" aria-label="Feature comparison across all plans">
+            <thead>
+              <tr>
+                <th scope="col" style="width:40%;">Feature</th>
+                <th scope="col">Starter</th>
+                <th scope="col">Professional</th>
+                <th scope="col">Enterprise</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="comparison-section-row"><td colspan="4">Menu & QR Codes</td></tr>
+              <tr><td>Digital menus</td><td>3</td><td>Unlimited</td><td>Unlimited</td></tr>
+              <tr><td>QR codes / tables</td><td>20</td><td>Unlimited</td><td>Unlimited</td></tr>
+              <tr><td>Menu items per menu</td><td>50</td><td>Unlimited</td><td>Unlimited</td></tr>
+              <tr><td>Item photos</td><td><i class="ri-check-line check-icon" aria-label="Included"></i></td><td><i class="ri-check-line check-icon" aria-label="Included"></i></td><td><i class="ri-check-line check-icon" aria-label="Included"></i></td></tr>
+              <tr><td>Menu scheduling</td><td><i class="ri-close-line x-icon" aria-label="Not included"></i></td><td><i class="ri-check-line check-icon" aria-label="Included"></i></td><td><i class="ri-check-line check-icon" aria-label="Included"></i></td></tr>
+              <tr><td>Multi-language support</td><td><i class="ri-close-line x-icon" aria-label="Not included"></i></td><td>30+ languages</td><td>30+ languages</td></tr>
+
+              <tr class="comparison-section-row"><td colspan="4">Orders & Notifications</td></tr>
+              <tr><td>Monthly orders</td><td>500</td><td>Unlimited</td><td>Unlimited</td></tr>
+              <tr><td>Email notifications</td><td><i class="ri-check-line check-icon" aria-label="Included"></i></td><td><i class="ri-check-line check-icon" aria-label="Included"></i></td><td><i class="ri-check-line check-icon" aria-label="Included"></i></td></tr>
+              <tr><td>SMS/WhatsApp notifications</td><td><i class="ri-close-line x-icon" aria-label="Not included"></i></td><td><i class="ri-check-line check-icon" aria-label="Included"></i></td><td><i class="ri-check-line check-icon" aria-label="Included"></i></td></tr>
+              <tr><td>Kitchen display integration</td><td><i class="ri-close-line x-icon" aria-label="Not included"></i></td><td><i class="ri-check-line check-icon" aria-label="Included"></i></td><td><i class="ri-check-line check-icon" aria-label="Included"></i></td></tr>
+
+              <tr class="comparison-section-row"><td colspan="4">Analytics & Reporting</td></tr>
+              <tr><td>Analytics dashboard</td><td>Basic</td><td>Advanced</td><td>Advanced + Custom</td></tr>
+              <tr><td>Revenue reports</td><td>Weekly</td><td>Daily</td><td>Real-time</td></tr>
+              <tr><td>Customer insights</td><td><i class="ri-close-line x-icon" aria-label="Not included"></i></td><td><i class="ri-check-line check-icon" aria-label="Included"></i></td><td><i class="ri-check-line check-icon" aria-label="Included"></i></td></tr>
+              <tr><td>Data export (CSV/PDF)</td><td><i class="ri-close-line x-icon" aria-label="Not included"></i></td><td><i class="ri-check-line check-icon" aria-label="Included"></i></td><td><i class="ri-check-line check-icon" aria-label="Included"></i></td></tr>
+
+              <tr class="comparison-section-row"><td colspan="4">Branding & Customization</td></tr>
+              <tr><td>Custom colors</td><td><i class="ri-close-line x-icon" aria-label="Not included"></i></td><td><i class="ri-check-line check-icon" aria-label="Included"></i></td><td><i class="ri-check-line check-icon" aria-label="Included"></i></td></tr>
+              <tr><td>White-label (remove QRServe branding)</td><td><i class="ri-close-line x-icon" aria-label="Not included"></i></td><td><i class="ri-close-line x-icon" aria-label="Not included"></i></td><td><i class="ri-check-line check-icon" aria-label="Included"></i></td></tr>
+              <tr><td>Custom domain</td><td><i class="ri-close-line x-icon" aria-label="Not included"></i></td><td><i class="ri-close-line x-icon" aria-label="Not included"></i></td><td><i class="ri-check-line check-icon" aria-label="Included"></i></td></tr>
+
+              <tr class="comparison-section-row"><td colspan="4">Support</td></tr>
+              <tr><td>Email support</td><td><i class="ri-check-line check-icon" aria-label="Included"></i></td><td><i class="ri-check-line check-icon" aria-label="Included"></i></td><td><i class="ri-check-line check-icon" aria-label="Included"></i></td></tr>
+              <tr><td>Priority support</td><td><i class="ri-close-line x-icon" aria-label="Not included"></i></td><td><i class="ri-check-line check-icon" aria-label="Included"></i></td><td><i class="ri-check-line check-icon" aria-label="Included"></i></td></tr>
+              <tr><td>Dedicated account manager</td><td><i class="ri-close-line x-icon" aria-label="Not included"></i></td><td><i class="ri-close-line x-icon" aria-label="Not included"></i></td><td><i class="ri-check-line check-icon" aria-label="Included"></i></td></tr>
+              <tr><td>Onboarding assistance</td><td><i class="ri-close-line x-icon" aria-label="Not included"></i></td><td><i class="ri-close-line x-icon" aria-label="Not included"></i></td><td><i class="ri-check-line check-icon" aria-label="Included"></i></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" aria-labelledby="faq-heading">
+      <div class="container container--narrow">
+        <div class="section-header centered">
+          <span class="section-label"><i class="ri-question-line" aria-hidden="true"></i> FAQ</span>
+          <h2 id="faq-heading">Frequently Asked Questions</h2>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:0.75rem;" role="list">
+          <div class="faq-item" role="listitem">
+            <div class="faq-question" tabindex="0" role="button" aria-expanded="false">
+              <h3>Is there a free trial?</h3>
+              <span class="faq-question__icon" aria-hidden="true"><i class="ri-add-line"></i></span>
+            </div>
+            <div class="faq-answer"><div class="faq-answer__inner">Yes! All plans come with a 14-day free trial. No credit card is required to start. You get access to all features of your chosen plan during the trial period.</div></div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <div class="faq-question" tabindex="0" role="button" aria-expanded="false">
+              <h3>Can I switch plans anytime?</h3>
+              <span class="faq-question__icon" aria-hidden="true"><i class="ri-add-line"></i></span>
+            </div>
+            <div class="faq-answer"><div class="faq-answer__inner">Absolutely. You can upgrade or downgrade your plan at any time. When upgrading, the new plan takes effect immediately. When downgrading, the change applies at the end of your billing period.</div></div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <div class="faq-question" tabindex="0" role="button" aria-expanded="false">
+              <h3>Do customers need to download an app?</h3>
+              <span class="faq-question__icon" aria-hidden="true"><i class="ri-add-line"></i></span>
+            </div>
+            <div class="faq-answer"><div class="faq-answer__inner">No app download required. Customers simply scan the QR code with their phone's camera and the menu opens instantly in their browser. It works on any modern smartphone.</div></div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <div class="faq-question" tabindex="0" role="button" aria-expanded="false">
+              <h3>What payment methods do you accept?</h3>
+              <span class="faq-question__icon" aria-hidden="true"><i class="ri-add-line"></i></span>
+            </div>
+            <div class="faq-answer"><div class="faq-answer__inner">We accept all major credit and debit cards (Visa, Mastercard, American Express), as well as PayPal. For Enterprise plans, we can also arrange bank transfer invoicing.</div></div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <div class="faq-question" tabindex="0" role="button" aria-expanded="false">
+              <h3>Is my data secure?</h3>
+              <span class="faq-question__icon" aria-hidden="true"><i class="ri-add-line"></i></span>
+            </div>
+            <div class="faq-answer"><div class="faq-answer__inner">Yes. QRServe uses bank-level 256-bit SSL encryption for all data. We are fully GDPR compliant and our servers are hosted in ISO 27001 certified data centers. We never sell or share your data.</div></div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <div class="faq-question" tabindex="0" role="button" aria-expanded="false">
+              <h3>Can I cancel anytime?</h3>
+              <span class="faq-question__icon" aria-hidden="true"><i class="ri-add-line"></i></span>
+            </div>
+            <div class="faq-answer"><div class="faq-answer__inner">Yes, you can cancel your subscription at any time with no penalties. Your account remains active until the end of your current billing period. We also offer a 30-day money-back guarantee on paid plans.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section cta-section" aria-labelledby="pricing-cta-heading">
+      <div class="container">
+        <div class="cta-section__content">
+          <h2 id="pricing-cta-heading">Start Your 14-Day Free Trial</h2>
+          <p>Join 12,000+ restaurants that have gone contactless with QRServe.</p>
+          <div class="cta-section__actions">
+            <a href="register.html" class="btn btn--primary btn--lg">Get Started Free</a>
+            <a href="demo.html" class="btn btn--lg" style="background:rgba(255,255,255,0.08);color:#fff;border:1px solid rgba(255,255,255,0.2);">Request a Demo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="footer__logo">
+            <div class="footer__logo-icon" aria-hidden="true"><i class="ri-qr-code-line" style="font-size:0.9rem;"></i></div>
+            QR<span style="color:var(--clr-secondary);">Serve</span>
+          </div>
+          <p>The premium QR digital menu & contactless ordering platform for modern hospitality.</p>
+          <div class="footer__social" aria-label="Social media links">
+            <a href="#" class="footer__social-link" aria-label="Twitter"><i class="ri-twitter-x-line" aria-hidden="true"></i></a>
+            <a href="#" class="footer__social-link" aria-label="LinkedIn"><i class="ri-linkedin-line" aria-hidden="true"></i></a>
+            <a href="#" class="footer__social-link" aria-label="Instagram"><i class="ri-instagram-line" aria-hidden="true"></i></a>
+          </div>
+        </div>
+        <div>
+          <h3 class="footer__col-title">Product</h3>
+          <ul class="footer__links">
+            <li><a href="features.html" class="footer__link">Features</a></li>
+            <li><a href="pricing.html" class="footer__link">Pricing</a></li>
+            <li><a href="demo.html" class="footer__link">Demo</a></li>
+            <li><a href="dashboard.html" class="footer__link">Dashboard</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer__col-title">Company</h3>
+          <ul class="footer__links">
+            <li><a href="about.html" class="footer__link">About</a></li>
+            <li><a href="blog.html" class="footer__link">Blog</a></li>
+            <li><a href="contact.html" class="footer__link">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer__col-title">Legal</h3>
+          <ul class="footer__links">
+            <li><a href="#" class="footer__link">Privacy Policy</a></li>
+            <li><a href="#" class="footer__link">Terms of Service</a></li>
+            <li><a href="#" class="footer__link">Cookie Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 QRServe Technologies Inc. All rights reserved.</p>
+        <div class="footer__bottom-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/forms.js"></script>
+</body>
+</html>

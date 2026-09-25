@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="QRServe Hospitality Edition — Bespoke QR code digital menus and table ordering tailored for Luxury Hotels, High-Volume Bars, Fine Dining, and Food Halls." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://qrserve.io/home2" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://qrserve.io/home2" />
+  <meta property="og:title" content="QRServe Hospitality — The Future of In-Venue Ordering" />
+  <meta property="og:description" content="Empower your guests to order and pay effortlessly across hotels, cocktail bars, and food courts." />
+
+  <title>Hospitality & Venue Ordering Reimagined — QRServe</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/rtl.css" />
+
+  <style>
+    /* Home 2 Hero */
+    .hero-h2 {
+      padding-block: calc(var(--nav-height) + var(--sp-12)) var(--sp-12);
+      background: radial-gradient(circle at 80% 20%, rgba(0,200,150,0.14) 0%, transparent 60%),
+                  radial-gradient(circle at 10% 80%, rgba(255,107,91,0.08) 0%, transparent 50%),
+                  var(--clr-bg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-h2__grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: var(--sp-10);
+      align-items: center;
+    }
+
+    .hero-h2__title {
+      font-size: var(--size-h1);
+      line-height: 1.08;
+      margin-block-end: var(--sp-3);
+    }
+
+    .hero-h2__title span {
+      background: linear-gradient(135deg, var(--clr-secondary), #38ef7d);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Venue Selector Tabs */
+    .venue-showcase-section {
+      padding-block: var(--sp-12);
+      background: var(--clr-surface);
+      border-block-end: 1px solid var(--clr-border);
+    }
+
+    .venue-tabs-nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-block-end: var(--sp-8);
+    }
+
+    .venue-tab-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.625rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--radius-pill);
+      background: var(--clr-surface-2);
+      border: 1.5px solid var(--clr-border);
+      color: var(--clr-text-secondary);
+      font-weight: 600;
+      font-size: var(--size-small);
+      cursor: pointer;
+      transition: all var(--transition-base);
+    }
+
+    .venue-tab-btn.active, .venue-tab-btn:hover {
+      background: var(--clr-primary);
+      border-color: var(--clr-primary);
+      color: #fff;
+    }
+
+    [data-theme="dark"] .venue-tab-btn.active {
+      background: var(--clr-secondary);
+      border-color: var(--clr-secondary);
+      color: var(--clr-primary);
+    }
+
+    .venue-detail-card {
+      background: var(--clr-surface-2);
+      border-radius: var(--radius-xl);
+      padding: var(--sp-8);
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: var(--sp-8);
+      align-items: center;
+      border: 1px solid var(--clr-border);
+    }
+
+    /* ROI Calculator Section */
+    .roi-section {
+      padding-block: var(--sp-12);
+      background: var(--clr-bg);
+    }
+
+    .roi-card {
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-xl);
+      padding: var(--sp-8);
+      box-shadow: var(--shadow-xl);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-10);
+      align-items: center;
+    }
+
+    .roi-slider-group {
+      margin-block-end: var(--sp-4);
+    }
+
+    .roi-slider-header {
+      display: flex;
+      justify-content: space-between;
+      margin-block-end: 0.5rem;
+      font-size: var(--size-small);
+      font-weight: 600;
+    }
+
+    .roi-slider {
+      width: 100%;
+      height: 8px;
+      border-radius: 4px;
+      background: var(--clr-surface-2);
+      outline: none;
+      -webkit-appearance: none;
+      cursor: pointer;
+    }
+
+    .roi-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--clr-secondary);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      cursor: pointer;
+      border: 2px solid #fff;
+    }
+
+    .roi-result-box {
+      background: var(--clr-primary);
+      color: #fff;
+      border-radius: var(--radius-lg);
+      padding: var(--sp-6);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .roi-result-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 150px;
+      height: 150px;
+      background: radial-gradient(circle, rgba(0,200,150,0.2) 0%, transparent 70%);
+    }
+
+    .roi-number {
+      font-family: var(--font-heading);
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 800;
+      color: var(--clr-secondary);
+      margin-block: var(--sp-2);
+    }
+
+    /* Style Switcher Showcase */
+    .style-switcher-section {
+      padding-block: var(--sp-12);
+      background: var(--clr-surface);
+      text-align: center;
+    }
+
+    .menu-theme-preview {
+      max-width: 480px;
+      margin-inline: auto;
+      border-radius: var(--radius-xl);
+      padding: var(--sp-6);
+      box-shadow: var(--shadow-xl);
+      transition: all var(--transition-base);
+    }
+
+    .theme--midnight {
+      background: #0a0f0d;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .theme--bistro {
+      background: #faf6f0;
+      color: #2b2520;
+      border: 1px solid #e8decb;
+    }
+
+    .theme--neon {
+      background: #111420;
+      color: #ffffff;
+      border: 1px solid #ff007f;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-h2__grid,
+      .venue-detail-card,
+      .roi-card {
+        grid-template-columns: 1fr;
+        gap: var(--sp-6);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <header class="navbar" role="banner">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo" aria-label="QRServe — Home">
+        <div class="navbar__logo-icon" aria-hidden="true">
+          <i class="ri-qr-code-line" style="font-size:1.1rem;"></i>
+        </div>
+        QR<span>Serve</span>
+      </a>
+
+      <nav class="navbar__nav" aria-label="Main navigation">
+        <a href="index.html" class="navbar__link" data-nav-link>Home</a>
+        <a href="home2.html" class="navbar__link active" data-nav-link>Home 2</a>
+        <a href="features.html" class="navbar__link" data-nav-link>Features</a>
+        <a href="pricing.html" class="navbar__link" data-nav-link>Pricing</a>
+        <a href="demo.html" class="navbar__link" data-nav-link>Demo</a>
+        <a href="blog.html" class="navbar__link" data-nav-link>Blog</a>
+        <a href="contact.html" class="navbar__link" data-nav-link>Contact</a>
+      </nav>
+
+      <div class="navbar__actions">
+        <button class="icon-btn" data-theme-toggle data-theme-icon aria-label="Toggle dark mode" title="Toggle theme"></button>
+        <button class="icon-btn" data-rtl-btn aria-label="Switch to RTL" title="Switch direction"></button>
+        <a href="dashboard.html" class="btn btn--ghost btn--sm" data-nav-link>Dashboard</a>
+        <a href="login.html" class="btn btn--outline btn--sm" data-nav-link>Login</a>
+        <a href="register.html" class="btn btn--primary btn--sm">Get Started</a>
+      </div>
+
+      <button class="navbar__hamburger" id="hamburger-btn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-drawer">
+        <i class="ri-menu-3-line" style="font-size:1.25rem;" aria-hidden="true"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===================== MOBILE DRAWER ===================== -->
+  <div class="drawer-overlay" id="drawer-overlay" aria-hidden="true"></div>
+  <div class="drawer" id="mobile-drawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <div class="drawer__header">
+      <a href="index.html" class="navbar__logo" style="font-size:1.25rem;">
+        <div class="navbar__logo-icon" style="width:30px;height:30px;" aria-hidden="true">
+          <i class="ri-qr-code-line" style="font-size:0.95rem;"></i>
+        </div>
+        QR<span>Serve</span>
+      </a>
+      <button class="icon-btn drawer__close" aria-label="Close navigation menu">
+        <i class="ri-close-line" style="font-size:1.25rem;" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <nav class="drawer__nav" aria-label="Mobile navigation">
+      <a href="index.html" class="drawer__link" data-nav-link><i class="ri-home-4-line"></i> Home</a>
+      <a href="home2.html" class="drawer__link active" data-nav-link><i class="ri-layout-masonry-line"></i> Home 2</a>
+      <a href="features.html" class="drawer__link" data-nav-link><i class="ri-flashlight-line"></i> Features</a>
+      <a href="pricing.html" class="drawer__link" data-nav-link><i class="ri-price-tag-3-line"></i> Pricing</a>
+      <a href="demo.html" class="drawer__link" data-nav-link><i class="ri-play-circle-line"></i> Demo</a>
+      <a href="blog.html" class="drawer__link" data-nav-link><i class="ri-article-line"></i> Blog</a>
+      <a href="contact.html" class="drawer__link" data-nav-link><i class="ri-mail-line"></i> Contact</a>
+      <a href="about.html" class="drawer__link" data-nav-link><i class="ri-information-line"></i> About</a>
+      <div class="divider"></div>
+      <a href="dashboard.html" class="drawer__link" data-nav-link><i class="ri-dashboard-line"></i> Dashboard</a>
+      <a href="login.html" class="drawer__link" data-nav-link><i class="ri-login-box-line"></i> Login</a>
+    </nav>
+
+    <div class="drawer__footer">
+      <a href="register.html" class="btn btn--primary btn--full">Get Started Free</a>
+      <div class="drawer__controls">
+        <button class="icon-btn" data-theme-toggle data-theme-icon aria-label="Toggle dark mode"></button>
+        <button class="icon-btn" data-rtl-btn aria-label="Switch text direction"></button>
+      </div>
+    </div>
+  </div>
+
+  <main id="main-content">
+    <!-- ===================== HERO SECTION ===================== -->
+    <section class="hero-h2" aria-labelledby="hero-h2-title">
+      <div class="container">
+        <div class="hero-h2__grid">
+          <div>
+            <span class="badge badge--pill badge--secondary" style="margin-block-end:var(--sp-2);">
+              <i class="ri-hotel-line"></i> Hospitality & Venue Edition
+            </span>
+            <h1 class="hero-h2__title" id="hero-h2-title">
+              Turn Empty Tables Into <span>High-Speed Revenue.</span>
+            </h1>
+            <p style="color:var(--clr-text-secondary);font-size:var(--size-lead);margin-block-end:var(--sp-4);">
+              From rooftop cocktail lounges to luxury hotel suites and packed food halls — QRServe eliminates order bottlenecks, boosts check averages by +24%, and delights your guests from the moment they sit down.
+            </p>
+            <div style="display:flex;gap:var(--sp-2);flex-wrap:wrap;">
+              <a href="register.html" class="btn btn--primary btn--lg">Start Free Trial</a>
+              <a href="demo.html" class="btn btn--outline btn--lg">Watch Live Demo</a>
+            </div>
+            
+            <!-- Quick Trust Badges -->
+            <div style="margin-block-start:var(--sp-6);display:flex;gap:1.5rem;align-items:center;">
+              <div style="display:flex;align-items:center;gap:0.35rem;font-size:var(--size-small);color:var(--clr-text-muted);">
+                <i class="ri-checkbox-circle-fill" style="color:var(--clr-secondary);"></i> No Hardware Required
+              </div>
+              <div style="display:flex;align-items:center;gap:0.35rem;font-size:var(--size-small);color:var(--clr-text-muted);">
+                <i class="ri-checkbox-circle-fill" style="color:var(--clr-secondary);"></i> 0% Take-rate Plans
+              </div>
+              <div style="display:flex;align-items:center;gap:0.35rem;font-size:var(--size-small);color:var(--clr-secondary);font-weight:700;">
+                <i class="ri-star-fill"></i> 4.9/5 Rating
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Mock Visual -->
+          <div>
+            <div style="position:relative;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:var(--radius-xl);padding:var(--sp-6);box-shadow:var(--shadow-xl);">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-block-end:1rem;">
+                <div style="display:flex;gap:0.5rem;align-items:center;">
+                  <span style="width:12px;height:12px;border-radius:50%;background:#ff5f56;"></span>
+                  <span style="width:12px;height:12px;border-radius:50%;background:#ffbd2e;"></span>
+                  <span style="width:12px;height:12px;border-radius:50%;background:#27c93f;"></span>
+                </div>
+                <span style="font-family:var(--font-mono);font-size:var(--size-xs);color:var(--clr-text-muted);">Live POS Feed &bull; 100% Real-Time</span>
+              </div>
+
+              <!-- Animated Order Flow Cards -->
+              <div style="display:flex;flex-direction:column;gap:0.75rem;">
+                <div style="background:var(--clr-surface-2);padding:1rem;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:space-between;">
+                  <div>
+                    <div style="font-weight:700;font-size:0.85rem;color:var(--clr-text-primary);">Table 24 &bull; Rooftop Pool Deck</div>
+                    <div style="font-size:var(--size-xs);color:var(--clr-text-muted);">3x Piña Colada, 1x Lobster Roll</div>
+                  </div>
+                  <span class="badge badge--success" style="font-size:0.75rem;">Paid via Apple Pay</span>
+                </div>
+
+                <div style="background:var(--clr-surface-2);padding:1rem;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:space-between;">
+                  <div>
+                    <div style="font-weight:700;font-size:0.85rem;color:var(--clr-text-primary);">Room 408 &bull; In-Room Dining</div>
+                    <div style="font-size:var(--size-xs);color:var(--clr-text-muted);">1x Truffle Risotto, 1x San Pellegrino</div>
+                  </div>
+                  <span class="badge badge--secondary" style="font-size:0.75rem;">Charged to Room</span>
+                </div>
+
+                <div style="background:var(--clr-surface-2);padding:1rem;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:space-between;">
+                  <div>
+                    <div style="font-weight:700;font-size:0.85rem;color:var(--clr-text-primary);">Table 07 &bull; Main Dining Hall</div>
+                    <div style="font-size:var(--size-xs);color:var(--clr-text-muted);">Split Tab &bull; 4 Diners &bull; +22% Tip</div>
+                  </div>
+                  <span class="badge badge--warning" style="font-size:0.75rem;">Ready to Serve</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== VENUE SELECTOR ===================== -->
+    <section class="venue-showcase-section" aria-labelledby="venues-title">
+      <div class="container">
+        <div style="text-align:center;margin-block-end:var(--sp-6);">
+          <span class="badge badge--pill badge--secondary" style="margin-block-end:var(--sp-2);">Built For Every Venue</span>
+          <h2 id="venues-title" style="font-size:var(--size-h2);color:var(--clr-text-primary);">Tailored Operational Workflows</h2>
+          <p style="color:var(--clr-text-secondary);max-width:560px;margin-inline:auto;">Select your hospitality concept to see how QRServe customizes the guest journey.</p>
+        </div>
+
+        <div class="venue-tabs-nav">
+          <button class="venue-tab-btn active" onclick="switchVenue('hotels', this)"><i class="ri-hotel-bed-line"></i> Hotels & Resorts</button>
+          <button class="venue-tab-btn" onclick="switchVenue('bars', this)"><i class="ri-goblet-line"></i> Cocktail Bars & Lounges</button>
+          <button class="venue-tab-btn" onclick="switchVenue('casual', this)"><i class="ri-restaurant-2-line"></i> Fast Casual & Food Halls</button>
+          <button class="venue-tab-btn" onclick="switchVenue('fine', this)"><i class="ri-service-line"></i> Fine Dining & Wine Bars</button>
+        </div>
+
+        <div id="venue-content-container">
+          <!-- Dynamic Content Loaded by JS -->
+          <div class="venue-detail-card" id="venue-card">
+            <div>
+              <span class="badge badge--pill badge--secondary" style="margin-block-end:0.5rem;" id="venue-tag">Hospitality Spotlight</span>
+              <h3 style="font-size:var(--size-h3);color:var(--clr-text-primary);margin-block-end:var(--sp-2);" id="venue-title">
+                Hotels & Resorts: In-Room Dining & Poolside Ordering
+              </h3>
+              <p style="color:var(--clr-text-secondary);font-size:var(--size-body);line-height:1.6;margin-block-end:var(--sp-4);" id="venue-desc">
+                Replace bulky printed binder directories with sleek acrylic bedside QR plates. Guests scan to order breakfast, request fresh towels, book spa treatments, or order poolside cocktails charged straight to their room folio.
+              </p>
+              <ul class="feature-perk-list" id="venue-points">
+                <li class="feature-perk-item">
+                  <div class="feature-perk-icon"><i class="ri-check-line"></i></div>
+                  <div><strong>PMS Folio Integration:</strong> Works directly with Opera, Mews, and Cloudbeds.</div>
+                </li>
+                <li class="feature-perk-item">
+                  <div class="feature-perk-icon"><i class="ri-check-line"></i></div>
+                  <div><strong>Multi-Zone Routing:</strong> Orders route to the main kitchen, pool bar, or room service dispatch automatically.</div>
+                </li>
+              </ul>
+              <a href="register.html" class="btn btn--primary btn--sm" style="margin-block-start:var(--sp-2);">Explore Hotel Features</a>
+            </div>
+
+            <div style="background:var(--clr-surface);padding:var(--sp-6);border-radius:var(--radius-lg);box-shadow:var(--shadow-md);text-align:center;">
+              <i class="ri-hotel-line" style="font-size:3.5rem;color:var(--clr-secondary);margin-block-end:1rem;" id="venue-icon"></i>
+              <div style="font-weight:800;font-size:1.25rem;color:var(--clr-text-primary);" id="venue-stat-number">+41%</div>
+              <div style="font-size:var(--size-small);color:var(--clr-text-muted);" id="venue-stat-label">In-room dining revenue per guest night</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== INTERACTIVE ROI CALCULATOR ===================== -->
+    <section class="roi-section" aria-labelledby="roi-title">
+      <div class="container">
+        <div class="roi-card">
+          <div>
+            <span class="badge badge--pill badge--secondary" style="margin-block-end:var(--sp-2);">Revenue Intelligence</span>
+            <h2 id="roi-title" style="font-size:var(--size-h3);color:var(--clr-text-primary);">Calculate Your Restaurant's Added Profit</h2>
+            <p style="color:var(--clr-text-secondary);margin-block-end:var(--sp-4);">
+              See how much extra monthly gross revenue QRServe can unlock by accelerating table turnover and increasing average ticket sizes with automated visual upsells.
+            </p>
+
+            <!-- Slider 1 -->
+            <div class="roi-slider-group">
+              <div class="roi-slider-header">
+                <span>Number of Dining Tables:</span>
+                <span id="tables-val" style="color:var(--clr-secondary);font-weight:700;">30 Tables</span>
+              </div>
+              <input type="range" min="5" max="150" value="30" class="roi-slider" id="tables-slider" oninput="calculateROI()">
+            </div>
+
+            <!-- Slider 2 -->
+            <div class="roi-slider-group">
+              <div class="roi-slider-header">
+                <span>Average Check Size per Table:</span>
+                <span id="check-val" style="color:var(--clr-secondary);font-weight:700;">$55.00</span>
+              </div>
+              <input type="range" min="15" max="250" value="55" class="roi-slider" id="check-slider" oninput="calculateROI()">
+            </div>
+
+            <!-- Slider 3 -->
+            <div class="roi-slider-group">
+              <div class="roi-slider-header">
+                <span>Daily Turns per Table:</span>
+                <span id="turns-val" style="color:var(--clr-secondary);font-weight:700;">3 Turns</span>
+              </div>
+              <input type="range" min="1" max="8" value="3" class="roi-slider" id="turns-slider" oninput="calculateROI()">
+            </div>
+          </div>
+
+          <!-- Result Column -->
+          <div class="roi-result-box">
+            <span style="font-size:var(--size-xs);text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.7);">Projected Extra Monthly Revenue</span>
+            <div class="roi-number" id="roi-calculated-number">+$11,880</div>
+            <p style="color:rgba(255,255,255,0.7);font-size:var(--size-small);max-width:320px;margin-inline:auto;">
+              Based on conservative +20% faster table turnarounds and +18% upsell attachments.
+            </p>
+            <a href="register.html" class="btn btn--secondary btn--full" style="margin-block-start:var(--sp-4);">
+              Capture This Revenue &bull; Start Free
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== MENU STYLES SWITCHER ===================== -->
+    <section class="style-switcher-section" aria-labelledby="themes-title">
+      <div class="container">
+        <span class="badge badge--pill badge--secondary" style="margin-block-end:var(--sp-2);">Custom Aesthetics</span>
+        <h2 id="themes-title" style="font-size:var(--size-h2);color:var(--clr-text-primary);">A Menu Look That Matches Your Ambiance</h2>
+        <p style="color:var(--clr-text-secondary);max-width:540px;margin-inline:auto;margin-block-end:var(--sp-6);">
+          Choose from curated typography and color themes or apply your own custom CSS and branded assets in seconds.
+        </p>
+
+        <div style="display:flex;justify-content:center;gap:0.75rem;margin-block-end:var(--sp-6);">
+          <button class="btn btn--sm btn--primary" onclick="setMenuTheme('midnight')">Luxury Midnight</button>
+          <button class="btn btn--sm btn--outline" onclick="setMenuTheme('bistro')">Artisanal Bistro</button>
+          <button class="btn btn--sm btn--outline" onclick="setMenuTheme('neon')">Neon Cocktail Lounge</button>
+        </div>
+
+        <div class="menu-theme-preview theme--midnight" id="theme-preview-box">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-block-end:1rem;border-block-end:1px solid currentColor;padding-block-end:0.5rem;">
+            <strong id="theme-restaurant-name" style="font-family:var(--font-heading);font-size:1.1rem;">L’Etoile Dining Lounge</strong>
+            <span style="font-size:0.75rem;opacity:0.8;">Table 12</span>
+          </div>
+          <div style="text-align:left;display:flex;flex-direction:column;gap:0.875rem;">
+            <div style="display:flex;justify-content:space-between;">
+              <div>
+                <strong style="font-size:0.9rem;">Hokkaido Scallop Carpaccio</strong>
+                <p style="font-size:0.75rem;opacity:0.75;margin:0;">Yuzu truffle dressing, finger lime caviar</p>
+              </div>
+              <strong style="font-size:0.9rem;">$24.00</strong>
+            </div>
+            <div style="display:flex;justify-content:space-between;">
+              <div>
+                <strong style="font-size:0.9rem;">28-Day Dry Aged Duck Breast</strong>
+                <p style="font-size:0.75rem;opacity:0.75;margin:0;">Spiced cherry reduction, sunchoke puree</p>
+              </div>
+              <strong style="font-size:0.9rem;">$42.00</strong>
+            </div>
+          </div>
+          <button class="btn btn--secondary btn--full btn--sm" style="margin-block-start:1.25rem;">View Complete Wine List</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CTA ===================== -->
+    <section class="cta-section" style="padding-block:var(--sp-12);">
+      <div class="container">
+        <div class="cta-section__content">
+          <h2>Upgrade Your Hospitality Experience Today</h2>
+          <p>Setup takes less than 15 minutes. No specialized hardware, no long-term contracts.</p>
+          <div class="cta-section__actions">
+            <a href="register.html" class="btn btn--secondary btn--lg">Get Started Free</a>
+            <a href="pricing.html" class="btn btn--outline btn--lg" style="color:#fff;border-color:rgba(255,255,255,0.3);">View Pricing</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="footer__logo">
+            <div class="footer__logo-icon" aria-hidden="true">
+              <i class="ri-qr-code-line" style="font-size:0.9rem;"></i>
+            </div>
+            QR<span style="color:var(--clr-secondary);">Serve</span>
+          </div>
+          <p>The premium QR digital menu & contactless ordering platform built for modern hospitality businesses worldwide.</p>
+          <div class="footer__social" aria-label="Social media links">
+            <a href="#" class="footer__social-link" aria-label="Twitter"><i class="ri-twitter-x-line"></i></a>
+            <a href="#" class="footer__social-link" aria-label="LinkedIn"><i class="ri-linkedin-line"></i></a>
+            <a href="#" class="footer__social-link" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+            <a href="#" class="footer__social-link" aria-label="Facebook"><i class="ri-facebook-line"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="footer__col-title">Product</h3>
+          <ul class="footer__links">
+            <li><a href="features.html" class="footer__link">Features</a></li>
+            <li><a href="pricing.html" class="footer__link">Pricing</a></li>
+            <li><a href="demo.html" class="footer__link">Request Demo</a></li>
+            <li><a href="dashboard.html" class="footer__link">Dashboard</a></li>
+            <li><a href="coming-soon.html" class="footer__link">Changelog</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer__col-title">Company</h3>
+          <ul class="footer__links">
+            <li><a href="about.html" class="footer__link">About Us</a></li>
+            <li><a href="blog.html" class="footer__link">Blog</a></li>
+            <li><a href="contact.html" class="footer__link">Contact</a></li>
+            <li><a href="services.html" class="footer__link">Services</a></li>
+            <li><a href="coming-soon.html" class="footer__link">Careers</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer__col-title">Legal</h3>
+          <ul class="footer__links">
+            <li><a href="#" class="footer__link">Privacy Policy</a></li>
+            <li><a href="#" class="footer__link">Terms of Service</a></li>
+            <li><a href="#" class="footer__link">Cookie Policy</a></li>
+            <li><a href="#" class="footer__link">Security</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>&copy; 2026 QRServe Technologies Inc. All rights reserved.</p>
+        <div class="footer__bottom-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+  <script>
+    const venueData = {
+      hotels: {
+        title: "Hotels & Resorts: In-Room Dining & Poolside Ordering",
+        desc: "Replace bulky printed binder directories with sleek acrylic bedside QR plates. Guests scan to order breakfast, request fresh towels, book spa treatments, or order poolside cocktails charged straight to their room folio.",
+        points: [
+          "PMS Folio Integration: Works directly with Opera, Mews, and Cloudbeds.",
+          "Multi-Zone Routing: Orders route to the main kitchen, pool bar, or room service dispatch automatically."
+        ],
+        icon: "ri-hotel-line",
+        statNum: "+41%",
+        statLabel: "In-room dining revenue per guest night"
+      },
+      bars: {
+        title: "Cocktail Lounges & Nightclubs: No More Waving at the Bar",
+        desc: "Cut bar crush during happy hour and peak nightlife. Guests scan QR stickers placed on cocktail tables or bar rails to order drinks and rounds, pay instantly via Apple Pay, and get alerted when drinks are poured.",
+        points: [
+          "Instant Drink Rounds: Group reordering in two taps without queuing at the bar rail.",
+          "Automatic 20% Gratuity: Default tip options optimize bartender compensation and morale."
+        ],
+        icon: "ri-goblet-line",
+        statNum: "+35%",
+        statLabel: "Faster beverage fulfillment during peak rushes"
+      },
+      casual: {
+        title: "Fast Casual & Food Halls: Multi-Vendor Unified Cart",
+        desc: "Enable diners to order from 5 different food hall stalls on one unified checkout ticket. Each kitchen receives their specific order items while the guest pays once and gets SMS notifications when each stall is ready.",
+        points: [
+          "Unified Multi-Vendor Cart: One payment splits funds automatically to independent vendors.",
+          "Zero Hardware Required: Diners use their own devices, eliminating costly kiosk maintenance."
+        ],
+        icon: "ri-store-3-line",
+        statNum: "-70%",
+        statLabel: "Reduction in front counter queue wait times"
+      },
+      fine: {
+        title: "Fine Dining & Wine Bars: Sommelier Notes & Tasting Guides",
+        desc: "Offer an elevated digital experience with detailed wine tasting notes, vintage year guides, artisanal producer stories, and chef allergen pairings that complement your service team rather than replacing them.",
+        points: [
+          "Dynamic Wine Cellar 86ing: Rare vintage bottles update immediately upon uncorking.",
+          "Discreet Silent Ordering: Guests reorder water, espresso, or digestifs without interrupting conversation."
+        ],
+        icon: "ri-vip-crown-line",
+        statNum: "+28%",
+        statLabel: "Higher dessert and digestif attachment rate"
+      }
+    };
+
+    function switchVenue(key, btn) {
+      document.querySelectorAll('.venue-tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const data = venueData[key];
+      if (!data) return;
+
+      document.getElementById('venue-title').textContent = data.title;
+      document.getElementById('venue-desc').textContent = data.desc;
+      document.getElementById('venue-stat-number').textContent = data.statNum;
+      document.getElementById('venue-stat-label').textContent = data.statLabel;
+      document.getElementById('venue-icon').className = data.icon;
+
+      const pointsContainer = document.getElementById('venue-points');
+      pointsContainer.innerHTML = data.points.map(pt => `
+        <li class="feature-perk-item">
+          <div class="feature-perk-icon"><i class="ri-check-line"></i></div>
+          <div>${pt}</div>
+        </li>
+      `).join('');
+    }
+
+    function calculateROI() {
+      const tables = parseInt(document.getElementById('tables-slider').value);
+      const check = parseInt(document.getElementById('check-slider').value);
+      const turns = parseInt(document.getElementById('turns-slider').value);
+
+      document.getElementById('tables-val').textContent = `${tables} Tables`;
+      document.getElementById('check-val').textContent = `$${check.toFixed(2)}`;
+      document.getElementById('turns-val').textContent = `${turns} Turn${turns > 1 ? 's' : ''}`;
+
+      // Formula: daily extra revenue = (tables * turns * check) * 0.24 (24% increase) * 30 days
+      const extraMonthly = Math.round(tables * turns * check * 0.24 * 30);
+      document.getElementById('roi-calculated-number').textContent = `+$${extraMonthly.toLocaleString()}`;
+    }
+
+    function setMenuTheme(theme) {
+      const box = document.getElementById('theme-preview-box');
+      box.className = `menu-theme-preview theme--${theme}`;
+      const name = document.getElementById('theme-restaurant-name');
+      if (theme === 'midnight') name.textContent = "L’Etoile Dining Lounge";
+      if (theme === 'bistro') name.textContent = "Le Petit Marais Bistro";
+      if (theme === 'neon') name.textContent = "Velvet & Electric Cocktail Bar";
+    }
+
+    // Init ROI on load
+    document.addEventListener('DOMContentLoaded', calculateROI);
+  </script>
+</body>
+</html>
