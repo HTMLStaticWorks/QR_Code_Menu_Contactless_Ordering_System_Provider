@@ -74,13 +74,13 @@ const RTLManager = (() => {
     const btns = document.querySelectorAll('[data-rtl-btn]');
     btns.forEach(btn => {
       if (dir === 'rtl') {
-        btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="Switch to LTR"><path d="M3 6h18M3 12h18M3 18h18"/><path d="m15 3 3 3-3 3"/></svg>`;
+        btn.innerHTML = `<span style="font-size:0.8rem; font-weight:700; letter-spacing:0.5px;">EN</span>`;
         btn.setAttribute('aria-label', 'Switch to LTR');
-        btn.setAttribute('title', 'Switch to Left-to-Right');
+        btn.setAttribute('title', 'Switch to English (LTR)');
       } else {
-        btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="Switch to RTL"><path d="M3 6h18M3 12h18M3 18h18"/><path d="m9 21-3-3 3-3"/></svg>`;
+        btn.innerHTML = `<span style="font-size:0.8rem; font-weight:700; letter-spacing:0.5px;">AR</span>`;
         btn.setAttribute('aria-label', 'Switch to RTL');
-        btn.setAttribute('title', 'Switch to Right-to-Left');
+        btn.setAttribute('title', 'Switch to Arabic (RTL)');
       }
     });
   };
@@ -495,7 +495,30 @@ const Toast = (() => {
 })();
 
 /* ============================================================
-   13. GLOBAL INIT
+   13. BACK TO TOP BUTTON
+   ============================================================ */
+const BackToTop = (() => {
+  const init = () => {
+    const footerBottom = document.querySelector('.footer__bottom');
+    if (!footerBottom) return;
+
+    const btn = document.createElement('button');
+    btn.className = 'btn btn--outline btn--sm';
+    btn.style.paddingBlock = '0.35rem';
+    btn.innerHTML = 'Back to Top <i class="ri-arrow-up-line" aria-hidden="true" style="margin-left:4px;"></i>';
+    
+    btn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    footerBottom.appendChild(btn);
+  };
+  
+  return { init };
+})();
+
+/* ============================================================
+   14. GLOBAL INIT
    ============================================================ */
 document.addEventListener('DOMContentLoaded', () => {
   ThemeManager.init();
@@ -507,6 +530,7 @@ document.addEventListener('DOMContentLoaded', () => {
   PricingToggle.init();
   CounterAnimation.init();
   SmoothScroll.init();
+  BackToTop.init();
 
   // Wire theme toggles
   document.querySelectorAll('[data-theme-toggle]').forEach(btn => {

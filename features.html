@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Explore QRServe's full suite of features: Dynamic QR Studio, Contactless Ordering, Kitchen Display System (KDS), Real-Time Menu Management, POS Integrations, and Analytics." />
@@ -463,13 +464,12 @@
         <a href="demo.html" class="navbar__link" data-nav-link>Demo</a>
         <a href="blog.html" class="navbar__link" data-nav-link>Blog</a>
         <a href="contact.html" class="navbar__link" data-nav-link>Contact</a>
+        <a href="dashboard.html" class="navbar__link" data-nav-link>Dashboard</a>
       </nav>
 
       <div class="navbar__actions">
         <button class="icon-btn" data-theme-toggle data-theme-icon aria-label="Toggle dark mode" title="Toggle theme"></button>
         <button class="icon-btn" data-rtl-btn aria-label="Switch to RTL" title="Switch direction"></button>
-        <a href="dashboard.html" class="btn btn--ghost btn--sm" data-nav-link>Dashboard</a>
-        <a href="login.html" class="btn btn--outline btn--sm" data-nav-link>Login</a>
         <a href="register.html" class="btn btn--primary btn--sm">Get Started</a>
       </div>
 
@@ -512,7 +512,6 @@
         <button class="icon-btn" data-theme-toggle data-theme-icon aria-label="Toggle dark mode"></button>
         <button class="icon-btn" data-rtl-btn aria-label="Switch text direction"></button>
       </div>
-      <a href="login.html" class="btn btn--primary btn--full" style="margin-block-start: 1rem;">Login</a>
     </div>
   </div>
 
@@ -716,8 +715,8 @@
               <!-- Menu Item Row 1 -->
               <div style="background:var(--clr-surface-2);border-radius:var(--radius-md);padding:0.875rem;margin-block-end:0.75rem;display:flex;align-items:center;justify-content:space-between;gap:0.75rem;">
                 <div style="display:flex;align-items:center;gap:0.75rem;">
-                  <div style="width:42px;height:42px;border-radius:8px;background:linear-gradient(135deg,#ff9966,#ff5e62);display:flex;align-items:center;justify-content:center;color:#fff;">
-                    <i class="ri-goblet-line"></i>
+                  <div style="width:42px;height:42px;flex-shrink:0;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+                    <img src="assets/images/dishes/mezcalita.jpg" alt="Smoked Rosemary Mezcalita" style="width:100%;height:100%;object-fit:cover;">
                   </div>
                   <div>
                     <span style="font-size:0.85rem;font-weight:700;color:var(--clr-text-primary);display:block;">Smoked Rosemary Mezcalita</span>
@@ -736,8 +735,8 @@
               <!-- Menu Item Row 2 (86ed example) -->
               <div style="background:var(--clr-surface-2);border-radius:var(--radius-md);padding:0.875rem;margin-block-end:0.75rem;display:flex;align-items:center;justify-content:space-between;gap:0.75rem;">
                 <div style="display:flex;align-items:center;gap:0.75rem;">
-                  <div style="width:42px;height:42px;border-radius:8px;background:linear-gradient(135deg,#56ab2f,#a8e063);display:flex;align-items:center;justify-content:center;color:#fff;">
-                    <i class="ri-restaurant-line"></i>
+                  <div style="width:42px;height:42px;flex-shrink:0;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+                    <img src="assets/images/dishes/tartare.jpg" alt="Wagyu A5 Ribeye Tartare" style="width:100%;height:100%;object-fit:cover;">
                   </div>
                   <div>
                     <span style="font-size:0.85rem;font-weight:700;color:var(--clr-text-primary);display:block;">Wagyu A5 Ribeye Tartare</span>
@@ -756,8 +755,8 @@
               <!-- Menu Item Row 3 -->
               <div style="background:var(--clr-surface-2);border-radius:var(--radius-md);padding:0.875rem;display:flex;align-items:center;justify-content:space-between;gap:0.75rem;">
                 <div style="display:flex;align-items:center;gap:0.75rem;">
-                  <div style="width:42px;height:42px;border-radius:8px;background:linear-gradient(135deg,#f2994a,#f2c94c);display:flex;align-items:center;justify-content:center;color:#fff;">
-                    <i class="ri-cake-3-line"></i>
+                  <div style="width:42px;height:42px;flex-shrink:0;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+                    <img src="assets/images/dishes/souffle.jpg" alt="Dark Chocolate Lava Soufflé" style="width:100%;height:100%;object-fit:cover;">
                   </div>
                   <div>
                     <span style="font-size:0.85rem;font-weight:700;color:var(--clr-text-primary);display:block;">Dark Chocolate Lava Soufflé</span>
@@ -821,7 +820,7 @@
             <div class="mock-card-container">
               <div style="display:flex;justify-content:space-between;align-items:center;margin-block-end:1rem;">
                 <div style="display:flex;align-items:center;gap:0.5rem;">
-                  <span style="width:10px;height:10px;border-radius:50%;background:#3b82f6;display:inline-block;"></span>
+                  <i class="ri-tv-2-line" style="color:#3b82f6;font-size:1.1rem;" aria-hidden="true"></i>
                   <span style="font-weight:700;font-size:0.85rem;color:var(--clr-text-primary);">HOT LINE KDS &bull; SCREEN 1</span>
                 </div>
                 <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--clr-text-muted);">Avg Ticket: 8m 42s</span>
@@ -977,12 +976,12 @@
     <!-- ===================== CTA BANNER ===================== -->
     <section class="cta-section" style="padding-block:var(--sp-12);">
       <div class="container">
-        <div class="cta-section__content">
-          <h2>Transform Your Dining Operations Tonight</h2>
-          <p>Over 4,500+ restaurants, hotels, and bars trust QRServe to serve millions of guests without delays.</p>
-          <div class="cta-section__actions">
+        <div class="cta-section__content" style="display:flex;flex-direction:column;align-items:center;text-align:center;width:100%;">
+          <h2 style="color:var(--clr-text-primary);">Transform Your Dining Operations Tonight</h2>
+          <p style="color:var(--clr-text-secondary);max-width:520px;margin-inline:auto;">Over 4,500+ restaurants, hotels, and bars trust QRServe to serve millions of guests without delays.</p>
+          <div class="cta-section__actions" style="display:flex;justify-content:center;gap:1.5rem;margin-top:1.5rem;">
             <a href="register.html" class="btn btn--secondary btn--lg">Start 14-Day Free Trial</a>
-            <a href="demo.html" class="btn btn--outline btn--lg" style="color:#fff;border-color:rgba(255,255,255,0.3);">Book A Live VIP Demo</a>
+            <a href="demo.html" class="btn btn--outline btn--lg">Book A Live VIP Demo</a>
           </div>
         </div>
       </div>

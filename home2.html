@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="QRServe Hospitality Edition â€” Bespoke QR code digital menus and table ordering tailored for Luxury Hotels, High-Volume Bars, Fine Dining, and Food Halls." />
@@ -33,7 +34,8 @@
       padding-block: calc(var(--nav-height) + var(--sp-12)) var(--sp-12);
       background: radial-gradient(circle at 80% 20%, rgba(0,200,150,0.14) 0%, transparent 60%),
                   radial-gradient(circle at 10% 80%, rgba(255,107,91,0.08) 0%, transparent 50%),
-                  var(--clr-bg);
+                  linear-gradient(var(--clr-nav-bg), var(--clr-nav-bg)),
+                  url('assets/images/hero/home2_hero.jpg') center/cover;
       position: relative;
       overflow: hidden;
     }
@@ -255,13 +257,12 @@
         <a href="demo.html" class="navbar__link" data-nav-link>Demo</a>
         <a href="blog.html" class="navbar__link" data-nav-link>Blog</a>
         <a href="contact.html" class="navbar__link" data-nav-link>Contact</a>
+        <a href="dashboard.html" class="navbar__link" data-nav-link>Dashboard</a>
       </nav>
 
       <div class="navbar__actions">
         <button class="icon-btn" data-theme-toggle data-theme-icon aria-label="Toggle dark mode" title="Toggle theme"></button>
         <button class="icon-btn" data-rtl-btn aria-label="Switch to RTL" title="Switch direction"></button>
-        <a href="dashboard.html" class="btn btn--ghost btn--sm" data-nav-link>Dashboard</a>
-        <a href="login.html" class="btn btn--outline btn--sm" data-nav-link>Login</a>
         <a href="register.html" class="btn btn--primary btn--sm">Get Started</a>
       </div>
 
@@ -304,7 +305,6 @@
         <button class="icon-btn" data-theme-toggle data-theme-icon aria-label="Toggle dark mode"></button>
         <button class="icon-btn" data-rtl-btn aria-label="Switch text direction"></button>
       </div>
-      <a href="login.html" class="btn btn--primary btn--full" style="margin-block-start: 1rem;">Login</a>
     </div>
   </div>
 
@@ -482,7 +482,7 @@
             <p style="color:rgba(255,255,255,0.7);font-size:var(--size-small);max-width:320px;margin-inline:auto;">
               Based on conservative +20% faster table turnarounds and +18% upsell attachments.
             </p>
-            <a href="register.html" class="btn btn--secondary btn--full" style="margin-block-start:var(--sp-4);">
+            <a href="register.html" class="btn btn--outline btn--full" style="margin-block-start:var(--sp-4); color:#fff; border-color:rgba(255,255,255,0.3);">
               Capture This Revenue &bull; Start Free
             </a>
           </div>
@@ -514,19 +514,19 @@
             <div style="display:flex;justify-content:space-between;">
               <div>
                 <strong style="font-size:0.9rem;">Hokkaido Scallop Carpaccio</strong>
-                <p style="font-size:0.75rem;opacity:0.75;margin:0;">Yuzu truffle dressing, finger lime caviar</p>
+                <p style="font-size:0.75rem;opacity:0.75;margin:0;color:inherit;">Yuzu truffle dressing, finger lime caviar</p>
               </div>
               <strong style="font-size:0.9rem;">$24.00</strong>
             </div>
             <div style="display:flex;justify-content:space-between;">
               <div>
                 <strong style="font-size:0.9rem;">28-Day Dry Aged Duck Breast</strong>
-                <p style="font-size:0.75rem;opacity:0.75;margin:0;">Spiced cherry reduction, sunchoke puree</p>
+                <p style="font-size:0.75rem;opacity:0.75;margin:0;color:inherit;">Spiced cherry reduction, sunchoke puree</p>
               </div>
               <strong style="font-size:0.9rem;">$42.00</strong>
             </div>
           </div>
-          <button class="btn btn--secondary btn--full btn--sm" style="margin-block-start:1.25rem;">View Complete Wine List</button>
+          <button class="btn btn--full btn--sm" style="margin-block-start:1.25rem;background:transparent;color:inherit;border:1px solid currentColor;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">View Complete Wine List</button>
         </div>
       </div>
     </section>
@@ -534,12 +534,12 @@
     <!-- ===================== CTA ===================== -->
     <section class="cta-section" style="padding-block:var(--sp-12);">
       <div class="container">
-        <div class="cta-section__content">
-          <h2>Upgrade Your Hospitality Experience Today</h2>
-          <p>Setup takes less than 15 minutes. No specialized hardware, no long-term contracts.</p>
-          <div class="cta-section__actions">
+        <div class="cta-section__content" style="display:flex;flex-direction:column;align-items:center;text-align:center;width:100%;">
+          <h2 style="color:var(--clr-text-primary);">Upgrade Your Hospitality Experience Today</h2>
+          <p style="color:var(--clr-text-secondary);max-width:520px;margin-inline:auto;">Setup takes less than 15 minutes. No specialized hardware, no long-term contracts.</p>
+          <div class="cta-section__actions" style="display:flex;justify-content:center;gap:1.5rem;margin-top:1.5rem;">
             <a href="register.html" class="btn btn--secondary btn--lg">Get Started Free</a>
-            <a href="pricing.html" class="btn btn--outline btn--lg" style="color:#fff;border-color:rgba(255,255,255,0.3);">View Pricing</a>
+            <a href="pricing.html" class="btn btn--outline btn--lg">View Pricing</a>
           </div>
         </div>
       </div>

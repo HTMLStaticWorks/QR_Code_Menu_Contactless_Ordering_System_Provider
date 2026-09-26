@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="QRServe â€” Premium QR Code Digital Menu & Contactless Ordering System for restaurants, cafÃ©s, hotels and hospitality businesses. Replace printed menus and streamline ordering." />
@@ -57,7 +58,7 @@
 
     /* Hero */
     .hero--home {
-      background: var(--clr-bg);
+      background: linear-gradient(var(--clr-nav-bg), var(--clr-nav-bg)), url('assets/images/hero/home1_hero.jpg') center/cover;
       min-height: 100svh;
     }
 
@@ -516,11 +517,10 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: var(--sp-4);
-      align-items: start;
     }
 
     .pricing-card--featured {
-      margin-block: -1.5rem;
+      margin-block: 0;
     }
 
     /* Testimonials slider */
@@ -597,6 +597,7 @@
         <a href="demo.html" class="navbar__link" data-nav-link>Demo</a>
         <a href="blog.html" class="navbar__link" data-nav-link>Blog</a>
         <a href="contact.html" class="navbar__link" data-nav-link>Contact</a>
+        <a href="dashboard.html" class="navbar__link" data-nav-link>Dashboard</a>
       </nav>
 
       <div class="navbar__actions">
@@ -606,8 +607,6 @@
         <button class="icon-btn" data-rtl-btn aria-label="Switch to RTL" title="Switch direction">
           <!-- Icon injected by JS -->
         </button>
-        <a href="dashboard.html" class="btn btn--ghost btn--sm" data-nav-link>Dashboard</a>
-        <a href="login.html" class="btn btn--outline btn--sm" data-nav-link>Login</a>
         <a href="register.html" class="btn btn--primary btn--sm">Get Started</a>
       </div>
 
@@ -655,8 +654,7 @@
       <a href="contact.html" class="drawer__link" data-nav-link>
         <i class="ri-mail-line" aria-hidden="true"></i> Contact
       </a>
-<div class="divider"></div>
-      <a href="dashboard.html" class="drawer__link" data-nav-link>
+<a href="dashboard.html" class="drawer__link" data-nav-link>
         <i class="ri-dashboard-line" aria-hidden="true"></i> Dashboard
       </a>
     </nav>
@@ -669,7 +667,6 @@
         </button>
         <span style="font-size:var(--size-xs);color:var(--clr-text-muted);margin-inline-start:auto;">v2.4.1</span>
       </div>
-      <a href="login.html" class="btn btn--primary btn--full" style="margin-block-start: 1rem;">Login</a>
     </div>
   </div>
 
@@ -742,7 +739,7 @@
                   </div>
                   <div class="phone-menu-items">
                     <div class="phone-menu-item">
-                      <div class="phone-menu-item__img"></div>
+                      <img src="assets/images/dishes/margherita.jpg" class="phone-menu-item__img" style="object-fit:cover;" alt="Margherita Pizza">
                       <div class="phone-menu-item__info">
                         <div class="phone-menu-item__name">Margherita Pizza</div>
                         <div class="phone-menu-item__price">$14.99</div>
@@ -750,7 +747,7 @@
                       <div class="phone-menu-item__add">+</div>
                     </div>
                     <div class="phone-menu-item">
-                      <div class="phone-menu-item__img" style="background:var(--clr-accent-light);"></div>
+                      <img src="assets/images/dishes/caesar.jpg" class="phone-menu-item__img" style="object-fit:cover;" alt="Caesar Salad">
                       <div class="phone-menu-item__info">
                         <div class="phone-menu-item__name">Caesar Salad</div>
                         <div class="phone-menu-item__price">$9.50</div>
@@ -758,7 +755,7 @@
                       <div class="phone-menu-item__add">+</div>
                     </div>
                     <div class="phone-menu-item">
-                      <div class="phone-menu-item__img" style="background:rgba(245,158,11,0.15);"></div>
+                      <img src="assets/images/blog/food_photography.jpg" class="phone-menu-item__img" style="object-fit:cover;" alt="Truffle Pasta">
                       <div class="phone-menu-item__info">
                         <div class="phone-menu-item__name">Truffle Pasta</div>
                         <div class="phone-menu-item__price">$18.00</div>
@@ -766,7 +763,7 @@
                       <div class="phone-menu-item__add">+</div>
                     </div>
                     <div class="phone-menu-item">
-                      <div class="phone-menu-item__img" style="background:rgba(59,130,246,0.12);"></div>
+                      <img src="assets/images/dishes/souffle.jpg" class="phone-menu-item__img" style="object-fit:cover;" alt="Tiramisu">
                       <div class="phone-menu-item__info">
                         <div class="phone-menu-item__name">Tiramisu</div>
                         <div class="phone-menu-item__price">$7.99</div>
