@@ -298,7 +298,7 @@ p { color: var(--clr-text-secondary); }
 }
 
 .section-header h2 {
-  font-size: var(--size-h2);
+  font-size: var(--size-h3);
   margin-block-end: var(--sp-2);
 }
 
@@ -319,7 +319,7 @@ p { color: var(--clr-text-secondary); }
   font-family: var(--font-body);
   font-size: var(--size-body);
   font-weight: 500;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-pill);
   border: 2px solid transparent;
   transition: all var(--transition-base);
   cursor: pointer;
@@ -435,13 +435,11 @@ p { color: var(--clr-text-secondary); }
 .btn--sm {
   padding: 0.5rem 1.125rem;
   font-size: var(--size-small);
-  border-radius: var(--radius-sm);
 }
 
 .btn--lg {
-  padding: 1rem 2.25rem;
-  font-size: 1.0625rem;
-  border-radius: var(--radius-lg);
+  /* padding: 1rem 2.25rem; */
+  /* font-size: 1.0625rem; */
 }
 
 .btn--full { width: 100%; }
@@ -636,13 +634,17 @@ p { color: var(--clr-text-secondary); }
   background: var(--clr-surface);
   z-index: var(--z-drawer);
   transform: translateX(100%);
-  transition: transform var(--transition-slow);
+  visibility: hidden;
+  transition: transform var(--transition-slow), visibility var(--transition-slow);
   overflow-y: auto;
   display: flex;
   flex-direction: column;
 }
 
-.drawer.active { transform: translateX(0); }
+.drawer.active { 
+  transform: translateX(0); 
+  visibility: visible;
+}
 
 /* RTL drawer slides from left (logical end) */
 [dir="rtl"] .drawer {
@@ -2166,7 +2168,7 @@ p { color: var(--clr-text-secondary); }
 
   .container { padding-inline: var(--sp-2); }
   .btn { padding: 0.7rem 1.25rem; font-size: 0.9375rem; }
-  .btn--lg { padding: 0.875rem 1.5rem; }
+  /* .btn--lg { padding: 0.875rem 1.5rem; } */
   .stats-bar__grid { grid-template-columns: 1fr 1fr; }
   .navbar__logo {
     font-size: 1.05rem;
@@ -2184,3 +2186,102 @@ p { color: var(--clr-text-secondary); }
    ============================================================ */
 .no-js .reveal { opacity: 1; transform: none; }
 .no-js .navbar { background: var(--clr-nav-scrolled); }
+
+/* ============================================================
+   29. SCROLL TO TOP BUTTON
+   ============================================================ */
+.scroll-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--clr-primary);
+  color: var(--clr-text-inverse);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  z-index: 9999;
+  cursor: pointer;
+  border: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.scroll-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-to-top:hover {
+  background: var(--clr-secondary);
+  color: var(--clr-primary);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+[dir="rtl"] .scroll-to-top {
+  right: auto;
+  left: 30px;
+}
+
+/* Dashboard Preview Mobile Fix */
+.db-preview-welcome {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-block-end: 1rem;
+}
+
+@media (max-width: 768px) {
+  .dashboard-preview__topbar {
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding-block: 1rem;
+  }
+  
+  .dashboard-preview__topbar > div:first-child {
+    flex-direction: column;
+    gap: 0.5rem !important;
+  }
+  
+  .dashboard-preview__topbar span {
+    text-align: center;
+    display: block;
+    line-height: 1.4;
+  }
+
+  .db-preview-welcome {
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .db-preview-welcome > div:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Center testimonials on tablet and mobile */
+@media (max-width: 1024px) {
+  .testimonial-card .stars {
+    justify-content: center;
+  }
+  
+  .testimonial-card__author {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+  }
+}

@@ -37,17 +37,7 @@
 /* ============================================================
    3. DRAWER — slides from LEFT in RTL
    ============================================================ */
-[dir="rtl"] .drawer {
-  inset-inline-end: auto;
-  inset-inline-start: 0;
-  transform: translateX(-100%);
-  border-inline-start: none;
-  border-inline-end: 1px solid var(--clr-border);
-}
 
-[dir="rtl"] .drawer.active {
-  transform: translateX(0);
-}
 
 [dir="rtl"] .drawer__header {
   flex-direction: row-reverse;
