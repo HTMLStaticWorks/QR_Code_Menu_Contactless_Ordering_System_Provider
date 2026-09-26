@@ -15,7 +15,7 @@
   <meta property="og:description" content="Replace printed menus with QR-based digital menus. Let customers scan, browse, and order from their phones." />
   <meta property="og:image" content="https://qrserve.io/assets/og-image.jpg" />
 
-  <title>QRServe â€” Smart Digital Menu & Contactless Ordering System</title>
+  <title>QRServe — Smart Digital Menu & Contactless Ordering System</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -657,6 +657,9 @@
 <a href="dashboard.html" class="drawer__link" data-nav-link>
         <i class="ri-dashboard-line" aria-hidden="true"></i> Dashboard
       </a>
+      <div style="margin-top: 1.5rem; padding-inline: 1.5rem;">
+        <a href="register.html" class="btn btn--primary btn--full" style="justify-content: center;">Get Started</a>
+      </div>
     </nav>
 
     <div class="drawer__footer">
@@ -836,7 +839,7 @@
           </div>
           <div class="stat-item reveal reveal--delay-3">
             <div class="stat-item__number">
-              <span data-target="4.9" data-suffix="â˜…" id="stat-rating">4.9â˜…</span>
+              <span data-target="4.9" data-suffix="/5" id="stat-rating">4.9/5</span>
             </div>
             <div class="stat-item__label">Average Rating</div>
           </div>
@@ -893,15 +896,7 @@
           <p>A complete contactless ordering ecosystem built for modern hospitality businesses.</p>
         </div>
 
-        <style>
-          /* Center the 10th card when the grid breaks into 3 columns (around 1024px) */
-          @media (min-width: 850px) and (max-width: 1250px) {
-            #home-features-grid > :last-child:nth-child(3n+1) {
-              grid-column: 2;
-            }
-          }
-        </style>
-        <div class="grid grid--auto" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));" id="home-features-grid">
+        <div class="grid grid--3" id="home-features-grid">
           <div class="feature-card reveal">
             <div class="feature-card__icon" aria-hidden="true">
               <i class="ri-layout-grid-line" style="font-size:1.25rem;"></i>
@@ -965,13 +960,7 @@
             <h3>Customer Notifications</h3>
             <p>Automated order confirmations, ready-to-pickup alerts, and real-time status updates via SMS or WhatsApp.</p>
           </div>
-          <div class="feature-card reveal reveal--delay-1">
-            <div class="feature-card__icon" aria-hidden="true">
-              <i class="ri-time-line" style="font-size:1.25rem;"></i>
-            </div>
-            <h3>Menu Scheduling</h3>
-            <p>Schedule breakfast, lunch, and dinner menus to auto-publish. Set item availability windows effortlessly.</p>
-          </div>
+
         </div>
 
         <div style="text-align:center;margin-block-start:var(--sp-8);">
@@ -1155,7 +1144,7 @@
             </div>
 
             <div class="db-preview-content">
-              <div style="display:flex;justify-content:space-between;align-items:center;margin-block-end:1rem;">
+              <div class="db-preview-welcome">
                 <div>
                   <div style="font-family:var(--font-heading);font-size:0.875rem;font-weight:600;color:var(--clr-text-primary);">Good Evening, Marco ðŸ‘‹</div>
                   <div style="font-size:0.65rem;color:var(--clr-text-muted);">Thursday, Sep 25, 2026 Â· 9 active tables</div>

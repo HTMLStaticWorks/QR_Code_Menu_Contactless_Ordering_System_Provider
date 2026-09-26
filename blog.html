@@ -51,7 +51,7 @@
       pointer-events: none;
     }
 
-    .blog-hero h1 { color: #fff; font-size: var(--size-h1); }
+    .blog-hero h1 { color: #fff; font-size: var(--size-h2); }
     .blog-hero p { color: rgba(255,255,255,0.65); font-size: var(--size-lead); max-width: 600px; margin-inline: auto; margin-block-start: var(--sp-2); }
 
     /* Search & Filter Bar */
@@ -201,6 +201,9 @@
       justify-content: center;
       color: #fff;
       font-size: 3rem;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
     }
 
     .article-card-body {
@@ -283,6 +286,22 @@
       .newsletter-form {
         flex-direction: column;
       }
+      .blog-category-pills {
+        flex-direction: column;
+        width: 100%;
+      }
+      .cat-pill {
+        width: 100%;
+        text-align: center;
+      }
+    }
+    #blog-nl-btn {
+      color: #fff;
+      background: rgba(255,255,255,0.1);
+    }
+    #blog-nl-btn:hover {
+      color: #fff !important;
+      background: rgba(255,255,255,0.2) !important;
     }
   </style>
 </head>
@@ -346,8 +365,10 @@
       <a href="demo.html" class="drawer__link" data-nav-link><i class="ri-play-circle-line"></i> Demo</a>
       <a href="blog.html" class="drawer__link active" data-nav-link><i class="ri-article-line"></i> Blog</a>
       <a href="contact.html" class="drawer__link" data-nav-link><i class="ri-mail-line"></i> Contact</a>
-<div class="divider"></div>
       <a href="dashboard.html" class="drawer__link" data-nav-link><i class="ri-dashboard-line"></i> Dashboard</a>
+      <div style="margin-top: 1.5rem; padding-inline: 1.5rem;">
+        <a href="register.html" class="btn btn--primary btn--full" style="justify-content: center;">Get Started</a>
+      </div>
     </nav>
 
     <div class="drawer__footer">
@@ -404,8 +425,8 @@
 
           <div class="featured-art-content">
             <div style="display:flex;align-items:center;gap:0.75rem;margin-block-end:1rem;text-align:left;">
-              <div style="width:40px;height:40px;flex-shrink:0;border-radius:50%;background:var(--clr-secondary);display:flex;align-items:center;justify-content:center;color:var(--clr-primary);font-weight:700;">
-                MR
+              <div style="width:40px;height:40px;flex-shrink:0;border-radius:50%;overflow:hidden;">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&auto=format&fit=crop" alt="Marcus Reynolds" style="width:100%;height:100%;object-fit:cover;" loading="lazy" />
               </div>
               <div style="display:flex;flex-direction:column;justify-content:center;">
                 <strong style="font-size:0.85rem;color:var(--clr-text-primary);margin-bottom:0.15rem;">Marcus Reynolds</strong>
@@ -432,7 +453,7 @@
 
           <!-- Article 1 -->
           <article class="article-card" data-category="engineering">
-            <div class="article-card-thumb" style="background-image: url('assets/images/blog/food_photography.jpg');">
+            <div class="article-card-thumb" style="background-image: url('assets/images/The Psychology of High-Res Food Photography on Digital Menus.png');">
             </div>
             <div class="article-card-body">
               <div class="article-card-meta">
@@ -449,7 +470,7 @@
 
           <!-- Article 2 -->
           <article class="article-card" data-category="pos">
-            <div class="article-card-thumb" style="background-image: url('assets/images/blog/pos_systems.jpg');">
+            <div class="article-card-thumb" style="background-image: url('assets/images/Toast vs Square vs Clover  2026 QR Ordering Integration Guide.png');">
             </div>
             <div class="article-card-body">
               <div class="article-card-meta">
@@ -466,7 +487,7 @@
 
           <!-- Article 3 -->
           <article class="article-card" data-category="operations">
-            <div class="article-card-thumb" style="background-image: url('assets/images/blog/bill_split.jpg');">
+            <div class="article-card-thumb" style="background-image: url('assets/images/Why%20Digital%20Bill-Splitting%20Increases%20Server%20Tips%20by%2018%25.png');">
             </div>
             <div class="article-card-body">
               <div class="article-card-meta">
@@ -483,7 +504,7 @@
 
           <!-- Article 4 -->
           <article class="article-card" data-category="hospitality">
-            <div class="article-card-thumb" style="background-image: url('assets/images/blog/room_service.jpg');">
+            <div class="article-card-thumb" style="background-image: url('assets/images/In-Room Dining Reimagined  How Luxury Hotels Modernized Room Service.png');">
             </div>
             <div class="article-card-body">
               <div class="article-card-meta">
@@ -500,7 +521,7 @@
 
           <!-- Article 5 -->
           <article class="article-card" data-category="engineering">
-            <div class="article-card-thumb" style="background-image: url('assets/images/blog/qr_standee.jpg');">
+            <div class="article-card-thumb" style="background-image: url('assets/images/How to Design QR Standees That Diners Actually Want to Scan.png');">
             </div>
             <div class="article-card-body">
               <div class="article-card-meta">
@@ -517,7 +538,7 @@
 
           <!-- Article 6 -->
           <article class="article-card" data-category="operations">
-            <div class="article-card-thumb" style="background-image: url('assets/images/blog/food_hall.jpg');">
+            <div class="article-card-thumb" style="background-image: url('assets/images/Solving the Multi-Vendor Cart Challenge in Food Halls.png');">
             </div>
             <div class="article-card-body">
               <div class="article-card-meta">
@@ -541,7 +562,7 @@
           <p style="color:rgba(255,255,255,0.7);max-width:520px;margin-inline:auto;">Join 18,000+ restaurant owners, food & beverage directors, and hospitality leaders receiving our freshest benchmarks and operational breakdowns.</p>
           <form class="newsletter-form" onsubmit="handleNewsletter(event)">
             <input type="email" id="nl-email" class="form-input" placeholder="Enter your work email..." required style="background:rgba(255,255,255,0.1);color:#fff;border-color:rgba(255,255,255,0.2);">
-            <button type="submit" class="btn btn--secondary" style="white-space:nowrap;">Subscribe Free</button>
+            <button type="submit" class="btn btn--secondary" id="blog-nl-btn" style="white-space:nowrap;">Subscribe Free</button>
           </form>
         </div>
       </div>

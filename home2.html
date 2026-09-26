@@ -14,7 +14,7 @@
   <meta property="og:title" content="QRServe Hospitality â€” The Future of In-Venue Ordering" />
   <meta property="og:description" content="Empower your guests to order and pay effortlessly across hotels, cocktail bars, and food courts." />
 
-  <title>Hospitality & Venue Ordering Reimagined â€” QRServe</title>
+  <title>Hospitality & Venue Ordering Reimagined — QRServe</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -57,6 +57,20 @@
       background: linear-gradient(135deg, var(--clr-secondary), #38ef7d);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+    }
+
+    .hero-h2__buttons {
+      display: flex;
+      gap: var(--sp-2);
+      flex-wrap: wrap;
+    }
+
+    .hero-h2__badges {
+      margin-block-start: var(--sp-6);
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      flex-wrap: wrap;
     }
 
     /* Venue Selector Tabs */
@@ -171,6 +185,7 @@
       text-align: center;
       position: relative;
       overflow: hidden;
+      container-type: inline-size;
     }
 
     .roi-result-box::before {
@@ -185,10 +200,38 @@
 
     .roi-number {
       font-family: var(--font-heading);
-      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-size: min(16cqi, 3.5rem);
       font-weight: 800;
       color: var(--clr-secondary);
       margin-block: var(--sp-2);
+      white-space: nowrap;
+    }
+
+    #roi-cta-btn, #roi-cta-btn2 {
+      margin-block-start: var(--sp-4);
+      color: #fff;
+      border-color: rgba(255,255,255,0.3);
+      white-space: normal;
+      text-align: center;
+      line-height: 1.4;
+      height: auto;
+    }
+    #roi-cta-btn2 {
+      margin-block-start: 0; /* Reset for CTA section */
+    }
+    #roi-cta-btn:hover, #roi-cta-btn2:hover {
+      background: var(--clr-secondary);
+      color: var(--clr-primary);
+      border-color: var(--clr-secondary);
+    }
+
+    #cta-btn-1 {
+      color: #fff;
+      background: rgba(255,255,255,0.1);
+    }
+    #cta-btn-1:hover {
+      color: #fff !important;
+      background: rgba(255,255,255,0.2) !important;
     }
 
     /* Style Switcher Showcase */
@@ -226,12 +269,24 @@
     }
 
     /* Responsive */
-    @media (max-width: 900px) {
+    @media (max-width: 1024px) {
       .hero-h2__grid,
       .venue-detail-card,
       .roi-card {
         grid-template-columns: 1fr;
         gap: var(--sp-6);
+      }
+      .hero-h2__grid > div:first-child {
+        text-align: center;
+      }
+      .hero-h2__buttons, .hero-h2__badges {
+        justify-content: center;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .roi-result-box {
+        padding: var(--sp-4);
       }
     }
   </style>
@@ -296,8 +351,10 @@
       <a href="demo.html" class="drawer__link" data-nav-link><i class="ri-play-circle-line"></i> Demo</a>
       <a href="blog.html" class="drawer__link" data-nav-link><i class="ri-article-line"></i> Blog</a>
       <a href="contact.html" class="drawer__link" data-nav-link><i class="ri-mail-line"></i> Contact</a>
-<div class="divider"></div>
       <a href="dashboard.html" class="drawer__link" data-nav-link><i class="ri-dashboard-line"></i> Dashboard</a>
+      <div style="margin-top: 1.5rem; padding-inline: 1.5rem;">
+        <a href="register.html" class="btn btn--primary btn--full" style="justify-content: center;">Get Started</a>
+      </div>
     </nav>
 
     <div class="drawer__footer">
@@ -323,13 +380,13 @@
             <p style="color:var(--clr-text-secondary);font-size:var(--size-lead);margin-block-end:var(--sp-4);">
               From rooftop cocktail lounges to luxury hotel suites and packed food halls â€” QRServe eliminates order bottlenecks, boosts check averages by +24%, and delights your guests from the moment they sit down.
             </p>
-            <div style="display:flex;gap:var(--sp-2);flex-wrap:wrap;">
+            <div class="hero-h2__buttons">
               <a href="register.html" class="btn btn--primary btn--lg">Start Free Trial</a>
               <a href="demo.html" class="btn btn--outline btn--lg">Watch Live Demo</a>
             </div>
             
             <!-- Quick Trust Badges -->
-            <div style="margin-block-start:var(--sp-6);display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap;">
+            <div class="hero-h2__badges">
               <div style="display:flex;align-items:center;gap:0.35rem;font-size:var(--size-small);color:var(--clr-text-muted);">
                 <i class="ri-checkbox-circle-fill" style="color:var(--clr-secondary);"></i> No Hardware Required
               </div>
@@ -482,7 +539,7 @@
             <p style="color:rgba(255,255,255,0.7);font-size:var(--size-small);max-width:320px;margin-inline:auto;">
               Based on conservative +20% faster table turnarounds and +18% upsell attachments.
             </p>
-            <a href="register.html" class="btn btn--outline btn--full" style="margin-block-start:var(--sp-4); color:#fff; border-color:rgba(255,255,255,0.3);">
+            <a href="register.html" class="btn btn--outline btn--full" id="roi-cta-btn">
               Capture This Revenue &bull; Start Free
             </a>
           </div>
@@ -535,11 +592,11 @@
     <section class="cta-section" style="padding-block:var(--sp-12);">
       <div class="container">
         <div class="cta-section__content" style="display:flex;flex-direction:column;align-items:center;text-align:center;width:100%;">
-          <h2 style="color:var(--clr-text-primary);">Upgrade Your Hospitality Experience Today</h2>
-          <p style="color:var(--clr-text-secondary);max-width:520px;margin-inline:auto;">Setup takes less than 15 minutes. No specialized hardware, no long-term contracts.</p>
+          <h2 style="color:#fff;">Upgrade Your Hospitality Experience Today</h2>
+          <p style="color:rgba(255,255,255,0.7);max-width:520px;margin-inline:auto;">Setup takes less than 15 minutes. No specialized hardware, no long-term contracts.</p>
           <div class="cta-section__actions" style="display:flex;justify-content:center;gap:1.5rem;margin-top:1.5rem;">
-            <a href="register.html" class="btn btn--secondary btn--lg">Get Started Free</a>
-            <a href="pricing.html" class="btn btn--outline btn--lg">View Pricing</a>
+            <a href="register.html" class="btn btn--secondary btn--lg" id="cta-btn-1">Get Started Free</a>
+            <a href="pricing.html" class="btn btn--outline btn--lg" id="roi-cta-btn2">View Pricing</a>
           </div>
         </div>
       </div>

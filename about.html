@@ -51,7 +51,7 @@
       pointer-events: none;
     }
 
-    .about-hero h1 { color: #fff; font-size: var(--size-h1); }
+    .about-hero h1 { color: #fff; font-size: var(--size-h2); }
     .about-hero p { color: rgba(255,255,255,0.65); font-size: var(--size-lead); max-width: 640px; margin-inline: auto; margin-block-start: var(--sp-2); }
 
     /* Impact Stats Bar */
@@ -70,7 +70,7 @@
 
     .impact-stat-number {
       font-family: var(--font-heading);
-      font-size: clamp(1.5rem, 3.5vw, 3rem);
+      font-size: clamp(1.25rem, 2.5vw, 2rem);
       font-weight: 800;
       color: var(--clr-secondary);
       margin-block-end: 0.25rem;
@@ -223,6 +223,12 @@
       .team-grid {
         grid-template-columns: repeat(2, 1fr);
       }
+      .value-card {
+        text-align: center;
+      }
+      .value-icon {
+        margin-inline: auto;
+      }
     }
 
     @media (max-width: 900px) {
@@ -238,6 +244,15 @@
       .team-grid {
         grid-template-columns: 1fr;
       }
+    }
+    #about-cta-btn2 {
+      color: #fff;
+      border-color: rgba(255,255,255,0.3);
+    }
+    #about-cta-btn2:hover {
+      background: var(--clr-secondary);
+      color: var(--clr-primary);
+      border-color: var(--clr-secondary);
     }
   </style>
 </head>
@@ -301,8 +316,10 @@
       <a href="demo.html" class="drawer__link" data-nav-link><i class="ri-play-circle-line"></i> Demo</a>
       <a href="blog.html" class="drawer__link" data-nav-link><i class="ri-article-line"></i> Blog</a>
       <a href="contact.html" class="drawer__link" data-nav-link><i class="ri-mail-line"></i> Contact</a>
-<div class="divider"></div>
       <a href="dashboard.html" class="drawer__link" data-nav-link><i class="ri-dashboard-line"></i> Dashboard</a>
+      <div style="margin-top: 1.5rem; padding-inline: 1.5rem;">
+        <a href="register.html" class="btn btn--primary btn--full" style="justify-content: center;">Get Started</a>
+      </div>
     </nav>
 
     <div class="drawer__footer">
@@ -468,7 +485,7 @@
           <!-- Member 3 -->
           <div class="team-card">
             <div class="team-avatar" style="padding:0; overflow:hidden;">
-              <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?w=180&h=180&auto=format&fit=crop" alt="Chef Antoine Laurent" style="width:100%; height:100%; object-fit:cover;" loading="lazy" />
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=180&h=180&auto=format&fit=crop" alt="Chef Antoine Laurent" style="width:100%; height:100%; object-fit:cover;" loading="lazy" />
             </div>
             <h3 class="team-name">Chef Antoine Laurent</h3>
             <div class="team-role">Head of Culinary UX</div>
@@ -493,10 +510,10 @@
       <div class="container">
         <div class="cta-section__content" style="text-align: center; max-width: 700px; margin-inline: auto;">
           <h2 style="margin-block-end: var(--sp-3);">Join Over 4,500 Restaurants Worldwide</h2>
-          <p style="color: var(--clr-text-secondary); margin-block-end: var(--sp-6);">Get started today and see why leading hospitality brands choose QRServe.</p>
+          <p style="color: rgba(255,255,255,0.7); margin-block-end: var(--sp-6);">Get started today and see why leading hospitality brands choose QRServe.</p>
           <div class="cta-section__actions" style="display: flex; gap: var(--sp-3); justify-content: center; flex-wrap: wrap;">
             <a href="register.html" class="btn btn--primary btn--lg">Start Free Trial</a>
-            <a href="contact.html" class="btn btn--outline btn--lg">Talk With Our Team</a>
+            <a href="contact.html" class="btn btn--outline btn--lg" id="about-cta-btn2">Talk With Our Team</a>
           </div>
         </div>
       </div>
