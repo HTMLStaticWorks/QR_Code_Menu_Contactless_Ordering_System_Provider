@@ -30,7 +30,7 @@
       --db-topbar-height: 64px;
     }
 
-    body { overflow-x: hidden; }
+    html, body { overflow-x: clip; }
 
     .db-layout {
       display: flex;
@@ -86,7 +86,7 @@
       font-family: var(--font-heading);
       font-size: 1.3rem;
       font-weight: 700;
-      color: #fff;
+      color: var(--clr-text-primary);
       white-space: nowrap;
     }
 
@@ -327,10 +327,11 @@
       align-items: center;
       justify-content: space-between;
       padding-inline: var(--sp-4);
-      position: sticky;
-      top: 0;
-      z-index: var(--z-sticky);
+      position: sticky !important;
+      top: 0 !important;
+      z-index: 999 !important;
       gap: var(--sp-3);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     }
 
     .db-topbar__left {
@@ -1214,11 +1215,33 @@
       .db-main { margin-inline-start: 0 !important; }
 
       .db-topbar__brand {
-        display: inline-flex;
+        display: flex !important;
+        align-items: center !important;
+        gap: 0.5rem !important;
+      }
+      .db-topbar__left {
+        gap: 1rem !important;
+      }
+      .db-topbar__brand > span {
+        margin-inline-start: 0.35rem;
       }
 
       #mobile-sidebar-btn {
         display: inline-flex !important;
+      }
+
+      /* Shift topbar content toward the left */
+      .db-topbar {
+        padding-inline: var(--sp-2) var(--sp-3);
+        gap: var(--sp-2);
+      }
+
+      .db-topbar__left {
+        gap: 0.5rem !important;
+      }
+
+      .db-topbar__right {
+        gap: 0.375rem;
       }
 
       .db-topbar__title {
@@ -1241,6 +1264,14 @@
       }
       .subscription-card {
         padding: var(--sp-6) var(--sp-5);
+      }
+      
+      .menu-item-row {
+        justify-content: flex-start !important;
+      }
+      .menu-item-row__info {
+        flex: 1;
+        text-align: left !important;
       }
     }
 
@@ -1278,6 +1309,16 @@
     @media (max-width: 480px) {
       .db-topbar__title {
         display: none;
+      }
+      .db-topbar {
+        padding-inline: var(--sp-2);
+        gap: var(--sp-1);
+      }
+      .db-topbar__left {
+        gap: 0.35rem !important;
+      }
+      .db-topbar__right {
+        gap: 0.25rem;
       }
       .db-topbar__brand {
         font-size: 1.15rem;
@@ -1424,7 +1465,10 @@
           </a>
         </div>
 
-        <div class="db-topbar__right">          <div style="position:relative;">
+        <div class="db-topbar__right">
+          <button class="icon-btn" data-theme-toggle data-theme-icon aria-label="Toggle dark mode" title="Toggle theme"></button>
+          <button class="icon-btn" data-rtl-btn aria-label="Switch to RTL" title="Switch direction"></button>
+          <div style="position:relative; display:flex; align-items:center;">
             <button class="icon-btn" data-notification-toggle aria-label="Notifications (3 unread)" aria-expanded="false" aria-haspopup="true">
               <i class="ri-notification-3-line" style="font-size:1.1rem;" aria-hidden="true"></i>
               <span style="position:absolute;top:6px;right:6px;width:8px;height:8px;background:var(--clr-accent);border-radius:50%;border:2px solid var(--clr-surface);" aria-hidden="true"></span>
@@ -1465,11 +1509,6 @@
               </div>
             </div>
           </div>
-
-          <button class="icon-btn" data-theme-toggle data-theme-icon aria-label="Toggle theme">
-          </button>
-          <button class="icon-btn" data-rtl-btn aria-label="Switch direction">
-          </button>
         </div>
       </header>
 
@@ -2321,6 +2360,9 @@
           pageTitle.textContent = pageTitles[pageId] || pageId;
         }
 
+        // Scroll back to the top of the page when switching tabs
+        window.scrollTo(0, 0);
+
         // Close mobile sidebar
         const sidebar = document.querySelector('.db-sidebar');
         const overlay = document.querySelector('.db-sidebar-overlay');
@@ -2331,13 +2373,9 @@
         }
 
         // Re-init analytics charts if needed
-        if (pageId === 'analytics') {
+        if (pageId === 'analytics' || pageId === 'overview') {
           setTimeout(() => {
-            const canvas2 = document.getElementById('revenue-chart-2');
-            const canvas3 = document.getElementById('orders-chart-2');
-            if (canvas2 && canvas3 && window.DashboardCharts) {
-              window.DashboardCharts.init();
-            }
+            window.dispatchEvent(new Event('resize'));
           }, 100);
         }
       };

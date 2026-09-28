@@ -231,7 +231,7 @@ const QRManager = (() => {
       card.className = 'qr-card';
       card.innerHTML = `
         <div class="qr-card__code" aria-hidden="true">
-          <i class="ri-qr-code-fill" style="font-size:3.5rem;color:var(--clr-primary);"></i>
+          <i class="ri-qr-code-fill" style="font-size:3.5rem;color:var(--clr-text-primary);"></i>
         </div>
         <div class="qr-card__info">
           <h4 class="qr-card__name">${table.name}</h4>
@@ -303,7 +303,7 @@ const MenuBuilder = (() => {
 
   const menuItems = [
     { id: 1, cat: 1, name: 'Bruschetta', price: '$8.99', available: true, img: 'https://images.unsplash.com/photo-1572695157366-5e585ab2b69f?w=80&h=80&auto=format&fit=crop' },
-    { id: 2, cat: 1, name: 'Calamari', price: '$12.50', available: true, img: 'https://images.unsplash.com/photo-1559847844-d721426d6edc?w=80&h=80&auto=format&fit=crop' },
+    { id: 2, cat: 1, name: 'Calamari', price: '$12.50', available: true, img: 'https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=80&h=80&auto=format&fit=crop' },
     { id: 3, cat: 2, name: 'Margherita Pizza', price: '$14.99', available: true, img: 'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=80&h=80&auto=format&fit=crop' },
     { id: 4, cat: 2, name: 'Truffle Pasta', price: '$18.00', available: false, img: 'https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=80&h=80&auto=format&fit=crop' },
     { id: 5, cat: 3, name: 'Tiramisu', price: '$7.99', available: true, img: 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=80&h=80&auto=format&fit=crop' },

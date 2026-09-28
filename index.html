@@ -4,18 +4,18 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="QRServe â€” Premium QR Code Digital Menu & Contactless Ordering System for restaurants, cafÃ©s, hotels and hospitality businesses. Replace printed menus and streamline ordering." />
+  <meta name="description" content="QRServe — Premium QR Code Digital Menu & Contactless Ordering System for restaurants, cafés, hotels and hospitality businesses. Replace printed menus and streamline ordering." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://qrserve.io/" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://qrserve.io/" />
-  <meta property="og:title" content="QRServe â€” Smart Digital Menu & Contactless Ordering" />
+  <meta property="og:title" content="QRServe — Smart Digital Menu & Contactless Ordering" />
   <meta property="og:description" content="Replace printed menus with QR-based digital menus. Let customers scan, browse, and order from their phones." />
   <meta property="og:image" content="https://qrserve.io/assets/og-image.jpg" />
 
-  <title>QRServe â€” Smart Digital Menu & Contactless Ordering System</title>
+  <title>QRServe — Smart Digital Menu & Contactless Ordering System</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -282,14 +282,14 @@
     /* QR Visual */
     .qr-visual {
       position: absolute;
-      bottom: -8%;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #fff;
+      bottom: 4%;
+      right: -10%;
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
       border-radius: var(--radius-md);
       padding: 0.75rem;
       box-shadow: var(--shadow-xl);
-      z-index: 3;
+      z-index: 4;
       animation: float-card-2 4s ease-in-out 0.8s infinite;
     }
 
@@ -581,7 +581,7 @@
   <!-- ===================== NAVBAR ===================== -->
   <header class="navbar" role="banner">
     <div class="navbar__inner">
-      <a href="index.html" class="navbar__logo" aria-label="QRServe â€” Home">
+      <a href="index.html" class="navbar__logo" aria-label="QRServe — Home">
         <div class="navbar__logo-icon" aria-hidden="true">
           <i class="ri-qr-code-line" style="font-size:1.1rem;"></i>
         </div>
@@ -657,16 +657,16 @@
 <a href="dashboard.html" class="drawer__link" data-nav-link>
         <i class="ri-dashboard-line" aria-hidden="true"></i> Dashboard
       </a>
-    </nav>
-
-    <div class="drawer__footer">
-      <div class="drawer__controls">
-        <button class="icon-btn" data-theme-toggle data-theme-icon aria-label="Toggle dark mode">
-        </button>
-        <button class="icon-btn" data-rtl-btn aria-label="Switch text direction">
-        </button>
-        <span style="font-size:var(--size-xs);color:var(--clr-text-muted);margin-inline-start:auto;">v2.4.1</span>
+      <div style="margin-top: 1.5rem; padding-inline: 1.5rem; display: flex; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
+        <button class="icon-btn" data-theme-toggle data-theme-icon aria-label="Toggle dark mode"></button>
+        <button class="icon-btn" data-rtl-btn aria-label="Switch text direction"></button>
       </div>
+      <div style="padding-inline: 1.5rem; padding-bottom: 1.5rem;">
+        <a href="register.html" class="btn btn--primary btn--full" style="justify-content: center;">Get Started</a>
+      </div>
+    </nav>
+    <div class="drawer__footer" style="justify-content: center; border-top: none; padding-top: 0;">
+      <span style="font-size:var(--size-xs);color:var(--clr-text-muted);">v2.4.1</span>
     </div>
   </div>
 
@@ -697,7 +697,7 @@
             </h1>
 
             <p class="hero__desc">
-              Replace printed menus forever. QRServe gives your restaurant a smart QR-based digital menu system â€” customers scan, browse, and order from their phones in seconds.
+              Replace printed menus forever. QRServe gives your restaurant a smart QR-based digital menu system — customers scan, browse, and order from their phones in seconds.
             </p>
 
             <div class="hero__actions">
@@ -713,7 +713,7 @@
 
             <div class="hero__note">
               <i class="ri-shield-check-line" style="color:var(--clr-secondary);" aria-hidden="true"></i>
-              No credit card required &nbsp;Â·&nbsp; 14-day free trial &nbsp;Â·&nbsp; Cancel anytime
+              No credit card required &nbsp;·&nbsp; 14-day free trial &nbsp;·&nbsp; Cancel anytime
             </div>
           </div>
 
@@ -726,7 +726,7 @@
                 <div class="hero-float-card__value">
                   <i class="ri-shopping-bag-3-line" style="color:var(--clr-secondary);"></i>
                   <span>247</span>
-                  <span class="dot">â†‘ 18%</span>
+                  <span class="dot">↑ 18%</span>
                 </div>
               </div>
 
@@ -734,8 +734,8 @@
               <div class="phone-frame">
                 <div class="phone-screen">
                   <div class="phone-screen__header">
-                    <h4>ðŸ½ Bella Vista Menu</h4>
-                    <p>Table 12 Â· Scan to Order</p>
+                    <h4>🍽️ Bella Vista Menu</h4>
+                    <p>Table 12 · Scan to Order</p>
                   </div>
                   <div class="phone-menu-items">
                     <div class="phone-menu-item">
@@ -772,7 +772,7 @@
                     </div>
                   </div>
                   <div class="phone-screen__footer">
-                    <div class="phone-cart-btn">View Cart (2 items) Â· $24.49</div>
+                    <div class="phone-cart-btn">View Cart (2 items) · $24.49</div>
                   </div>
                 </div>
               </div>
@@ -836,7 +836,7 @@
           </div>
           <div class="stat-item reveal reveal--delay-3">
             <div class="stat-item__number">
-              <span data-target="4.9" data-suffix="â˜…" id="stat-rating">4.9â˜…</span>
+              <span data-target="4.9" data-suffix="/5" id="stat-rating">4.9/5</span>
             </div>
             <div class="stat-item__label">Average Rating</div>
           </div>
@@ -875,7 +875,7 @@
           <div class="step-item reveal reveal--delay-3">
             <div class="step-item__num" aria-hidden="true">04</div>
             <h3>Customers Scan &amp; Order</h3>
-            <p>Guests scan with any smartphone, browse your menu, and place orders â€” no app download needed.</p>
+            <p>Guests scan with any smartphone, browse your menu, and place orders — no app download needed.</p>
           </div>
         </div>
       </div>
@@ -893,15 +893,7 @@
           <p>A complete contactless ordering ecosystem built for modern hospitality businesses.</p>
         </div>
 
-        <style>
-          /* Center the 10th card when the grid breaks into 3 columns (around 1024px) */
-          @media (min-width: 850px) and (max-width: 1250px) {
-            #home-features-grid > :last-child:nth-child(3n+1) {
-              grid-column: 2;
-            }
-          }
-        </style>
-        <div class="grid grid--auto" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));" id="home-features-grid">
+        <div class="grid grid--3" id="home-features-grid">
           <div class="feature-card reveal">
             <div class="feature-card__icon" aria-hidden="true">
               <i class="ri-layout-grid-line" style="font-size:1.25rem;"></i>
@@ -921,7 +913,7 @@
               <i class="ri-smartphone-line" style="font-size:1.25rem;"></i>
             </div>
             <h3>Contactless Ordering</h3>
-            <p>Customers order directly from their phones. No app required â€” just scan and go. Works on any device.</p>
+            <p>Customers order directly from their phones. No app required — just scan and go. Works on any device.</p>
           </div>
           <div class="feature-card reveal reveal--delay-3">
             <div class="feature-card__icon" aria-hidden="true">
@@ -965,13 +957,7 @@
             <h3>Customer Notifications</h3>
             <p>Automated order confirmations, ready-to-pickup alerts, and real-time status updates via SMS or WhatsApp.</p>
           </div>
-          <div class="feature-card reveal reveal--delay-1">
-            <div class="feature-card__icon" aria-hidden="true">
-              <i class="ri-time-line" style="font-size:1.25rem;"></i>
-            </div>
-            <h3>Menu Scheduling</h3>
-            <p>Schedule breakfast, lunch, and dinner menus to auto-publish. Set item availability windows effortlessly.</p>
-          </div>
+
         </div>
 
         <div style="text-align:center;margin-block-start:var(--sp-8);">
@@ -991,7 +977,7 @@
             Use Cases
           </span>
           <h2 id="usecases-heading">Built for Every Hospitality Venue</h2>
-          <p>From cozy cafÃ©s to large hotel chains â€” QRServe scales to your needs.</p>
+          <p>From cozy cafés to large hotel chains — QRServe scales to your needs.</p>
         </div>
 
         <div class="usecases-grid">
@@ -1018,14 +1004,14 @@
             <div class="usecase-card__img-wrap">
               <img
                 src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=600&auto=format&fit=crop&q=80"
-                alt="Modern cafÃ© interior"
+                alt="Modern café interior"
                 class="usecase-card__img"
                 loading="lazy"
               />
             </div>
             <div class="usecase-card__body">
               <div class="usecase-card__icon" aria-hidden="true"><i class="ri-cup-line"></i></div>
-              <h3>CafÃ©s &amp; Coffee Shops</h3>
+              <h3>Cafés &amp; Coffee Shops</h3>
               <p class="text--small">Streamline counter ordering, manage daily specials, and reduce queue times with self-ordering.</p>
               <a href="features.html" class="btn btn--ghost btn--sm" style="padding-inline:0;margin-block-start:var(--sp-2);">
                 Learn more <i class="ri-arrow-right-line" aria-hidden="true"></i>
@@ -1132,7 +1118,7 @@
                 <div class="dashboard-preview__dot dp-dot-yellow"></div>
                 <div class="dashboard-preview__dot dp-dot-green"></div>
               </div>
-              <span style="font-size:0.7rem;color:var(--clr-text-muted);font-family:var(--font-mono);">dashboard.qrserve.io â€” Bella Vista Restaurant</span>
+              <span style="font-size:0.7rem;color:var(--clr-text-muted);font-family:var(--font-mono);">dashboard.qrserve.io — Bella Vista Restaurant</span>
             </div>
             <div style="display:flex;gap:0.5rem;">
               <div style="width:8px;height:8px;border-radius:50%;background:var(--clr-secondary);"></div>
@@ -1155,10 +1141,10 @@
             </div>
 
             <div class="db-preview-content">
-              <div style="display:flex;justify-content:space-between;align-items:center;margin-block-end:1rem;">
+              <div class="db-preview-welcome">
                 <div>
-                  <div style="font-family:var(--font-heading);font-size:0.875rem;font-weight:600;color:var(--clr-text-primary);">Good Evening, Marco ðŸ‘‹</div>
-                  <div style="font-size:0.65rem;color:var(--clr-text-muted);">Thursday, Sep 25, 2026 Â· 9 active tables</div>
+                  <div style="font-family:var(--font-heading);font-size:0.875rem;font-weight:600;color:var(--clr-text-primary);">Good Evening, Marco 👋</div>
+                  <div style="font-size:0.65rem;color:var(--clr-text-muted);">Thursday, Sep 25, 2026 · 9 active tables</div>
                 </div>
                 <div style="display:flex;gap:0.5rem;">
                   <div style="background:var(--clr-secondary-light);color:var(--clr-secondary);padding:0.3rem 0.75rem;border-radius:6px;font-size:0.65rem;font-weight:600;">
@@ -1171,17 +1157,17 @@
                 <div class="db-preview-kpi">
                   <div class="db-preview-kpi__label">Today's Orders</div>
                   <div class="db-preview-kpi__value">247</div>
-                  <div class="db-preview-kpi__trend">â†‘ 18% vs yesterday</div>
+                  <div class="db-preview-kpi__trend">↑ 18% vs yesterday</div>
                 </div>
                 <div class="db-preview-kpi">
                   <div class="db-preview-kpi__label">Revenue</div>
                   <div class="db-preview-kpi__value">$3,284</div>
-                  <div class="db-preview-kpi__trend">â†‘ 12% this week</div>
+                  <div class="db-preview-kpi__trend">↑ 12% this week</div>
                 </div>
                 <div class="db-preview-kpi">
                   <div class="db-preview-kpi__label">QR Scans</div>
                   <div class="db-preview-kpi__value">1,842</div>
-                  <div class="db-preview-kpi__trend">â†‘ 24% this month</div>
+                  <div class="db-preview-kpi__trend">↑ 24% this month</div>
                 </div>
               </div>
 
@@ -1192,25 +1178,25 @@
                 </div>
                 <div class="db-preview-order-row">
                   <div class="order-status-dot dot--new"></div>
-                  <span style="color:var(--clr-text-primary);">#1047 â€” Table 4</span>
+                  <span style="color:var(--clr-text-primary);">#1047 — Table 4</span>
                   <span style="color:var(--clr-text-muted);">2 items</span>
                   <span style="color:var(--clr-secondary);font-weight:600;">$32.50</span>
                 </div>
                 <div class="db-preview-order-row">
                   <div class="order-status-dot dot--prep"></div>
-                  <span style="color:var(--clr-text-primary);">#1046 â€” Table 7</span>
+                  <span style="color:var(--clr-text-primary);">#1046 — Table 7</span>
                   <span style="color:var(--clr-text-muted);">4 items</span>
                   <span style="color:var(--clr-secondary);font-weight:600;">$67.00</span>
                 </div>
                 <div class="db-preview-order-row">
                   <div class="order-status-dot dot--ready"></div>
-                  <span style="color:var(--clr-text-primary);">#1045 â€” Table 2</span>
+                  <span style="color:var(--clr-text-primary);">#1045 — Table 2</span>
                   <span style="color:var(--clr-text-muted);">1 item</span>
                   <span style="color:var(--clr-secondary);font-weight:600;">$14.99</span>
                 </div>
                 <div class="db-preview-order-row">
                   <div class="order-status-dot dot--done"></div>
-                  <span style="color:var(--clr-text-muted);">#1044 â€” Table 11</span>
+                  <span style="color:var(--clr-text-muted);">#1044 — Table 11</span>
                   <span style="color:var(--clr-text-muted);">3 items</span>
                   <span style="color:var(--clr-text-muted);">$48.75</span>
                 </div>
@@ -1261,7 +1247,7 @@
               />
               <div>
                 <div class="testimonial-card__name">Marco Rossi</div>
-                <div class="testimonial-card__role">Owner, Bella Vista â€” Milan, Italy</div>
+                <div class="testimonial-card__role">Owner, Bella Vista — Milan, Italy</div>
               </div>
             </div>
           </article>
@@ -1286,7 +1272,7 @@
               />
               <div>
                 <div class="testimonial-card__name">Aisha Al-Farsi</div>
-                <div class="testimonial-card__role">F&B Director, The Grand Hotel â€” Dubai</div>
+                <div class="testimonial-card__role">F&B Director, The Grand Hotel — Dubai</div>
               </div>
             </div>
           </article>
@@ -1311,7 +1297,7 @@
               />
               <div>
                 <div class="testimonial-card__name">James Chen</div>
-                <div class="testimonial-card__role">CEO, CloudEats Group â€” Singapore</div>
+                <div class="testimonial-card__role">CEO, CloudEats Group — Singapore</div>
               </div>
             </div>
           </article>
@@ -1344,7 +1330,7 @@
           <!-- Starter -->
           <div class="pricing-card reveal">
             <div class="pricing-card__tier">Starter</div>
-            <h3 style="font-size:var(--size-h5);">For Small CafÃ©s &amp; Restaurants</h3>
+            <h3 style="font-size:var(--size-h5);">For Small Cafés &amp; Restaurants</h3>
             <div class="pricing-card__price">
               <span class="pricing-card__currency">$</span>
               <span class="pricing-card__amount" data-price-monthly>29</span>
@@ -1482,7 +1468,7 @@
           <div class="cta-section__actions">
             <a href="register.html" class="btn btn--primary btn--lg" id="cta-main-btn">
               <i class="ri-rocket-line" aria-hidden="true"></i>
-              Start Free â€” No Card Needed
+              Start Free — No Card Needed
             </a>
             <a href="demo.html" class="btn btn--lg" style="background:rgba(255,255,255,0.08);color:#fff;border:1px solid rgba(255,255,255,0.2);" id="cta-demo-btn">
               <i class="ri-play-circle-line" aria-hidden="true"></i>
@@ -1491,7 +1477,7 @@
           </div>
 
           <p style="font-size:var(--size-small);color:rgba(255,255,255,0.3);margin-block-start:var(--sp-4);">
-            14-day free trial Â· No credit card required Â· Cancel anytime Â· GDPR compliant
+            14-day free trial · No credit card required · Cancel anytime · GDPR compliant
           </p>
         </div>
       </div>

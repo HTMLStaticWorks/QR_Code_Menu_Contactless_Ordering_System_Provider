@@ -4,11 +4,11 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="QRServe pricing plans â€” Starter at $29/mo, Professional at $79/mo, Enterprise at $149/mo. No hidden fees. Cancel anytime." />
+  <meta name="description" content="QRServe pricing plans — Starter at $29/mo, Professional at $79/mo, Enterprise at $149/mo. No hidden fees. Cancel anytime." />
   <link rel="canonical" href="https://qrserve.io/pricing" />
-  <meta property="og:title" content="Pricing â€” QRServe" />
+  <meta property="og:title" content="Pricing — QRServe" />
   <meta property="og:description" content="Simple, transparent pricing for restaurants of all sizes. Start free for 14 days." />
-  <title>Pricing â€” QRServe</title>
+  <title>Pricing — QRServe</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -117,7 +117,7 @@
   <!-- NAVBAR -->
   <header class="navbar" role="banner">
     <div class="navbar__inner">
-      <a href="index.html" class="navbar__logo" aria-label="QRServe â€” Home">
+      <a href="index.html" class="navbar__logo" aria-label="QRServe — Home">
         <div class="navbar__logo-icon" aria-hidden="true"><i class="ri-qr-code-line" style="font-size:1.1rem;"></i></div>
         QR<span>Serve</span>
       </a>
@@ -133,10 +133,8 @@
         <a href="dashboard.html" class="navbar__link" data-nav-link>Dashboard</a>
       </nav>
       <div class="navbar__actions">
-        <button class="icon-btn" data-theme-toggle data-theme-icon aria-label="Toggle theme"></button>
-        <button class="icon-btn" data-rtl-btn aria-label="Switch direction"></button>
-        <a href="dashboard.html" class="btn btn--ghost btn--sm">Dashboard</a>
-        <a href="login.html" class="btn btn--outline btn--sm">Login</a>
+        <button class="icon-btn" data-theme-toggle data-theme-icon aria-label="Toggle dark mode" title="Toggle theme"></button>
+        <button class="icon-btn" data-rtl-btn aria-label="Switch to RTL" title="Switch direction"></button>
         <a href="register.html" class="btn btn--primary btn--sm">Get Started</a>
       </div>
       <button class="navbar__hamburger" id="hamburger-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-drawer">
@@ -164,15 +162,17 @@
       <a href="demo.html" class="drawer__link" data-nav-link><i class="ri-play-circle-line" aria-hidden="true"></i> Demo</a>
       <a href="blog.html" class="drawer__link" data-nav-link><i class="ri-article-line" aria-hidden="true"></i> Blog</a>
       <a href="contact.html" class="drawer__link" data-nav-link><i class="ri-mail-line" aria-hidden="true"></i> Contact</a>
-      <div class="divider"></div>
       <a href="dashboard.html" class="drawer__link"><i class="ri-dashboard-line" aria-hidden="true"></i> Dashboard</a>
-      <a href="login.html" class="drawer__link"><i class="ri-login-box-line" aria-hidden="true"></i> Login</a>
-    </nav>
-    <div class="drawer__footer">
-      <div class="drawer__controls">
+      <div style="margin-top: 1.5rem; padding-inline: 1.5rem; display: flex; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
         <button class="icon-btn" data-theme-toggle data-theme-icon aria-label="Toggle theme"></button>
         <button class="icon-btn" data-rtl-btn aria-label="Switch direction"></button>
       </div>
+      <div style="padding-inline: 1.5rem; padding-bottom: 1.5rem;">
+        <a href="register.html" class="btn btn--primary btn--full" style="justify-content: center;">Get Started</a>
+      </div>
+    </nav>
+    <div class="drawer__footer" style="justify-content: center; border-top: none; padding-top: 0;">
+      <span style="font-size:var(--size-xs);color:var(--clr-text-muted);">v2.4.1</span>
     </div>
   </div>
 
@@ -208,7 +208,7 @@
           <!-- STARTER -->
           <div class="pricing-card reveal">
             <div class="pricing-card__tier">Starter</div>
-            <p style="font-size:var(--size-small);color:var(--clr-text-muted);margin-block-end:var(--sp-3);">For small cafÃ©s and single-location restaurants just getting started.</p>
+            <p style="font-size:var(--size-small);color:var(--clr-text-muted);margin-block-end:var(--sp-3);">For small cafés and single-location restaurants just getting started.</p>
             <div class="pricing-card__price" aria-label="Starter plan pricing">
               <span class="pricing-card__currency">$</span>
               <span class="pricing-card__amount" data-price-monthly>29</span>
@@ -234,7 +234,7 @@
             </ul>
 
             <a href="register.html" class="btn btn--outline btn--full mt-auto" id="starter-cta">Start Free Trial</a>
-            <p style="text-align:center;font-size:var(--size-xs);color:var(--clr-text-muted);margin-block-start:0.625rem;">14-day free trial Â· No card needed</p>
+            <p style="text-align:center;font-size:var(--size-xs);color:var(--clr-text-muted);margin-block-start:0.625rem;">14-day free trial · No card needed</p>
           </div>
 
           <!-- PROFESSIONAL (FEATURED) -->
@@ -267,7 +267,7 @@
             </ul>
 
             <a href="register.html" class="btn btn--primary btn--full mt-auto" id="pro-cta">Start Free Trial</a>
-            <p style="text-align:center;font-size:var(--size-xs);color:var(--clr-text-muted);margin-block-start:0.625rem;">14-day free trial Â· No card needed</p>
+            <p style="text-align:center;font-size:var(--size-xs);color:var(--clr-text-muted);margin-block-start:0.625rem;">14-day free trial · No card needed</p>
           </div>
 
           <!-- ENTERPRISE -->

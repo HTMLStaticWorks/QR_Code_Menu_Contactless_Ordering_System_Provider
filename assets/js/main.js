@@ -29,9 +29,9 @@ const ThemeManager = (() => {
       icon.setAttribute('data-theme-icon', theme);
       // Sun icon when dark (clicking will switch to light), Moon icon when light
       if (theme === DARK) {
-        icon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>`;
+        icon.innerHTML = `<i class="ri-sun-line" style="font-size:1.2rem;"></i>`;
       } else {
-        icon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>`;
+        icon.innerHTML = `<i class="ri-moon-line" style="font-size:1.2rem;"></i>`;
       }
     });
   };
@@ -74,13 +74,13 @@ const RTLManager = (() => {
     const btns = document.querySelectorAll('[data-rtl-btn]');
     btns.forEach(btn => {
       if (dir === 'rtl') {
-        btn.innerHTML = `<span style="font-size:0.8rem; font-weight:700; letter-spacing:0.5px;">EN</span>`;
+        btn.innerHTML = `<i class="ri-arrow-left-right-line" style="font-size:1.2rem;"></i>`;
         btn.setAttribute('aria-label', 'Switch to LTR');
-        btn.setAttribute('title', 'Switch to English (LTR)');
+        btn.setAttribute('title', 'Switch to Left-to-Right');
       } else {
-        btn.innerHTML = `<span style="font-size:0.8rem; font-weight:700; letter-spacing:0.5px;">AR</span>`;
+        btn.innerHTML = `<i class="ri-arrow-left-right-line" style="font-size:1.2rem;"></i>`;
         btn.setAttribute('aria-label', 'Switch to RTL');
-        btn.setAttribute('title', 'Switch to Arabic (RTL)');
+        btn.setAttribute('title', 'Switch to Right-to-Left');
       }
     });
   };
@@ -494,28 +494,7 @@ const Toast = (() => {
   return { show };
 })();
 
-/* ============================================================
-   13. BACK TO TOP BUTTON
-   ============================================================ */
-const BackToTop = (() => {
-  const init = () => {
-    const footerBottom = document.querySelector('.footer__bottom');
-    if (!footerBottom) return;
 
-    const btn = document.createElement('button');
-    btn.className = 'btn btn--outline btn--sm';
-    btn.style.paddingBlock = '0.35rem';
-    btn.innerHTML = 'Back to Top <i class="ri-arrow-up-line" aria-hidden="true" style="margin-left:4px;"></i>';
-    
-    btn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    footerBottom.appendChild(btn);
-  };
-  
-  return { init };
-})();
 
 /* ============================================================
    14. GLOBAL INIT
@@ -530,7 +509,6 @@ document.addEventListener('DOMContentLoaded', () => {
   PricingToggle.init();
   CounterAnimation.init();
   SmoothScroll.init();
-  BackToTop.init();
 
   // Wire theme toggles
   document.querySelectorAll('[data-theme-toggle]').forEach(btn => {
@@ -617,3 +595,24 @@ window.QRServe = {
   TypingEffect,
   ScrollReveal,
 };
+
+// Scroll to Top Button
+document.addEventListener('DOMContentLoaded', () => {
+  const scrollTopBtn = document.createElement('button');
+  scrollTopBtn.innerHTML = '<i class="ri-arrow-up-line"></i>';
+  scrollTopBtn.className = 'scroll-to-top';
+  scrollTopBtn.setAttribute('aria-label', 'Scroll to top');
+  document.body.appendChild(scrollTopBtn);
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      scrollTopBtn.classList.add('visible');
+    } else {
+      scrollTopBtn.classList.remove('visible');
+    }
+  });
+
+  scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});

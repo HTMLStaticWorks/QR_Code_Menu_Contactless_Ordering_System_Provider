@@ -18,36 +18,16 @@
 /* ============================================================
    2. NAVBAR
    ============================================================ */
-[dir="rtl"] .navbar__inner {
-  flex-direction: row-reverse;
-}
 
-[dir="rtl"] .navbar__logo {
-  flex-direction: row-reverse;
-}
-
-[dir="rtl"] .navbar__nav {
-  flex-direction: row-reverse;
-}
-
-[dir="rtl"] .navbar__actions {
-  flex-direction: row-reverse;
+/* Ensure the RTL toggle button icon visually indicates current mode */
+[dir="rtl"] [data-rtl-btn] {
+  color: var(--clr-secondary);
 }
 
 /* ============================================================
    3. DRAWER — slides from LEFT in RTL
    ============================================================ */
-[dir="rtl"] .drawer {
-  inset-inline-end: auto;
-  inset-inline-start: 0;
-  transform: translateX(-100%);
-  border-inline-start: none;
-  border-inline-end: 1px solid var(--clr-border);
-}
 
-[dir="rtl"] .drawer.active {
-  transform: translateX(0);
-}
 
 [dir="rtl"] .drawer__header {
   flex-direction: row-reverse;
@@ -81,14 +61,31 @@
    ============================================================ */
 [dir="rtl"] .footer__grid {
   direction: rtl;
+  text-align: start;
+}
+
+[dir="rtl"] .footer__brand {
+  text-align: start;
+}
+
+[dir="rtl"] .footer__brand p {
+  text-align: start;
+  margin-inline-start: 0;
 }
 
 [dir="rtl"] .footer__logo {
-  flex-direction: row-reverse;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.625rem;
+  flex-direction: row;
 }
 
 [dir="rtl"] .footer__social {
-  flex-direction: row-reverse;
+  display: flex;
+  gap: var(--sp-1);
+  justify-content: flex-start;
+  flex-direction: row;
 }
 
 [dir="rtl"] .footer__bottom {
@@ -126,15 +123,6 @@
   inset-inline-end: 1rem;
 }
 
-[dir="rtl"] .form-input-icon ~ .form-input {
-  padding-inline-start: 1rem;
-  padding-inline-end: 2.75rem;
-}
-
-[dir="rtl"] .form-input-icon-end {
-  inset-inline-end: auto;
-  inset-inline-start: 1rem;
-}
 
 [dir="rtl"] .form-checkbox {
   flex-direction: row-reverse;
@@ -171,7 +159,13 @@
    11. FAQ ACCORDION
    ============================================================ */
 [dir="rtl"] .faq-question {
-  flex-direction: row-reverse;
+  direction: rtl;
+  text-align: start;
+  flex-direction: row;
+}
+
+[dir="rtl"] .faq-question h3 {
+  text-align: start;
 }
 
 /* ============================================================
@@ -202,26 +196,112 @@
   flex-direction: row-reverse;
 }
 
-/* 16. DASHBOARD SIDEBAR RTL - Handled natively by logical properties in dashboard.html */
+/* ============================================================
+   16. DASHBOARD — Full RTL Layout
+   ============================================================ */
 
-[dir="rtl"] .db-nav__link {
-  flex-direction: row-reverse;
+/* Sidebar: fixed to the right edge in RTL */
+[dir="rtl"] .db-sidebar {
+  right: 0;
+  left: auto;
+  inset-inline-start: 0;
+  inset-inline-end: auto;
+  border-inline-end: 1px solid rgba(255, 255, 255, 0.06);
+  border-inline-start: none;
 }
 
-[dir="rtl"] .db-nav__link span {
-  text-align: start;
+[dir="rtl"][data-theme="light"] .db-sidebar {
+  border-inline-end: 1px solid var(--clr-border);
+  border-inline-start: none;
 }
 
+/* Main content: margin on right in RTL to make room for right sidebar */
+[dir="rtl"] .db-main {
+  margin-right: var(--sidebar-width);
+  margin-left: 0;
+  margin-inline-start: var(--sidebar-width);
+  margin-inline-end: 0;
+}
+
+[dir="rtl"] .db-main--expanded {
+  margin-right: var(--sidebar-collapsed-width);
+  margin-left: 0;
+  margin-inline-start: var(--sidebar-collapsed-width);
+  margin-inline-end: 0;
+}
+
+/* Topbar: natural RTL flex row (left group on right, right group on left) */
 [dir="rtl"] .db-topbar {
-  flex-direction: row-reverse;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
 }
 
 [dir="rtl"] .db-topbar__left {
-  flex-direction: row-reverse;
+  flex-direction: row;
+  align-items: center;
 }
 
 [dir="rtl"] .db-topbar__right {
-  flex-direction: row-reverse;
+  flex-direction: row;
+  align-items: center;
+  margin-inline-start: auto;
+  margin-inline-end: 0;
+}
+
+/* Logo inside sidebar: natural flow (icon on right, text to left of it) */
+[dir="rtl"] .db-sidebar__logo {
+  flex-direction: row;
+}
+
+/* Nav links in sidebar: icon on right, label text aligned to right */
+[dir="rtl"] .db-nav__link {
+  flex-direction: row;
+}
+
+[dir="rtl"] .db-nav__link span:not(.db-nav__badge) {
+  text-align: right;
+}
+
+[dir="rtl"] .db-nav__section-title {
+  text-align: right;
+}
+
+/* Active indicator strip: stays at the right edge in RTL */
+[dir="rtl"] .db-nav__link.active::before {
+  right: 0;
+  left: auto;
+  inset-inline-start: 0;
+  inset-inline-end: auto;
+  border-radius: 2px 0 0 2px;
+}
+
+/* Badge in nav link: auto-margin pushes to the left edge in RTL */
+[dir="rtl"] .db-nav__badge {
+  margin-inline-start: auto;
+  margin-inline-end: 0;
+}
+
+/* User card inside sidebar footer: avatar on right, info on left */
+[dir="rtl"] .db-user-card {
+  flex-direction: row;
+}
+
+[dir="rtl"] .db-user-card__info {
+  text-align: right;
+}
+
+/* Sidebar footer toggle button icon flip */
+[dir="rtl"] .db-sidebar__toggle-btn i {
+  transform: scaleX(-1);
+}
+
+/* Notifications dropdown panel in RTL: align with left side of bell button */
+[dir="rtl"] .notification-panel {
+  right: auto;
+  left: 0;
+  inset-inline-start: auto;
+  inset-inline-end: 0;
 }
 
 /* ============================================================
@@ -278,42 +358,42 @@
    22. MOBILE SPECIFIC RTL OVERRIDES
    ============================================================ */
 @media (max-width: 1024px) {
-  [dir="rtl"] .navbar__hamburger {
-    order: -1;
+  /* Sidebar on mobile RTL: anchored to right edge, hidden state is translateX(100%) to push off-screen to the right */
+  [dir="rtl"] .db-sidebar {
+    right: 0 !important;
+    left: auto !important;
+    inset-inline-start: 0 !important;
+    inset-inline-end: auto !important;
+    transform: translateX(100%) !important;
+    width: var(--sidebar-width) !important;
   }
+
+  /* When open on mobile RTL: slides in from the right */
+  [dir="rtl"] .db-sidebar.db-sidebar--mobile-open {
+    transform: translateX(0) !important;
+  }
+
+  /* Main content and topbar take full 100% width on mobile */
+  [dir="rtl"] .db-main {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    margin-inline-end: 0 !important;
+    margin-inline-start: 0 !important;
+    width: 100% !important;
+  }
+
+  [dir="rtl"] .db-topbar {
+    width: 100% !important;
+    justify-content: space-between !important;
+  }
+
+  /* Topbar brand in mobile: icon + text flow naturally in RTL */
   [dir="rtl"] .db-topbar__brand {
-    flex-direction: row-reverse;
+    flex-direction: row;
+  }
+
+  [dir="rtl"] .navbar__hamburger {
+    order: unset;
   }
 }
 
-/* ============================================================
-   23. DASHBOARD RTL EXPLICIT FIXES
-   ============================================================ */
-[dir="rtl"] .db-sidebar {
-  inset-inline-start: auto !important;
-  inset-inline-end: 0 !important;
-  left: auto !important;
-  right: 0 !important;
-  border-inline-end: none !important;
-  border-inline-start: 1px solid rgba(255,255,255,0.06) !important;
-}
-
-[dir="rtl"][data-theme="light"] .db-sidebar {
-  border-inline-start: 1px solid var(--clr-border) !important;
-}
-
-[dir="rtl"] .db-main {
-  margin-inline-start: 0 !important;
-  margin-inline-end: var(--sidebar-width) !important;
-  margin-left: 0 !important;
-  margin-right: var(--sidebar-width) !important;
-}
-
-[dir="rtl"] .db-sidebar--collapsed .db-main {
-  margin-inline-end: var(--sidebar-collapsed-width) !important;
-  margin-right: var(--sidebar-collapsed-width) !important;
-}
-
-[dir="rtl"] .db-topbar {
-  flex-direction: row-reverse;
-}

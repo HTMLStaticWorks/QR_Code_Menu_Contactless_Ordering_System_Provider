@@ -296,6 +296,9 @@
       border-inline-start: 4px solid var(--clr-secondary);
       padding: 1rem;
       position: relative;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
     }
 
     .kds-ticket--warning {
@@ -416,8 +419,14 @@
       text-align: center;
     }
 
+    .feature-dive-buttons {
+      display: flex;
+      gap: var(--sp-2);
+      flex-wrap: wrap;
+    }
+
     /* Responsive */
-    @media (max-width: 900px) {
+    @media (max-width: 1024px) {
       .feature-dive-grid {
         grid-template-columns: 1fr;
         gap: var(--sp-6);
@@ -427,6 +436,22 @@
       }
       .feature-dive-grid--reversed .feature-dive-media {
         order: 2;
+      }
+      .feature-dive-text {
+        text-align: center;
+      }
+      .feature-perk-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .mock-card-container {
+        padding: 1.25rem;
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+      .feature-dive-buttons {
+        justify-content: center;
       }
       .pos-logos-grid {
         grid-template-columns: repeat(3, 1fr);
@@ -440,6 +465,23 @@
       .pos-logos-grid {
         grid-template-columns: repeat(2, 1fr);
       }
+    }
+    #features-cta-btn2 {
+      color: #fff;
+      border-color: rgba(255,255,255,0.3);
+    }
+    #features-cta-btn2:hover {
+      background: var(--clr-secondary);
+      color: var(--clr-primary);
+      border-color: var(--clr-secondary);
+    }
+    #features-cta-btn1 {
+      color: #fff;
+      background: rgba(255,255,255,0.1);
+    }
+    #features-cta-btn1:hover {
+      color: #fff !important;
+      background: rgba(255,255,255,0.2) !important;
     }
   </style>
 </head>
@@ -503,15 +545,17 @@
       <a href="demo.html" class="drawer__link" data-nav-link><i class="ri-play-circle-line"></i> Demo</a>
       <a href="blog.html" class="drawer__link" data-nav-link><i class="ri-article-line"></i> Blog</a>
       <a href="contact.html" class="drawer__link" data-nav-link><i class="ri-mail-line"></i> Contact</a>
-<div class="divider"></div>
       <a href="dashboard.html" class="drawer__link" data-nav-link><i class="ri-dashboard-line"></i> Dashboard</a>
-    </nav>
-
-    <div class="drawer__footer">
-      <div class="drawer__controls">
+      <div style="margin-top: 1.5rem; padding-inline: 1.5rem; display: flex; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
         <button class="icon-btn" data-theme-toggle data-theme-icon aria-label="Toggle dark mode"></button>
         <button class="icon-btn" data-rtl-btn aria-label="Switch text direction"></button>
       </div>
+      <div style="padding-inline: 1.5rem; padding-bottom: 1.5rem;">
+        <a href="register.html" class="btn btn--primary btn--full" style="justify-content: center;">Get Started</a>
+      </div>
+    </nav>
+    <div class="drawer__footer" style="justify-content: center; border-top: none; padding-top: 0;">
+      <span style="font-size:var(--size-xs);color:var(--clr-text-muted);">v2.4.1</span>
     </div>
   </div>
 
@@ -567,7 +611,7 @@
               </li>
             </ul>
 
-            <div style="display:flex;gap:var(--sp-2);flex-wrap:wrap;">
+            <div class="feature-dive-buttons">
               <a href="register.html" class="btn btn--primary btn--sm">Generate My QR Codes</a>
               <a href="demo.html" class="btn btn--outline btn--sm">Test in Live Demo</a>
             </div>
@@ -699,7 +743,7 @@
               </li>
             </ul>
 
-            <div style="display:flex;gap:var(--sp-2);flex-wrap:wrap;">
+            <div class="feature-dive-buttons">
               <a href="dashboard.html" class="btn btn--primary btn--sm">Explore Menu Builder</a>
               <a href="demo.html" class="btn btn--outline btn--sm">View Diner Interface</a>
             </div>
@@ -810,7 +854,7 @@
               </li>
             </ul>
 
-            <div style="display:flex;gap:var(--sp-2);flex-wrap:wrap;">
+            <div class="feature-dive-buttons">
               <a href="demo.html" class="btn btn--primary btn--sm">Test Live KDS Screen</a>
               <a href="pricing.html" class="btn btn--outline btn--sm">View Pricing Plans</a>
             </div>
@@ -837,7 +881,7 @@
                     <li><strong>2x</strong> Truffle Smash Burger <span style="color:var(--clr-text-muted);font-size:0.7rem;">(Med-Rare, No Onions)</span></li>
                     <li><strong>1x</strong> Parmesan Polenta Fries</li>
                   </ul>
-                  <div style="margin-block-start:0.75rem;display:flex;justify-content:flex-end;">
+                  <div style="margin-block-start:auto;padding-block-start:0.75rem;display:flex;justify-content:flex-end;">
                     <button class="btn btn--sm btn--secondary" style="padding:0.25rem 0.6rem;font-size:0.7rem;" onclick="bumpTicket(this)">Bump Order</button>
                   </div>
                 </div>
@@ -852,7 +896,7 @@
                     <li><strong>1x</strong> Pan-Seared Chilean Bass</li>
                     <li><strong>1x</strong> Grilled Asparagus</li>
                   </ul>
-                  <div style="margin-block-start:0.75rem;display:flex;justify-content:flex-end;">
+                  <div style="margin-block-start:auto;padding-block-start:0.75rem;display:flex;justify-content:flex-end;">
                     <button class="btn btn--sm btn--warning" style="padding:0.25rem 0.6rem;font-size:0.7rem;" onclick="bumpTicket(this)">Bump Order</button>
                   </div>
                 </div>
@@ -977,11 +1021,11 @@
     <section class="cta-section" style="padding-block:var(--sp-12);">
       <div class="container">
         <div class="cta-section__content" style="display:flex;flex-direction:column;align-items:center;text-align:center;width:100%;">
-          <h2 style="color:var(--clr-text-primary);">Transform Your Dining Operations Tonight</h2>
-          <p style="color:var(--clr-text-secondary);max-width:520px;margin-inline:auto;">Over 4,500+ restaurants, hotels, and bars trust QRServe to serve millions of guests without delays.</p>
+          <h2 style="color: #fff;">Transform Your Dining Operations Tonight</h2>
+          <p style="color: rgba(255,255,255,0.7); max-width: 520px; margin-inline: auto;">Over 4,500+ restaurants, hotels, and bars trust QRServe to serve millions of guests without delays.</p>
           <div class="cta-section__actions" style="display:flex;justify-content:center;gap:1.5rem;margin-top:1.5rem;">
-            <a href="register.html" class="btn btn--secondary btn--lg">Start 14-Day Free Trial</a>
-            <a href="demo.html" class="btn btn--outline btn--lg">Book A Live VIP Demo</a>
+            <a href="register.html" class="btn btn--secondary btn--lg" id="features-cta-btn1">Start 14-Day Free Trial</a>
+            <a href="demo.html" class="btn btn--outline btn--lg" id="features-cta-btn2">Book A Live VIP Demo</a>
           </div>
         </div>
       </div>
