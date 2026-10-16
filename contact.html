@@ -196,20 +196,24 @@
 
       <nav class="navbar__nav" aria-label="Main navigation">
         <a href="index.html" class="navbar__link" data-nav-link>Home</a>
-        <a href="home2.html" class="navbar__link" data-nav-link>Home 2</a>
-        <a href="about.html" class="navbar__link" data-nav-link>About</a>
         <a href="features.html" class="navbar__link" data-nav-link>Features</a>
+        <a href="index.html#how-it-works" class="navbar__link" data-nav-link>How It Works</a>
+        <a href="index.html#industries" class="navbar__link" data-nav-link>Industries</a>
+        <a href="features.html#integrations" class="navbar__link" data-nav-link>Integrations</a>
         <a href="pricing.html" class="navbar__link" data-nav-link>Pricing</a>
-        <a href="demo.html" class="navbar__link" data-nav-link>Demo</a>
-        <a href="blog.html" class="navbar__link" data-nav-link>Blog</a>
-        <a href="contact.html" class="navbar__link active" data-nav-link>Contact</a>
-        <a href="dashboard.html" class="navbar__link" data-nav-link>Dashboard</a>
+        <a href="blog.html" class="navbar__link" data-nav-link>Resources</a>
+        <a href="contact.html" class="navbar__link active" data-nav-link>Contact Us</a>
       </nav>
 
       <div class="navbar__actions">
         <button class="icon-btn" data-theme-toggle data-theme-icon aria-label="Toggle dark mode" title="Toggle theme"></button>
-        <button class="icon-btn" data-rtl-btn aria-label="Switch to RTL" title="Switch direction"></button>
-        <a href="register.html" class="btn btn--primary btn--sm">Get Started</a>
+        <button class="icon-btn" data-rtl-btn aria-label="Switch to RTL" title="Switch text direction"></button>
+        <a href="demo.html" class="btn btn--outline navbar__cta-demo">
+          <i class="ri-play-circle-line" aria-hidden="true"></i> Book a Demo
+        </a>
+        <a href="register.html" class="btn btn--primary navbar__cta-trial">
+          <i class="ri-rocket-line" aria-hidden="true"></i> Start Free Trial
+        </a>
       </div>
 
       <button class="navbar__hamburger" id="hamburger-btn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-drawer">
@@ -235,24 +239,31 @@
 
     <nav class="drawer__nav" aria-label="Mobile navigation">
       <a href="index.html" class="drawer__link" data-nav-link><i class="ri-home-4-line"></i> Home</a>
-      <a href="home2.html" class="drawer__link" data-nav-link><i class="ri-layout-masonry-line"></i> Home 2</a>
-      <a href="about.html" class="drawer__link" data-nav-link><i class="ri-information-line" aria-hidden="true"></i> About</a>
       <a href="features.html" class="drawer__link" data-nav-link><i class="ri-flashlight-line"></i> Features</a>
+      <a href="index.html#how-it-works" class="drawer__link" data-nav-link><i class="ri-route-line"></i> How It Works</a>
+      <a href="index.html#industries" class="drawer__link" data-nav-link><i class="ri-store-2-line"></i> Industries</a>
+      <a href="features.html#integrations" class="drawer__link" data-nav-link><i class="ri-plug-line"></i> Integrations</a>
       <a href="pricing.html" class="drawer__link" data-nav-link><i class="ri-price-tag-3-line"></i> Pricing</a>
-      <a href="demo.html" class="drawer__link" data-nav-link><i class="ri-play-circle-line"></i> Demo</a>
-      <a href="blog.html" class="drawer__link" data-nav-link><i class="ri-article-line"></i> Blog</a>
-      <a href="contact.html" class="drawer__link active" data-nav-link><i class="ri-mail-line"></i> Contact</a>
+      <a href="blog.html" class="drawer__link" data-nav-link><i class="ri-book-open-line"></i> Resources</a>
+      <a href="contact.html" class="drawer__link active" data-nav-link><i class="ri-mail-line"></i> Contact Us</a>
       <a href="dashboard.html" class="drawer__link" data-nav-link><i class="ri-dashboard-line"></i> Dashboard</a>
-      <div style="margin-top: 1.5rem; padding-inline: 1.5rem; display: flex; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
+      
+      <div style="margin-top: 1rem; padding-inline: 1rem; display: flex; justify-content: center; gap: 1rem;">
         <button class="icon-btn" data-theme-toggle data-theme-icon aria-label="Toggle dark mode"></button>
         <button class="icon-btn" data-rtl-btn aria-label="Switch text direction"></button>
       </div>
-      <div style="padding-inline: 1.5rem; padding-bottom: 1.5rem;">
-        <a href="register.html" class="btn btn--primary btn--full" style="justify-content: center;">Get Started</a>
+      
+      <div style="padding: 1rem; display: flex; flex-direction: column; gap: 0.6rem;">
+        <a href="register.html" class="btn btn--primary btn--full" style="justify-content: center;">
+          <i class="ri-rocket-line"></i> Start Free Trial
+        </a>
+        <a href="demo.html" class="btn btn--outline btn--full" style="justify-content: center;">
+          <i class="ri-play-circle-line"></i> Book a Demo
+        </a>
       </div>
     </nav>
     <div class="drawer__footer" style="justify-content: center; border-top: none; padding-top: 0;">
-      <span style="font-size:var(--size-xs);color:var(--clr-text-muted);">v2.4.1</span>
+      <span style="font-size:var(--size-xs);color:var(--clr-text-muted);">v2.4.2</span>
     </div>
   </div>
 

@@ -109,10 +109,17 @@ const Navbar = (() => {
 
   const setActive = () => {
     const path = window.location.pathname.split('/').pop() || 'index.html';
+    const hash = window.location.hash;
     const links = document.querySelectorAll('[data-nav-link]');
     links.forEach(link => {
       const href = link.getAttribute('href');
-      if (href === path || (path === '' && href === 'index.html')) {
+      if (!href) return;
+      const baseHref = href.split('#')[0];
+      const linkHash = href.includes('#') ? '#' + href.split('#')[1] : '';
+
+      if (linkHash && hash && linkHash === hash) {
+        link.classList.add('active');
+      } else if (!hash && (baseHref === path || (path === '' && baseHref === 'index.html') || (path === 'index.html' && baseHref === 'index.html' && !linkHash))) {
         link.classList.add('active');
       } else {
         link.classList.remove('active');
@@ -138,10 +145,11 @@ const Navbar = (() => {
     if (!navbar) return;
     setActive();
     window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('hashchange', setActive);
     handleScroll();
   };
 
-  return { init };
+  return { init, setActive };
 })();
 
 /* ============================================================
@@ -177,6 +185,13 @@ const Drawer = (() => {
     hamburger?.addEventListener('click', open);
     closeBtn?.addEventListener('click', close);
     overlay?.addEventListener('click', close);
+
+    // Auto-close drawer when clicking any link inside
+    drawer.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        close();
+      });
+    });
 
     // Close on ESC
     document.addEventListener('keydown', (e) => {
@@ -615,4 +630,51 @@ document.addEventListener('DOMContentLoaded', () => {
   scrollTopBtn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
+
+  // Interactive Operations & ROI Calculator
+  const initRoiCalculator = () => {
+    const tablesInput = document.getElementById('roi-tables');
+    const checkInput = document.getElementById('roi-check');
+    const ordersInput = document.getElementById('roi-orders');
+
+    if (!tablesInput || !checkInput || !ordersInput) return;
+
+    const tablesVal = document.getElementById('roi-tables-val');
+    const checkVal = document.getElementById('roi-check-val');
+    const ordersVal = document.getElementById('roi-orders-val');
+
+    const hoursResult = document.getElementById('roi-hours-result');
+    const revenueResult = document.getElementById('roi-revenue-result');
+    const printResult = document.getElementById('roi-print-result');
+
+    const update = () => {
+      const tables = parseInt(tablesInput.value, 10) || 25;
+      const check = parseFloat(checkInput.value) || 45;
+      const ordersPerDay = parseInt(ordersInput.value, 10) || 4;
+
+      if (tablesVal) tablesVal.textContent = tables + ' tables';
+      if (checkVal) checkVal.textContent = '$' + check;
+      if (ordersVal) ordersVal.textContent = ordersPerDay + ' turns/day';
+
+      // 4.8 labor hours saved per table / month
+      const hoursSaved = Math.round(tables * 4.8);
+      // Upsell uplift of 22% on gross orders
+      const monthlyGross = tables * ordersPerDay * check * 30;
+      const extraRevenue = Math.round(monthlyGross * 0.22);
+      // Annual menu printing & reprint savings: ~$120/table
+      const printSavings = Math.round(tables * 120);
+
+      if (hoursResult) hoursResult.textContent = hoursSaved.toLocaleString() + ' hrs/mo';
+      if (revenueResult) revenueResult.textContent = '+$' + extraRevenue.toLocaleString() + '/mo';
+      if (printResult) printResult.textContent = '$' + printSavings.toLocaleString() + '/yr';
+    };
+
+    tablesInput.addEventListener('input', update);
+    checkInput.addEventListener('input', update);
+    ordersInput.addEventListener('input', update);
+    update();
+  };
+
+  initRoiCalculator();
 });
+

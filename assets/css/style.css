@@ -2286,3 +2286,754 @@ p { color: var(--clr-text-secondary); }
     gap: 0.75rem;
   }
 }
+
+/* ============================================================
+   ENHANCED REDESIGN COMPONENTS:
+   - Verified Clients & Logos Showcase
+   - 6-Step "How It Works" Visual Journey
+   - Contactless Payment & Split-Bill Showcase
+   - "Who We Serve" (Industries) Showcase
+   - Interactive ROI & Operations Calculator
+   - Modern Glassmorphism & High-Conversion Badges
+   ============================================================ */
+
+/* Navbar links polish for 8-item navigation */
+.navbar__nav {
+  gap: 0.15rem;
+}
+
+.navbar__link {
+  padding: 0.45rem 0.55rem;
+  font-size: 0.84rem;
+}
+
+.navbar__cta-demo {
+  font-size: 0.825rem;
+  padding: 0.45rem 0.85rem;
+}
+
+.navbar__cta-trial {
+  font-size: 0.825rem;
+  padding: 0.45rem 0.95rem;
+  box-shadow: 0 4px 14px rgba(0, 200, 150, 0.25);
+}
+
+@media (max-width: 1240px) and (min-width: 1025px) {
+  .navbar__nav { gap: 0.05rem; }
+  .navbar__link { padding: 0.4rem 0.45rem; font-size: 0.8rem; }
+  .navbar__cta-demo { display: none; }
+}
+
+/* Glow button */
+.btn--glow {
+  position: relative;
+  box-shadow: 0 0 20px rgba(0, 200, 150, 0.35);
+  transition: all var(--transition-base);
+}
+
+.btn--glow:hover {
+  box-shadow: 0 0 30px rgba(0, 200, 150, 0.55);
+  transform: translateY(-2px);
+}
+
+/* Hero Badge */
+.hero__badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  background: rgba(0, 200, 150, 0.1);
+  border: 1px solid rgba(0, 200, 150, 0.25);
+  border-radius: var(--radius-pill);
+  font-size: var(--size-xs);
+  font-weight: 600;
+  color: var(--clr-secondary);
+  margin-block-end: var(--sp-3);
+  letter-spacing: 0.02em;
+}
+
+/* Trust Proof Badges bar */
+.hero-trust-proof {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem;
+  margin-block-start: var(--sp-4);
+  font-size: var(--size-xs);
+  color: var(--clr-text-secondary);
+}
+
+.hero-trust-proof__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-weight: 500;
+}
+
+.hero-trust-proof__item i {
+  color: var(--clr-secondary);
+  font-size: 0.9rem;
+}
+
+/* ============================================================
+   VERIFIED CLIENTS & PARTNERS SECTION
+   ============================================================ */
+.trusted-section {
+  padding-block: var(--sp-8) var(--sp-6);
+  background: var(--clr-bg);
+  border-block-end: 1px solid var(--clr-border);
+}
+
+.trusted-header {
+  text-align: center;
+  max-width: 680px;
+  margin-inline: auto;
+  margin-block-end: var(--sp-6);
+}
+
+.client-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--sp-3);
+  margin-block-end: var(--sp-6);
+}
+
+.client-card {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-4);
+  transition: all var(--transition-base);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow-sm);
+}
+
+.client-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--clr-secondary);
+  box-shadow: var(--shadow-md);
+}
+
+.client-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-block-end: 0.75rem;
+}
+
+.client-card__name {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--clr-text-primary);
+}
+
+.client-card__type {
+  font-size: var(--size-xs);
+  color: var(--clr-text-muted);
+}
+
+.client-card__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-pill);
+  background: var(--clr-secondary-light);
+  color: var(--clr-secondary);
+}
+
+[data-theme="dark"] .client-card__badge {
+  background: rgba(0, 200, 150, 0.15);
+}
+
+.client-card__metric {
+  font-size: 0.85rem;
+  color: var(--clr-text-secondary);
+  line-height: 1.45;
+  font-weight: 500;
+  margin-block-start: 0.5rem;
+}
+
+.client-card__metric strong {
+  color: var(--clr-secondary);
+  font-weight: 700;
+}
+
+.client-card__footer {
+  margin-block-start: 1rem;
+  padding-block-start: 0.75rem;
+  border-block-start: 1px solid var(--clr-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--size-xs);
+  color: var(--clr-text-muted);
+}
+
+.partner-logos-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-4) var(--sp-6);
+  padding-block: var(--sp-4);
+  border-block-start: 1px dashed var(--clr-border);
+}
+
+.partner-logo-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--clr-text-muted);
+  transition: color var(--transition-fast);
+}
+
+.partner-logo-item i {
+  font-size: 1.25rem;
+}
+
+.partner-logo-item:hover {
+  color: var(--clr-text-primary);
+}
+
+/* ============================================================
+   STEP-BY-STEP "HOW IT WORKS" 6-STEP VISUAL JOURNEY
+   ============================================================ */
+.hiw-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-4);
+  position: relative;
+}
+
+@media (max-width: 1024px) {
+  .hiw-steps-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .hiw-steps-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.hiw-step-card {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-xl);
+  padding: var(--sp-5);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
+}
+
+.hiw-step-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--clr-secondary);
+  box-shadow: var(--shadow-lg);
+}
+
+.hiw-step-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-block-end: var(--sp-3);
+}
+
+.hiw-step-card__num {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--clr-secondary);
+  background: var(--clr-secondary-light);
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+[data-theme="dark"] .hiw-step-card__num {
+  background: rgba(0, 200, 150, 0.15);
+}
+
+.hiw-step-card__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--clr-surface-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--clr-text-primary);
+  font-size: 1.25rem;
+}
+
+.hiw-step-card h3 {
+  font-size: 1.15rem;
+  margin-block-end: 0.5rem;
+  color: var(--clr-text-primary);
+}
+
+.hiw-step-card p {
+  font-size: 0.875rem;
+  color: var(--clr-text-secondary);
+  line-height: 1.55;
+  margin-block-end: var(--sp-3);
+}
+
+.hiw-step-card__tag {
+  margin-block-start: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--clr-secondary);
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-pill);
+  background: var(--clr-surface-2);
+  width: fit-content;
+}
+
+/* ============================================================
+   KEY BENEFITS SECTION
+   ============================================================ */
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-4);
+}
+
+@media (max-width: 1024px) {
+  .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.benefit-card {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-xl);
+  padding: var(--sp-5);
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+}
+
+.benefit-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--clr-secondary);
+  box-shadow: var(--shadow-md);
+}
+
+.benefit-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-block-end: 1rem;
+}
+
+.benefit-card__icon-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: var(--clr-secondary-light);
+  color: var(--clr-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+
+[data-theme="dark"] .benefit-card__icon-wrap {
+  background: rgba(0, 200, 150, 0.15);
+}
+
+.benefit-card__icon-wrap--coral {
+  background: var(--clr-accent-light);
+  color: var(--clr-accent);
+}
+
+[data-theme="dark"] .benefit-card__icon-wrap--coral {
+  background: rgba(255, 107, 91, 0.15);
+}
+
+.benefit-card__kpi {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--clr-secondary);
+}
+
+.benefit-card h3 {
+  font-size: 1.15rem;
+  margin-block-end: 0.5rem;
+  color: var(--clr-text-primary);
+}
+
+.benefit-card p {
+  font-size: 0.875rem;
+  color: var(--clr-text-secondary);
+  line-height: 1.55;
+}
+
+/* ============================================================
+   PAYMENT OPTIONS & CONTACTLESS CHECKOUT
+   ============================================================ */
+.payment-section {
+  padding-block: var(--sp-12);
+  background: var(--clr-surface-2);
+  border-block: 1px solid var(--clr-border);
+}
+
+.payment-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-8);
+  align-items: center;
+}
+
+@media (max-width: 992px) {
+  .payment-layout {
+    grid-template-columns: 1fr;
+    gap: var(--sp-6);
+  }
+}
+
+.payment-methods-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--sp-3);
+  margin-block-start: var(--sp-4);
+}
+
+@media (max-width: 480px) {
+  .payment-methods-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.payment-method-box {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-3);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-fast);
+}
+
+.payment-method-box:hover {
+  border-color: var(--clr-secondary);
+  transform: translateY(-2px);
+}
+
+.payment-method-box__icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: var(--clr-surface-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  color: var(--clr-secondary);
+  flex-shrink: 0;
+}
+
+.payment-method-box h4 {
+  font-size: 0.95rem;
+  color: var(--clr-text-primary);
+  margin-block-end: 0.2rem;
+}
+
+.payment-method-box p {
+  font-size: 0.775rem;
+  color: var(--clr-text-secondary);
+  line-height: 1.4;
+}
+
+.payment-visual-card {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+  position: relative;
+}
+
+.payment-visual-card__img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+.payment-visual-card__body {
+  padding: var(--sp-4);
+}
+
+.split-bill-card {
+  background: var(--clr-surface-2);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  padding: 0.875rem;
+  margin-block-end: 0.75rem;
+}
+
+.split-bill-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  padding-block: 0.35rem;
+  border-block-end: 1px solid var(--clr-border);
+}
+
+.split-bill-row:last-child {
+  border-block-end: none;
+}
+
+/* ============================================================
+   "WHO WE SERVE" / INDUSTRIES SHOWCASE
+   ============================================================ */
+.industries-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-5);
+}
+
+@media (max-width: 1024px) {
+  .industries-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .industries-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.industry-card {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-base);
+}
+
+.industry-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--clr-secondary);
+  box-shadow: var(--shadow-lg);
+}
+
+.industry-card__img-wrap {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.industry-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.industry-card:hover .industry-card__img {
+  transform: scale(1.05);
+}
+
+.industry-card__tag {
+  position: absolute;
+  top: 12px;
+  inset-inline-start: 12px;
+  background: rgba(10, 15, 13, 0.75);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.industry-card__body {
+  padding: var(--sp-4);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.industry-card h3 {
+  font-size: 1.2rem;
+  color: var(--clr-text-primary);
+  margin-block-end: 0.5rem;
+}
+
+.industry-card p {
+  font-size: 0.85rem;
+  color: var(--clr-text-secondary);
+  line-height: 1.5;
+  margin-block-end: 1rem;
+}
+
+.industry-bullet-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.industry-bullet-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--clr-text-secondary);
+}
+
+.industry-bullet-item i {
+  color: var(--clr-secondary);
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.industry-card__footer {
+  margin-block-start: auto;
+  padding-block-start: 0.75rem;
+  border-block-start: 1px solid var(--clr-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ============================================================
+   INTERACTIVE ROI & EFFICIENCY CALCULATOR
+   ============================================================ */
+.roi-section {
+  padding-block: var(--sp-12);
+  background: var(--clr-bg);
+}
+
+.roi-card {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-xl);
+  padding: var(--sp-8);
+  box-shadow: var(--shadow-lg);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-8);
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .roi-card {
+    grid-template-columns: 1fr;
+    padding: var(--sp-5);
+    gap: var(--sp-6);
+  }
+}
+
+.roi-slider-group {
+  margin-block-end: var(--sp-4);
+}
+
+.roi-slider-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-block-end: 0.5rem;
+}
+
+.roi-slider-header label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--clr-text-primary);
+}
+
+.roi-slider-value {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--clr-secondary);
+}
+
+.roi-range-input {
+  width: 100%;
+  accent-color: var(--clr-secondary);
+  cursor: pointer;
+}
+
+.roi-results-box {
+  background: var(--clr-surface-2);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+.roi-result-kpi {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block-end: 0.75rem;
+  border-block-end: 1px solid var(--clr-border);
+}
+
+.roi-result-kpi:last-child {
+  border-block-end: none;
+  padding-block-end: 0;
+}
+
+.roi-result-kpi__label {
+  font-size: 0.85rem;
+  color: var(--clr-text-secondary);
+}
+
+.roi-result-kpi__number {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--clr-secondary);
+}
+
+.roi-result-kpi__number--coral {
+  color: var(--clr-accent);
+}
+

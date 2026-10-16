@@ -499,20 +499,24 @@
 
       <nav class="navbar__nav" aria-label="Main navigation">
         <a href="index.html" class="navbar__link" data-nav-link>Home</a>
-        <a href="home2.html" class="navbar__link" data-nav-link>Home 2</a>
-        <a href="about.html" class="navbar__link" data-nav-link>About</a>
         <a href="features.html" class="navbar__link active" data-nav-link>Features</a>
+        <a href="index.html#how-it-works" class="navbar__link" data-nav-link>How It Works</a>
+        <a href="index.html#industries" class="navbar__link" data-nav-link>Industries</a>
+        <a href="features.html#integrations" class="navbar__link" data-nav-link>Integrations</a>
         <a href="pricing.html" class="navbar__link" data-nav-link>Pricing</a>
-        <a href="demo.html" class="navbar__link" data-nav-link>Demo</a>
-        <a href="blog.html" class="navbar__link" data-nav-link>Blog</a>
-        <a href="contact.html" class="navbar__link" data-nav-link>Contact</a>
-        <a href="dashboard.html" class="navbar__link" data-nav-link>Dashboard</a>
+        <a href="blog.html" class="navbar__link" data-nav-link>Resources</a>
+        <a href="contact.html" class="navbar__link" data-nav-link>Contact Us</a>
       </nav>
 
       <div class="navbar__actions">
         <button class="icon-btn" data-theme-toggle data-theme-icon aria-label="Toggle dark mode" title="Toggle theme"></button>
-        <button class="icon-btn" data-rtl-btn aria-label="Switch to RTL" title="Switch direction"></button>
-        <a href="register.html" class="btn btn--primary btn--sm">Get Started</a>
+        <button class="icon-btn" data-rtl-btn aria-label="Switch to RTL" title="Switch text direction"></button>
+        <a href="demo.html" class="btn btn--outline navbar__cta-demo">
+          <i class="ri-play-circle-line" aria-hidden="true"></i> Book a Demo
+        </a>
+        <a href="register.html" class="btn btn--primary navbar__cta-trial">
+          <i class="ri-rocket-line" aria-hidden="true"></i> Start Free Trial
+        </a>
       </div>
 
       <button class="navbar__hamburger" id="hamburger-btn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-drawer">
@@ -538,24 +542,31 @@
 
     <nav class="drawer__nav" aria-label="Mobile navigation">
       <a href="index.html" class="drawer__link" data-nav-link><i class="ri-home-4-line"></i> Home</a>
-      <a href="home2.html" class="drawer__link" data-nav-link><i class="ri-layout-masonry-line"></i> Home 2</a>
-      <a href="about.html" class="drawer__link" data-nav-link><i class="ri-information-line" aria-hidden="true"></i> About</a>
       <a href="features.html" class="drawer__link active" data-nav-link><i class="ri-flashlight-line"></i> Features</a>
+      <a href="index.html#how-it-works" class="drawer__link" data-nav-link><i class="ri-route-line"></i> How It Works</a>
+      <a href="index.html#industries" class="drawer__link" data-nav-link><i class="ri-store-2-line"></i> Industries</a>
+      <a href="features.html#integrations" class="drawer__link" data-nav-link><i class="ri-plug-line"></i> Integrations</a>
       <a href="pricing.html" class="drawer__link" data-nav-link><i class="ri-price-tag-3-line"></i> Pricing</a>
-      <a href="demo.html" class="drawer__link" data-nav-link><i class="ri-play-circle-line"></i> Demo</a>
-      <a href="blog.html" class="drawer__link" data-nav-link><i class="ri-article-line"></i> Blog</a>
-      <a href="contact.html" class="drawer__link" data-nav-link><i class="ri-mail-line"></i> Contact</a>
+      <a href="blog.html" class="drawer__link" data-nav-link><i class="ri-book-open-line"></i> Resources</a>
+      <a href="contact.html" class="drawer__link" data-nav-link><i class="ri-mail-line"></i> Contact Us</a>
       <a href="dashboard.html" class="drawer__link" data-nav-link><i class="ri-dashboard-line"></i> Dashboard</a>
-      <div style="margin-top: 1.5rem; padding-inline: 1.5rem; display: flex; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
+      
+      <div style="margin-top: 1rem; padding-inline: 1rem; display: flex; justify-content: center; gap: 1rem;">
         <button class="icon-btn" data-theme-toggle data-theme-icon aria-label="Toggle dark mode"></button>
         <button class="icon-btn" data-rtl-btn aria-label="Switch text direction"></button>
       </div>
-      <div style="padding-inline: 1.5rem; padding-bottom: 1.5rem;">
-        <a href="register.html" class="btn btn--primary btn--full" style="justify-content: center;">Get Started</a>
+      
+      <div style="padding: 1rem; display: flex; flex-direction: column; gap: 0.6rem;">
+        <a href="register.html" class="btn btn--primary btn--full" style="justify-content: center;">
+          <i class="ri-rocket-line"></i> Start Free Trial
+        </a>
+        <a href="demo.html" class="btn btn--outline btn--full" style="justify-content: center;">
+          <i class="ri-play-circle-line"></i> Book a Demo
+        </a>
       </div>
     </nav>
     <div class="drawer__footer" style="justify-content: center; border-top: none; padding-top: 0;">
-      <span style="font-size:var(--size-xs);color:var(--clr-text-muted);">v2.4.1</span>
+      <span style="font-size:var(--size-xs);color:var(--clr-text-muted);">v2.4.2</span>
     </div>
   </div>
 
@@ -568,12 +579,12 @@
         <p>From table-side dynamic QR codes to kitchen display routing and automated POS financial closeouts — every feature designed to boost revenue and delight diners.</p>
 
         <div class="feature-nav-tabs" role="tablist">
+          <a href="#menu-management" class="feature-nav-tab"><i class="ri-restaurant-line"></i> Menu Management</a>
+          <a href="#order-tracking" class="feature-nav-tab"><i class="ri-tv-2-line"></i> Order Tracking &amp; KDS</a>
+          <a href="#payment-options" class="feature-nav-tab"><i class="ri-bank-card-line"></i> Payment Options</a>
+          <a href="#integrations" class="feature-nav-tab"><i class="ri-plug-line"></i> POS Integrations</a>
           <a href="#qr-studio" class="feature-nav-tab"><i class="ri-qr-code-line"></i> Dynamic QR Studio</a>
-          <a href="#menu-management" class="feature-nav-tab"><i class="ri-restaurant-line"></i> Live Menu Engine</a>
-          <a href="#contactless-ordering" class="feature-nav-tab"><i class="ri-smartphone-line"></i> Table Ordering & Tabs</a>
-          <a href="#kitchen-kds" class="feature-nav-tab"><i class="ri-computer-line"></i> Kitchen Display (KDS)</a>
-          <a href="#payments" class="feature-nav-tab"><i class="ri-bank-card-line"></i> Instant Pay & Split</a>
-          <a href="#analytics" class="feature-nav-tab"><i class="ri-bar-chart-grouped-line"></i> Revenue Intelligence</a>
+          <a href="#analytics" class="feature-nav-tab"><i class="ri-bar-chart-grouped-line"></i> Analytics &amp; Reports</a>
         </div>
       </div>
     </section>
@@ -821,8 +832,9 @@
       </div>
     </section>
 
-    <!-- ===================== DEEP DIVE 3: KITCHEN DISPLAY SYSTEM (KDS) ===================== -->
-    <section id="kitchen-kds" class="feature-deep-dive" aria-labelledby="kds-heading">
+    <!-- ===================== DEEP DIVE 3: KITCHEN DISPLAY SYSTEM (KDS) & ORDER TRACKING ===================== -->
+    <section id="order-tracking" class="feature-deep-dive" aria-labelledby="kds-heading">
+      <span id="kitchen-kds"></span>
       <div class="container">
         <div class="feature-dive-grid">
           <div class="feature-dive-text">
@@ -899,6 +911,91 @@
                   <div style="margin-block-start:auto;padding-block-start:0.75rem;display:flex;justify-content:flex-end;">
                     <button class="btn btn--sm btn--warning" style="padding:0.25rem 0.6rem;font-size:0.7rem;" onclick="bumpTicket(this)">Bump Order</button>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== DEEP DIVE 4: CONTACTLESS PAYMENT OPTIONS & BILL SPLITTING ===================== -->
+    <section id="payment-options" class="feature-deep-dive" aria-labelledby="payments-heading">
+      <span id="payments"></span>
+      <div class="container">
+        <div class="feature-dive-grid feature-dive-grid--reversed">
+          <div class="feature-dive-text">
+            <span class="feature-tag-badge"><i class="ri-secure-payment-line"></i> Contactless Checkout</span>
+            <h2 id="payments-heading">Instant Pay-at-Table &amp; Digital Bill Splitting</h2>
+            <p>Empower diners to settle their check the second they finish their meal. Cut 15 minutes of waiter trips back and forth with payment terminals while protecting guest card data with tokenized encryption.</p>
+
+            <ul class="feature-perk-list">
+              <li class="feature-perk-item">
+                <div class="feature-perk-icon"><i class="ri-check-line"></i></div>
+                <div>
+                  <strong>1-Tap Apple Pay &amp; Google Pay</strong>
+                  <span>Instant biometric checkout directly from mobile Safari and Chrome. Diners settle tabs in under 3 seconds with zero manual data entry.</span>
+                </div>
+              </li>
+              <li class="feature-perk-item">
+                <div class="feature-perk-icon"><i class="ri-check-line"></i></div>
+                <div>
+                  <strong>Itemized &amp; Equal Bill-Splitting</strong>
+                  <span>Dining parties can divide checks equally, claim individual dishes, or cover specific rounds with friends from separate smartphones.</span>
+                </div>
+              </li>
+              <li class="feature-perk-item">
+                <div class="feature-perk-icon"><i class="ri-check-line"></i></div>
+                <div>
+                  <strong>Configurable Server Gratuity Presets</strong>
+                  <span>Prompt diners with 15%, 18%, 20%, or custom tip buttons. Restaurants experience an average +18% increase in waitstaff tip earnings.</span>
+                </div>
+              </li>
+            </ul>
+
+            <div class="feature-dive-buttons">
+              <a href="demo.html" class="btn btn--primary btn--sm">Test Payment Simulation</a>
+              <a href="pricing.html" class="btn btn--outline btn--sm">Compare Payment Fees</a>
+            </div>
+          </div>
+
+          <div class="feature-dive-media">
+            <div class="mock-card-container">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-block-end:1rem;">
+                <h4 style="font-size:0.95rem;color:var(--clr-text-primary);font-family:var(--font-heading);">Table 14 Checkout Screen</h4>
+                <span class="badge badge--pill badge--secondary" style="font-size:0.75rem;"><i class="ri-shield-check-line"></i> PCI-DSS Level 1</span>
+              </div>
+
+              <!-- High quality image preview -->
+              <div style="border-radius:var(--radius-md);overflow:hidden;margin-block-end:1rem;height:140px;">
+                <img src="assets/images/blog/bill_split.jpg" alt="Diners settling bill contactless at restaurant table" style="width:100%;height:100%;object-fit:cover;" />
+              </div>
+
+              <div style="background:var(--clr-surface-2);border-radius:var(--radius-md);padding:0.875rem;margin-block-end:0.75rem;">
+                <div style="display:flex;justify-content:space-between;font-size:0.8rem;color:var(--clr-text-secondary);margin-block-end:0.35rem;">
+                  <span>Subtotal (3 items)</span>
+                  <strong style="color:var(--clr-text-primary);">$68.50</strong>
+                </div>
+                <div style="display:flex;justify-content:space-between;font-size:0.8rem;color:var(--clr-text-secondary);margin-block-end:0.35rem;">
+                  <span>Tax &amp; Service Fee</span>
+                  <strong style="color:var(--clr-text-primary);">$5.48</strong>
+                </div>
+                <div style="display:flex;justify-content:space-between;font-size:0.85rem;color:var(--clr-secondary);font-weight:600;margin-block-end:0.5rem;">
+                  <span>Tip (18%)</span>
+                  <span>$12.33</span>
+                </div>
+                <div style="display:flex;justify-content:space-between;font-size:1.05rem;font-weight:800;color:var(--clr-text-primary);border-block-start:1px solid var(--clr-border);padding-block-start:0.5rem;">
+                  <span>Total Amount</span>
+                  <span>$86.31</span>
+                </div>
+              </div>
+
+              <div style="display:flex;gap:0.5rem;">
+                <div style="flex:1;background:#000;color:#fff;border-radius:8px;padding:0.6rem;text-align:center;font-size:0.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;gap:0.35rem;">
+                  <i class="ri-apple-fill"></i> Pay with Apple Pay
+                </div>
+                <div style="flex:1;background:var(--clr-surface-2);border:1px solid var(--clr-border);color:var(--clr-text-primary);border-radius:8px;padding:0.6rem;text-align:center;font-size:0.8rem;font-weight:600;">
+                  <i class="ri-pie-chart-line"></i> Split Bill
                 </div>
               </div>
             </div>
