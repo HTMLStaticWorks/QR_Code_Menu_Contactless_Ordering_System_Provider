@@ -14,146 +14,53 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/rtl.css" />
-
   <style>
     .auth-layout {
-      display: grid;
-      grid-template-columns: 1fr;
       min-height: 100svh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at top left, #e0f2fe 0%, #f8fafc 50%, #f0f9ff 100%);
+      padding: 3rem 1.25rem 2rem;
+      position: relative;
+    }
+    [data-theme="dark"] .auth-layout {
+      background: var(--clr-bg);
     }
 
     .auth-visual {
-      display: none;
+      display: none !important;
     }
 
-    .auth-visual::before {
-      content: '';
-      position: absolute;
-      top: -20%;
-      right: -20%;
-      width: 60%;
-      aspect-ratio: 1;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(0,200,150,0.15) 0%, transparent 70%);
-    }
-
-    .auth-visual::after {
-      content: '';
-      position: absolute;
-      bottom: -25%;
-      left: -10%;
-      width: 50%;
-      aspect-ratio: 1;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,107,91,0.1) 0%, transparent 70%);
-    }
-
-    .auth-visual__content { position: relative; z-index: 1; }
-
-    .auth-visual__logo {
-      display: flex;
-      align-items: center;
-      gap: 0.625rem;
-      font-family: var(--font-heading);
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: #fff;
-      margin-block-end: var(--sp-12);
-      text-decoration: none;
-    }
-
-    .auth-visual__logo-icon {
-      width: 36px;
-      height: 36px;
-      background: var(--clr-secondary);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--clr-primary);
-    }
-
-    .auth-visual h2 {
-      font-size: clamp(1.75rem, 3vw, 2.5rem);
-      color: #fff;
-      margin-block-end: var(--sp-3);
-      line-height: 1.2;
-    }
-
-    .auth-visual p {
-      color: rgba(255,255,255,0.5);
-      font-size: var(--size-lead);
-      max-width: 360px;
-      line-height: 1.7;
-      margin-block-end: var(--sp-8);
-    }
-
-    /* Steps */
-    .auth-steps {
-      display: flex;
-      flex-direction: column;
-      gap: var(--sp-4);
-    }
-
-    .auth-step {
-      display: flex;
-      align-items: flex-start;
-      gap: var(--sp-3);
-    }
-
-    .auth-step__num {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      border: 2px solid rgba(0,200,150,0.4);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-heading);
-      font-size: 0.875rem;
-      font-weight: 600;
-      color: var(--clr-secondary);
-      flex-shrink: 0;
-    }
-
-    .auth-step__text h4 {
-      color: rgba(255,255,255,0.85);
-      font-size: var(--size-small);
-      font-weight: 600;
-      margin-block-end: 0.2rem;
-    }
-
-    .auth-step__text p {
-      color: rgba(255,255,255,0.4);
-      font-size: var(--size-xs);
-      margin-block: 0;
-      max-width: 100%;
-    }
-
-    /* Form panel */
     .auth-form-panel {
+      width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: var(--sp-8) var(--sp-6);
-      background: var(--clr-bg);
-      overflow-y: auto;
+      background: transparent;
+    }
+
+    .auth-form-container {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .auth-form-wrap {
       width: 100%;
-      max-width: 440px;
+      max-width: 480px;
+      background: #ffffff;
+      border: 1px solid var(--clr-border);
+      border-radius: 24px;
+      padding: 2.75rem 2.25rem;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.05);
+      position: relative;
     }
-
-    .auth-form-wrap h1 {
-      font-size: clamp(1.625rem, 3vw, 2.125rem);
-      margin-block-end: 0.5rem;
-    }
-
-    .auth-form-wrap > p {
-      color: var(--clr-text-secondary);
-      font-size: var(--size-body);
-      margin-block-end: var(--sp-5);
+    [data-theme="dark"] .auth-form-wrap {
+      background: var(--clr-surface);
+      border-color: var(--clr-border);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
     }
 
     .social-btn {
@@ -162,314 +69,29 @@
       justify-content: center;
       gap: 0.625rem;
       width: 100%;
-      padding: 0.75rem;
-      border: 1.5px solid var(--clr-border-strong);
-      border-radius: var(--radius-md);
+      padding: 0.75rem 1.25rem;
+      border: 1px solid var(--clr-border-strong);
+      border-radius: 50px;
       background: var(--clr-surface);
       font-size: var(--size-small);
-      font-weight: 500;
+      font-weight: 600;
       color: var(--clr-text-primary);
       cursor: pointer;
       transition: all var(--transition-fast);
       text-decoration: none;
     }
-
     .social-btn:hover {
       border-color: var(--clr-secondary);
       background: var(--clr-secondary-light);
     }
-
     [data-theme="dark"] .social-btn:hover {
-      background: rgba(0,200,150,0.08);
+      background: rgba(0, 200, 150, 0.1);
     }
 
     .auth-form {
       display: flex;
       flex-direction: column;
       gap: var(--sp-3);
-    }
-
-    .auth-link-row {
-      text-align: center;
-      font-size: var(--size-small);
-      color: var(--clr-text-secondary);
-      margin-block-start: var(--sp-4);
-    }
-
-    .auth-link-row a {
-      color: var(--clr-secondary);
-      font-weight: 500;
-      text-decoration: underline;
-      text-underline-offset: 2px;
-    }
-
-    /* Brand logo (mobile / tablet / topbar) */
-    .auth-brand-logo {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.625rem;
-      font-family: var(--font-heading);
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--clr-text-primary);
-      text-decoration: none;
-      transition: opacity var(--transition-fast);
-      flex-shrink: 0;
-    }
-
-    .auth-brand-logo:hover {
-      opacity: 0.9;
-    }
-
-    .auth-brand-logo span span,
-    .auth-brand-logo .brand-highlight {
-      color: var(--clr-secondary);
-    }
-
-    .auth-brand-logo__icon {
-      width: 36px;
-      height: 36px;
-      background: var(--clr-secondary);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--clr-primary);
-      font-size: 1.1rem;
-      flex-shrink: 0;
-      box-shadow: 0 2px 8px rgba(0, 200, 150, 0.25);
-    }
-
-    /* Auth topbar navigation */
-    .auth-topbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
-      padding: 1.5rem 2rem 0; /* No background/border on desktop */
-    }
-
-    .auth-topbar__actions {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .auth-back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.375rem;
-      font-size: var(--size-small);
-      font-weight: 500;
-      color: var(--clr-text-secondary);
-      text-decoration: none;
-      padding: 0.5rem 0.875rem;
-      border-radius: var(--radius-md);
-      transition: all var(--transition-fast);
-      border: 1px solid var(--clr-border);
-      background: var(--clr-surface);
-    }
-
-    .auth-back-link:hover {
-      color: var(--clr-text-primary);
-      border-color: var(--clr-border-strong);
-      background: var(--clr-surface-2, rgba(0,0,0,0.03));
-    }
-
-    .auth-form-container {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: var(--sp-8) var(--sp-6);
-    }
-
-    /* Responsive: ≤ 1024px (Mobile, Tablet, and 1024px) */
-    @media (max-width: 1024px) {
-      .auth-layout {
-        grid-template-columns: 1fr;
-        min-height: 100svh;
-      }
-
-      .auth-visual {
-        display: none;
-      }
-
-      .auth-form-panel {
-        min-height: 100svh;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        justify-content: flex-start;
-      }
-
-      .auth-topbar {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-        padding: 1rem 2rem;
-        background: var(--clr-surface);
-        border-bottom: 1px solid var(--clr-border);
-        position: sticky;
-        top: 0;
-        z-index: 50;
-        backdrop-filter: blur(8px);
-      }
-
-      .auth-brand-logo {
-        display: inline-flex;
-      }
-
-      .auth-form-container {
-        flex: 1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: var(--sp-8) var(--sp-6);
-        min-height: calc(100svh - 73px);
-      }
-    }
-
-    /* Tablet breakpoint (≤ 768px) */
-    @media (max-width: 768px) {
-      .auth-topbar {
-        padding: 0.875rem 1.25rem;
-      }
-
-      .auth-brand-logo {
-        font-size: 1.25rem;
-      }
-
-      .auth-brand-logo__icon {
-        width: 32px;
-        height: 32px;
-        font-size: 1rem;
-        border-radius: 8px;
-      }
-
-      .auth-form-container {
-        padding: var(--sp-6) var(--sp-4);
-      }
-    }
-
-    /* Mobile breakpoint (≤ 480px) */
-    @media (max-width: 480px) {
-      .auth-topbar {
-        padding: 0.75rem 1rem;
-      }
-
-      .auth-back-link span {
-        display: none;
-      }
-
-      .auth-back-link {
-        padding: 0.45rem;
-        width: 36px;
-        height: 36px;
-        justify-content: center;
-      }
-
-      .auth-brand-logo {
-        font-size: 1.15rem;
-        gap: 0.5rem;
-      }
-
-      .auth-brand-logo__icon {
-        width: 30px;
-        height: 30px;
-        font-size: 0.95rem;
-      }
-
-      .auth-form-container {
-        padding: var(--sp-5) var(--sp-3);
-      }
-    }
-
-    /* Extra small mobile (≤ 360px) */
-    @media (max-width: 360px) {
-      .auth-topbar {
-        padding: 0.625rem 0.75rem;
-      }
-
-      .auth-brand-logo {
-        font-size: 1.05rem;
-        gap: 0.375rem;
-      }
-
-      .auth-brand-logo__icon {
-        width: 28px;
-        height: 28px;
-        font-size: 0.9rem;
-      }
-
-      .auth-form-container {
-        padding: var(--sp-4) var(--sp-2);
-      }
-    }
-
-    /* RTL Support */
-    [dir="rtl"] .auth-back-link i {
-      transform: scaleX(-1);
-    }
-
-    /* Auth Form Overrides matching the new design */
-    .auth-visual {
-      display: none !important;
-    }
-    .auth-form-panel {
-      width: 100% !important;
-      background: transparent !important;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .auth-form-container {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-    }
-
-    .auth-layout {
-      background: radial-gradient(circle at top left, #e0f2fe 0%, #f8fafc 50%, #f0f9ff 100%);
-      min-height: 100svh;
-      display: flex;
-    }
-    [data-theme="dark"] .auth-layout {
-      background: var(--clr-bg);
-    }
-
-    .auth-form-wrap {
-      background: #ffffff;
-      border: none;
-      border-radius: 24px;
-      padding: 3rem 2.5rem;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.04);
-      max-width: 480px;
-      margin: 0 auto;
-    }
-    [data-theme="dark"] .auth-form-wrap {
-      background: var(--clr-surface);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-    }
-
-    .auth-form-wrap h1 {
-      font-weight: 800;
-      color: var(--clr-text-primary);
-      text-align: center;
-      font-size: clamp(1.75rem, 3vw, 2.25rem);
-      margin-block-end: 0.5rem;
-    }
-
-    .auth-form-wrap > p {
-      text-align: center;
-      color: var(--clr-text-secondary);
-      font-size: var(--size-body);
-      margin-block-end: var(--sp-6);
     }
 
     .auth-form-wrap .form-label {
@@ -518,78 +140,30 @@
       box-shadow: 0 12px 20px rgba(0, 200, 150, 0.35);
     }
 
-    .auth-form-wrap .social-btn {
-      border-radius: 50px;
-      border: 1px solid var(--clr-border-strong);
-      padding: 0.75rem 1.5rem;
-      font-weight: 600;
-      background: transparent;
-      color: var(--clr-text-primary);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.625rem;
-    }
-    .auth-form-wrap .social-btn:hover {
-      background: var(--clr-surface-2);
+    .auth-link-row {
+      text-align: center;
+      font-size: var(--size-small);
+      color: var(--clr-text-secondary);
+      margin-block-start: var(--sp-4);
     }
 
-    .auth-topbar {
-      display: flex !important;
-      align-items: center !important;
-      justify-content: space-between !important;
-      width: 100% !important;
-      padding: 1.25rem 2rem !important;
-      position: relative !important;
-      top: auto !important;
-      right: auto !important;
-      z-index: 10 !important;
-    }
-
-    .auth-page-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.35rem 0.85rem;
-      background: var(--clr-secondary-light);
+    .auth-link-row a {
       color: var(--clr-secondary);
-      border-radius: var(--radius-pill);
-      font-size: 0.85rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 2px;
     }
 
-    [data-theme="dark"] .auth-page-pill {
-      background: rgba(0, 200, 150, 0.15);
-    }
-
-    .auth-topbar__actions .icon-btn {
-      background: var(--clr-surface);
-      border: 1px solid var(--clr-border);
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-
-    .auth-brand-logo__icon {
-      background: var(--clr-primary) !important;
-      color: var(--clr-secondary) !important;
-    }
-    .auth-brand-logo span span {
-      color: var(--clr-secondary) !important;
-    }
-
-    @media (max-width: 600px) {
-      .auth-topbar {
-        padding: 0.75rem 1rem !important;
+    @media (max-width: 480px) {
+      .auth-layout {
+        padding: 4.5rem 1rem 2rem;
       }
-      .auth-page-pill {
-        font-size: 0.75rem;
-        padding: 0.25rem 0.6rem;
+      .auth-form-wrap {
+        padding: 2rem 1.25rem;
+        border-radius: 20px;
       }
     }
-  
+
     [dir="rtl"] .form-checkbox {
       flex-direction: row !important;
     }
@@ -597,73 +171,32 @@
 </head>
 <body>
 
+  <!-- Floating Outside Top-Right Preferences (Theme & RTL) -->
+  <div class="auth-corner-actions" aria-label="Display Preferences">
+    <button class="icon-btn" data-theme-toggle data-theme-icon aria-label="Toggle dark mode" title="Toggle theme"></button>
+    <button class="icon-btn" data-rtl-btn aria-label="Switch to RTL" title="Switch direction"></button>
+  </div>
+
   <div class="auth-layout">
 
-    <!-- LEFT: Visual -->
-    <div class="auth-visual" aria-hidden="true">
-      <div class="auth-visual__content">
-        <a href="index.html" class="navbar__logo" aria-label="QRServe — Home" style="color: var(--clr-text-primary);">
-          <div class="navbar__logo-icon" aria-hidden="true">
-            <i class="ri-qr-code-line" style="font-size:1.1rem;"></i>
-          </div>
-          QR<span>Serve</span>
-        </a>
-
-        <h2>Start your free trial in 3 simple steps</h2>
-        <p>No credit card required. Your digital menu could be live in under 20 minutes.</p>
-
-        <div class="auth-steps">
-          <div class="auth-step">
-            <div class="auth-step__num">01</div>
-            <div class="auth-step__text">
-              <h4>Create your account</h4>
-              <p>Enter your restaurant details and you're in.</p>
-            </div>
-          </div>
-          <div class="auth-step">
-            <div class="auth-step__num">02</div>
-            <div class="auth-step__text">
-              <h4>Build your digital menu</h4>
-              <p>Use our builder to add items, prices, and photos.</p>
-            </div>
-          </div>
-          <div class="auth-step">
-            <div class="auth-step__num">03</div>
-            <div class="auth-step__text">
-              <h4>Generate & place QR codes</h4>
-              <p>Print and place on tables — you're live!</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- RIGHT: Form -->
     <div class="auth-form-panel">
-
-      <!-- Topbar with Brand Logo, Page Name Badge, and Outside Controls -->
-      <header class="auth-topbar" aria-label="Brand navigation">
-        <div style="display:flex;align-items:center;gap:0.875rem;">
-          <a href="index.html" class="auth-brand-logo" aria-label="QRServe — Home">
-            <div class="auth-brand-logo__icon" aria-hidden="true">
-              <i class="ri-qr-code-line"></i>
-            </div>
-            <span>QR<span>Serve</span></span>
-          </a>
-          <span class="auth-page-pill" aria-label="Current page">
-            <i class="ri-user-add-line" aria-hidden="true"></i> Register
-          </span>
-        </div>
-        <div class="auth-topbar__actions">
-          <button class="icon-btn" data-theme-toggle data-theme-icon aria-label="Toggle dark mode" title="Toggle theme"></button>
-          <button class="icon-btn" data-rtl-btn aria-label="Switch to RTL" title="Switch direction"></button>
-        </div>
-      </header>
-
       <div class="auth-form-container">
         <div class="auth-form-wrap">
 
-          <h1 class="auth-title" style="text-align: center; font-size: 1.625rem; font-weight: 700; margin-bottom: 1.25rem;">Create Your Free Account</h1>
+          <!-- Authentication Card Header with Logo, Page Name Badge, and Title -->
+          <div class="auth-card-header">
+            <a href="index.html" class="auth-card-logo" aria-label="QRServe — Return to Home">
+              <div class="auth-card-logo__icon" aria-hidden="true">
+                <i class="ri-qr-code-line"></i>
+              </div>
+              <span class="auth-card-logo__text">QR<span>Serve</span></span>
+            </a>
+            <div class="auth-page-pill" aria-label="Authentication Page">
+              <i class="ri-user-add-line" aria-hidden="true"></i> Register
+            </div>
+            <h1 class="auth-title">Create Your Free Account</h1>
+            <p class="auth-subtitle">Start your 14-day free trial &bull; No credit card required</p>
+          </div>
 
         <!-- Alert -->
         <div class="form-alert form-alert--error" role="alert" aria-live="polite"></div>
@@ -806,6 +339,13 @@
 
         <div class="auth-link-row" style="text-align: center; margin-top: 1.5rem;">
           Already have an account? <a href="login.html" style="color: var(--clr-secondary); font-weight: 600;">Sign in instead</a>
+        </div>
+
+        <!-- Return to Homepage Link -->
+        <div style="text-align: center; margin-block-start: 1.25rem;">
+          <a href="index.html" class="auth-return-link" aria-label="Return to Homepage">
+            <i class="ri-arrow-left-line"></i> Return to Homepage
+          </a>
         </div>
 
         <p style="text-align:center;font-size:var(--size-xs);color:var(--clr-text-muted);margin-block-start:var(--sp-4);line-height:1.6;">

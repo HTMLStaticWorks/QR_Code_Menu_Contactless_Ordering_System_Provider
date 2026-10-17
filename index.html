@@ -101,8 +101,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding-block: 2.75rem;
-      min-height: 560px;
+      padding-block: 4.5rem;
+      min-height: 640px;
     }
 
     .phone-mockup-frame {
@@ -246,8 +246,8 @@
     /* Standee Mockup Beside Phone */
     .standee-mockup {
       position: absolute;
-      right: -35px;
-      bottom: 35px;
+      right: -45px;
+      bottom: 25px;
       width: 140px;
       background: var(--clr-surface);
       border: 1.5px solid var(--clr-border);
@@ -278,7 +278,7 @@
       background: var(--clr-surface);
       border: 1.5px solid var(--clr-border);
       border-radius: var(--radius-md);
-      padding: 0.65rem 0.95rem;
+      padding: 0.55rem 0.85rem;
       box-shadow: 0 15px 35px rgba(0,0,0,0.22);
       z-index: 4;
       display: flex;
@@ -288,14 +288,14 @@
     }
 
     .hero-badge-stat--top {
-      top: 0;
-      left: -35px;
+      top: -15px;
+      left: -40px;
       animation: float-1 4.5s ease-in-out infinite;
     }
 
     .hero-badge-stat--bottom {
-      bottom: 0;
-      left: -35px;
+      bottom: -15px;
+      left: -40px;
       animation: float-2 4s ease-in-out 0.5s infinite;
     }
 
@@ -317,7 +317,7 @@
       margin-block-start: var(--sp-6);
     }
 
-    @media (max-width: 992px) {
+    @media (max-width: 1024px) {
       .capabilities-grid {
         grid-template-columns: 1fr;
       }
@@ -325,11 +325,16 @@
         grid-template-columns: 1fr;
         text-align: center;
       }
+      .hero__badge-pill,
+      .hero__desc {
+        margin-inline: auto !important;
+      }
       .hero-trust-proof {
         justify-content: center;
       }
       .hero__actions {
-        justify-content: center;
+        justify-content: center !important;
+        margin-inline: auto;
       }
       .hero__visual-wrap {
         flex-direction: column;
@@ -361,6 +366,45 @@
       }
       .hero-badge-stat--bottom {
         order: 4;
+      }
+
+      /* Center Simulator Callout Card CTA buttons at 768px & 1024px */
+      .hiw-simulator-callout {
+        flex-direction: column !important;
+        text-align: center !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: var(--sp-4) !important;
+        padding: var(--sp-6) var(--sp-5) !important;
+      }
+      .hiw-simulator-callout__content {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        text-align: left;
+        margin-inline: auto;
+      }
+      .hiw-simulator-callout__actions {
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        margin-inline: auto !important;
+      }
+      .hiw-simulator-callout__actions .btn {
+        text-align: center !important;
+        justify-content: center !important;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hiw-simulator-callout__content {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hiw-simulator-callout__icon {
+        margin-inline: auto;
       }
     }
 
@@ -586,6 +630,211 @@
         align-items: flex-start;
         gap: 0.35rem;
       }
+    }
+
+    /* Home 1 Pricing Cards: Center-aligned points and card content */
+    .pricing-grid .pricing-card {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .pricing-grid .pricing-card__tier {
+      text-align: center;
+      width: 100%;
+    }
+
+    .pricing-grid .pricing-card h3 {
+      text-align: center;
+      width: 100%;
+    }
+
+    .pricing-grid .pricing-card__price {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 0.25rem;
+      width: 100%;
+    }
+
+    .pricing-grid .pricing-card__features {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-block: var(--sp-4);
+      padding: 0;
+      list-style: none;
+    }
+
+    .pricing-grid .pricing-feature {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 0.625rem;
+      width: 100%;
+      font-size: var(--size-small);
+      color: var(--clr-text-secondary);
+    }
+
+    .pricing-grid .pricing-card > .btn {
+      width: 100%;
+      text-align: center;
+      justify-content: center;
+    }
+
+    /* Industry Cards CTA buttons: Center aligned */
+    .industry-card__footer {
+      margin-block-start: auto;
+      padding-block-start: 1rem;
+      border-block-start: 1px solid var(--clr-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      width: 100%;
+    }
+
+    .industry-card__footer .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.4rem !important;
+      border-radius: var(--radius-pill);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-inline: auto;
+      text-align: center;
+    }
+
+    /* Client Venue Cards with Images */
+    .client-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--sp-4);
+      margin-block-end: var(--sp-6);
+    }
+
+    @media (max-width: 1024px) {
+      .client-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .client-cards-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .client-card {
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      padding: 0;
+      transition: all var(--transition-base);
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .client-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--clr-secondary);
+      box-shadow: var(--shadow-md);
+    }
+
+    .client-card__img-wrap {
+      position: relative;
+      width: 100%;
+      height: 180px;
+      overflow: hidden;
+      background: var(--clr-surface-2);
+    }
+
+    .client-card__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform var(--transition-slow);
+    }
+
+    .client-card:hover .client-card__img {
+      transform: scale(1.06);
+    }
+
+    .client-card__body {
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .client-card__top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-block-end: 0.75rem;
+    }
+
+    .client-card__name {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--clr-text-primary);
+      line-height: 1.25;
+    }
+
+    .client-card__type {
+      font-size: var(--size-xs);
+      color: var(--clr-text-muted);
+      margin-block-start: 0.25rem;
+    }
+
+    .client-card__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.2rem 0.55rem;
+      border-radius: var(--radius-pill);
+      background: var(--clr-secondary-light);
+      color: var(--clr-secondary);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .client-card__metric {
+      font-size: 0.875rem;
+      color: var(--clr-text-secondary);
+      line-height: 1.5;
+      font-weight: 500;
+      margin-block-end: 1rem;
+    }
+
+    .client-card__metric strong {
+      color: var(--clr-secondary);
+      font-weight: 700;
+    }
+
+    .client-card__footer {
+      margin-block-start: auto;
+      padding-block-start: 0.75rem;
+      border-block-start: 1px solid var(--clr-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: var(--size-xs);
+      color: var(--clr-text-muted);
     }
   </style>
 </head>
@@ -910,7 +1159,10 @@
         <div class="client-cards-grid">
           <!-- Client 1 -->
           <div class="client-card reveal">
-            <div>
+            <div class="client-card__img-wrap">
+              <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?w=600&auto=format&fit=crop&q=80" alt="Bella Vista Ristorante elegant dining interior" class="client-card__img" loading="lazy" />
+            </div>
+            <div class="client-card__body">
               <div class="client-card__top">
                 <div>
                   <div class="client-card__name">Bella Vista Ristorante</div>
@@ -921,16 +1173,19 @@
               <div class="client-card__metric">
                 <strong>42% Faster Table Turns</strong> during peak Friday &amp; Saturday dinner shifts with zero waiter delays.
               </div>
-            </div>
-            <div class="client-card__footer">
-              <span>Toast POS Connected</span>
-              <span style="color:var(--clr-secondary);font-weight:600;">+24% Check Size</span>
+              <div class="client-card__footer">
+                <span>Toast POS Connected</span>
+                <span style="color:var(--clr-secondary);font-weight:600;">+24% Check Size</span>
+              </div>
             </div>
           </div>
 
           <!-- Client 2 -->
           <div class="client-card reveal reveal--delay-1">
-            <div>
+            <div class="client-card__img-wrap">
+              <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&auto=format&fit=crop&q=80" alt="The Grand Palm Resort luxury pool and cabana dining in Dubai" class="client-card__img" loading="lazy" />
+            </div>
+            <div class="client-card__body">
               <div class="client-card__top">
                 <div>
                   <div class="client-card__name">The Grand Palm Resort</div>
@@ -941,16 +1196,19 @@
               <div class="client-card__metric">
                 <strong>+35% In-Room &amp; Cabana Orders</strong> generated via bedside QR standees without front desk calls.
               </div>
-            </div>
-            <div class="client-card__footer">
-              <span>Opera PMS Integrated</span>
-              <span style="color:var(--clr-secondary);font-weight:600;">14 Languages</span>
+              <div class="client-card__footer">
+                <span>Opera PMS Integrated</span>
+                <span style="color:var(--clr-secondary);font-weight:600;">14 Languages</span>
+              </div>
             </div>
           </div>
 
           <!-- Client 3 -->
           <div class="client-card reveal reveal--delay-2">
-            <div>
+            <div class="client-card__img-wrap">
+              <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=600&auto=format&fit=crop&q=80" alt="Artisan Roasters & Bakehouse specialty coffee and pastry counter" class="client-card__img" loading="lazy" />
+            </div>
+            <div class="client-card__body">
               <div class="client-card__top">
                 <div>
                   <div class="client-card__name">Artisan Roasters &amp; Bakehouse</div>
@@ -961,16 +1219,19 @@
               <div class="client-card__metric">
                 <strong>Zero Morning Line Drop-Offs</strong> as commuters scan table/counter codes and grab pickup orders.
               </div>
-            </div>
-            <div class="client-card__footer">
-              <span>Square POS Live</span>
-              <span style="color:var(--clr-secondary);font-weight:600;">180+ Cups/Hr</span>
+              <div class="client-card__footer">
+                <span>Square POS Live</span>
+                <span style="color:var(--clr-secondary);font-weight:600;">180+ Cups/Hr</span>
+              </div>
             </div>
           </div>
 
           <!-- Client 4 -->
           <div class="client-card reveal">
-            <div>
+            <div class="client-card__img-wrap">
+              <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=600&auto=format&fit=crop&q=80" alt="Nomad Social Lounge speakeasy cocktail bar and booths" class="client-card__img" loading="lazy" />
+            </div>
+            <div class="client-card__body">
               <div class="client-card__top">
                 <div>
                   <div class="client-card__name">Nomad Social Lounge</div>
@@ -981,16 +1242,19 @@
               <div class="client-card__metric">
                 <strong>+18% Higher Bar Spend</strong> because patrons re-order cocktails from booths without waving at bartenders.
               </div>
-            </div>
-            <div class="client-card__footer">
-              <span>Apple Pay Enabled</span>
-              <span style="color:var(--clr-secondary);font-weight:600;">1-Tap Reorder</span>
+              <div class="client-card__footer">
+                <span>Apple Pay Enabled</span>
+                <span style="color:var(--clr-secondary);font-weight:600;">1-Tap Reorder</span>
+              </div>
             </div>
           </div>
 
           <!-- Client 5 -->
           <div class="client-card reveal reveal--delay-1">
-            <div>
+            <div class="client-card__img-wrap">
+              <img src="assets/images/blog/food_hall.jpg" alt="CloudEats Collective multi-vendor food hall" class="client-card__img" loading="lazy" />
+            </div>
+            <div class="client-card__body">
               <div class="client-card__top">
                 <div>
                   <div class="client-card__name">CloudEats Collective</div>
@@ -1001,16 +1265,19 @@
               <div class="client-card__metric">
                 <strong>14 Virtual Stalls Consolidated</strong> into one table QR code with unified payment and automated split payouts.
               </div>
-            </div>
-            <div class="client-card__footer">
-              <span>Clover Certified</span>
-              <span style="color:var(--clr-secondary);font-weight:600;">Multi-Vendor Cart</span>
+              <div class="client-card__footer">
+                <span>Clover Certified</span>
+                <span style="color:var(--clr-secondary);font-weight:600;">Multi-Vendor Cart</span>
+              </div>
             </div>
           </div>
 
           <!-- Client 6 -->
           <div class="client-card reveal reveal--delay-2">
-            <div>
+            <div class="client-card__img-wrap">
+              <img src="https://images.unsplash.com/photo-1552611052-33e04de081de?w=600&auto=format&fit=crop&q=80" alt="Kyoto Robata Grill Japanese robatayaki restaurant" class="client-card__img" loading="lazy" />
+            </div>
+            <div class="client-card__body">
               <div class="client-card__top">
                 <div>
                   <div class="client-card__name">Kyoto Robata Grill</div>
@@ -1021,10 +1288,10 @@
               <div class="client-card__metric">
                 <strong>8,500+ International Tourists</strong> served smoothly per month with auto-translated Japanese-to-English menus.
               </div>
-            </div>
-            <div class="client-card__footer">
-              <span>Allergen Filtering</span>
-              <span style="color:var(--clr-secondary);font-weight:600;">99.9% Uptime</span>
+              <div class="client-card__footer">
+                <span>Allergen Filtering</span>
+                <span style="color:var(--clr-secondary);font-weight:600;">99.9% Uptime</span>
+              </div>
             </div>
           </div>
         </div>
@@ -1168,17 +1435,17 @@
         </div>
 
         <!-- Highlight Callout Box -->
-        <div style="background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:var(--radius-xl);padding:var(--sp-5);margin-block-start:var(--sp-6);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
-          <div style="display:flex;align-items:center;gap:1rem;">
-            <div style="width:48px;height:48px;border-radius:12px;background:var(--clr-secondary-light);color:var(--clr-secondary);display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;">
+        <div class="hiw-simulator-callout">
+          <div class="hiw-simulator-callout__content">
+            <div class="hiw-simulator-callout__icon" aria-hidden="true">
               <i class="ri-sparkling-fill"></i>
             </div>
-            <div>
+            <div class="hiw-simulator-callout__text">
               <h4 style="font-size:1.05rem;color:var(--clr-text-primary);margin-block-end:0.2rem;">Ready to experience how your diners will order?</h4>
               <p style="font-size:0.875rem;color:var(--clr-text-secondary);margin:0;">Test our interactive live ordering phone simulator in your browser right now.</p>
             </div>
           </div>
-          <div style="display:flex;gap:0.75rem;">
+          <div class="hiw-simulator-callout__actions">
             <a href="demo.html" class="btn btn--secondary btn--sm">
               <i class="ri-play-circle-line"></i> Launch Live Simulator
             </a>
@@ -1452,7 +1719,7 @@
                 <li class="industry-bullet-item"><i class="ri-check-line"></i> Milk preference &amp; syrup modifiers</li>
               </ul>
               <div class="industry-card__footer">
-                <a href="features.html" class="btn btn--ghost btn--sm" style="padding-inline:0;">Explore Café Solutions <i class="ri-arrow-right-line"></i></a>
+                <a href="features.html" class="btn btn--ghost btn--sm">Explore Café Solutions <i class="ri-arrow-right-line"></i></a>
               </div>
             </div>
           </article>
@@ -1472,7 +1739,7 @@
                 <li class="industry-bullet-item"><i class="ri-check-line"></i> Direct Toast, Square &amp; Clover POS sync</li>
               </ul>
               <div class="industry-card__footer">
-                <a href="features.html" class="btn btn--ghost btn--sm" style="padding-inline:0;">Explore Restaurant Features <i class="ri-arrow-right-line"></i></a>
+                <a href="features.html" class="btn btn--ghost btn--sm">Explore Restaurant Features <i class="ri-arrow-right-line"></i></a>
               </div>
             </div>
           </article>
@@ -1492,7 +1759,7 @@
                 <li class="industry-bullet-item"><i class="ri-check-line"></i> Opera &amp; Cloudbeds room-charge sync</li>
               </ul>
               <div class="industry-card__footer">
-                <a href="features.html" class="btn btn--ghost btn--sm" style="padding-inline:0;">Explore Hotel Tech <i class="ri-arrow-right-line"></i></a>
+                <a href="features.html" class="btn btn--ghost btn--sm">Explore Hotel Tech <i class="ri-arrow-right-line"></i></a>
               </div>
             </div>
           </article>
@@ -1512,7 +1779,7 @@
                 <li class="industry-bullet-item"><i class="ri-check-line"></i> Automated vendor revenue distribution</li>
               </ul>
               <div class="industry-card__footer">
-                <a href="features.html" class="btn btn--ghost btn--sm" style="padding-inline:0;">Explore Food Hall Tech <i class="ri-arrow-right-line"></i></a>
+                <a href="features.html" class="btn btn--ghost btn--sm">Explore Food Hall Tech <i class="ri-arrow-right-line"></i></a>
               </div>
             </div>
           </article>
@@ -1532,7 +1799,7 @@
                 <li class="industry-bullet-item"><i class="ri-check-line"></i> Happy hour scheduled dynamic pricing</li>
               </ul>
               <div class="industry-card__footer">
-                <a href="features.html" class="btn btn--ghost btn--sm" style="padding-inline:0;">Explore Bar Solutions <i class="ri-arrow-right-line"></i></a>
+                <a href="features.html" class="btn btn--ghost btn--sm">Explore Bar Solutions <i class="ri-arrow-right-line"></i></a>
               </div>
             </div>
           </article>
@@ -1552,7 +1819,7 @@
                 <li class="industry-bullet-item"><i class="ri-check-line"></i> Cloud scalability for 10,000+ scans/hr</li>
               </ul>
               <div class="industry-card__footer">
-                <a href="features.html" class="btn btn--ghost btn--sm" style="padding-inline:0;">Explore Venue Solutions <i class="ri-arrow-right-line"></i></a>
+                <a href="features.html" class="btn btn--ghost btn--sm">Explore Venue Solutions <i class="ri-arrow-right-line"></i></a>
               </div>
             </div>
           </article>
@@ -1561,123 +1828,7 @@
     </section>
 
 
-    <!-- ===================== RESTAURANT DASHBOARD LIVE PREVIEW ===================== -->
-    <section class="section" aria-labelledby="db-preview-heading">
-      <div class="container">
-        <div class="section-header centered">
-          <span class="section-label">
-            <i class="ri-dashboard-line" aria-hidden="true"></i> Restaurant Management Dashboard
-          </span>
-          <h2 id="db-preview-heading">Control Every Table, Ticket &amp; Menu From One Screen</h2>
-          <p>
-            An intuitive management console designed specifically for restaurant operators, general managers, and head chefs.
-          </p>
-        </div>
 
-        <div class="dashboard-preview reveal">
-          <div class="dashboard-preview__topbar">
-            <div style="display:flex;align-items:center;gap:1rem;">
-              <div class="dashboard-preview__dots" aria-hidden="true">
-                <div class="dashboard-preview__dot dp-dot-red"></div>
-                <div class="dashboard-preview__dot dp-dot-yellow"></div>
-                <div class="dashboard-preview__dot dp-dot-green"></div>
-              </div>
-              <span style="font-size:0.7rem;color:var(--clr-text-muted);font-family:var(--font-mono);">
-                dashboard.qrserve.io &bull; Bella Vista Restaurant &amp; Enoteca
-              </span>
-            </div>
-            <div style="display:flex;gap:0.5rem;align-items:center;">
-              <div style="width:8px;height:8px;border-radius:50%;background:var(--clr-secondary);"></div>
-              <span style="font-size:0.65rem;color:var(--clr-secondary);font-weight:600;">9 Active Tables Online</span>
-            </div>
-          </div>
-
-          <div class="db-preview-grid">
-            <div class="db-preview-sidebar" aria-hidden="true">
-              <div style="font-family:var(--font-heading);font-size:0.9rem;font-weight:700;color:#fff;margin-block-end:1rem;padding-block-end:0.75rem;border-block-end:1px solid rgba(255,255,255,0.08);">
-                <i class="ri-qr-code-line" style="color:var(--clr-secondary);margin-inline-end:0.5rem;"></i> QRServe
-              </div>
-              <div class="db-preview-nav-item active"><i class="ri-dashboard-line"></i> Overview</div>
-              <div class="db-preview-nav-item"><i class="ri-layout-grid-line"></i> Digital Menu</div>
-              <div class="db-preview-nav-item"><i class="ri-qr-code-line"></i> QR Studio</div>
-              <div class="db-preview-nav-item"><i class="ri-table-line"></i> Floor &amp; Tables</div>
-              <div class="db-preview-nav-item"><i class="ri-file-list-3-line"></i> Orders &amp; KDS</div>
-              <div class="db-preview-nav-item"><i class="ri-bar-chart-2-line"></i> Analytics</div>
-              <div class="db-preview-nav-item"><i class="ri-settings-3-line"></i> Settings</div>
-            </div>
-
-            <div class="db-preview-content">
-              <div class="db-preview-welcome">
-                <div>
-                  <div style="font-family:var(--font-heading);font-size:0.875rem;font-weight:600;color:var(--clr-text-primary);">
-                    Good Evening, Marco &bull; Saturday Dinner Service 👋
-                  </div>
-                  <div style="font-size:0.65rem;color:var(--clr-text-muted);">
-                    All stations online &bull; Toast POS sync active &bull; Average ticket time: 8m 42s
-                  </div>
-                </div>
-                <div>
-                  <div style="background:var(--clr-secondary-light);color:var(--clr-secondary);padding:0.3rem 0.75rem;border-radius:6px;font-size:0.65rem;font-weight:600;">
-                    <i class="ri-wifi-line"></i> POS Connected
-                  </div>
-                </div>
-              </div>
-
-              <div class="db-preview-kpi-grid">
-                <div class="db-preview-kpi">
-                  <div class="db-preview-kpi__label">Today's Orders</div>
-                  <div class="db-preview-kpi__value">247</div>
-                  <div class="db-preview-kpi__trend">&uarr; 18% vs last Saturday</div>
-                </div>
-                <div class="db-preview-kpi">
-                  <div class="db-preview-kpi__label">Gross Table Revenue</div>
-                  <div class="db-preview-kpi__value">$3,284</div>
-                  <div class="db-preview-kpi__trend">&uarr; 22% average check</div>
-                </div>
-                <div class="db-preview-kpi">
-                  <div class="db-preview-kpi__label">Total QR Scans</div>
-                  <div class="db-preview-kpi__value">1,842</div>
-                  <div class="db-preview-kpi__trend">&uarr; 0 wait time recorded</div>
-                </div>
-              </div>
-
-              <div class="db-preview-orders">
-                <div class="db-preview-orders-header">
-                  <span>Live Incoming Orders (Direct from Diners)</span>
-                  <a href="dashboard.html" style="color:var(--clr-secondary);font-size:0.65rem;font-weight:600;text-decoration:none;">
-                    Open Live Feed &rarr;
-                  </a>
-                </div>
-                <div class="db-preview-order-row">
-                  <div class="order-status-dot dot--new"></div>
-                  <span style="color:var(--clr-text-primary);font-weight:600;">#1047 &bull; Table 4</span>
-                  <span style="color:var(--clr-text-muted);">2x Wagyu Ribeye &bull; 1x Mezcalita</span>
-                  <span style="color:var(--clr-secondary);font-weight:600;">$72.50 (Paid)</span>
-                </div>
-                <div class="db-preview-order-row">
-                  <div class="order-status-dot dot--prep"></div>
-                  <span style="color:var(--clr-text-primary);font-weight:600;">#1046 &bull; Table 7</span>
-                  <span style="color:var(--clr-text-muted);">3x Margherita Pizza &bull; Truffle Fries</span>
-                  <span style="color:var(--clr-secondary);font-weight:600;">$54.00 (Prep: 4m)</span>
-                </div>
-                <div class="db-preview-order-row">
-                  <div class="order-status-dot dot--ready"></div>
-                  <span style="color:var(--clr-text-primary);font-weight:600;">#1045 &bull; Table 2</span>
-                  <span style="color:var(--clr-text-muted);">1x Lava Soufflé &bull; 2x Espresso</span>
-                  <span style="color:var(--clr-secondary);font-weight:600;">Ready to Run</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div style="text-align:center;margin-block-start:var(--sp-6);">
-          <a href="dashboard.html" class="btn btn--primary btn--lg" id="hero-db-btn">
-            <i class="ri-dashboard-line" aria-hidden="true"></i> Launch Interactive Dashboard
-          </a>
-        </div>
-      </div>
-    </section>
 
     <!-- ===================== TESTIMONIALS ===================== -->
     <section class="section bg-surface" aria-labelledby="testimonials-heading">

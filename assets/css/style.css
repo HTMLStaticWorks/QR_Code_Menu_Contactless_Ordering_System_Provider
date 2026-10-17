@@ -1036,6 +1036,47 @@ p { color: var(--clr-text-secondary); }
   color: var(--clr-text-muted);
 }
 
+/* Home 1 Pricing Grid: Center Alignment */
+.pricing-grid .pricing-card {
+  text-align: center;
+  align-items: center;
+}
+
+.pricing-grid .pricing-card__tier {
+  text-align: center;
+  width: 100%;
+}
+
+.pricing-grid .pricing-card h3 {
+  text-align: center;
+  width: 100%;
+}
+
+.pricing-grid .pricing-card__price {
+  justify-content: center;
+  width: 100%;
+}
+
+.pricing-grid .pricing-card__features {
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.pricing-grid .pricing-feature {
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  width: 100%;
+}
+
+.pricing-grid .pricing-card > .btn {
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+}
+
 /* ============================================================
    13. TESTIMONIALS
    ============================================================ */
@@ -2604,46 +2645,88 @@ p { color: var(--clr-text-secondary); }
 
 .client-cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: var(--sp-3);
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-4);
   margin-block-end: var(--sp-6);
+}
+
+@media (max-width: 1024px) {
+  .client-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .client-cards-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .client-card {
   background: var(--clr-surface);
   border: 1px solid var(--clr-border);
-  border-radius: var(--radius-lg);
-  padding: var(--sp-4);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  padding: 0;
   transition: all var(--transition-base);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   box-shadow: var(--shadow-sm);
 }
 
 .client-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-5px);
   border-color: var(--clr-secondary);
   box-shadow: var(--shadow-md);
 }
 
+.client-card__img-wrap {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  background: var(--clr-surface-2);
+}
+
+.client-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--transition-slow);
+}
+
+.client-card:hover .client-card__img {
+  transform: scale(1.06);
+}
+
+.client-card__body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
 .client-card__top {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
+  gap: 0.5rem;
   margin-block-end: 0.75rem;
 }
 
 .client-card__name {
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 1.05rem;
   color: var(--clr-text-primary);
+  line-height: 1.25;
 }
 
 .client-card__type {
   font-size: var(--size-xs);
   color: var(--clr-text-muted);
+  margin-block-start: 0.25rem;
 }
 
 .client-card__badge {
@@ -2652,10 +2735,12 @@ p { color: var(--clr-text-secondary); }
   gap: 0.25rem;
   font-size: 0.7rem;
   font-weight: 600;
-  padding: 0.2rem 0.5rem;
+  padding: 0.2rem 0.55rem;
   border-radius: var(--radius-pill);
   background: var(--clr-secondary-light);
   color: var(--clr-secondary);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 [data-theme="dark"] .client-card__badge {
@@ -2663,11 +2748,11 @@ p { color: var(--clr-text-secondary); }
 }
 
 .client-card__metric {
-  font-size: 0.85rem;
+  font-size: 0.875rem;
   color: var(--clr-text-secondary);
-  line-height: 1.45;
+  line-height: 1.5;
   font-weight: 500;
-  margin-block-start: 0.5rem;
+  margin-block-end: 1rem;
 }
 
 .client-card__metric strong {
@@ -2676,7 +2761,7 @@ p { color: var(--clr-text-secondary); }
 }
 
 .client-card__footer {
-  margin-block-start: 1rem;
+  margin-block-start: auto;
   padding-block-start: 0.75rem;
   border-block-start: 1px solid var(--clr-border);
   display: flex;
@@ -2817,6 +2902,118 @@ p { color: var(--clr-text-secondary); }
   border-radius: var(--radius-pill);
   background: var(--clr-surface-2);
   width: fit-content;
+}
+
+/* ============================================================
+   TOGGLE SWITCH COMPONENT
+   ============================================================ */
+.toggle-switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: 44px;
+  height: 24px;
+  flex-shrink: 0;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: var(--clr-border-strong, #3a483e);
+  transition: all var(--transition-base, 0.25s ease);
+  border-radius: 24px;
+}
+
+[data-theme="light"] .toggle-slider {
+  background-color: #d1d5db;
+}
+
+.toggle-slider::before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: #ffffff;
+  transition: transform var(--transition-base, 0.25s ease);
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.toggle-switch input:checked + .toggle-slider {
+  background-color: var(--clr-secondary, #00c896);
+}
+
+.toggle-switch input:checked + .toggle-slider::before {
+  transform: translateX(20px);
+}
+
+.toggle-switch input:focus-visible + .toggle-slider {
+  outline: 2px solid var(--clr-secondary);
+  outline-offset: 2px;
+}
+
+.hiw-simulator-callout {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-xl);
+  padding: var(--sp-5);
+  margin-block-start: var(--sp-6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.hiw-simulator-callout__content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.hiw-simulator-callout__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--clr-secondary-light);
+  color: var(--clr-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.hiw-simulator-callout__text h4 {
+  font-size: 1.05rem;
+  color: var(--clr-text-primary);
+  margin-block-end: 0.2rem;
+}
+
+.hiw-simulator-callout__text p {
+  font-size: 0.875rem;
+  color: var(--clr-text-secondary);
+  margin: 0;
+}
+
+.hiw-simulator-callout__actions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 /* ============================================================
@@ -3144,11 +3341,26 @@ p { color: var(--clr-text-secondary); }
 
 .industry-card__footer {
   margin-block-start: auto;
-  padding-block-start: 0.75rem;
+  padding-block-start: 1rem;
   border-block-start: 1px solid var(--clr-border);
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+.industry-card__footer .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.4rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-inline: auto;
+  text-align: center;
 }
 
 /* ============================================================
@@ -3454,7 +3666,8 @@ p { color: var(--clr-text-secondary); }
   .cta-section__actions .btn,
   .section-actions .btn,
   .pricing-card .btn,
-  .roi-results-box .btn {
+  .roi-results-box .btn,
+  .hiw-simulator-callout__actions .btn {
     text-align: center !important;
     justify-content: center !important;
     align-items: center !important;
@@ -3462,10 +3675,38 @@ p { color: var(--clr-text-secondary); }
 
   .hero__actions,
   .cta-section__actions,
-  .section-actions {
+  .section-actions,
+  .hiw-simulator-callout__actions {
     justify-content: center !important;
     align-items: center !important;
     margin-inline: auto;
+  }
+
+  /* Point 14 & Simulator Callout: Center CTA buttons in 768 & 1024px view */
+  .hiw-simulator-callout {
+    flex-direction: column !important;
+    text-align: center !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: var(--sp-4) !important;
+    padding: var(--sp-6) var(--sp-5) !important;
+  }
+
+  .hiw-simulator-callout__content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    margin-inline: auto;
+  }
+
+  .hiw-simulator-callout__actions {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin-inline: auto !important;
   }
 
   /* Point 18: Tab buttons and toggles center aligned in 768 and 1024 */
@@ -3591,62 +3832,217 @@ p { color: var(--clr-text-secondary); }
   }
 }
 
-/* Point 25 & 26: Authentication page topbar outside card with page name */
-.auth-topbar {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  width: 100% !important;
-  padding: 1rem 1.5rem !important;
-  position: relative !important;
-  top: auto !important;
-  right: auto !important;
-  left: auto !important;
-  background: var(--clr-surface) !important;
-  border-block-end: 1px solid var(--clr-border) !important;
-  z-index: 50 !important;
+/* Authentication Page: Outside Corner Controls & Inside Card Page Name */
+.auth-corner-actions {
+  position: fixed;
+  top: 1.25rem;
+  right: 1.5rem;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.auth-topbar__brand-wrap {
+[dir="rtl"] .auth-corner-actions {
+  right: auto;
+  left: 1.5rem;
+}
+
+.auth-corner-actions .icon-btn {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: 12px;
+  width: 42px;
+  height: 42px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--clr-text-primary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.auth-corner-actions .icon-btn:hover {
+  border-color: var(--clr-secondary);
+  background: var(--clr-surface-2);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 200, 150, 0.2);
+}
+
+.auth-card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-block-end: 1.5rem;
+}
+
+.auth-card-logo {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.625rem;
+  font-family: var(--font-heading);
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: var(--clr-text-primary);
+  text-decoration: none;
+  margin-block-end: 0.75rem;
+  transition: opacity var(--transition-fast);
+}
+
+.auth-card-logo:hover {
+  opacity: 0.85;
+}
+
+.auth-card-logo__icon {
+  width: 38px;
+  height: 38px;
+  background: var(--clr-secondary);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--clr-primary);
+  font-size: 1.15rem;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0, 200, 150, 0.35);
+}
+
+.auth-card-logo__text span {
+  color: var(--clr-secondary);
 }
 
 .auth-page-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.85rem;
+  background: var(--clr-secondary-light);
+  color: var(--clr-secondary);
+  border: 1px solid rgba(0, 200, 150, 0.3);
+  border-radius: var(--radius-pill);
   font-family: var(--font-heading);
   font-size: 0.8rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 0.25rem 0.65rem;
-  background: var(--clr-secondary-light);
-  color: var(--clr-secondary);
-  border-radius: var(--radius-pill);
+  letter-spacing: 0.06em;
+  margin-block-end: 0.85rem;
 }
 
 [data-theme="dark"] .auth-page-pill {
   background: rgba(0, 200, 150, 0.15);
+  border-color: rgba(0, 200, 150, 0.35);
 }
 
-.auth-topbar__actions {
-  display: flex !important;
-  align-items: center !important;
-  gap: 0.5rem !important;
+.auth-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3vw, 1.875rem) !important;
+  font-weight: 800 !important;
+  color: var(--clr-text-primary) !important;
+  margin-block-end: 0.35rem !important;
+  line-height: 1.2 !important;
+  text-align: center !important;
 }
 
-@media (max-width: 768px) {
-  .auth-topbar {
-    padding: 0.75rem 1rem !important;
-    position: sticky !important;
-    top: 0 !important;
+.auth-subtitle {
+  font-size: 0.875rem !important;
+  color: var(--clr-text-secondary) !important;
+  margin-block-end: 0 !important;
+  line-height: 1.5 !important;
+  text-align: center !important;
+}
+
+@media (max-width: 600px) {
+  .auth-corner-actions {
+    top: 0.875rem;
+    right: 0.875rem;
   }
-  .auth-form-panel {
-    padding: 0 !important;
+  [dir="rtl"] .auth-corner-actions {
+    left: 0.875rem;
+    right: auto;
   }
-  .auth-form-container {
-    padding: 1.5rem 1rem !important;
+  .auth-corner-actions .icon-btn {
+    width: 38px;
+    height: 38px;
   }
 }
+
+.auth-return-link {
+  font-size: var(--size-xs);
+  color: var(--clr-text-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--transition-fast);
+}
+
+.auth-return-link:hover {
+  color: var(--clr-secondary);
+}
+
+[dir="rtl"] .auth-return-link i {
+  transform: scaleX(-1);
+}
+
+/* ============================================================
+   CHECKOUT CTA BUTTONS HOVER
+   ============================================================ */
+.checkout-cta-btn {
+  flex: 1;
+  border-radius: 8px;
+  padding: 0.65rem 0.85rem;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  cursor: pointer;
+  transition: all var(--transition-fast, 0.2s ease);
+  border: none;
+  font-family: inherit;
+  text-decoration: none;
+}
+
+.checkout-cta-btn--apple {
+  background: #000000;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.checkout-cta-btn--apple:hover {
+  background: #222222;
+  border-color: rgba(255, 255, 255, 0.45);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
+}
+
+.checkout-cta-btn--apple:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.checkout-cta-btn--split {
+  background: var(--clr-surface-2);
+  border: 1px solid var(--clr-border);
+  color: var(--clr-text-primary);
+}
+
+.checkout-cta-btn--split:hover {
+  background: var(--clr-secondary-light);
+  border-color: var(--clr-secondary);
+  color: var(--clr-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0, 200, 150, 0.25);
+}
+
+.checkout-cta-btn--split:active {
+  transform: translateY(0) scale(0.98);
+}
+
 
 

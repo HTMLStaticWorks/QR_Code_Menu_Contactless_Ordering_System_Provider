@@ -512,6 +512,282 @@
       height: 100%;
       object-fit: cover;
     }
+
+    /* Checkout CTA Buttons & Feature Dive CTA Hover */
+    .checkout-cta-btn {
+      flex: 1;
+      border-radius: 8px;
+      padding: 0.65rem 0.85rem;
+      text-align: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      cursor: pointer;
+      transition: all var(--transition-fast, 0.2s ease);
+      border: none;
+      font-family: inherit;
+      text-decoration: none;
+    }
+
+    .checkout-cta-btn--apple {
+      background: #000000;
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    }
+
+    .checkout-cta-btn--apple:hover {
+      background: #222222;
+      border-color: rgba(255, 255, 255, 0.45);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
+    }
+
+    .checkout-cta-btn--apple:active {
+      transform: translateY(0) scale(0.98);
+    }
+
+    .checkout-cta-btn--split {
+      background: var(--clr-surface-2);
+      border: 1px solid var(--clr-border);
+      color: var(--clr-text-primary);
+    }
+
+    .checkout-cta-btn--split:hover {
+      background: var(--clr-secondary-light);
+      border-color: var(--clr-secondary);
+      color: var(--clr-secondary);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(0, 200, 150, 0.25);
+    }
+
+    .checkout-cta-btn--split:active {
+      transform: translateY(0) scale(0.98);
+    }
+
+    .feature-dive-buttons .btn {
+      transition: all var(--transition-fast) !important;
+      cursor: pointer;
+    }
+
+    .feature-dive-buttons .btn:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 6px 20px rgba(0, 200, 150, 0.35);
+    }
+
+    /* ============================================================
+       TOGGLE SWITCH COMPONENT
+       ============================================================ */
+    .toggle-switch {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      width: 44px;
+      height: 24px;
+      flex-shrink: 0;
+      cursor: pointer;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+      position: absolute;
+    }
+
+    .toggle-slider {
+      position: absolute;
+      cursor: pointer;
+      inset: 0;
+      background-color: var(--clr-border-strong, #3a483e);
+      transition: all var(--transition-base, 0.25s ease);
+      border-radius: 24px;
+    }
+
+    [data-theme="light"] .toggle-slider {
+      background-color: #d1d5db;
+    }
+
+    .toggle-slider::before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: #ffffff;
+      transition: transform var(--transition-base, 0.25s ease);
+      border-radius: 50%;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    .toggle-switch input:checked + .toggle-slider {
+      background-color: var(--clr-secondary, #00c896);
+    }
+
+    .toggle-switch input:checked + .toggle-slider::before {
+      transform: translateX(20px);
+    }
+
+    .toggle-switch input:focus-visible + .toggle-slider {
+      outline: 2px solid var(--clr-secondary);
+      outline-offset: 2px;
+    }
+
+    /* ============================================================
+       MENU SYNC SHOWCASE CARD (features.html)
+       ============================================================ */
+    .menu-sync-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+      margin-block-end: 1rem;
+    }
+
+    .menu-sync-header h4 {
+      font-size: 0.95rem;
+      color: var(--clr-text-primary);
+      font-family: var(--font-heading);
+      margin: 0;
+      text-align: left !important;
+      white-space: nowrap;
+    }
+
+    .menu-sync-item {
+      background: var(--clr-surface-2);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-md);
+      padding: 0.75rem 0.875rem;
+      margin-block-end: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      text-align: left !important;
+      transition: border-color var(--transition-fast), background var(--transition-fast), opacity var(--transition-fast);
+    }
+
+    .menu-sync-item:hover {
+      border-color: var(--clr-border-strong);
+    }
+
+    .menu-sync-item--86ed {
+      opacity: 0.75;
+      background: rgba(255, 107, 91, 0.05);
+    }
+
+    .menu-sync-item__left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      min-width: 0;
+      flex: 1;
+      text-align: left !important;
+    }
+
+    .menu-sync-item__thumb {
+      width: 44px;
+      height: 44px;
+      flex-shrink: 0;
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--clr-surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .menu-sync-item__thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .menu-sync-item__info {
+      min-width: 0;
+      flex: 1;
+      text-align: left !important;
+    }
+
+    .menu-sync-item__name {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--clr-text-primary);
+      text-align: left !important;
+      line-height: 1.25;
+      margin-block-end: 0.2rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .menu-sync-item__meta {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      flex-wrap: wrap;
+      font-size: 0.75rem;
+      text-align: left !important;
+      line-height: 1.3;
+    }
+
+    .menu-sync-item__price {
+      font-weight: 600;
+      color: var(--clr-secondary);
+    }
+
+    .menu-sync-item--86ed .menu-sync-item__price {
+      color: var(--clr-text-muted);
+      text-decoration: line-through;
+    }
+
+    .menu-sync-item__status-text {
+      color: var(--clr-text-muted);
+      font-weight: 500;
+    }
+
+    .menu-sync-item__right {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 600px) {
+      .menu-sync-header {
+        flex-wrap: wrap;
+        gap: 0.4rem;
+      }
+      .menu-sync-header h4 {
+        font-size: 0.88rem;
+      }
+      .menu-sync-item {
+        padding: 0.65rem 0.75rem;
+        gap: 0.5rem;
+      }
+      .menu-sync-item__thumb {
+        width: 38px;
+        height: 38px;
+      }
+      .menu-sync-item__name {
+        font-size: 0.82rem;
+        white-space: normal;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .menu-sync-item__meta {
+        font-size: 0.7rem;
+        gap: 0.25rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -790,25 +1066,28 @@
 
           <div class="feature-dive-media">
             <div class="mock-card-container">
-              <div style="display:flex;justify-content:space-between;align-items:center;margin-block-end:1rem;">
-                <h4 style="font-size:0.95rem;color:var(--clr-text-primary);font-family:var(--font-heading);">Saturday Dinner Service</h4>
+              <div class="menu-sync-header">
+                <h4>Saturday Dinner Service</h4>
                 <span class="badge badge--success" style="font-size:0.75rem;"><i class="ri-broadcast-line"></i> Live Sync Active</span>
               </div>
 
               <!-- Menu Item Row 1 -->
-              <div style="background:var(--clr-surface-2);border-radius:var(--radius-md);padding:0.875rem;margin-block-end:0.75rem;display:flex;align-items:center;justify-content:space-between;gap:0.75rem;">
-                <div style="display:flex;align-items:center;gap:0.75rem;">
-                  <div style="width:42px;height:42px;flex-shrink:0;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center;">
-                    <img src="assets/images/dishes/mezcalita.jpg" alt="Smoked Rosemary Mezcalita" style="width:100%;height:100%;object-fit:cover;">
+              <div class="menu-sync-item" id="menu-sync-row-mezcalita">
+                <div class="menu-sync-item__left">
+                  <div class="menu-sync-item__thumb">
+                    <img src="assets/images/dishes/mezcalita.jpg" alt="Smoked Rosemary Mezcalita" loading="lazy">
                   </div>
-                  <div>
-                    <span style="font-size:0.85rem;font-weight:700;color:var(--clr-text-primary);display:block;">Smoked Rosemary Mezcalita</span>
-                    <span style="font-size:0.75rem;color:var(--clr-secondary);font-weight:600;">$18.00 &bull; Signature Cocktails</span>
+                  <div class="menu-sync-item__info">
+                    <div class="menu-sync-item__name">Smoked Rosemary Mezcalita</div>
+                    <div class="menu-sync-item__meta">
+                      <span class="menu-sync-item__price">$18.00</span>
+                      <span class="menu-sync-item__status-text">&bull; Signature Cocktails</span>
+                      <span class="badge badge--secondary" style="font-size:0.65rem;padding:0.15rem 0.45rem;">Top Seller</span>
+                    </div>
                   </div>
                 </div>
-                <div style="display:flex;align-items:center;gap:0.5rem;">
-                  <span class="badge badge--secondary" style="font-size:0.65rem;">Top Seller</span>
-                  <label class="toggle-switch" style="cursor:pointer;" title="Toggle Availability">
+                <div class="menu-sync-item__right">
+                  <label class="toggle-switch" title="Toggle Availability">
                     <input type="checkbox" checked onchange="toggleItemStatus(this, 'Mezcalita')">
                     <span class="toggle-slider"></span>
                   </label>
@@ -816,19 +1095,22 @@
               </div>
 
               <!-- Menu Item Row 2 (86ed example) -->
-              <div style="background:var(--clr-surface-2);border-radius:var(--radius-md);padding:0.875rem;margin-block-end:0.75rem;display:flex;align-items:center;justify-content:space-between;gap:0.75rem;">
-                <div style="display:flex;align-items:center;gap:0.75rem;">
-                  <div style="width:42px;height:42px;flex-shrink:0;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center;">
-                    <img src="assets/images/dishes/tartare.jpg" alt="Wagyu A5 Ribeye Tartare" style="width:100%;height:100%;object-fit:cover;">
+              <div class="menu-sync-item menu-sync-item--86ed" id="menu-sync-row-wagyu">
+                <div class="menu-sync-item__left">
+                  <div class="menu-sync-item__thumb">
+                    <img src="assets/images/dishes/tartare.jpg" alt="Wagyu A5 Ribeye Tartare" loading="lazy">
                   </div>
-                  <div>
-                    <span style="font-size:0.85rem;font-weight:700;color:var(--clr-text-primary);display:block;">Wagyu A5 Ribeye Tartare</span>
-                    <span style="font-size:0.75rem;color:var(--clr-text-muted);font-weight:600;">$34.00 &bull; 86'd at 8:12 PM</span>
+                  <div class="menu-sync-item__info">
+                    <div class="menu-sync-item__name">Wagyu A5 Ribeye Tartare</div>
+                    <div class="menu-sync-item__meta">
+                      <span class="menu-sync-item__price">$34.00</span>
+                      <span class="menu-sync-item__status-text">&bull; 86'd at 8:12 PM</span>
+                      <span class="badge badge--danger" style="font-size:0.65rem;padding:0.15rem 0.45rem;">Sold Out</span>
+                    </div>
                   </div>
                 </div>
-                <div style="display:flex;align-items:center;gap:0.5rem;">
-                  <span class="badge badge--danger" style="font-size:0.65rem;">Sold Out</span>
-                  <label class="toggle-switch" style="cursor:pointer;" title="Toggle Availability">
+                <div class="menu-sync-item__right">
+                  <label class="toggle-switch" title="Toggle Availability">
                     <input type="checkbox" onchange="toggleItemStatus(this, 'Wagyu')">
                     <span class="toggle-slider"></span>
                   </label>
@@ -836,19 +1118,22 @@
               </div>
 
               <!-- Menu Item Row 3 -->
-              <div style="background:var(--clr-surface-2);border-radius:var(--radius-md);padding:0.875rem;display:flex;align-items:center;justify-content:space-between;gap:0.75rem;">
-                <div style="display:flex;align-items:center;gap:0.75rem;">
-                  <div style="width:42px;height:42px;flex-shrink:0;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center;">
-                    <img src="assets/images/dishes/souffle.jpg" alt="Dark Chocolate Lava Soufflé" style="width:100%;height:100%;object-fit:cover;">
+              <div class="menu-sync-item" id="menu-sync-row-souffle">
+                <div class="menu-sync-item__left">
+                  <div class="menu-sync-item__thumb">
+                    <img src="assets/images/dishes/souffle.jpg" alt="Dark Chocolate Lava Soufflé" loading="lazy">
                   </div>
-                  <div>
-                    <span style="font-size:0.85rem;font-weight:700;color:var(--clr-text-primary);display:block;">Dark Chocolate Lava Soufflé</span>
-                    <span style="font-size:0.75rem;color:var(--clr-secondary);font-weight:600;">$14.00 &bull; Desserts</span>
+                  <div class="menu-sync-item__info">
+                    <div class="menu-sync-item__name">Dark Chocolate Lava Soufflé</div>
+                    <div class="menu-sync-item__meta">
+                      <span class="menu-sync-item__price">$14.00</span>
+                      <span class="menu-sync-item__status-text">&bull; Desserts</span>
+                      <span class="badge badge--pill badge--secondary" style="font-size:0.65rem;padding:0.15rem 0.45rem;">Vegetarian</span>
+                    </div>
                   </div>
                 </div>
-                <div style="display:flex;align-items:center;gap:0.5rem;">
-                  <span class="badge badge--pill badge--secondary" style="font-size:0.65rem;">Vegetarian</span>
-                  <label class="toggle-switch" style="cursor:pointer;" title="Toggle Availability">
+                <div class="menu-sync-item__right">
+                  <label class="toggle-switch" title="Toggle Availability">
                     <input type="checkbox" checked onchange="toggleItemStatus(this, 'Soufflé')">
                     <span class="toggle-slider"></span>
                   </label>
@@ -1019,12 +1304,12 @@
               </div>
 
               <div style="display:flex;gap:0.5rem;">
-                <div style="flex:1;background:#000;color:#fff;border-radius:8px;padding:0.6rem;text-align:center;font-size:0.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;gap:0.35rem;">
-                  <i class="ri-apple-fill"></i> Pay with Apple Pay
-                </div>
-                <div style="flex:1;background:var(--clr-surface-2);border:1px solid var(--clr-border);color:var(--clr-text-primary);border-radius:8px;padding:0.6rem;text-align:center;font-size:0.8rem;font-weight:600;">
-                  <i class="ri-pie-chart-line"></i> Split Bill
-                </div>
+                <button type="button" class="checkout-cta-btn checkout-cta-btn--apple" aria-label="Pay with Apple Pay">
+                  <i class="ri-apple-fill" aria-hidden="true"></i> Pay with Apple Pay
+                </button>
+                <button type="button" class="checkout-cta-btn checkout-cta-btn--split" aria-label="Split Bill">
+                  <i class="ri-pie-chart-line" aria-hidden="true"></i> Split Bill
+                </button>
               </div>
             </div>
           </div>
@@ -1033,7 +1318,7 @@
     </section>
 
     <!-- ===================== POS INTEGRATIONS ECOSYSTEM ===================== -->
-    <section class="pos-integration-section" aria-labelledby="integrations-heading">
+    <section id="integrations" class="pos-integration-section" aria-labelledby="integrations-heading">
       <div class="container">
         <span class="badge badge--pill badge--secondary" style="margin-block-end:var(--sp-2);">Seamless Connectivity</span>
         <h2 id="integrations-heading" style="font-size:var(--size-h2);color:var(--clr-text-primary);">Integrates Directly With Your Existing POS</h2>
@@ -1245,6 +1530,14 @@
 
     function toggleItemStatus(checkbox, itemName) {
       const status = checkbox.checked ? 'Available' : '86ed / Sold Out';
+      const row = checkbox.closest('.menu-sync-item');
+      if (row) {
+        if (!checkbox.checked) {
+          row.classList.add('menu-sync-item--86ed');
+        } else {
+          row.classList.remove('menu-sync-item--86ed');
+        }
+      }
       if (window.QRServe && window.QRServe.Toast) {
         window.QRServe.Toast.show(`${itemName} is now marked as ${status}`, checkbox.checked ? 'success' : 'error');
       }
