@@ -351,19 +351,19 @@
         QR<span>Serve</span>
       </a>
 
-      <!-- Issue 5: Navigation to Home, Features, How It Works, Industries, Integrations, Pricing, Resources, Contact Us -->
+      <!-- Main Navigation -->
       <nav class="navbar__nav" aria-label="Main navigation">
         <a href="index.html" class="navbar__link active" data-nav-link>Home</a>
+        <a href="home2.html" class="navbar__link" data-nav-link>Home 2</a>
+        <a href="about.html" class="navbar__link" data-nav-link>About</a>
+        <a href="services.html" class="navbar__link" data-nav-link>Services</a>
         <a href="features.html" class="navbar__link" data-nav-link>Features</a>
-        <a href="index.html#how-it-works" class="navbar__link" data-nav-link>How It Works</a>
-        <a href="index.html#industries" class="navbar__link" data-nav-link>Industries</a>
-        <a href="features.html#integrations" class="navbar__link" data-nav-link>Integrations</a>
         <a href="pricing.html" class="navbar__link" data-nav-link>Pricing</a>
-        <a href="blog.html" class="navbar__link" data-nav-link>Resources</a>
-        <a href="contact.html" class="navbar__link" data-nav-link>Contact Us</a>
+        <a href="blog.html" class="navbar__link" data-nav-link>Blog</a>
+        <a href="contact.html" class="navbar__link" data-nav-link>Contact</a>
       </nav>
 
-      <!-- Issue 6: Prominent CTA buttons: Book a Demo, Start Free Trial, Get Started -->
+      <!-- Prominent CTA buttons: Book a Demo, Start Free Trial -->
       <div class="navbar__actions">
         <button class="icon-btn" data-theme-toggle data-theme-icon aria-label="Toggle dark mode" title="Toggle theme">
           <!-- Icon injected by JS -->
@@ -404,29 +404,29 @@
       <a href="index.html" class="drawer__link active" data-nav-link>
         <i class="ri-home-4-line" aria-hidden="true"></i> Home
       </a>
+      <a href="home2.html" class="drawer__link" data-nav-link>
+        <i class="ri-home-line" aria-hidden="true"></i> Home 2
+      </a>
+      <a href="about.html" class="drawer__link" data-nav-link>
+        <i class="ri-information-line" aria-hidden="true"></i> About
+      </a>
+      <a href="services.html" class="drawer__link" data-nav-link>
+        <i class="ri-customer-service-2-line" aria-hidden="true"></i> Services
+      </a>
       <a href="features.html" class="drawer__link" data-nav-link>
-        <i class="ri-flashlight-line" aria-hidden="true"></i> Features &amp; Modules
-      </a>
-      <a href="index.html#how-it-works" class="drawer__link" data-nav-link>
-        <i class="ri-route-line" aria-hidden="true"></i> How It Works
-      </a>
-      <a href="index.html#industries" class="drawer__link" data-nav-link>
-        <i class="ri-store-2-line" aria-hidden="true"></i> Industries (Who We Serve)
-      </a>
-      <a href="features.html#integrations" class="drawer__link" data-nav-link>
-        <i class="ri-plug-line" aria-hidden="true"></i> POS &amp; Integrations
+        <i class="ri-flashlight-line" aria-hidden="true"></i> Features
       </a>
       <a href="pricing.html" class="drawer__link" data-nav-link>
-        <i class="ri-price-tag-3-line" aria-hidden="true"></i> Pricing Plans
+        <i class="ri-price-tag-3-line" aria-hidden="true"></i> Pricing
       </a>
       <a href="blog.html" class="drawer__link" data-nav-link>
-        <i class="ri-book-open-line" aria-hidden="true"></i> Resources &amp; Guides
+        <i class="ri-book-open-line" aria-hidden="true"></i> Blog
       </a>
       <a href="contact.html" class="drawer__link" data-nav-link>
-        <i class="ri-mail-line" aria-hidden="true"></i> Contact Us
+        <i class="ri-mail-line" aria-hidden="true"></i> Contact
       </a>
       <a href="dashboard.html" class="drawer__link" data-nav-link>
-        <i class="ri-dashboard-line" aria-hidden="true"></i> Live Dashboard
+        <i class="ri-dashboard-line" aria-hidden="true"></i> Dashboard
       </a>
 
       <div style="margin-top: 1rem; padding-inline: 1rem; display: flex; justify-content: center; gap: 1rem;">
@@ -463,12 +463,12 @@
         <div class="hero__grid">
           <!-- Left: Value Proposition & Clear Explanation -->
           <div class="hero__text">
-            <div class="hero__badge-pill">
+            <div class="hero__badge-pill" id="hero-tagline">
               <span class="hero__badge-dot" aria-hidden="true"></span>
               The Complete QR Code Menu &amp; Contactless Ordering Platform
             </div>
 
-            <h1 style="font-size:clamp(2.4rem, 4.5vw, 3.8rem);line-height:1.15;margin-block-end:var(--sp-3);">
+            <h1 style="font-size:clamp(2.2rem, 4.2vw, 3.8rem);line-height:1.15;margin-block-end:var(--sp-3);">
               Turn Every Table Into an<br />
               <em>Instant Contactless</em><br />
               Ordering Experience
@@ -481,14 +481,15 @@
             <div class="hero__actions" style="display:flex;gap:1rem;flex-wrap:wrap;margin-block-start:var(--sp-4);">
               <a href="register.html" class="btn btn--primary btn--lg btn--glow" id="hero-cta-trial">
                 <i class="ri-rocket-line" aria-hidden="true"></i>
-                Start Free Trial
+                <span>Start Free Trial</span>
               </a>
               <a href="demo.html" class="btn btn--outline btn--lg" id="hero-cta-demo">
                 <i class="ri-play-circle-line" aria-hidden="true"></i>
-                Book a Demo
+                <span>Book a Demo</span>
               </a>
-              <a href="#how-it-works" class="btn btn--ghost btn--lg">
-                See How It Works <i class="ri-arrow-down-line" aria-hidden="true"></i>
+              <a href="#how-it-works" class="btn btn--ghost btn--lg" id="hero-cta-see-more">
+                <i class="ri-arrow-down-line" aria-hidden="true"></i>
+                <span>See How It Works</span>
               </a>
             </div>
 
@@ -809,11 +810,14 @@
         <div class="hiw-steps-grid">
           <!-- Step 1 -->
           <div class="hiw-step-card reveal">
+            <div class="hiw-step-card__img-wrap">
+              <img src="assets/images/blog/food_photo.jpg" alt="Building digital menu with photography" class="hiw-step-card__img" loading="lazy" />
+            </div>
             <div class="hiw-step-card__top">
               <div class="hiw-step-card__num" aria-hidden="true">01</div>
-              <div class="hiw-step-card__icon"><i class="ri-layout-grid-line"></i></div>
+              <div class="hiw-step-card__icon" style="margin-block-end:1rem;"><i class="ri-layout-grid-line"></i></div>
             </div>
-            <h3>Create Your Digital Menu</h3>
+            <h3 style="margin-block-start:0.5rem;margin-block-end:0.75rem;">Create Your Digital Menu</h3>
             <p>
               Build your interactive menu with our visual builder. Add categories, high-resolution food photos, prices, dietary tags (Vegan, Halal, Kosher, GF), and customizable modifiers.
             </p>
@@ -824,11 +828,14 @@
 
           <!-- Step 2 -->
           <div class="hiw-step-card reveal reveal--delay-1">
+            <div class="hiw-step-card__img-wrap">
+              <img src="assets/images/blog/qr_standee.jpg" alt="Generating branded table QR codes" class="hiw-step-card__img" loading="lazy" />
+            </div>
             <div class="hiw-step-card__top">
               <div class="hiw-step-card__num" aria-hidden="true">02</div>
-              <div class="hiw-step-card__icon"><i class="ri-qr-code-line"></i></div>
+              <div class="hiw-step-card__icon" style="margin-block-end:1rem;"><i class="ri-qr-code-line"></i></div>
             </div>
-            <h3>Generate Branded QR Codes</h3>
+            <h3 style="margin-block-start:0.5rem;margin-block-end:0.75rem;">Generate Branded QR Codes</h3>
             <p>
               Generate high-resolution dynamic QR codes unique to each table, bar stool, cabana, or hotel room. Style with your brand colors and logo, then export print-ready PDFs or order acrylic standees.
             </p>
@@ -839,11 +846,14 @@
 
           <!-- Step 3 -->
           <div class="hiw-step-card reveal reveal--delay-2">
+            <div class="hiw-step-card__img-wrap">
+              <img src="assets/images/dishes/margherita.jpg" alt="Customer scanning QR code with phone" class="hiw-step-card__img" loading="lazy" />
+            </div>
             <div class="hiw-step-card__top">
               <div class="hiw-step-card__num" aria-hidden="true">03</div>
-              <div class="hiw-step-card__icon"><i class="ri-qr-scan-2-line"></i></div>
+              <div class="hiw-step-card__icon" style="margin-block-end:1rem;"><i class="ri-qr-scan-2-line"></i></div>
             </div>
-            <h3>Customers Scan With Phone</h3>
+            <h3 style="margin-block-start:0.5rem;margin-block-end:0.75rem;">Customers Scan With Phone</h3>
             <p>
               Diners point their smartphone camera at the table QR code. <strong>No app download or account creation needed</strong>—the digital menu opens instantly in their native mobile browser in under 1 second.
             </p>
@@ -854,11 +864,14 @@
 
           <!-- Step 4 -->
           <div class="hiw-step-card reveal">
+            <div class="hiw-step-card__img-wrap">
+              <img src="assets/images/dishes/tartare.jpg" alt="Browsing appetizing digital menu dishes" class="hiw-step-card__img" loading="lazy" />
+            </div>
             <div class="hiw-step-card__top">
               <div class="hiw-step-card__num" aria-hidden="true">04</div>
-              <div class="hiw-step-card__icon"><i class="ri-restaurant-2-line"></i></div>
+              <div class="hiw-step-card__icon" style="margin-block-end:1rem;"><i class="ri-restaurant-2-line"></i></div>
             </div>
-            <h3>Browse &amp; Customize Orders</h3>
+            <h3 style="margin-block-start:0.5rem;margin-block-end:0.75rem;">Browse &amp; Customize Orders</h3>
             <p>
               Guests explore appetite-stimulating photos, filter by allergens, choose meat cooking temperatures, add extra toppings, pick sides, and leave specific kitchen preparation notes.
             </p>
@@ -869,11 +882,14 @@
 
           <!-- Step 5 -->
           <div class="hiw-step-card reveal reveal--delay-1">
+            <div class="hiw-step-card__img-wrap">
+              <img src="assets/images/blog/pos_guide.jpg" alt="Direct kitchen display ticket firing" class="hiw-step-card__img" loading="lazy" />
+            </div>
             <div class="hiw-step-card__top">
               <div class="hiw-step-card__num" aria-hidden="true">05</div>
-              <div class="hiw-step-card__icon"><i class="ri-send-plane-fill"></i></div>
+              <div class="hiw-step-card__icon" style="margin-block-end:1rem;"><i class="ri-send-plane-fill"></i></div>
             </div>
-            <h3>Place Orders Directly to Kitchen</h3>
+            <h3 style="margin-block-start:0.5rem;margin-block-end:0.75rem;">Place Orders Directly to Kitchen</h3>
             <p>
               Guests tap "Order Now" and tickets fire straight to your Kitchen Display System (KDS) or POS printer with exact table number and order timestamps—<strong>completely eliminating wait times for staff</strong>.
             </p>
@@ -884,11 +900,14 @@
 
           <!-- Step 6 -->
           <div class="hiw-step-card reveal reveal--delay-2">
+            <div class="hiw-step-card__img-wrap">
+              <img src="assets/images/blog/bill_split.jpg" alt="Seamless online payment at dining table" class="hiw-step-card__img" loading="lazy" />
+            </div>
             <div class="hiw-step-card__top">
               <div class="hiw-step-card__num" aria-hidden="true">06</div>
-              <div class="hiw-step-card__icon"><i class="ri-bank-card-line"></i></div>
+              <div class="hiw-step-card__icon" style="margin-block-end:1rem;"><i class="ri-bank-card-line"></i></div>
             </div>
-            <h3>Seamless Online Payment &amp; Tips</h3>
+            <h3 style="margin-block-start:0.5rem;margin-block-end:0.75rem;">Seamless Online Payment &amp; Tips</h3>
             <p>
               Diners settle bills on their phone with Apple Pay, Google Pay, or credit card, split bills with dining companions, select gratuity percentages, and get digital receipts via SMS or email.
             </p>
@@ -938,13 +957,16 @@
         <div class="benefits-grid">
           <!-- Benefit 1 -->
           <div class="benefit-card reveal">
-            <div class="benefit-card__header">
+            <div class="benefit-card__img-wrap">
+              <img src="assets/images/hero/home1_hero.jpg" alt="Zero wait times table ordering" class="benefit-card__img" loading="lazy" />
+            </div>
+            <div class="benefit-card__header" style="margin-block-end:0.75rem;">
               <div class="benefit-card__icon-wrap">
                 <i class="ri-time-line"></i>
               </div>
               <div class="benefit-card__kpi">0s Wait</div>
             </div>
-            <h3>Zero Wait Times for Menus or Staff</h3>
+            <h3 style="margin-block-start:0.5rem;margin-block-end:0.75rem;">Zero Wait Times for Menus or Staff</h3>
             <p>
               Diners order their first round of drinks and appetizers the minute they sit down. No more waiting 10 minutes to catch a busy waiter's eye, leading to higher customer satisfaction.
             </p>
@@ -952,13 +974,16 @@
 
           <!-- Benefit 2 -->
           <div class="benefit-card reveal reveal--delay-1">
-            <div class="benefit-card__header">
+            <div class="benefit-card__img-wrap">
+              <img src="assets/images/dishes/mezcalita.jpg" alt="Visual upsells and cocktail ordering" class="benefit-card__img" loading="lazy" />
+            </div>
+            <div class="benefit-card__header" style="margin-block-end:0.75rem;">
               <div class="benefit-card__icon-wrap benefit-card__icon-wrap--coral">
                 <i class="ri-line-chart-line"></i>
               </div>
               <div class="benefit-card__kpi" style="color:var(--clr-accent);">+22% AOV</div>
             </div>
-            <h3>Higher Average Order Value with Visual Upsells</h3>
+            <h3 style="margin-block-start:0.5rem;margin-block-end:0.75rem;">Higher Average Order Value with Visual Upsells</h3>
             <p>
               Mouthwatering high-resolution photography combined with automated intelligent upsells (wine pairings, premium dips, cheese upgrades) boost spend by an average of 22%.
             </p>
@@ -966,13 +991,16 @@
 
           <!-- Benefit 3 -->
           <div class="benefit-card reveal reveal--delay-2">
-            <div class="benefit-card__header">
+            <div class="benefit-card__img-wrap">
+              <img src="assets/images/blog/food_hall.jpg" alt="Fast table turnover in dining room" class="benefit-card__img" loading="lazy" />
+            </div>
+            <div class="benefit-card__header" style="margin-block-end:0.75rem;">
               <div class="benefit-card__icon-wrap">
                 <i class="ri-speed-up-line"></i>
               </div>
               <div class="benefit-card__kpi">40% Faster</div>
             </div>
-            <h3>40% Faster Table Turnover Rate</h3>
+            <h3 style="margin-block-start:0.5rem;margin-block-end:0.75rem;">40% Faster Table Turnover Rate</h3>
             <p>
               By shaving 15-20 minutes off the ordering, bill delivery, and card processing cycle, your restaurant can seat an additional full turn per table during peak evening services.
             </p>
@@ -980,13 +1008,16 @@
 
           <!-- Benefit 4 -->
           <div class="benefit-card reveal">
-            <div class="benefit-card__header">
+            <div class="benefit-card__img-wrap">
+              <img src="assets/images/blog/qr_standee.jpg" alt="Elimination of paper menu printing" class="benefit-card__img" loading="lazy" />
+            </div>
+            <div class="benefit-card__header" style="margin-block-end:0.75rem;">
               <div class="benefit-card__icon-wrap">
                 <i class="ri-file-shred-line"></i>
               </div>
               <div class="benefit-card__kpi">$3.6k Saved</div>
             </div>
-            <h3>100% Elimination of Printing Costs &amp; Instant 86ing</h3>
+            <h3 style="margin-block-start:0.5rem;margin-block-end:0.75rem;">100% Elimination of Printing Costs &amp; Instant 86ing</h3>
             <p>
               Never spend money on physical menu reprints again. Update prices, mark sold-out items ("86ing") with one click, or swap from Lunch to Dinner menus automatically by time of day.
             </p>
@@ -994,13 +1025,16 @@
 
           <!-- Benefit 5 -->
           <div class="benefit-card reveal reveal--delay-1">
-            <div class="benefit-card__header">
+            <div class="benefit-card__img-wrap">
+              <img src="assets/images/blog/room_service.jpg" alt="Relieve staff shortages and hospitality service" class="benefit-card__img" loading="lazy" />
+            </div>
+            <div class="benefit-card__header" style="margin-block-end:0.75rem;">
               <div class="benefit-card__icon-wrap benefit-card__icon-wrap--coral">
                 <i class="ri-hand-heart-line"></i>
               </div>
               <div class="benefit-card__kpi" style="color:var(--clr-accent);">+18% Tips</div>
             </div>
-            <h3>Relieve Staff Shortages &amp; Raise Server Tips</h3>
+            <h3 style="margin-block-start:0.5rem;margin-block-end:0.75rem;">Relieve Staff Shortages &amp; Raise Server Tips</h3>
             <p>
               Staff spend less time writing down orders and more time checking on guests, delivering piping hot food, and building guest loyalty. Faster service generates 18% higher tips.
             </p>
@@ -1008,13 +1042,16 @@
 
           <!-- Benefit 6 -->
           <div class="benefit-card reveal reveal--delay-2">
-            <div class="benefit-card__header">
+            <div class="benefit-card__img-wrap">
+              <img src="assets/images/dishes/caesar.jpg" alt="Multi-language translation and allergen safety" class="benefit-card__img" loading="lazy" />
+            </div>
+            <div class="benefit-card__header" style="margin-block-end:0.75rem;">
               <div class="benefit-card__icon-wrap">
                 <i class="ri-global-line"></i>
               </div>
               <div class="benefit-card__kpi">30+ Langs</div>
             </div>
-            <h3>Multi-Language Translation &amp; Allergen Safety</h3>
+            <h3 style="margin-block-start:0.5rem;margin-block-end:0.75rem;">Multi-Language Translation &amp; Allergen Safety</h3>
             <p>
               Automatically display your menu in international guests' native smartphone language. Empower diners with dietary filters for vegan, halal, gluten-free, and nut allergies.
             </p>
@@ -1273,174 +1310,6 @@
       </div>
     </section>
 
-    <!-- ===================== CORE PLATFORM CAPABILITIES SPOTLIGHT ===================== -->
-    <!-- Issue 5: Dedicated sections for Menu Management, Order Tracking, Payment Options, and Integrations -->
-    <section class="section bg-surface" id="integrations" aria-labelledby="capabilities-heading">
-      <div class="container">
-        <div class="section-header centered">
-          <span class="section-label">
-            <i class="ri-cpu-line" aria-hidden="true"></i> Core Capabilities &amp; Integrations
-          </span>
-          <h2 id="capabilities-heading">Menu Management, Live Order Tracking &amp; POS Integrations</h2>
-          <p>
-            Three unified pillars that synchronize your front-of-house, kitchen hot line, and financial reports in real time.
-          </p>
-        </div>
-
-        <div class="capabilities-grid">
-          <!-- Pillar 1: Menu Management -->
-          <div class="benefit-card reveal">
-            <div class="benefit-card__icon-wrap">
-              <i class="ri-layout-masonry-line"></i>
-            </div>
-            <h3>Menu Management &amp; Instant 86ing</h3>
-            <p>
-              Drag-and-drop builder with category scheduling (Breakfast, Lunch, Happy Hour, Dinner). 86 sold-out dishes with 1 click so guests never order unavailable items.
-            </p>
-            <ul class="industry-bullet-list" style="margin-block-start:0.75rem;">
-              <li class="industry-bullet-item"><i class="ri-check-line"></i> Instant sync across all live tables in &lt; 300ms</li>
-              <li class="industry-bullet-item"><i class="ri-check-line"></i> Allergen badges &amp; 30+ language translations</li>
-              <li class="industry-bullet-item"><i class="ri-check-line"></i> High-resolution food photography studio</li>
-            </ul>
-            <div style="margin-block-start:auto;padding-block-start:1rem;">
-              <a href="features.html#menu-management" class="btn btn--outline btn--sm">
-                Explore Menu Management <i class="ri-arrow-right-line"></i>
-              </a>
-            </div>
-          </div>
-
-          <!-- Pillar 2: Order Tracking & KDS -->
-          <div class="benefit-card reveal reveal--delay-1">
-            <div class="benefit-card__icon-wrap benefit-card__icon-wrap--coral">
-              <i class="ri-tv-2-line"></i>
-            </div>
-            <h3>Kitchen Display &amp; Order Tracking</h3>
-            <p>
-              Cloud Kitchen Display System (KDS) replaces lost paper tickets. Multi-station ticket splitting automatically directs cocktails to the bar and steaks to the grill.
-            </p>
-            <ul class="industry-bullet-list" style="margin-block-start:0.75rem;">
-              <li class="industry-bullet-item"><i class="ri-check-line"></i> Color-coded cook timers &amp; audio chimes</li>
-              <li class="industry-bullet-item"><i class="ri-check-line"></i> Waiter smartwatch &amp; runner paging alerts</li>
-              <li class="industry-bullet-item"><i class="ri-check-line"></i> Live diner SMS notification when food is ready</li>
-            </ul>
-            <div style="margin-block-start:auto;padding-block-start:1rem;">
-              <a href="features.html#order-tracking" class="btn btn--outline btn--sm">
-                Explore Order Tracking <i class="ri-arrow-right-line"></i>
-              </a>
-            </div>
-          </div>
-
-          <!-- Pillar 3: POS & Hardware Integrations -->
-          <div class="benefit-card reveal reveal--delay-2">
-            <div class="benefit-card__icon-wrap">
-              <i class="ri-plug-line"></i>
-            </div>
-            <h3>Certified POS &amp; Hardware Integrations</h3>
-            <p>
-              Native 2-way cloud integrations with Toast, Square, Clover, Lightspeed, and Oracle Micros. Orders appear directly on your existing terminals without double-entry.
-            </p>
-            <ul class="industry-bullet-list" style="margin-block-start:0.75rem;">
-              <li class="industry-bullet-item"><i class="ri-check-line"></i> 2-way menu catalog and inventory sync</li>
-              <li class="industry-bullet-item"><i class="ri-check-line"></i> Automatic end-of-day sales reconciliation</li>
-              <li class="industry-bullet-item"><i class="ri-check-line"></i> Thermal receipt printing on Epson &amp; Star</li>
-            </ul>
-            <div style="margin-block-start:auto;padding-block-start:1rem;">
-              <a href="features.html#integrations" class="btn btn--outline btn--sm">
-                Explore All Integrations <i class="ri-arrow-right-line"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== INTERACTIVE ROI & OPERATIONS CALCULATOR ===================== -->
-    <section class="roi-section" aria-labelledby="roi-title">
-      <div class="container">
-        <div class="section-header centered">
-          <span class="section-label">
-            <i class="ri-calculator-line" aria-hidden="true"></i> Interactive ROI Calculator
-          </span>
-          <h2 id="roi-title">Calculate Your Venue's Projected Monthly Gains</h2>
-          <p>
-            Adjust the sliders below to estimate your labor hours saved, revenue uplift from visual upsells, and printing cost reductions.
-          </p>
-        </div>
-
-        <div class="roi-card">
-          <!-- Sliders -->
-          <div>
-            <!-- Slider 1: Tables -->
-            <div class="roi-slider-group">
-              <div class="roi-slider-header">
-                <label for="roi-tables">Number of Dining Tables / QR Codes</label>
-                <span class="roi-slider-value" id="roi-tables-val">25 tables</span>
-              </div>
-              <input type="range" id="roi-tables" class="roi-range-input" min="5" max="150" step="5" value="25" />
-            </div>
-
-            <!-- Slider 2: Average Check -->
-            <div class="roi-slider-group">
-              <div class="roi-slider-header">
-                <label for="roi-check">Average Guest Check Size ($)</label>
-                <span class="roi-slider-value" id="roi-check-val">$45</span>
-              </div>
-              <input type="range" id="roi-check" class="roi-range-input" min="15" max="150" step="5" value="45" />
-            </div>
-
-            <!-- Slider 3: Daily Turns -->
-            <div class="roi-slider-group">
-              <div class="roi-slider-header">
-                <label for="roi-orders">Daily Table Turns / Orders per Table</label>
-                <span class="roi-slider-value" id="roi-orders-val">4 turns/day</span>
-              </div>
-              <input type="range" id="roi-orders" class="roi-range-input" min="1" max="10" step="1" value="4" />
-            </div>
-
-            <div style="font-size:0.775rem;color:var(--clr-text-muted);margin-block-start:var(--sp-2);">
-              Based on verified performance benchmarks from 12,000+ active hospitality venues.
-            </div>
-          </div>
-
-          <!-- Calculated Results -->
-          <div class="roi-results-box">
-            <div class="roi-result-kpi">
-              <div>
-                <div class="roi-result-kpi__label">Labor Hours Saved Monthly</div>
-                <div style="font-size:0.75rem;color:var(--clr-text-muted);">Less time taking orders &amp; printing bills</div>
-              </div>
-              <div class="roi-result-kpi__number" id="roi-hours-result">120 hrs/mo</div>
-            </div>
-
-            <div class="roi-result-kpi">
-              <div>
-                <div class="roi-result-kpi__label">Projected Extra Upsell Revenue</div>
-                <div style="font-size:0.75rem;color:var(--clr-text-muted);">+22% higher average order value</div>
-              </div>
-              <div class="roi-result-kpi__number roi-result-kpi__number--coral" id="roi-revenue-result">+$29,700/mo</div>
-            </div>
-
-            <div class="roi-result-kpi">
-              <div>
-                <div class="roi-result-kpi__label">Annual Paper Menu Printing Saved</div>
-                <div style="font-size:0.75rem;color:var(--clr-text-muted);">Zero reprints for price &amp; dish changes</div>
-              </div>
-              <div class="roi-result-kpi__number" id="roi-print-result">$3,000/yr</div>
-            </div>
-
-            <!-- Actions inside calculator -->
-            <div style="display:flex;gap:0.75rem;margin-block-start:0.5rem;flex-wrap:wrap;">
-              <a href="register.html" class="btn btn--primary btn--full" style="justify-content:center;">
-                <i class="ri-rocket-line" aria-hidden="true"></i> Start Free 14-Day Trial
-              </a>
-              <a href="demo.html" class="btn btn--outline btn--full" style="justify-content:center;">
-                <i class="ri-play-circle-line" aria-hidden="true"></i> Book a Demo Tour
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- ===================== RESTAURANT DASHBOARD LIVE PREVIEW ===================== -->
     <section class="section" aria-labelledby="db-preview-heading">
@@ -1571,69 +1440,116 @@
           <p>Read how restaurateurs and beverage directors transformed their operations with QRServe.</p>
         </div>
 
-        <div class="testimonials-grid">
-          <!-- Review 1 -->
-          <article class="testimonial-card reveal">
-            <div class="stars" aria-label="5 out of 5 stars">
-              <i class="ri-star-fill" aria-hidden="true"></i>
-              <i class="ri-star-fill" aria-hidden="true"></i>
-              <i class="ri-star-fill" aria-hidden="true"></i>
-              <i class="ri-star-fill" aria-hidden="true"></i>
-              <i class="ri-star-fill" aria-hidden="true"></i>
+        <div class="testimonial-slider-container" id="testimonial-slider">
+          <div class="testimonial-track" id="testimonial-track">
+            <!-- Slide 1 -->
+            <div class="testimonial-slide active">
+              <article class="testimonial-card">
+                <div class="stars" aria-label="5 out of 5 stars" style="margin-block-end:1rem;color:#f59e0b;display:flex;gap:4px;">
+                  <i class="ri-star-fill" aria-hidden="true"></i>
+                  <i class="ri-star-fill" aria-hidden="true"></i>
+                  <i class="ri-star-fill" aria-hidden="true"></i>
+                  <i class="ri-star-fill" aria-hidden="true"></i>
+                  <i class="ri-star-fill" aria-hidden="true"></i>
+                </div>
+                <p class="testimonial-card__quote" style="font-size:1.15rem;line-height:1.7;color:var(--clr-text-primary);margin-block-end:1.5rem;font-style:italic;">
+                  "QRServe transformed our dining floor. We cut menu printing costs to zero, and our average order value jumped 22% because diners love seeing pictures of our pasta specials and craft cocktails without feeling rushed."
+                </p>
+                <div class="testimonial-card__author" style="display:flex;align-items:center;gap:1rem;">
+                  <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=80&h=80&auto=format&fit=crop&q=80" alt="Marco Rossi" class="testimonial-card__avatar" style="width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid var(--clr-secondary);" loading="lazy" />
+                  <div>
+                    <div class="testimonial-card__name" style="font-weight:700;font-size:1rem;color:var(--clr-text-primary);">Marco Rossi</div>
+                    <div class="testimonial-card__role" style="font-size:0.85rem;color:var(--clr-text-muted);">Owner, Bella Vista &bull; Milan, Italy</div>
+                  </div>
+                </div>
+              </article>
             </div>
-            <p class="testimonial-card__quote">
-              "QRServe transformed our dining floor. We cut menu printing costs to zero, and our average order value jumped 22% because diners love seeing pictures of our pasta specials and craft cocktails without feeling rushed."
-            </p>
-            <div class="testimonial-card__author">
-              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=80&h=80&auto=format&fit=crop&q=80" alt="Marco Rossi" class="testimonial-card__avatar" loading="lazy" />
-              <div>
-                <div class="testimonial-card__name">Marco Rossi</div>
-                <div class="testimonial-card__role">Owner, Bella Vista &bull; Milan, Italy</div>
-              </div>
-            </div>
-          </article>
 
-          <!-- Review 2 -->
-          <article class="testimonial-card reveal reveal--delay-1">
-            <div class="stars" aria-label="5 out of 5 stars">
-              <i class="ri-star-fill" aria-hidden="true"></i>
-              <i class="ri-star-fill" aria-hidden="true"></i>
-              <i class="ri-star-fill" aria-hidden="true"></i>
-              <i class="ri-star-fill" aria-hidden="true"></i>
-              <i class="ri-star-fill" aria-hidden="true"></i>
+            <!-- Slide 2 -->
+            <div class="testimonial-slide">
+              <article class="testimonial-card">
+                <div class="stars" aria-label="5 out of 5 stars" style="margin-block-end:1rem;color:#f59e0b;display:flex;gap:4px;">
+                  <i class="ri-star-fill" aria-hidden="true"></i>
+                  <i class="ri-star-fill" aria-hidden="true"></i>
+                  <i class="ri-star-fill" aria-hidden="true"></i>
+                  <i class="ri-star-fill" aria-hidden="true"></i>
+                  <i class="ri-star-fill" aria-hidden="true"></i>
+                </div>
+                <p class="testimonial-card__quote" style="font-size:1.15rem;line-height:1.7;color:var(--clr-text-primary);margin-block-end:1.5rem;font-style:italic;">
+                  "We placed QRServe acrylic stands on all 400 poolside loungers and in our suites. International tourist satisfaction surged because the menu auto-detects their language. In-room ordering revenue increased by 35% in our first month."
+                </p>
+                <div class="testimonial-card__author" style="display:flex;align-items:center;gap:1rem;">
+                  <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=80&h=80&auto=format&fit=crop&q=80" alt="Aisha Al-Farsi" class="testimonial-card__avatar" style="width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid var(--clr-secondary);" loading="lazy" />
+                  <div>
+                    <div class="testimonial-card__name" style="font-weight:700;font-size:1rem;color:var(--clr-text-primary);">Aisha Al-Farsi</div>
+                    <div class="testimonial-card__role" style="font-size:0.85rem;color:var(--clr-text-muted);">F&amp;B Director, The Grand Palm &bull; Dubai</div>
+                  </div>
+                </div>
+              </article>
             </div>
-            <p class="testimonial-card__quote">
-              "We placed QRServe acrylic stands on all 400 poolside loungers and in our suites. International tourist satisfaction surged because the menu auto-detects their language. In-room ordering revenue increased by 35% in our first month."
-            </p>
-            <div class="testimonial-card__author">
-              <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=80&h=80&auto=format&fit=crop&q=80" alt="Aisha Al-Farsi" class="testimonial-card__avatar" loading="lazy" />
-              <div>
-                <div class="testimonial-card__name">Aisha Al-Farsi</div>
-                <div class="testimonial-card__role">F&amp;B Director, The Grand Palm &bull; Dubai</div>
-              </div>
-            </div>
-          </article>
 
-          <!-- Review 3 -->
-          <article class="testimonial-card reveal reveal--delay-2">
-            <div class="stars" aria-label="5 out of 5 stars">
-              <i class="ri-star-fill" aria-hidden="true"></i>
-              <i class="ri-star-fill" aria-hidden="true"></i>
-              <i class="ri-star-fill" aria-hidden="true"></i>
-              <i class="ri-star-fill" aria-hidden="true"></i>
-              <i class="ri-star-fill" aria-hidden="true"></i>
+            <!-- Slide 3 -->
+            <div class="testimonial-slide">
+              <article class="testimonial-card">
+                <div class="stars" aria-label="5 out of 5 stars" style="margin-block-end:1rem;color:#f59e0b;display:flex;gap:4px;">
+                  <i class="ri-star-fill" aria-hidden="true"></i>
+                  <i class="ri-star-fill" aria-hidden="true"></i>
+                  <i class="ri-star-fill" aria-hidden="true"></i>
+                  <i class="ri-star-fill" aria-hidden="true"></i>
+                  <i class="ri-star-fill" aria-hidden="true"></i>
+                </div>
+                <p class="testimonial-card__quote" style="font-size:1.15rem;line-height:1.7;color:var(--clr-text-primary);margin-block-end:1.5rem;font-style:italic;">
+                  "We manage 14 cloud kitchen and food court concepts from one QRServe master account. Orders route automatically to separate prep monitors, and customers pay on a single cart. It saved us thousands in POS terminal hardware."
+                </p>
+                <div class="testimonial-card__author" style="display:flex;align-items:center;gap:1rem;">
+                  <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?w=80&h=80&auto=format&fit=crop&q=80" alt="James Chen" class="testimonial-card__avatar" style="width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid var(--clr-secondary);" loading="lazy" />
+                  <div>
+                    <div class="testimonial-card__name" style="font-weight:700;font-size:1rem;color:var(--clr-text-primary);">James Chen</div>
+                    <div class="testimonial-card__role" style="font-size:0.85rem;color:var(--clr-text-muted);">CEO, CloudEats Group &bull; Singapore</div>
+                  </div>
+                </div>
+              </article>
             </div>
-            <p class="testimonial-card__quote">
-              "We manage 14 cloud kitchen and food court concepts from one QRServe master account. Orders route automatically to separate prep monitors, and customers pay on a single cart. It saved us thousands in POS terminal hardware."
-            </p>
-            <div class="testimonial-card__author">
-              <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?w=80&h=80&auto=format&fit=crop&q=80" alt="James Chen" class="testimonial-card__avatar" loading="lazy" />
-              <div>
-                <div class="testimonial-card__name">James Chen</div>
-                <div class="testimonial-card__role">CEO, CloudEats Group &bull; Singapore</div>
-              </div>
+
+            <!-- Slide 4 -->
+            <div class="testimonial-slide">
+              <article class="testimonial-card">
+                <div class="stars" aria-label="5 out of 5 stars" style="margin-block-end:1rem;color:#f59e0b;display:flex;gap:4px;">
+                  <i class="ri-star-fill" aria-hidden="true"></i>
+                  <i class="ri-star-fill" aria-hidden="true"></i>
+                  <i class="ri-star-fill" aria-hidden="true"></i>
+                  <i class="ri-star-fill" aria-hidden="true"></i>
+                  <i class="ri-star-fill" aria-hidden="true"></i>
+                </div>
+                <p class="testimonial-card__quote" style="font-size:1.15rem;line-height:1.7;color:var(--clr-text-primary);margin-block-end:1.5rem;font-style:italic;">
+                  "Morning line drop-offs disappeared. Rush hour patrons scan, customize their flat whites with oat milk, and pay before they even reach the counter. Turnaround speed improved by 40%."
+                </p>
+                <div class="testimonial-card__author" style="display:flex;align-items:center;gap:1rem;">
+                  <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=80&h=80&auto=format&fit=crop&q=80" alt="Elena Rostova" class="testimonial-card__avatar" style="width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid var(--clr-secondary);" loading="lazy" />
+                  <div>
+                    <div class="testimonial-card__name" style="font-weight:700;font-size:1rem;color:var(--clr-text-primary);">Elena Rostova</div>
+                    <div class="testimonial-card__role" style="font-size:0.85rem;color:var(--clr-text-muted);">Operations Lead, Artisan Roast &bull; Brooklyn, NY</div>
+                  </div>
+                </div>
+              </article>
             </div>
-          </article>
+          </div>
+
+          <!-- Slider Controls -->
+          <div class="slider-controls" style="display:flex;align-items:center;justify-content:center;gap:1.5rem;margin-block-start:2rem;">
+            <button class="slider-arrow slider-arrow--prev" id="slider-prev-btn" aria-label="Previous review">
+              <i class="ri-arrow-left-s-line" aria-hidden="true"></i>
+            </button>
+            <div class="slider-dots" id="slider-dots">
+              <button class="slider-dot active" data-index="0" aria-label="Review 1"></button>
+              <button class="slider-dot" data-index="1" aria-label="Review 2"></button>
+              <button class="slider-dot" data-index="2" aria-label="Review 3"></button>
+              <button class="slider-dot" data-index="3" aria-label="Review 4"></button>
+            </div>
+            <button class="slider-arrow slider-arrow--next" id="slider-next-btn" aria-label="Next review">
+              <i class="ri-arrow-right-s-line" aria-hidden="true"></i>
+            </button>
+          </div>
         </div>
       </div>
     </section>

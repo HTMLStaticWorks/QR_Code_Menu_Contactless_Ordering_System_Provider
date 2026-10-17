@@ -536,14 +536,33 @@
     }
 
     .auth-topbar {
-      position: absolute !important;
-      top: 1rem !important;
-      right: 1.5rem !important;
-      width: auto !important;
-      border: none !important;
-      background: transparent !important;
-      padding: 0 !important;
-      justify-content: flex-end !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      width: 100% !important;
+      padding: 1.25rem 2rem !important;
+      position: relative !important;
+      top: auto !important;
+      right: auto !important;
+      z-index: 10 !important;
+    }
+
+    .auth-page-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.85rem;
+      background: var(--clr-secondary-light);
+      color: var(--clr-secondary);
+      border-radius: var(--radius-pill);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    [data-theme="dark"] .auth-page-pill {
+      background: rgba(0, 200, 150, 0.15);
     }
 
     .auth-topbar__actions .icon-btn {
@@ -559,6 +578,16 @@
     }
     .auth-brand-logo span span {
       color: var(--clr-secondary) !important;
+    }
+
+    @media (max-width: 600px) {
+      .auth-topbar {
+        padding: 0.75rem 1rem !important;
+      }
+      .auth-page-pill {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.6rem;
+      }
     }
   
     [dir="rtl"] .form-checkbox {
@@ -612,8 +641,19 @@
     <!-- RIGHT: Form -->
     <div class="auth-form-panel">
 
-      <!-- Navigation Topbar for Mobile, Tablet, and 1024px -->
-      <header class="auth-topbar" aria-label="Brand navigation" style="justify-content: flex-end;">
+      <!-- Topbar with Brand Logo, Page Name Badge, and Outside Controls -->
+      <header class="auth-topbar" aria-label="Brand navigation">
+        <div style="display:flex;align-items:center;gap:0.875rem;">
+          <a href="index.html" class="auth-brand-logo" aria-label="QRServe — Home">
+            <div class="auth-brand-logo__icon" aria-hidden="true">
+              <i class="ri-qr-code-line"></i>
+            </div>
+            <span>QR<span>Serve</span></span>
+          </a>
+          <span class="auth-page-pill" aria-label="Current page">
+            <i class="ri-user-add-line" aria-hidden="true"></i> Register
+          </span>
+        </div>
         <div class="auth-topbar__actions">
           <button class="icon-btn" data-theme-toggle data-theme-icon aria-label="Toggle dark mode" title="Toggle theme"></button>
           <button class="icon-btn" data-rtl-btn aria-label="Switch to RTL" title="Switch direction"></button>
@@ -622,14 +662,6 @@
 
       <div class="auth-form-container">
         <div class="auth-form-wrap">
-          <div style="display:flex; justify-content:center; margin-bottom: 2rem;">
-            <a href="index.html" class="navbar__logo" aria-label="QRServe — Home" style="color: var(--clr-text-primary);">
-              <div class="navbar__logo-icon" aria-hidden="true">
-                <i class="ri-qr-code-line" style="font-size:1.1rem;"></i>
-              </div>
-              QR<span>Serve</span>
-            </a>
-          </div>
 
           <h1 class="auth-title" style="text-align: center; font-size: 1.625rem; font-weight: 700; margin-bottom: 1.25rem;">Create Your Free Account</h1>
 

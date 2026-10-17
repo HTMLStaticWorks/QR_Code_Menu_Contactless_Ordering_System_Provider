@@ -408,18 +408,34 @@ p { color: var(--clr-text-secondary); }
 }
 
 .btn--ghost {
-  background: transparent;
-  color: var(--clr-text-secondary);
-  padding-inline: var(--sp-2);
+  background: var(--clr-surface);
+  border: 1.5px solid var(--clr-border-strong);
+  color: var(--clr-text-primary);
+  padding: 0.75rem 1.5rem;
+  box-shadow: var(--shadow-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 .btn--ghost:hover {
   color: var(--clr-secondary);
+  border-color: var(--clr-secondary);
   background: var(--clr-secondary-light);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+[data-theme="dark"] .btn--ghost {
+  background: var(--clr-surface-2);
+  border-color: var(--clr-border);
+  color: var(--clr-text-primary);
 }
 
 [data-theme="dark"] .btn--ghost:hover {
-  background: rgba(0,200,150,0.08);
+  background: rgba(0, 200, 150, 0.12);
+  border-color: var(--clr-secondary);
 }
 
 .btn--dark {
@@ -3036,4 +3052,406 @@ p { color: var(--clr-text-secondary); }
 .roi-result-kpi__number--coral {
   color: var(--clr-accent);
 }
+
+/* ============================================================
+   CARD IMAGES FOR HOW IT WORKS & KEY BENEFITS (POINT 9)
+   ============================================================ */
+.hiw-step-card__img-wrap,
+.benefit-card__img-wrap {
+  width: 100%;
+  height: 160px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-block-end: 1rem;
+  background: var(--clr-surface-2);
+  position: relative;
+}
+
+.hiw-step-card__img,
+.benefit-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--transition-slow);
+}
+
+.hiw-step-card:hover .hiw-step-card__img,
+.benefit-card:hover .benefit-card__img {
+  transform: scale(1.05);
+}
+
+/* Ensure Icon NEVER touches heading text (POINT 10) */
+.hiw-step-card__top,
+.benefit-card__header {
+  margin-block-end: 1rem;
+}
+
+.hiw-step-card h3,
+.benefit-card h3 {
+  font-size: 1.15rem;
+  margin-block-start: 0.5rem;
+  margin-block-end: 0.65rem;
+  color: var(--clr-text-primary);
+  line-height: 1.3;
+}
+
+/* ============================================================
+   TESTIMONIALS REVIEWER SLIDER (POINT 6)
+   ============================================================ */
+.testimonials-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonial-slider-container {
+  max-width: 820px;
+  margin-inline: auto;
+  position: relative;
+  padding-inline: 1rem;
+}
+
+.testimonial-track-wrapper {
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+}
+
+.testimonial-track {
+  display: flex;
+  transition: transform 450ms cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.testimonial-slide {
+  flex: 0 0 100%;
+  min-width: 100%;
+  box-sizing: border-box;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.testimonial-slide .testimonial-card {
+  width: 100%;
+  max-width: 760px;
+  margin-inline: auto;
+  text-align: center;
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-xl);
+  padding: var(--sp-8);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.testimonial-slide .stars {
+  display: flex;
+  justify-content: center;
+  gap: 0.25rem;
+  color: #f59e0b;
+  font-size: 1.25rem;
+  margin-block-end: 1.25rem;
+}
+
+.testimonial-slide .testimonial-card__quote {
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  line-height: 1.65;
+  color: var(--clr-text-primary);
+  font-style: italic;
+  margin-block-end: 1.5rem;
+  max-width: 640px;
+  text-align: center;
+}
+
+.testimonial-slide .testimonial-card__author {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.testimonial-slide .testimonial-card__avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--clr-secondary);
+}
+
+.testimonial-slide .testimonial-card__name {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--clr-text-primary);
+  text-align: start;
+}
+
+.testimonial-slide .testimonial-card__role {
+  font-size: 0.825rem;
+  color: var(--clr-text-muted);
+  text-align: start;
+}
+
+.testimonial-slider-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-block-start: 2rem;
+}
+
+.slider-arrow {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--clr-surface);
+  border: 1.5px solid var(--clr-border-strong);
+  color: var(--clr-text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.slider-arrow:hover {
+  background: var(--clr-secondary);
+  border-color: var(--clr-secondary);
+  color: var(--clr-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.slider-dots {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.slider-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--clr-border-strong);
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  padding: 0;
+}
+
+.slider-dot.active {
+  width: 32px;
+  border-radius: var(--radius-pill);
+  background: var(--clr-secondary);
+}
+
+/* ============================================================
+   RESPONSIVE ALIGNMENT FIXES (POINTS 7, 8, 16, 17, 18, 19, 20, 21, 22, 23, 24)
+   ============================================================ */
+@media (max-width: 1024px) {
+  /* Point 7 & 17: All CTA text center aligned in 768 and 1024 */
+  .btn,
+  .hero__actions .btn,
+  .cta-section__actions .btn,
+  .section-actions .btn,
+  .pricing-card .btn,
+  .roi-results-box .btn {
+    text-align: center !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .hero__actions,
+  .cta-section__actions,
+  .section-actions {
+    justify-content: center !important;
+    align-items: center !important;
+    margin-inline: auto;
+  }
+
+  /* Point 18: Tab buttons and toggles center aligned in 768 and 1024 */
+  .toggle-wrap,
+  .venue-tabs-nav,
+  .feature-nav-tabs,
+  .pricing-toggle-wrap,
+  .hero-h2__buttons {
+    justify-content: center !important;
+    align-items: center !important;
+    margin-inline: auto;
+  }
+
+  /* Point 19 & 20: Card icons and headings centered in Home 1 */
+  .hiw-step-card,
+  .benefit-card,
+  .client-card,
+  .service-card {
+    text-align: center;
+    align-items: center;
+  }
+
+  .hiw-step-card__top,
+  .benefit-card__header,
+  .client-card__top {
+    justify-content: center;
+    gap: 0.75rem;
+    margin-inline: auto;
+  }
+
+  .hiw-step-card__num,
+  .hiw-step-card__icon,
+  .benefit-card__icon-wrap,
+  .service-icon-box {
+    margin-inline: auto;
+  }
+
+  .hiw-step-card h3,
+  .benefit-card h3,
+  .service-card h2,
+  .client-card__name {
+    text-align: center;
+    margin-block: 0.75rem 0.5rem;
+    width: 100%;
+  }
+
+  .hiw-step-card p,
+  .benefit-card p,
+  .service-card p {
+    text-align: center;
+  }
+
+  .hiw-step-card__tag,
+  .benefit-card__kpi {
+    margin-inline: auto;
+  }
+
+  /* Point 24: In Contact page 768 and 1024 align social media buttons in middle */
+  .social-card-middle,
+  .social-card-middle h3 {
+    text-align: center !important;
+  }
+
+  .social-card-middle .social-icons-row,
+  .contact-sidebar .support-sla-card div:has(> a[aria-label*="Twitter"]),
+  .contact-sidebar .support-sla-card div:has(> a[aria-label*="LinkedIn"]) {
+    justify-content: center !important;
+    align-items: center !important;
+    margin-inline: auto;
+  }
+
+  /* Point 23: In 768 and 1024 images not cropped in Features page */
+  .mock-card-container img,
+  .payment-visual-card__img,
+  .feature-dive-media img {
+    height: auto !important;
+    max-height: 280px !important;
+    aspect-ratio: 16/9;
+    object-fit: cover !important;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Hero tagline badge non-overlapping */
+  .hero__badge-pill {
+    max-width: 95%;
+    white-space: normal;
+    text-align: center;
+    margin-inline: auto;
+    font-size: 0.75rem;
+    padding: 0.4rem 0.85rem;
+    line-height: 1.4;
+  }
+
+  .hero--home {
+    min-height: auto;
+    padding-block: calc(var(--nav-height) + 1.5rem) 3rem;
+  }
+
+  .hero__visual-wrap {
+    margin-block-start: 1.5rem;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .standee-mockup {
+    position: static;
+    transform: none;
+    margin-inline: auto;
+  }
+
+  .hero-badge-stat {
+    display: none; /* Hide floating badges on mobile to prevent layout collision */
+  }
+
+  /* Features page mobile arrangement */
+  .feature-deep-dive {
+    padding-block: var(--sp-8);
+  }
+
+  .feature-dive-grid {
+    gap: var(--sp-5);
+  }
+}
+
+/* Point 25 & 26: Authentication page topbar outside card with page name */
+.auth-topbar {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  padding: 1rem 1.5rem !important;
+  position: relative !important;
+  top: auto !important;
+  right: auto !important;
+  left: auto !important;
+  background: var(--clr-surface) !important;
+  border-block-end: 1px solid var(--clr-border) !important;
+  z-index: 50 !important;
+}
+
+.auth-topbar__brand-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.auth-page-pill {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.65rem;
+  background: var(--clr-secondary-light);
+  color: var(--clr-secondary);
+  border-radius: var(--radius-pill);
+}
+
+[data-theme="dark"] .auth-page-pill {
+  background: rgba(0, 200, 150, 0.15);
+}
+
+.auth-topbar__actions {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+}
+
+@media (max-width: 768px) {
+  .auth-topbar {
+    padding: 0.75rem 1rem !important;
+    position: sticky !important;
+    top: 0 !important;
+  }
+  .auth-form-panel {
+    padding: 0 !important;
+  }
+  .auth-form-container {
+    padding: 1.5rem 1rem !important;
+  }
+}
+
 
