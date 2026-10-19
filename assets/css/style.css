@@ -3947,11 +3947,11 @@ p { color: var(--clr-text-secondary); }
 
 .auth-title {
   font-family: var(--font-heading);
-  font-size: clamp(1.5rem, 3vw, 1.875rem) !important;
-  font-weight: 800 !important;
+  font-size: clamp(1.15rem, 2.2vw, 1.35rem) !important;
+  font-weight: 700 !important;
   color: var(--clr-text-primary) !important;
   margin-block-end: 0.35rem !important;
-  line-height: 1.2 !important;
+  line-height: 1.25 !important;
   text-align: center !important;
 }
 
