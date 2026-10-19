@@ -190,10 +190,23 @@
       text-align: center;
     }
 
-    @media (max-width: 900px) {
-      .services-cards-grid,
+    @media (max-width: 1024px) {
+      .services-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--sp-4);
+      }
       .hardware-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: var(--sp-4);
+      }
+      .service-card {
+        padding: var(--sp-6);
+      }
+      .hardware-grid > .hardware-card:last-child {
+        grid-column: 1 / -1;
+        justify-self: center;
+        width: 100%;
+        max-width: calc(50% - (var(--sp-4) / 2));
       }
     }
 
@@ -201,6 +214,10 @@
       .services-cards-grid,
       .hardware-grid {
         grid-template-columns: 1fr;
+      }
+      .hardware-grid > .hardware-card:last-child {
+        grid-column: auto;
+        max-width: 100%;
       }
     }
   </style>
@@ -219,6 +236,7 @@
 
       <nav class="navbar__nav" aria-label="Main navigation">
         <a href="index.html" class="navbar__link" data-nav-link>Home</a>
+        <a href="dashboard.html" class="navbar__link" data-nav-link>Dashboard</a>
         <a href="home2.html" class="navbar__link" data-nav-link>Home 2</a>
         <a href="about.html" class="navbar__link" data-nav-link>About</a>
         <a href="services.html" class="navbar__link active" data-nav-link>Services</a>
@@ -262,6 +280,7 @@
 
     <nav class="drawer__nav" aria-label="Mobile navigation">
       <a href="index.html" class="drawer__link" data-nav-link><i class="ri-home-4-line"></i> Home</a>
+      <a href="dashboard.html" class="drawer__link" data-nav-link><i class="ri-dashboard-line"></i> Dashboard</a>
       <a href="home2.html" class="drawer__link" data-nav-link><i class="ri-home-line"></i> Home 2</a>
       <a href="about.html" class="drawer__link" data-nav-link><i class="ri-information-line"></i> About</a>
       <a href="services.html" class="drawer__link active" data-nav-link><i class="ri-customer-service-2-line"></i> Services</a>
@@ -398,7 +417,7 @@
         <div class="hardware-grid">
           <div class="hardware-card">
             <div class="hardware-img-sim">
-              <i class="ri-gem-line"></i>
+              <i class="ri-vip-diamond-line"></i>
             </div>
             <h3 style="font-size:1.1rem;font-weight:700;color:var(--clr-text-primary);margin-block-end:0.25rem;">Frosted Architectural Acrylic</h3>
             <p style="font-size:var(--size-small);color:var(--clr-text-secondary);margin-block-end:0.5rem;">Sleek, scratch-proof, and water-resistant. Ideal for cocktail bars and outdoor patios.</p>

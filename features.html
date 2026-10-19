@@ -568,6 +568,23 @@
       transform: translateY(0) scale(0.98);
     }
 
+    .checkout-cta-group {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    @media (max-width: 600px) {
+      .checkout-cta-group {
+        flex-direction: column !important;
+        gap: 0.6rem !important;
+        width: 100% !important;
+      }
+      .checkout-cta-btn {
+        width: 100% !important;
+        flex: none !important;
+      }
+    }
+
     .feature-dive-buttons .btn {
       transition: all var(--transition-fast) !important;
       cursor: pointer;
@@ -804,6 +821,7 @@
 
       <nav class="navbar__nav" aria-label="Main navigation">
         <a href="index.html" class="navbar__link" data-nav-link>Home</a>
+        <a href="dashboard.html" class="navbar__link" data-nav-link>Dashboard</a>
         <a href="home2.html" class="navbar__link" data-nav-link>Home 2</a>
         <a href="about.html" class="navbar__link" data-nav-link>About</a>
         <a href="services.html" class="navbar__link" data-nav-link>Services</a>
@@ -847,6 +865,7 @@
 
     <nav class="drawer__nav" aria-label="Mobile navigation">
       <a href="index.html" class="drawer__link" data-nav-link><i class="ri-home-4-line"></i> Home</a>
+      <a href="dashboard.html" class="drawer__link" data-nav-link><i class="ri-dashboard-line"></i> Dashboard</a>
       <a href="home2.html" class="drawer__link" data-nav-link><i class="ri-home-line"></i> Home 2</a>
       <a href="about.html" class="drawer__link" data-nav-link><i class="ri-information-line"></i> About</a>
       <a href="services.html" class="drawer__link" data-nav-link><i class="ri-customer-service-2-line"></i> Services</a>
@@ -1303,7 +1322,7 @@
                 </div>
               </div>
 
-              <div style="display:flex;gap:0.5rem;">
+              <div class="checkout-cta-group">
                 <button type="button" class="checkout-cta-btn checkout-cta-btn--apple" aria-label="Pay with Apple Pay">
                   <i class="ri-apple-fill" aria-hidden="true"></i> Pay with Apple Pay
                 </button>

@@ -284,9 +284,23 @@
       }
     }
     
+    @media (max-width: 768px) {
+      .roi-card {
+        padding: var(--sp-5);
+        gap: var(--sp-6);
+      }
+    }
+
     @media (max-width: 480px) {
+      .roi-card {
+        padding: 1.25rem;
+        gap: 1.5rem;
+      }
       .roi-result-box {
-        padding: var(--sp-4);
+        padding: 1.5rem 1rem;
+      }
+      .roi-number {
+        font-size: 2.25rem;
       }
     }
   </style>
@@ -305,6 +319,7 @@
 
       <nav class="navbar__nav" aria-label="Main navigation">
         <a href="index.html" class="navbar__link" data-nav-link>Home</a>
+        <a href="dashboard.html" class="navbar__link" data-nav-link>Dashboard</a>
         <a href="home2.html" class="navbar__link active" data-nav-link>Home 2</a>
         <a href="about.html" class="navbar__link" data-nav-link>About</a>
         <a href="services.html" class="navbar__link" data-nav-link>Services</a>
@@ -348,6 +363,7 @@
 
     <nav class="drawer__nav" aria-label="Mobile navigation">
       <a href="index.html" class="drawer__link" data-nav-link><i class="ri-home-4-line"></i> Home</a>
+      <a href="dashboard.html" class="drawer__link" data-nav-link><i class="ri-dashboard-line"></i> Dashboard</a>
       <a href="home2.html" class="drawer__link active" data-nav-link><i class="ri-home-line"></i> Home 2</a>
       <a href="about.html" class="drawer__link" data-nav-link><i class="ri-information-line"></i> About</a>
       <a href="services.html" class="drawer__link" data-nav-link><i class="ri-customer-service-2-line"></i> Services</a>

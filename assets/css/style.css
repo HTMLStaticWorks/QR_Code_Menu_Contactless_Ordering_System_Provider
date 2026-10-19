@@ -3721,7 +3721,6 @@ p { color: var(--clr-text-secondary); }
   }
 
   /* Point 19 & 20: Card icons and headings centered in Home 1 */
-  .hiw-step-card,
   .benefit-card,
   .client-card,
   .service-card {
@@ -3729,7 +3728,6 @@ p { color: var(--clr-text-secondary); }
     align-items: center;
   }
 
-  .hiw-step-card__top,
   .benefit-card__header,
   .client-card__top {
     justify-content: center;
@@ -3737,11 +3735,23 @@ p { color: var(--clr-text-secondary); }
     margin-inline: auto;
   }
 
-  .hiw-step-card__num,
-  .hiw-step-card__icon,
   .benefit-card__icon-wrap,
   .service-icon-box {
     margin-inline: auto;
+  }
+
+  /* HIW Step Card: Number and icon remain parallel to edges (space-between) across mobile, 768, and 1024 */
+  .hiw-step-card__top {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin-inline: 0 !important;
+  }
+
+  .hiw-step-card__num,
+  .hiw-step-card__icon {
+    margin-inline: 0 !important;
   }
 
   .hiw-step-card h3,
